@@ -1,0 +1,65 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import TrustStrip from '../components/TrustStrip.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import AiBlocks from '../components/AiBlocks.astro';
+import CtaInline from '../components/CtaInline.astro';
+import Faq from '../components/Faq.astro';
+import CtaBand from '../components/CtaBand.astro';
+import { faqSchema, articleSchema } from '../data/schema';
+
+const path = '/vastgoed-marokko-vanuit-nederland/';
+const faqs = [
+  { q: 'Kun je vanuit Nederland vastgoed regelen in Marokko?', a: 'Ja. Kopen, investeren, verhuren en beheren kan volledig vanuit Nederland worden geregeld, met een betrouwbare partij ter plaatse en desgewenst een volmacht.' },
+  { q: 'Hoe blijf ik op afstand in controle?', a: 'Via dossiercontrole vóór aankoop, een officiële overdracht bij de notaris en transparante rapportage bij verhuur en beheer.' },
+  { q: 'Is dit ook voor Nederlands-Marokkanen?', a: 'Zeker. Veel van onze klanten zijn Nederlands-Marokkanen met binding aan het land die zakelijk en veilig willen handelen.' },
+  { q: 'Wat kan Maghreb Estates vanuit Nederland voor mij doen?', a: 'Het volledige traject: oriëntatie, selectie, dossiercontrole, notaris, en daarna verhuur en beheer — jij hoeft niet telkens af te reizen.' },
+];
+---
+<BaseLayout
+  title="Vastgoed in Marokko regelen vanuit Nederland | Maghreb Estates"
+  description="Vastgoed in Marokko kopen, investeren, verhuren en beheren vanuit Nederland. Eén Nederlandstalig aanspreekpunt, lokale controle en volledige begeleiding op afstand."
+  path={path}
+  schema={[faqSchema(faqs), articleSchema({ titel: 'Vastgoed in Marokko vanuit Nederland', beschrijving: 'Kopen, investeren, verhuren en beheren van vastgoed in Marokko vanuit Nederland.', path })]}
+>
+  <Hero
+    compact
+    eyebrow="Voor de diaspora"
+    title="Vastgoed in Marokko,<br /><em>geregeld vanuit Nederland</em>"
+    sub="Kopen, investeren, verhuren of beheren — alles vanuit Nederland, met lokale controle en Nederlandse duidelijkheid."
+    image="/images/villa5.jpg"
+    ctas={[{ label: 'Plan gratis adviesgesprek', href: '/contact/', primary: true }]}
+  />
+  <Breadcrumbs items={[{ label: 'Vastgoed Marokko', href: '/vastgoed-marokko/' }, { label: 'Vanuit Nederland', href: path }]} />
+  <AiBlocks
+    path={path}
+    vraag="Kun je vanuit Nederland vastgoed in Marokko regelen?"
+    antwoord="Ja. Het volledige traject — kopen, investeren, verhuren en beheren — kan vanuit Nederland worden geregeld, met een betrouwbare partij ter plaatse die jouw belang behartigt. Met dossiercontrole vóór aankoop, een officiële overdracht via de notaris en transparante rapportage blijf je ook op afstand volledig in controle."
+    voorWie="Nederlanders en Nederlands-Marokkanen die vanuit Nederland willen handelen in Marokkaans vastgoed."
+    watLeerJe="Wat je vanuit Nederland kunt regelen en hoe je grip houdt op afstand."
+    wanneerHelpen="Als je vaste, Nederlandstalige aanspreekpunt voor het hele traject."
+    letOp="Werk met een onafhankelijke partij en betaal alleen via de notaris."
+  />
+  <TrustStrip />
+
+  <section class="section">
+    <div class="container prose" style="max-width:760px">
+      <h2>Wat kun je vanuit Nederland regelen?</h2>
+      <ul class="checks">
+        <li><strong>Kopen op afstand:</strong> zie <a href="/huis-kopen-marokko-vanuit-nederland/">huis kopen vanuit Nederland</a> en <a href="/vastgoed-marokko-op-afstand-kopen/">op afstand kopen</a>, desgewenst <a href="/volmacht-huis-kopen-marokko/">met volmacht</a>.</li>
+        <li><strong>Investeren:</strong> <a href="/investeren-vastgoed-marokko/">investeren in vastgoed Marokko</a> met een realistische <a href="/rendement-vastgoed-marokko/">rendementsberekening</a>.</li>
+        <li><strong>Verhuren & beheren:</strong> <a href="/woning-marokko-beheren-vanuit-nederland/">beheer vanuit Nederland</a>, <a href="/vastgoedbeheer-marokko/">vastgoedbeheer</a> en <a href="/verhuurbeheer-marokko/">verhuurbeheer</a>.</li>
+        <li><strong>Verkopen:</strong> <a href="/huis-verkopen-marokko-vanuit-nederland/">verkoopbegeleiding op afstand</a>.</li>
+      </ul>
+
+      <CtaInline title="Wil je weten wat mogelijk is vanuit Nederland?" text="Plan een gratis adviesgesprek. Wij bespreken jouw doel en maken een helder plan." />
+
+      <h2>Hoe blijf je in controle op afstand?</h2>
+      <p>Grip op afstand komt van drie dingen: <a href="/aankoopbegeleiding-vastgoed-marokko/">dossiercontrole</a> vóór aankoop (titre foncier, contract, ontwikkelaar), een officiële overdracht via de <a href="/notaris-marokko-vastgoed/">notaris</a>, en transparante rapportage bij verhuur en beheer. Zo hoef je niet telkens af te reizen en weet je toch precies wat er speelt.</p>
+    </div>
+  </section>
+
+  <Faq items={faqs} title="Veelgestelde vragen" />
+  <CtaBand />
+</BaseLayout>

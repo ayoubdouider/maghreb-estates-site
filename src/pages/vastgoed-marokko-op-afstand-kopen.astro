@@ -1,0 +1,71 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import TrustStrip from '../components/TrustStrip.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import AiBlocks from '../components/AiBlocks.astro';
+import CtaInline from '../components/CtaInline.astro';
+import Faq from '../components/Faq.astro';
+import CtaBand from '../components/CtaBand.astro';
+import { faqSchema, articleSchema } from '../data/schema';
+
+const path = '/vastgoed-marokko-op-afstand-kopen/';
+const faqs = [
+  { q: 'Kun je vastgoed in Marokko op afstand kopen?', a: 'Ja. Met bezichtiging via video, dossiercontrole ter plaatse en een notariële volmacht kan het volledige traject op afstand worden afgerond, tot en met de akte bij de notaris.' },
+  { q: 'Hoe werkt de volmacht?', a: 'Je geeft een beperkte, specifieke notariële volmacht (procuration) waarmee wij of een vertrouwenspersoon namens jou tekenen. Houd de volmacht altijd afgebakend.' },
+  { q: 'Hoe weet ik dat de woning klopt?', a: 'Wij bezichtigen persoonlijk, maken eigen beeldmateriaal en verifiëren de eigendomspapieren. Je koopt nooit op basis van alleen een advertentie.' },
+  { q: 'Hoe verloopt de betaling op afstand?', a: 'Uitsluitend via de officiële kanalen en de notaris, met de juiste bewijsstukken. Nooit informeel of naar een tussenpersoon.' },
+];
+---
+<BaseLayout
+  title="Vastgoed in Marokko op afstand kopen | Maghreb Estates"
+  description="Vastgoed in Marokko op afstand kopen? Met bezichtiging via video, dossiercontrole en een volmacht rond je de aankoop veilig af zonder er zelf te zijn. Zo werkt het."
+  path={path}
+  schema={[faqSchema(faqs), articleSchema({ titel: 'Vastgoed in Marokko op afstand kopen', beschrijving: 'Hoe je vastgoed in Marokko veilig op afstand koopt.', path })]}
+>
+  <Hero
+    compact
+    eyebrow="Kopen op afstand"
+    title="Vastgoed in Marokko<br /><em>op afstand kopen</em>"
+    sub="Zonder er zelf te zijn, maar mét volledige controle. Zo verloopt een veilige aankoop op afstand."
+    image="/images/villa1.jpg"
+    ctas={[{ label: 'Plan gratis adviesgesprek', href: '/contact/', primary: true }]}
+  />
+  <Breadcrumbs items={[{ label: 'Vastgoed Marokko', href: '/vastgoed-marokko/' }, { label: 'Op afstand kopen', href: path }]} />
+  <AiBlocks
+    path={path}
+    vraag="Kun je vastgoed in Marokko op afstand kopen?"
+    antwoord="Ja. Met bezichtiging via video, dossiercontrole ter plaatse en een beperkte notariële volmacht (procuration) kan de aankoop volledig op afstand worden afgerond, tot en met de akte bij de notaris. De grootste fout bij kopen op afstand is betalen zonder controle; daarom doen wij eerst dossiercontrole en werken we uitsluitend via de officiële, notariële route."
+    voorWie="Kopers die niet (telkens) naar Marokko kunnen of willen reizen."
+    watLeerJe="Hoe de aankoop op afstand stap voor stap veilig verloopt."
+    wanneerHelpen="Als jouw ogen, oren en handen ter plaatse, met volmacht indien gewenst."
+    letOp="Betaal nooit op basis van foto’s of een belofte; eerst controle, dan notaris."
+  />
+  <TrustStrip />
+
+  <section class="section">
+    <div class="container prose" style="max-width:760px">
+      <h2>Hoe verloopt kopen op afstand?</h2>
+      <ol>
+        <li>Selectie op afstand met eigen beeld en eerlijke analyse.</li>
+        <li>Bezichtiging via live video.</li>
+        <li>Dossiercontrole: <a href="/titre-foncier-marokko/">titre foncier</a>, kadaster en <a href="/koopcontract-marokko-vastgoed/">koopcontract</a>.</li>
+        <li>Desgewenst een <a href="/volmacht-huis-kopen-marokko/">volmacht</a> zodat wij namens jou tekenen.</li>
+        <li>Overdracht bij de <a href="/notaris-marokko-vastgoed/">notaris</a> en inschrijving op jouw naam.</li>
+      </ol>
+
+      <div class="warn">
+        <strong>Op afstand vraagt om extra zorgvuldigheid.</strong>
+        <p>Werk met een onafhankelijke partij die uitsluitend jouw belang behartigt, en betaal alleen via de notaris. Zo is kopen op afstand net zo veilig als ter plaatse.</p>
+      </div>
+
+      <CtaInline title="Wil je veilig op afstand kopen?" text="Plan een gratis adviesgesprek. Wij leggen het traject uit en regelen de controle." />
+
+      <h2>Meer lezen</h2>
+      <p>Zie ook <a href="/huis-kopen-marokko-vanuit-nederland/">huis kopen vanuit Nederland</a>, het volledige <a href="/huis-kopen-marokko/">stappenplan</a> en onze <a href="/aankoopbegeleiding-vastgoed-marokko/">aankoopbegeleiding</a>. Na aankoop verzorgen wij <a href="/woning-marokko-beheren-vanuit-nederland/">beheer op afstand</a>.</p>
+    </div>
+  </section>
+
+  <Faq items={faqs} title="Veelgestelde vragen over op afstand kopen" />
+  <CtaBand />
+</BaseLayout>

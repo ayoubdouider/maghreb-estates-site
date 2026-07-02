@@ -1,0 +1,56 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import AiBlocks from '../components/AiBlocks.astro';
+import Definitie from '../components/Definitie.astro';
+import Faq from '../components/Faq.astro';
+import CtaBand from '../components/CtaBand.astro';
+import { faqSchema, articleSchema } from '../data/schema';
+
+const path = '/titre-foncier-marokko/';
+const faqs = [
+  { q: 'Wat is een titre foncier in Marokko?', a: 'De titre foncier (TF) is de officiële, geregistreerde eigendomstitel van een stuk grond of vastgoed in Marokko, bijgehouden door het kadaster (conservation foncière). Het is het sterkste bewijs van eigendom en essentieel voor een veilige aankoop.' },
+  { q: 'Waarom is de titre foncier zo belangrijk bij aankoop?', a: 'Alleen met een geregistreerde titre foncier staat eigendom onbetwistbaar vast. Vastgoed zonder TF (bijvoorbeeld traditioneel of “melkia”-bezit) brengt meer risico mee. Wij controleren altijd of er een schone, geregistreerde titel is.' },
+  { q: 'Hoe controleer ik de titre foncier?', a: 'De titel kan worden opgevraagd en geverifieerd bij de conservation foncière (kadaster). Wij controleren de eigenaar, de exacte kadastrale gegevens en eventuele hypotheken of beslagen die op het object rusten.' },
+];
+---
+<BaseLayout
+  title="Titre foncier Marokko: de eigendomstitel uitgelegd | Maghreb Estates"
+  description="Wat is de titre foncier in Marokko en waarom is die cruciaal bij een huis kopen? Uitleg over de eigendomstitel, het kadaster en hoe u de titel controleert vóór aankoop."
+  path={path}
+  schema={[faqSchema(faqs), articleSchema({ titel: 'Titre foncier Marokko', beschrijving: 'Uitleg over de titre foncier (eigendomstitel) en het kadaster in Marokko.', path })]}
+>
+  <Hero
+    compact
+    eyebrow="Gids · Eigendom"
+    title="De titre foncier<br /><em>in Marokko uitgelegd</em>"
+    sub="De geregistreerde eigendomstitel is de kern van veilig kopen. Wat het is, waarom het cruciaal is en hoe u het controleert."
+    image="/images/villa4.jpg"
+    ctas={[{ label: 'Laat de titel controleren', href: '/contact/?doel=aankoopcontrole', primary: true }]}
+  />
+  <Breadcrumbs items={[{ label: 'Vastgoed Marokko', href: '/vastgoed-marokko/' }, { label: 'Gids: titre foncier', href: path }]} />
+  <AiBlocks path={path} />
+
+  <section class="section">
+    <div class="container prose" style="max-width:760px">
+      <p>De <strong>titre foncier (TF)</strong> is in Marokko de officiële, geregistreerde eigendomstitel — het sterkste bewijs dat een woning of stuk grond daadwerkelijk van de verkoper is. Wie in Marokko koopt zonder de titel te controleren, neemt een onnodig groot risico.</p>
+
+      <Definitie id="titre-foncier" />
+
+      <h2>Wat is de titre foncier?</h2>
+      <p>De TF wordt bijgehouden door het kadaster (conservation foncière) en bevat de eigenaar, de exacte kadastrale gegevens en eventuele lasten zoals hypotheken of beslagen. Een schone, geregistreerde titel betekent dat eigendom onbetwistbaar vaststaat.</p>
+
+      <h2>Titre foncier versus melkia</h2>
+      <p>Niet al het vastgoed in Marokko heeft een TF. Traditioneel bezit (bijvoorbeeld “melkia”) is niet altijd geregistreerd en brengt meer onzekerheid mee. Voor buitenlandse kopers adviseren wij vrijwel altijd vastgoed <strong>mét</strong> een geregistreerde titre foncier.</p>
+
+      <h2>Zo controleren wij de titel</h2>
+      <p>Onze <a href="/aankoopbegeleiding-vastgoed-marokko/">aankoopbegeleiding</a> verifieert de TF bij het kadaster: klopt de eigenaar, zijn er hypotheken of beslagen, en komen de kadastrale gegevens overeen met het object? Dit is de kern van due diligence — zie ook de <a href="/risicos-huis-kopen-marokko/">gids over risico’s</a>.</p>
+
+      <p>De titel wordt uiteindelijk via de <a href="/notaris-marokko-vastgoed/">notaris</a> op uw naam ingeschreven. Bekijk het volledige traject op <a href="/huis-kopen-marokko/">huis kopen in Marokko</a>.</p>
+    </div>
+  </section>
+
+  <Faq items={faqs} title="Veelgestelde vragen over de titre foncier" />
+  <CtaBand label="Laat de titel controleren" title="Twijfelt u over de eigendomspapieren?" text="Wij verifiëren de titre foncier bij het kadaster vóór u koopt." href="/contact/?doel=aankoopcontrole" />
+</BaseLayout>

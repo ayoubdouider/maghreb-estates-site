@@ -1,0 +1,22 @@
+---
+// Citeerbaar definitieblok + DefinedTerm JSON-LD (AEO/GEO).
+import { begrippen } from '../data/begrippen';
+interface Props { id: keyof typeof begrippen | string; }
+const b = begrippen[Astro.props.id];
+const schema = b && {
+  '@context': 'https://schema.org',
+  '@type': 'DefinedTerm',
+  name: b.term,
+  description: b.definitie,
+  inDefinedTermSet: 'https://maghreb-estates.com/begrippen-vastgoed-marokko/',
+};
+---
+{b && (
+  <>
+    <div class="definitie">
+      <p class="definitie__term">{b.term}</p>
+      <p class="definitie__def">{b.definitie}</p>
+    </div>
+    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+  </>
+)}

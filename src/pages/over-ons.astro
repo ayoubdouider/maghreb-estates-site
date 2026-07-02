@@ -1,0 +1,88 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import TrustStrip from '../components/TrustStrip.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import AiBlocks from '../components/AiBlocks.astro';
+import Faq from '../components/Faq.astro';
+import CtaBand from '../components/CtaBand.astro';
+import { site } from '../data/site';
+import { faqSchema } from '../data/schema';
+
+const path = '/over-ons/';
+const faqs = [
+  { q: 'Wat doet Maghreb Estates precies?', a: 'Maghreb Estates helpt Nederlandstalige kopers en investeerders veilig vastgoed kopen, beoordelen, verhuren, beheren en verkopen in Marokko. Wij bieden aankoopbegeleiding, dossiercontrole (due diligence), investeringsadvies en vastgoedbeheer op afstand.' },
+  { q: 'Voor wie werkt Maghreb Estates?', a: 'Voor Nederlanders, Belgen en Nederlands-Marokkanen die in Marokko willen kopen, investeren of hun woning willen laten beheren — of dat nu voor eigen gebruik, verhuur of investering is.' },
+  { q: 'Zijn jullie onafhankelijk?', a: 'Ja. Wij verdienen niets aan een specifiek object en behartigen uitsluitend het belang van de koper. Klopt een dossier niet, dan adviseren wij niet te kopen.' },
+  { q: 'Hoe waarborgen jullie dat een aankoop veilig is?', a: 'Wij controleren de eigendomstitel (titre foncier) bij het kadaster, toetsen het koopcontract, beoordelen bij nieuwbouw de ontwikkelaar en laten alles officieel via de notaris verlopen. Geen aankoop zonder complete dossiercontrole.' },
+  { q: 'In welke talen kan ik met jullie communiceren?', a: 'Nederlands, Arabisch, Darija/Amazigh, Frans en Engels. U hoeft niets te vertalen of te interpreteren.' },
+  { q: 'Waar is Maghreb Estates actief?', a: 'In heel Marokko, met focus op de grote en opkomende steden zoals Tanger, Casablanca, Rabat, Marrakech, Agadir, Nador en meer.' },
+];
+---
+<BaseLayout
+  title="Over Maghreb Estates: wie wij zijn & hoe wij werken | Maghreb Estates"
+  description="Maghreb Estates helpt Nederlandstalige kopers veilig vastgoed kopen, investeren, verhuren en beheren in Marokko. Onafhankelijk, met Nederlandse duidelijkheid en lokale controle."
+  path={path}
+  schema={[faqSchema(faqs)]}
+>
+  <Hero
+    compact
+    eyebrow="Over ons"
+    title="Nederlandse duidelijkheid,<br /><em>lokale controle in Marokko</em>"
+    sub="Maghreb Estates is de Nederlandstalige partner voor veilig vastgoed in Marokko — voor kopen, investeren, verhuren, beheren en verkopen."
+    image="/images/villa4.jpg"
+    ctas={[{ label: 'Plan gratis adviesgesprek', href: '/contact/', primary: true }]}
+  />
+  <Breadcrumbs items={[{ label: 'Over ons', href: path }]} />
+  <AiBlocks path={path} />
+  <TrustStrip />
+
+  <section class="section">
+    <div class="container prose" style="max-width:760px">
+      <h2>Wie is Maghreb Estates?</h2>
+      <p>Maghreb Estates is een Nederlandstalige vastgoedpartij die <strong>Nederlanders, Belgen en Nederlands-Marokkanen</strong> helpt om veilig vastgoed te kopen, te beoordelen, te verhuren, te beheren en te verkopen in Marokko. Wij zijn opgericht vanuit een simpele overtuiging: de Marokkaanse markt biedt kansen, maar te veel kopers verliezen geld of vertrouwen door onduidelijke papieren, informele afspraken en het ontbreken van een betrouwbare gids. Wij slaan de brug tussen de Nederlandse verwachting van duidelijkheid en de realiteit van de lokale markt.</p>
+
+      <h2>Voor wie werken wij?</h2>
+      <ul class="checks">
+        <li>Kopers van een eerste of tweede woning in Marokko, ook vanuit Nederland.</li>
+        <li>Investeerders die rendement zoeken uit huur en waardegroei.</li>
+        <li>Eigenaren die hun woning willen laten verhuren, beheren of controleren.</li>
+        <li>Nederlands-Marokkanen met binding aan het land die zakelijk en veilig willen handelen.</li>
+      </ul>
+
+      <h2>Hoe werken wij?</h2>
+      <p>Onze werkwijze is opgebouwd rond bescherming van de koper. <strong>Bij Maghreb Estates kijken we eerst naar risico, daarna pas naar rendement.</strong> Wij helpen u niet alleen zoeken, maar vooral voorkomen dat u verkeerd koopt.</p>
+      <ol>
+        <li><strong>Kennismaking:</strong> uw doel, budget en wensen scherp krijgen.</li>
+        <li><strong>Selectie & objectanalyse:</strong> een eerlijke shortlist met voor- én nadelen.</li>
+        <li><strong>Dossiercontrole (due diligence):</strong> titre foncier, kadaster, contract en — bij nieuwbouw — de ontwikkelaar.</li>
+        <li><strong>Onderhandeling & notaris:</strong> een reële prijs en een officiële overdracht.</li>
+        <li><strong>Beheer:</strong> optioneel verhuur, onderhoud en toezicht na aankoop.</li>
+      </ol>
+
+      <h2>Waarom kopers ons vertrouwen</h2>
+      <ul class="checks">
+        <li><strong>Nederlandstalige begeleiding</strong> — één vast aanspreekpunt dat uw taal spreekt.</li>
+        <li><strong>Lokale controle</strong> — wij staan ter plaatse, met kennis van markt en papieren.</li>
+        <li><strong>Juridisch dossier</strong> — eigendomstitel en notaris altijd gecontroleerd.</li>
+        <li><strong>Objectanalyse</strong> — eerlijke beoordeling op prijs, locatie en verhuurpotentie.</li>
+        <li><strong>Transparante communicatie</strong> — u weet wat er speelt, wat het kost en wat het risico is.</li>
+        <li><strong>Onafhankelijk</strong> — wij verdienen niets aan een specifiek object.</li>
+      </ul>
+
+      <h2>Onze overtuiging</h2>
+      <p>“Wij verkopen geen vastgoedideeën. Wij bieden begeleiding, duidelijkheid en vertrouwen tijdens een belangrijke stap.” Een lage prijs is pas interessant als het juridische dossier klopt — en dat controleren wij vóórdat u tekent of betaalt.</p>
+
+      <h2>Contact</h2>
+      <p>
+        Telefoon / WhatsApp: <a href={`tel:${site.telefoonHref}`}>{site.telefoon}</a><br />
+        E-mail: <a href={`mailto:${site.email}`}>{site.email}</a><br />
+        Werkgebied: heel Marokko · vanuit Nederland &amp; België
+      </p>
+      <p>Wilt u weten of wij u kunnen helpen? <a href="/contact/">Plan een gratis, vrijblijvend adviesgesprek</a>.</p>
+    </div>
+  </section>
+
+  <Faq items={faqs} title="Veelgestelde vragen over Maghreb Estates" />
+  <CtaBand />
+</BaseLayout>

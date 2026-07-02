@@ -1,0 +1,44 @@
+---
+import { site, nav } from '../data/site';
+---
+<header class="nav" id="top">
+  <div class="container nav__inner">
+    <a href="/" class="nav__logo" aria-label="Maghreb Estates home">
+      <img src={site.logo} alt="Maghreb Estates" class="nav__logo-img" width="170" height="36" />
+    </a>
+    <nav class="nav__links" aria-label="Hoofdmenu">
+      {nav.map((item) => (
+        <div class="nav__item">
+          <a href={item.href}>{item.label}</a>
+          {item.children && (
+            <div class="nav__dropdown">
+              {item.children.map((c) => <a href={c.href}>{c.label}</a>)}
+            </div>
+          )}
+        </div>
+      ))}
+      <a href="/contact/" class="btn btn--outline">Gratis adviesgesprek</a>
+    </nav>
+    <button class="nav__burger" id="burger" aria-label="Menu openen" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="nav__mobile" id="mobileMenu">
+    {nav.map((item) => (
+      <>
+        <a href={item.href} class="nav__group-label">{item.label}</a>
+        {item.children && item.children.map((c) => <a href={c.href} class="nav__sub">{c.label}</a>)}
+      </>
+    ))}
+    <a href="/contact/" class="nav__group-label">Contact</a>
+  </div>
+</header>
+
+<script>
+  const burger = document.getElementById('burger');
+  const menu = document.getElementById('mobileMenu');
+  burger?.addEventListener('click', () => {
+    const open = menu?.classList.toggle('open');
+    burger.setAttribute('aria-expanded', String(!!open));
+  });
+</script>

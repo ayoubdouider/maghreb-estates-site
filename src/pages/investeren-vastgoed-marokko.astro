@@ -1,0 +1,108 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import TrustStrip from '../components/TrustStrip.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import AiBlocks from '../components/AiBlocks.astro';
+import CtaInline from '../components/CtaInline.astro';
+import Faq from '../components/Faq.astro';
+import CtaBand from '../components/CtaBand.astro';
+import { faqSchema, serviceSchema } from '../data/schema';
+
+const path = '/investeren-vastgoed-marokko/';
+const faqs = [
+  { q: 'Is investeren in vastgoed in Marokko rendabel?', a: 'Ja, mits u de juiste stad, wijk en woning kiest. Bruto huurrendementen van 5 tot 8% zijn haalbaar bij langetermijnverhuur; in toeristische steden ligt dat bij vakantieverhuur hoger. Waardegroei in groeisteden komt daar bovenop.' },
+  { q: 'Hoeveel geld heb ik nodig om te investeren in Marokkaans vastgoed?', a: 'Instappen kan al vanaf enkele tienduizenden euro’s voor een appartement in opkomende steden. Voor kwaliteitsvastgoed in Tanger, Casablanca of Marrakech ligt het instapniveau hoger. Wij stemmen de strategie af op uw budget en doel.' },
+  { q: 'Wat is een realistisch rendement, bruto en netto?', a: 'Een brutorendement (jaarhuur gedeeld door aankoopprijs) zegt weinig. Pas na aftrek van beheer, onderhoud, belasting, verzekering en leegstand ziet u het nettorendement. Wij rekenen altijd met netto, zodat u een eerlijk beeld krijgt.' },
+  { q: 'Waar is de waardegroei het sterkst?', a: 'In groeisteden met grote infrastructuurinvesteringen: Tanger (haven Tanger Med), Kenitra (auto-industrie) en Dakhla (zuidelijke ontwikkeling). Vroeg instappen verhoogt uw rendement, maar vraagt om goede timing en controle.' },
+  { q: 'Moet ik in Nederland belasting betalen over vastgoed in Marokko?', a: 'Uw Marokkaanse vastgoed geeft u meestal in box 3 aan in Nederland, terwijl huurinkomsten in Marokko belast worden. Door het belastingverdrag tussen Nederland en Marokko wordt dubbele belasting doorgaans voorkomen. Laat u hierover altijd fiscaal adviseren.' },
+  { q: 'Hoe beperk ik de risico’s van een vastgoedinvestering?', a: 'Elke investering start met dossiercontrole: verificatie van de titre foncier, kadaster en contract, en alles officieel via de notaris. Bij nieuwbouw controleren wij bovendien de projectontwikkelaar. Zo wordt uw investering geen gok.' },
+  { q: 'Kunnen jullie de woning na aankoop verhuren en beheren?', a: 'Ja. Een investering moet ook renderen als u in Nederland bent. Wij verzorgen verhuurbeheer, Airbnb-beheer, onderhoud en toezicht met transparante rapportage, zodat de inkomsten daadwerkelijk binnenkomen.' },
+];
+---
+<BaseLayout
+  title="Investeren in vastgoed Marokko: rendement & strategie | Maghreb Estates"
+  description="Investeren in vastgoed in Marokko met rendement en zekerheid. Data-gedreven advies over huurinkomsten, ROI, de beste steden en risicobeheersing — met Nederlandstalige begeleiding."
+  path={path}
+  schema={[faqSchema(faqs), serviceSchema({ naam: 'Investeren in vastgoed Marokko', beschrijving: 'Investeringsadvies en begeleiding bij vastgoedinvesteringen in Marokko.', path })]}
+>
+  <Hero
+    compact
+    eyebrow="Investeren in vastgoed Marokko"
+    title="Investeren in Marokkaans vastgoed,<br /><em>met rendement en zekerheid</em>"
+    sub="Data-gedreven investeringsadvies: de juiste stad, de juiste woning en een realistische inschatting van uw netto rendement — zonder mooie verhalen."
+    image="/images/villa3.jpg"
+    ctas={[
+      { label: 'Vraag investeringsanalyse aan', href: '/contact/?doel=investeringsanalyse', primary: true },
+      { label: 'Plan gratis adviesgesprek', href: '/contact/' },
+    ]}
+  />
+  <Breadcrumbs items={[{ label: 'Vastgoed Marokko', href: '/vastgoed-marokko/' }, { label: 'Investeren', href: path }]} />
+  <AiBlocks path={path} />
+  <TrustStrip />
+
+  <section class="section">
+    <div class="container prose" style="max-width:760px">
+      <p><strong>Investeren in vastgoed in Marokko</strong> combineert relatief lage instapprijzen met sterke stedelijke groei en aantrekkelijke huurinkomsten. Voor Nederlandse en Belgische investeerders — en zeker voor Nederlands-Marokkanen met kennis van het land — is het een logische stap. Maar rendement ontstaat niet vanzelf: het draait om de juiste stad, de juiste wijk, de juiste woning én een eerlijke inschatting van kosten en risico’s. Wij benaderen elke investering data-gedreven en nuchter.</p>
+      <p>Wij analyseren marktdata uit heel Marokko — vraag, prijsontwikkeling, verhuurpotentie en aanbod per stad — en vertalen dat naar een concreet advies voor úw budget en doel. Geen verkooppraatje, maar cijfers waarop u een beslissing kunt bouwen.</p>
+
+      <h2>Eigen gebruik, verhuur of vakantiehuis — wat past bij jou?</h2>
+      <div class="compare-wrap">
+        <table class="compare">
+          <caption>Vergelijking: eigen gebruik vs. verhuurinvestering vs. vakantiehuis</caption>
+          <thead>
+            <tr><th>Aspect</th><th>Eigen gebruik</th><th>Verhuurinvestering</th><th>Vakantiehuis</th></tr>
+          </thead>
+          <tbody>
+            <tr><th>Hoofddoel</th><td>Zelf gebruiken / terugkeer</td><td>Rendement uit huur + waardegroei</td><td>Combinatie: zelf + verhuur in seizoen</td></tr>
+            <tr><th>Rendement</th><td>Geen huur, wel waardegroei</td><td>±6–8% bruto langetermijn (indicatief)</td><td>Hoger bruto mogelijk, seizoensgevoelig</td></tr>
+            <tr><th>Beheer nodig</th><td>Toezicht / woningbeheer</td><td>Verhuurbeheer</td><td>Airbnb-beheer</td></tr>
+            <tr><th>Locatiekeuze</th><td>Emotie / familie</td><td>Data: vraag en yield</td><td>Toeristische steden/kust</td></tr>
+            <tr><th>Belangrijk</th><td>Onderhoud bij leegstand</td><td>Netto doorrekenen</td><td>Bezetting realistisch inschatten</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>Waar zit het rendement?</h2>
+      <p>Rendement komt uit twee bronnen, die u samen moet bekijken:</p>
+      <ul class="checks">
+        <li><strong>Huurinkomsten:</strong> langetermijnverhuur (doorgaans 5–8% bruto) of <a href="/airbnb-beheer-marokko/">toeristische verhuur</a> met een hoger maar wisselend rendement.</li>
+        <li><strong>Waardegroei:</strong> sterke stijging in groeisteden dankzij infrastructuur, werkgelegenheid en toerisme.</li>
+      </ul>
+      <p>Op onze pagina over <a href="/rendement-vastgoed-marokko/">rendement van vastgoed in Marokko</a> leest u precies hoe u bruto- en nettorendement berekent en wat realistisch is per stad en type verhuur.</p>
+
+      <CtaInline
+        title="Wilt u weten wat een woning netto oplevert?"
+        text="Wij maken een realistische investeringsanalyse voor uw budget en doel — inclusief huurinkomsten, kosten en waardegroei."
+        label="Vraag investeringsanalyse aan"
+        href="/contact/?doel=investeringsanalyse"
+      />
+
+      <h2>De beste steden om te investeren</h2>
+      <p>Er is geen enkele “beste” stad — het hangt af van uw strategie:</p>
+      <ul class="checks">
+        <li><strong>Stabiele waarde & zakelijke verhuur:</strong> <a href="/vastgoed-casablanca/">Casablanca</a>, <a href="/vastgoed-rabat/">Rabat</a>, <a href="/vastgoed-tanger/">Tanger</a>.</li>
+        <li><strong>Toeristische verhuur:</strong> <a href="/vastgoed-marrakech/">Marrakech</a>, <a href="/vastgoed-agadir/">Agadir</a> en de kuststeden zoals <a href="/vastgoed-mdiq/">M’diq</a>.</li>
+        <li><strong>Vroege groeikansen:</strong> <a href="/vastgoed-kenitra/">Kenitra</a>, <a href="/vastgoed-nador/">Nador</a> en <a href="/vastgoed-dakhla/">Dakhla</a>.</li>
+      </ul>
+      <p>Bekijk het volledige overzicht op <a href="/beste-stad-investeren-vastgoed-marokko/">de beste steden om te investeren in Marokko</a>.</p>
+
+      <h2>Off-plan: kans én valkuil</h2>
+      <p>Nieuwbouw off-plan kopen kan sterk zijn voor investeerders: u stapt in vóór de waardestijging en betaalt vaak in termijnen. Maar juist hier is het risico groter, omdat u koopt wat er nog niet staat. Lees hoe u <a href="/nieuwbouwprojecten-marokko/">een projectontwikkelaar en nieuwbouwproject controleert</a> voordat u zich verbindt.</p>
+
+      <div class="warn">
+        <strong>Rendement op papier is geen rendement in de praktijk.</strong>
+        <p>Wees kritisch op te mooie rendementsbeloftes en “gegarandeerde huur”-constructies. Zonder geregistreerde eigendomstitel, een solide ontwikkelaar en goed beheer blijft een mooi percentage een belofte. Wij controleren de onderbouwing.</p>
+      </div>
+
+      <h2>Veilig investeren begint bij controle</h2>
+      <p>Elke investering start met due diligence. Onze <a href="/aankoopbegeleiding-vastgoed-marokko/">aankoopbegeleiding</a> controleert de <a href="/titre-foncier-marokko/">titre foncier</a> en het kadaster, en regelt alles officieel via de <a href="/notaris-marokko-vastgoed/">notaris</a>. Investeert u vanuit Nederland, dan kan dat volledig <a href="/huis-kopen-marokko-vanuit-nederland/">op afstand</a>.</p>
+
+      <h2>Rendement veiligstellen met beheer</h2>
+      <p>Na aankoop zorgt goed <a href="/vastgoedbeheer-marokko/">vastgoedbeheer</a> dat uw <a href="/huis-verhuren-marokko-vanuit-nederland/">huurinkomsten</a> daadwerkelijk binnenkomen — inclusief huurders vinden, huurinning, onderhoud en rapportage. Zo blijft uw investering renderen zonder dat u er zelf voor in Marokko hoeft te zijn.</p>
+    </div>
+  </section>
+
+  <Faq items={faqs} title="Veelgestelde vragen over investeren in vastgoed in Marokko" />
+  <CtaBand label="Vraag investeringsanalyse aan" title="Benieuwd naar uw rendement?" text="Wij maken een realistische investeringsanalyse voor uw budget en doel — inclusief inschatting van huurinkomsten en waardegroei." href="/contact/?doel=investeringsanalyse" />
+</BaseLayout>

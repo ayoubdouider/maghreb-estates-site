@@ -1,0 +1,51 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import AiBlocks from '../components/AiBlocks.astro';
+import Faq from '../components/Faq.astro';
+import CtaBand from '../components/CtaBand.astro';
+import { faqSchema, serviceSchema } from '../data/schema';
+
+const path = '/appartement-kopen-marokko/';
+const faqs = [
+  { q: 'Wat kost een appartement in Marokko?', a: 'De prijzen lopen sterk uiteen per stad. In opkomende steden koopt u al een appartement vanaf enkele tienduizenden euro’s; in Casablanca, Tanger of Marrakech liggen de prijzen op toplocaties hoger. Wij geven u een realistisch beeld per stad.' },
+  { q: 'Kan ik een appartement in Marokko in termijnen kopen?', a: 'Bij nieuwbouw en off-plan projecten is gespreid betalen (in termijnen tijdens de bouw) gebruikelijk. Wij controleren de ontwikkelaar en de betalingsvoorwaarden voordat u zich verbindt.' },
+  { q: 'Is een appartement geschikt voor verhuur?', a: 'Ja, appartementen zijn vaak ideaal voor verhuur — zowel voor langere termijn als voor toeristische verhuur via Airbnb. Wij verzorgen desgewenst het volledige beheer.' },
+];
+---
+<BaseLayout
+  title="Appartement kopen in Marokko: prijzen & tips | Maghreb Estates"
+  description="Appartement kopen in Marokko als Nederlander? Ontdek prijzen per stad, kopen in termijnen bij nieuwbouw en verhuurpotentie. Nederlandstalige begeleiding en controle."
+  path={path}
+  schema={[faqSchema(faqs), serviceSchema({ naam: 'Appartement kopen Marokko', beschrijving: 'Begeleiding bij het kopen van een appartement in Marokko.', path })]}
+>
+  <Hero
+    compact
+    eyebrow="Appartement kopen Marokko"
+    title="Een appartement kopen<br /><em>in Marokko</em>"
+    sub="Van betaalbare instapappartementen tot luxe nieuwbouw aan de kust. Wij helpen u de juiste keuze maken en begeleiden de aankoop."
+    image="/images/apt2.jpg"
+    ctas={[{ label: 'Plan gratis adviesgesprek', href: '/contact/', primary: true }]}
+  />
+  <Breadcrumbs items={[{ label: 'Vastgoed Marokko', href: '/vastgoed-marokko/' }, { label: 'Appartement kopen', href: path }]} />
+  <AiBlocks path={path} />
+
+  <section class="section">
+    <div class="container prose" style="max-width:760px">
+      <p>Een <strong>appartement kopen in Marokko</strong> is voor veel kopers de logische eerste stap: relatief betaalbaar, goed verhuurbaar en makkelijker te beheren dan een villa. Toch verschilt de kwaliteit en het prijsniveau enorm per stad en wijk. Wij helpen u door het aanbod.</p>
+
+      <h2>Prijzen per stad</h2>
+      <p>In steden als <a href="/vastgoed-kenitra/">Kenitra</a> of <a href="/vastgoed-oujda/">Oujda</a> stapt u betaalbaar in, terwijl <a href="/vastgoed-casablanca/">Casablanca</a>, <a href="/vastgoed-tanger/">Tanger</a> en <a href="/vastgoed-marrakech/">Marrakech</a> op toplocaties duurder zijn. Bekijk alle <a href="/vastgoed-marokko/#steden">steden</a> voor gericht advies.</p>
+
+      <h2>Kopen in termijnen bij nieuwbouw</h2>
+      <p>Bij <a href="/nieuwbouwprojecten-marokko/">nieuwbouwprojecten</a> kunt u vaak in termijnen betalen tijdens de bouw. Dat verlaagt de instapdrempel, maar vraagt om controle van de ontwikkelaar. Wij verifiëren de partij en de voorwaarden.</p>
+
+      <h2>Appartement als investering</h2>
+      <p>Appartementen zijn sterk voor <a href="/investeren-vastgoed-marokko/">verhuur en rendement</a>. Na aankoop verzorgen wij <a href="/vastgoedbeheer-marokko/">beheer</a> en <a href="/airbnb-beheer-marokko/">Airbnb-verhuur</a>. Lees ook het algemene stappenplan op <a href="/huis-kopen-marokko/">huis kopen in Marokko</a>.</p>
+    </div>
+  </section>
+
+  <Faq items={faqs} title="Veelgestelde vragen over appartement kopen in Marokko" />
+  <CtaBand />
+</BaseLayout>

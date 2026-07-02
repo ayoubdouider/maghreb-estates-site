@@ -1,0 +1,74 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import TrustStrip from '../components/TrustStrip.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import AiBlocks from '../components/AiBlocks.astro';
+import CtaInline from '../components/CtaInline.astro';
+import Faq from '../components/Faq.astro';
+import CtaBand from '../components/CtaBand.astro';
+import { faqSchema, serviceSchema } from '../data/schema';
+
+const path = '/woningbeheer-marokko/';
+const faqs = [
+  { q: 'Wat is woningbeheer in Marokko?', a: 'Woningbeheer richt zich op de fysieke en technische kant van uw woning: onderhoud, reparaties, periodieke controle, toezicht en het aansturen van vaklieden. Het houdt uw woning in goede staat, of u nu verhuurt of de woning zelf gebruikt.' },
+  { q: 'Is woningbeheer ook nuttig zonder verhuur?', a: 'Zeker. Voor een tweede woning die u zelf gebruikt is toezicht en onderhoud belangrijk: een leegstaande woning die niemand controleert loopt risico op schade, lekkages of inbraak. Wij houden uw woning in de gaten.' },
+  { q: 'Wat is het verschil met vastgoedbeheer en verhuurbeheer?', a: 'Verhuurbeheer gaat over huurders en huur; woningbeheer over de fysieke woning (onderhoud/toezicht). Vastgoedbeheer is het totaalpakket dat beide combineert. U kiest wat bij uw situatie past.' },
+  { q: 'Sturen jullie vaklieden en reparaties aan?', a: 'Ja. Wij coördineren onderhoud en reparaties met lokale vaklieden, houden toezicht op de uitvoering en rapporteren aan u, zodat u op afstand grip houdt.' },
+  { q: 'Hoe blijf ik op de hoogte van de staat van mijn woning?', a: 'U ontvangt periodieke updates en, bij controles of werkzaamheden, verslag met beeldmateriaal waar relevant. Transparantie staat voorop.' },
+];
+---
+<BaseLayout
+  title="Woningbeheer Marokko: onderhoud, toezicht & controle | Maghreb Estates"
+  description="Woningbeheer in Marokko vanuit Nederland: onderhoud, reparaties, periodieke controle en toezicht — ook voor een tweede woning zonder verhuur. Uw woning blijft in goede staat."
+  path={path}
+  schema={[faqSchema(faqs), serviceSchema({ naam: 'Woningbeheer Marokko', beschrijving: 'Technisch en fysiek beheer van woningen in Marokko: onderhoud, toezicht en controle.', path })]}
+>
+  <Hero
+    compact
+    eyebrow="Beheer"
+    title="Woningbeheer in Marokko,<br /><em>uw woning in goede handen</em>"
+    sub="Onderhoud, reparaties, controle en toezicht op afstand — ook als u niet verhuurt. Uw woning blijft in topconditie terwijl u in Nederland bent."
+    image="/images/villa4.jpg"
+    ctas={[
+      { label: 'Plan gratis adviesgesprek', href: '/contact/', primary: true },
+      { label: 'Laat je woning controleren', href: '/contact/?doel=aankoopcontrole' },
+    ]}
+  />
+  <Breadcrumbs items={[{ label: 'Vastgoed Marokko', href: '/vastgoed-marokko/' }, { label: 'Vastgoedbeheer', href: '/vastgoedbeheer-marokko/' }, { label: 'Woningbeheer', href: path }]} />
+  <AiBlocks path={path} />
+  <TrustStrip />
+
+  <section class="section">
+    <div class="container prose" style="max-width:760px">
+      <p><strong>Woningbeheer in Marokko</strong> gaat over de fysieke en technische kant van uw woning: onderhoud, reparaties, periodieke controle en toezicht. Waar <a href="/verhuurbeheer-marokko/">verhuurbeheer</a> zich richt op huurders en huur, zorgt woningbeheer dat de woning zélf in goede staat blijft — of u nu verhuurt of de woning zelf gebruikt.</p>
+
+      <h2>Wat woningbeheer omvat</h2>
+      <ul class="checks">
+        <li><strong>Periodieke controle:</strong> uw woning wordt regelmatig geïnspecteerd.</li>
+        <li><strong>Onderhoud & reparaties:</strong> coördinatie van lokale vaklieden en toezicht op de uitvoering.</li>
+        <li><strong>Toezicht:</strong> ingrijpen bij lekkage, schade of andere problemen.</li>
+        <li><strong>Rapportage:</strong> updates over de staat van uw woning.</li>
+      </ul>
+
+      <h2>Ook voor een tweede woning zonder verhuur</h2>
+      <p>Juist een woning die leeg staat, loopt risico: onopgemerkte lekkages, schade of inbraak. Voor wie een tweede woning voor <strong>eigen gebruik</strong> heeft, is toezicht en onderhoud minstens zo waardevol als verhuur. Wij houden uw woning bewoonbaar en klaar voor uw komst.</p>
+
+      <div class="warn">
+        <strong>Een onbeheerde woning wordt een dure woning.</strong>
+        <p>Kleine problemen worden groot als niemand ze op tijd ziet. Regelmatige controle voorkomt kostbare schade en houdt de waarde op peil.</p>
+      </div>
+
+      <CtaInline
+        title="Uw woning in goede handen?"
+        text="Wij controleren, onderhouden en houden toezicht — op afstand, met heldere rapportage."
+      />
+
+      <h2>Combineren met verhuur</h2>
+      <p>Verhuurt u ook? Combineer woningbeheer met <a href="/verhuurbeheer-marokko/">verhuurbeheer</a> of kies het complete <a href="/vastgoedbeheer-marokko/">vastgoedbeheer</a>. Voor toeristische verhuur ziet u <a href="/airbnb-beheer-marokko/">Airbnb-beheer</a>. Heeft u alleen af en toe toegang nodig voor vaklieden of gasten? Bekijk <a href="/sleutelbeheer-marokko/">sleutelbeheer</a>.</p>
+    </div>
+  </section>
+
+  <Faq items={faqs} title="Veelgestelde vragen over woningbeheer" />
+  <CtaBand title="Uw woning goed onderhouden houden?" text="Plan een gesprek over woningbeheer. Wij houden uw woning in topconditie, ook zonder verhuur." />
+</BaseLayout>

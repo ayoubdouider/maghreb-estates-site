@@ -1,0 +1,16 @@
+---
+interface Props { title?: string; text?: string; label?: string; href?: string; }
+const {
+  title = 'Klaar om de eerste stap te zetten?',
+  text = 'Plan een vrijblijvend adviesgesprek. Wij nemen dezelfde dag nog contact met u op — geen verplichtingen, gewoon een helder gesprek over uw situatie.',
+  label = 'Plan gratis adviesgesprek',
+  href = '/contact/',
+} = Astro.props;
+---
+<section class="ctaband">
+  <div class="container">
+    <h2>{title}</h2>
+    <p>{text}</p>
+    <a href={href} class="btn btn--light">{label}</a>
+  </div>
+</section>

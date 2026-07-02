@@ -1,0 +1,55 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import CtaBand from '../components/CtaBand.astro';
+import { site } from '../data/site';
+import { begrippen, begripLink } from '../data/begrippen';
+
+const path = '/begrippen-vastgoed-marokko/';
+const lijst = Object.entries(begrippen);
+
+// DefinedTermSet — één schema-object met alle begrippen (AEO/GEO citeerbaarheid).
+const setSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'DefinedTermSet',
+  name: 'Begrippenlijst vastgoed Marokko',
+  url: new URL(path, site.url).href,
+  hasDefinedTerm: lijst.map(([, b]) => ({
+    '@type': 'DefinedTerm',
+    name: b.term,
+    description: b.definitie,
+  })),
+};
+---
+<BaseLayout
+  title="Begrippenlijst vastgoed Marokko: titre foncier, notaris & meer | Maghreb Estates"
+  description="Korte, feitelijke uitleg van de belangrijkste begrippen bij vastgoed kopen in Marokko: titre foncier, kadaster, notaris, volmacht, compromis de vente, due diligence en meer."
+  path={path}
+  schema={[setSchema]}
+>
+  <Hero
+    compact
+    eyebrow="Kennisbank"
+    title="Begrippenlijst<br /><em>vastgoed in Marokko</em>"
+    sub="De belangrijkste termen rond vastgoed kopen in Marokko, kort en feitelijk uitgelegd — zodat u precies weet waar het over gaat."
+    image="/images/villa2.jpg"
+    ctas={[{ label: 'Plan gratis adviesgesprek', href: '/contact/', primary: true }]}
+  />
+  <Breadcrumbs items={[{ label: 'Vastgoed Marokko', href: '/vastgoed-marokko/' }, { label: 'Begrippenlijst', href: path }]} />
+
+  <section class="section">
+    <div class="container prose" style="max-width:760px">
+      <p>Bij vastgoed in Marokko komen begrippen langs die niet altijd bekend zijn. Hieronder leggen we de belangrijkste kort en feitelijk uit. Klik door naar de bijbehorende pagina voor de volledige uitleg.</p>
+      {lijst.map(([id, b]) => (
+        <div class="definitie" id={id}>
+          <p class="definitie__term">{b.term}</p>
+          <p class="definitie__def">{b.definitie}</p>
+          {begripLink[id] && <p style="margin-top:8px;font-size:14px"><a href={begripLink[id]}>Meer over {b.term.toLowerCase()} →</a></p>}
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <CtaBand title="Nog vragen over een begrip of uw situatie?" text="Plan een gratis adviesgesprek. Wij leggen alles in gewone taal uit en denken met u mee." />
+</BaseLayout>

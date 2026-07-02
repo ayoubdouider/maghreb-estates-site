@@ -1,0 +1,73 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import TrustStrip from '../components/TrustStrip.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import AiBlocks from '../components/AiBlocks.astro';
+import CtaInline from '../components/CtaInline.astro';
+import Faq from '../components/Faq.astro';
+import CtaBand from '../components/CtaBand.astro';
+import { faqSchema, serviceSchema } from '../data/schema';
+
+const path = '/sleutelbeheer-marokko/';
+const faqs = [
+  { q: 'Wat houdt sleutelbeheer in Marokko in?', a: 'Bij sleutelbeheer bewaren wij de sleutels van uw woning en verzorgen wij toegang wanneer nodig: voor vaklieden, schoonmaak, gasten of familie. Ook doen wij een korte controle en melden we bijzonderheden. Het is een lichte, praktische dienst.' },
+  { q: 'Voor wie is sleutelbeheer handig?', a: 'Voor eigenaren op afstand die af en toe iemand moeten binnenlaten (reparatie, levering, gast) maar geen volledig beheer nodig hebben. Ook handig als aanvulling op verhuur of als u zelf komt en de woning gereed wilt hebben.' },
+  { q: 'Wat is het verschil met woning- en vastgoedbeheer?', a: 'Sleutelbeheer is de lichtste vorm: alleen sleutels en toegang. Woningbeheer voegt onderhoud en toezicht toe; vastgoedbeheer is het complete pakket inclusief verhuur. U kiest wat u nodig heeft.' },
+  { q: 'Hoe zit het met veiligheid van de sleutels?', a: 'Wij gaan zorgvuldig en vertrouwelijk om met uw sleutels en houden bij wanneer en voor wie toegang is verleend. Duidelijke afspraken staan centraal.' },
+  { q: 'Kan sleutelbeheer worden uitgebreid?', a: 'Ja. U kunt sleutelbeheer combineren met woningbeheer, verhuurbeheer of Airbnb-beheer wanneer uw situatie verandert.' },
+];
+---
+<BaseLayout
+  title="Sleutelbeheer Marokko: sleutels & toegang op afstand | Maghreb Estates"
+  description="Sleutelbeheer in Marokko: wij bewaren uw sleutels en regelen toegang voor vaklieden, gasten of familie, met korte controle. Praktische dienst voor eigenaren op afstand."
+  path={path}
+  schema={[faqSchema(faqs), serviceSchema({ naam: 'Sleutelbeheer Marokko', beschrijving: 'Bewaren van sleutels en regelen van toegang tot woningen in Marokko.', path })]}
+>
+  <Hero
+    compact
+    eyebrow="Beheer"
+    title="Sleutelbeheer in Marokko,<br /><em>toegang zonder gedoe</em>"
+    sub="Wij bewaren uw sleutels en regelen toegang voor vaklieden, schoonmaak, gasten of familie — met een korte controle. Ideaal voor eigenaren op afstand."
+    image="/images/villa5.jpg"
+    ctas={[
+      { label: 'Plan gratis adviesgesprek', href: '/contact/', primary: true },
+    ]}
+  />
+  <Breadcrumbs items={[{ label: 'Vastgoed Marokko', href: '/vastgoed-marokko/' }, { label: 'Vastgoedbeheer', href: '/vastgoedbeheer-marokko/' }, { label: 'Sleutelbeheer', href: path }]} />
+  <AiBlocks path={path} />
+  <TrustStrip />
+
+  <section class="section">
+    <div class="container prose" style="max-width:760px">
+      <p><strong>Sleutelbeheer in Marokko</strong> is de meest praktische, lichte beheervorm: wij bewaren de sleutels van uw woning en zorgen dat de juiste persoon op het juiste moment binnenkan. Handig als u op afstand woont en niet voor elke reparatie of gast zelf hoeft af te reizen.</p>
+
+      <h2>Wat sleutelbeheer inhoudt</h2>
+      <ul class="checks">
+        <li><strong>Sleutels bewaren:</strong> veilig en vertrouwelijk.</li>
+        <li><strong>Toegang regelen:</strong> voor vaklieden, schoonmaak, leveringen, gasten of familie.</li>
+        <li><strong>Korte controle:</strong> een blik op de woning bij toegang, met melding van bijzonderheden.</li>
+        <li><strong>Duidelijke afspraken:</strong> wie krijgt wanneer toegang, en waarom.</li>
+      </ul>
+
+      <h2>Voor wie is het bedoeld?</h2>
+      <p>Voor eigenaren die af en toe iemand moeten binnenlaten maar geen volledig beheer nodig hebben. Ook waardevol als aanvulling op verhuur, of om uw woning gereed te laten maken vóór u zelf komt.</p>
+
+      <div class="warn">
+        <strong>Geen adres, geen sleutel bij een onbekende.</strong>
+        <p>Sleutels bij een willekeurige kennis of tussenpersoon leggen brengt risico mee. Duidelijke, controleerbare afspraken over toegang beschermen uw woning.</p>
+      </div>
+
+      <CtaInline
+        title="Toegang goed geregeld hebben?"
+        text="Wij bewaren uw sleutels en regelen toegang met duidelijke afspraken. Plan een gesprek."
+      />
+
+      <h2>Uitbreiden wanneer nodig</h2>
+      <p>Verandert uw situatie? Sleutelbeheer combineert eenvoudig met <a href="/woningbeheer-marokko/">woningbeheer</a> (onderhoud en toezicht), <a href="/verhuurbeheer-marokko/">verhuurbeheer</a> of <a href="/airbnb-beheer-marokko/">Airbnb-beheer</a>. Wilt u alles in één hand? Bekijk het complete <a href="/vastgoedbeheer-marokko/">vastgoedbeheer</a>.</p>
+    </div>
+  </section>
+
+  <Faq items={faqs} title="Veelgestelde vragen over sleutelbeheer" />
+  <CtaBand title="Sleutels en toegang uitbesteden?" text="Plan een gesprek. Wij regelen toegang tot uw woning met duidelijke, veilige afspraken." />
+</BaseLayout>

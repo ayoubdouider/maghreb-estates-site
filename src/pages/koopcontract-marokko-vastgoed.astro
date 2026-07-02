@@ -1,0 +1,88 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import TrustStrip from '../components/TrustStrip.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import AiBlocks from '../components/AiBlocks.astro';
+import Definitie from '../components/Definitie.astro';
+import CtaInline from '../components/CtaInline.astro';
+import Faq from '../components/Faq.astro';
+import CtaBand from '../components/CtaBand.astro';
+import { faqSchema, articleSchema } from '../data/schema';
+
+const path = '/koopcontract-marokko-vastgoed/';
+const faqs = [
+  { q: 'Wat is het compromis de vente in Marokko?', a: 'Het compromis de vente is het voorlopige koopcontract: hierin leggen koper en verkoper de afspraken, de prijs en de voorwaarden vast, meestal met een aanbetaling. Het is een bindende stap vóór de definitieve akte bij de notaris.' },
+  { q: 'Hoeveel aanbetaling is gebruikelijk bij het koopcontract?', a: 'Een aanbetaling van rond 10% van de koopsom is gangbaar, maar dit is onderhandelbaar. Belangrijk is dat de aanbetaling en de voorwaarden voor teruggave duidelijk zijn vastgelegd en dat de betaling correct verloopt.' },
+  { q: 'Welke voorwaarden moeten in het koopcontract staan?', a: 'Onder meer: de juiste identiteit van eigenaar en koper, de exacte omschrijving en kadastrale gegevens van het object, de prijs, de betalingsafspraken, ontbindende voorwaarden en de leverdatum. Ontbrekende of vage clausules zijn een risico.' },
+  { q: 'Kan ik onder een getekend koopcontract uit?', a: 'Dat hangt af van de ontbindende voorwaarden in het contract. Zijn die niet goed opgenomen, dan kunt u uw aanbetaling of meer verliezen. Daarom laten wij het contract altijd controleren vóór ondertekening.' },
+  { q: 'Laat Maghreb Estates het koopcontract controleren?', a: 'Ja. Het toetsen van het compromis de vente is een vast onderdeel van onze aankoopbegeleiding en due diligence, zodat u niet tekent voor onduidelijke of nadelige voorwaarden.' },
+];
+---
+<BaseLayout
+  title="Koopcontract Marokko vastgoed (compromis de vente) | Maghreb Estates"
+  description="Alles over het koopcontract bij vastgoed in Marokko: het compromis de vente, de aanbetaling, ontbindende voorwaarden en valkuilen. Laat uw contract controleren vóór u tekent."
+  path={path}
+  schema={[faqSchema(faqs), articleSchema({ titel: 'Koopcontract Marokko vastgoed', beschrijving: 'Uitleg over het koopcontract (compromis de vente) bij vastgoed in Marokko.', path })]}
+>
+  <Hero
+    compact
+    eyebrow="Veilig kopen"
+    title="Het koopcontract<br /><em>(compromis de vente)</em>"
+    sub="Het voorlopige koopcontract is een bindende stap. Wat erin hoort te staan, waar de valkuilen zitten en hoe u zich beschermt vóór u tekent."
+    image="/images/villa2.jpg"
+    ctas={[
+      { label: 'Laat je contract controleren', href: '/contact/?doel=aankoopcontrole', primary: true },
+      { label: 'Plan gratis adviesgesprek', href: '/contact/' },
+    ]}
+  />
+  <Breadcrumbs items={[{ label: 'Vastgoed Marokko', href: '/vastgoed-marokko/' }, { label: 'Koopcontract', href: path }]} />
+  <AiBlocks path={path} />
+  <TrustStrip />
+
+  <section class="section">
+    <div class="container prose" style="max-width:760px">
+      <p>Het <strong>koopcontract bij vastgoed in Marokko</strong> — het <em>compromis de vente</em> — is de eerste bindende stap in de aankoop. Hier worden de prijs en de voorwaarden vastgelegd en betaalt u doorgaans een aanbetaling. Juist omdat het bindend is, is dit een moment waarop kopers geld kunnen verliezen als het contract onduidelijk of nadelig is.</p>
+
+      <Definitie id="compromis-de-vente" />
+
+      <h2>Wat is het compromis de vente?</h2>
+      <p>Het compromis de vente is het voorlopige koopcontract tussen koper en verkoper. Het legt de afspraken vast vóór de definitieve akte (acte de vente) bij de <a href="/notaris-marokko-vastgoed/">notaris</a>. Met de ondertekening en de aanbetaling verbindt u zich; daarom moet alles kloppen voordat u tekent.</p>
+
+      <h2>Wat hoort erin te staan?</h2>
+      <ul class="checks">
+        <li>De juiste identiteit van de <strong>geregistreerde eigenaar</strong> en van u als koper.</li>
+        <li>De exacte omschrijving en de kadastrale gegevens (gekoppeld aan de <a href="/titre-foncier-marokko/">titre foncier</a>).</li>
+        <li>De koopprijs en de <strong>betalingsafspraken</strong> (aanbetaling, resterend bedrag, termijnen).</li>
+        <li><strong>Ontbindende voorwaarden</strong> die u beschermen als iets niet klopt.</li>
+        <li>De leverdatum en afspraken over overdracht en sleutels.</li>
+      </ul>
+
+      <div class="warn">
+        <strong>De aanbetaling is het risicomoment.</strong>
+        <p>Betaal de aanbetaling nooit informeel en teken nooit een contract met vage of ontbrekende ontbindende voorwaarden. Zonder de juiste clausules kunt u uw aanbetaling kwijtraken. Laat het contract altijd eerst controleren.</p>
+      </div>
+
+      <CtaInline
+        title="Heeft u een koopcontract ontvangen?"
+        text="Stuur het ons vóór u tekent. Wij controleren de voorwaarden, de eigenaar en de kadastrale gegevens."
+        label="Laat je contract controleren"
+        href="/contact/?doel=aankoopcontrole"
+      />
+
+      <h2>Veelgemaakte fouten</h2>
+      <ul>
+        <li>Tekenen zonder de <a href="/titre-foncier-marokko/">eigendomstitel</a> te verifiëren.</li>
+        <li>Aanbetalen buiten de notaris om.</li>
+        <li>Geen ontbindende voorwaarden opnemen.</li>
+        <li>Onduidelijkheid over de <a href="/kosten-huis-kopen-marokko/">kosten</a> en <a href="/verborgen-kosten-huis-kopen-marokko/">verborgen kosten</a>.</li>
+      </ul>
+
+      <h2>Hoe wij u beschermen</h2>
+      <p>Het controleren van het compromis de vente is een vast onderdeel van onze <a href="/aankoopbegeleiding-vastgoed-marokko/">aankoopbegeleiding</a>. Wij toetsen de voorwaarden, verifiëren de eigenaar en zorgen dat alles klopt vóór ondertekening en betaling — ook wanneer u <a href="/huis-kopen-marokko-vanuit-nederland/">op afstand koopt</a>. Zie ook het complete stappenplan op <a href="/huis-kopen-marokko/">huis kopen in Marokko</a>.</p>
+    </div>
+  </section>
+
+  <Faq items={faqs} title="Veelgestelde vragen over het koopcontract" />
+  <CtaBand label="Laat je contract controleren" title="Nog niet getekend?" text="Laat uw koopcontract controleren vóór u zich verbindt. Wij beoordelen de voorwaarden en de papieren." href="/contact/?doel=aankoopcontrole" />
+</BaseLayout>

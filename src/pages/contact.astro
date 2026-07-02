@@ -1,0 +1,91 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import { site } from '../data/site';
+
+const path = '/contact/';
+// LET OP: vervang WEB3FORMS_ACCESS_KEY door een echte sleutel (gratis via web3forms.com)
+// zodat het formulier op de statische GitHub Pages-site werkt. Zonder sleutel werken
+// telefoon, WhatsApp en e-mail hieronder wél direct.
+const WEB3FORMS_KEY = 'WEB3FORMS_ACCESS_KEY';
+---
+<BaseLayout
+  title="Contact & gratis adviesgesprek | Maghreb Estates"
+  description="Plan een gratis, vrijblijvend adviesgesprek over vastgoed in Marokko. Nederlandstalig, snel en zonder verplichtingen. Bel, WhatsApp of stuur een bericht."
+  path={path}
+>
+  <Breadcrumbs items={[{ label: 'Contact', href: path }]} />
+
+  <section class="section">
+    <div class="container">
+      <div class="split">
+        <div class="split__text">
+          <p class="eyebrow">Contact</p>
+          <h1 style="font-size:clamp(32px,4vw,46px);margin-bottom:20px">Klaar om de <em>eerste stap</em> te zetten?</h1>
+          <p style="color:var(--text-muted);font-size:18px;margin-bottom:28px">Plan een vrijblijvend adviesgesprek. Wij nemen dezelfde dag nog contact met u op — geen verplichtingen, gewoon een helder gesprek over uw situatie, wensen en vragen.</p>
+
+          <div class="feature">
+            <h3>Direct contact</h3>
+            <p>
+              📞 <a href={`tel:${site.telefoonHref}`} style="color:var(--green-mid)">{site.telefoon}</a><br />
+              💬 <a href={`https://wa.me/${site.whatsapp}`} style="color:var(--green-mid)">WhatsApp ons</a><br />
+              ✉️ <a href={`mailto:${site.email}`} style="color:var(--green-mid)">{site.email}</a>
+            </p>
+          </div>
+          <div class="feature">
+            <h3>Waarmee wij helpen</h3>
+            <p>Huis kopen · investeren · aankoopcontrole · verhuur &amp; beheer · verkoop — in heel Marokko.</p>
+          </div>
+        </div>
+
+        <form class="card" id="contactForm" action={`https://api.web3forms.com/submit`} method="POST">
+          <input type="hidden" name="access_key" value={WEB3FORMS_KEY} />
+          <input type="hidden" name="subject" value="Nieuwe aanvraag via maghreb-estates.com" />
+          <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off" />
+
+          <div class="form__group" style="margin-bottom:16px">
+            <label for="naam">Naam *</label>
+            <input type="text" id="naam" name="naam" placeholder="Uw volledige naam" required style="width:100%;padding:12px;border:1px solid var(--border);border-radius:var(--radius);margin-top:6px;font-family:inherit" />
+          </div>
+          <div class="form__group" style="margin-bottom:16px">
+            <label for="email">E-mailadres *</label>
+            <input type="email" id="email" name="email" placeholder="uw@email.nl" required style="width:100%;padding:12px;border:1px solid var(--border);border-radius:var(--radius);margin-top:6px;font-family:inherit" />
+          </div>
+          <div class="form__group" style="margin-bottom:16px">
+            <label for="telefoon">Telefoon</label>
+            <input type="tel" id="telefoon" name="telefoon" placeholder="+31 6 00 00 00 00" style="width:100%;padding:12px;border:1px solid var(--border);border-radius:var(--radius);margin-top:6px;font-family:inherit" />
+          </div>
+          <div class="form__group" style="margin-bottom:16px">
+            <label for="doel">Wat is uw doel? *</label>
+            <select id="doel" name="doel" required style="width:100%;padding:12px;border:1px solid var(--border);border-radius:var(--radius);margin-top:6px;font-family:inherit;background:#fff">
+              <option value="">Selecteer een optie</option>
+              <option value="kopen">Huis kopen in Marokko</option>
+              <option value="investeringsanalyse">Investering / rendement</option>
+              <option value="aankoopcontrole">Aankoop laten controleren</option>
+              <option value="beheer">Verhuur &amp; beheer</option>
+              <option value="verkoop">Woning verkopen</option>
+              <option value="checklist">De checklist ontvangen</option>
+              <option value="anders">Anders</option>
+            </select>
+          </div>
+          <div class="form__group" style="margin-bottom:20px">
+            <label for="bericht">Uw bericht *</label>
+            <textarea id="bericht" name="bericht" rows="5" placeholder="Vertel kort over uw situatie, wensen of vragen..." required style="width:100%;padding:12px;border:1px solid var(--border);border-radius:var(--radius);margin-top:6px;font-family:inherit"></textarea>
+          </div>
+          <button type="submit" class="btn btn--primary btn--full">Verstuur bericht</button>
+          <p id="formNote" style="font-size:13px;color:var(--text-muted);margin-top:14px">Wij reageren doorgaans dezelfde dag.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <script is:inline>
+    // Voorselecteer het doel op basis van ?doel= in de URL (vanuit CTA-knoppen).
+    const params = new URLSearchParams(location.search);
+    const doel = params.get('doel');
+    if (doel) {
+      const sel = document.getElementById('doel');
+      if (sel && [...sel.options].some((o) => o.value === doel)) sel.value = doel;
+    }
+  </script>
+</BaseLayout>

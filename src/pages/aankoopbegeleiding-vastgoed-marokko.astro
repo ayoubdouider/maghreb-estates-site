@@ -1,0 +1,100 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import TrustStrip from '../components/TrustStrip.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import AiBlocks from '../components/AiBlocks.astro';
+import CtaInline from '../components/CtaInline.astro';
+import Faq from '../components/Faq.astro';
+import CtaBand from '../components/CtaBand.astro';
+import { faqSchema, serviceSchema } from '../data/schema';
+
+const path = '/aankoopbegeleiding-vastgoed-marokko/';
+const faqs = [
+  { q: 'Wat houdt aankoopbegeleiding bij vastgoed in Marokko precies in?', a: 'Wij begeleiden u van A tot Z: bepalen van uw wensen, selectie en beoordeling van objecten, bezichtiging, onderhandeling, volledige dossiercontrole (due diligence) en begeleiding bij notaris, contracten en overdracht. U heeft één vast, Nederlandstalig aanspreekpunt.' },
+  { q: 'Waarom heb ik aankoopbegeleiding nodig?', a: 'De markt is versnipperd, papieren zijn complex en niet elke aanbieder is transparant. Onafhankelijke begeleiding beschermt u tegen te hoge prijzen, onduidelijke eigendom en informele afspraken die later problemen geven. Wij staan uitsluitend aan úw kant.' },
+  { q: 'Wat controleren jullie bij de due diligence?', a: 'Wij verifiëren de titre foncier (eigendomstitel) bij het kadaster, controleren op hypotheken en beslagen, toetsen het koopcontract (compromis de vente), en beoordelen bij nieuwbouw de projectontwikkelaar en vergunningen.' },
+  { q: 'Zijn jullie onafhankelijk of verkopen jullie eigen objecten?', a: 'Wij zijn onafhankelijk en behartigen uw belang. Wij verdienen niets aan een specifiek object; ons doel is dat u de juiste woning tegen de juiste prijs koopt, met kloppende papieren.' },
+  { q: 'Kan de aankoop volledig op afstand worden geregeld?', a: 'Ja. Met een volmacht (procuration) kunnen wij het volledige aankooptraject namens u afronden, inclusief de gang naar de notaris, zodat u niet steeds naar Marokko hoeft te reizen.' },
+  { q: 'Wat kost aankoopbegeleiding?', a: 'De kosten hangen af van de dienstverlening en de complexiteit. In een gratis adviesgesprek maken wij dit vooraf transparant, zodat u precies weet wat u krijgt en wat het kost.' },
+  { q: 'Vanaf welk moment kan ik jullie inschakelen?', a: 'Op elk moment: bij de eerste oriëntatie, wanneer u een object op het oog heeft, of vlak vóór ondertekening om een aankoop te laten controleren. Hoe eerder, hoe meer wij voor u kunnen betekenen.' },
+];
+---
+<BaseLayout
+  title="Aankoopbegeleiding vastgoed Marokko: veilig kopen | Maghreb Estates"
+  description="Onafhankelijke aankoopbegeleiding bij vastgoed in Marokko: selectie, onderhandeling, due diligence, controle van de titre foncier en begeleiding bij notaris en overdracht. Nederlandstalig en betrouwbaar."
+  path={path}
+  schema={[faqSchema(faqs), serviceSchema({ naam: 'Aankoopbegeleiding vastgoed Marokko', beschrijving: 'Onafhankelijke aankoopbegeleiding en due diligence bij vastgoed in Marokko.', path })]}
+>
+  <Hero
+    compact
+    eyebrow="Aankoopbegeleiding"
+    title="Aankoopbegeleiding die<br /><em>onzekerheid wegneemt</em>"
+    sub="Onafhankelijke begeleiding en volledige dossiercontrole bij uw aankoop in Marokko. Wij kijken kritisch mee, controleren de papieren en regelen alles officieel."
+    image="/images/villa2.jpg"
+    ctas={[
+      { label: 'Laat je aankoop controleren', href: '/contact/?doel=aankoopcontrole', primary: true },
+      { label: 'Plan gratis adviesgesprek', href: '/contact/' },
+    ]}
+  />
+  <Breadcrumbs items={[{ label: 'Vastgoed Marokko', href: '/vastgoed-marokko/' }, { label: 'Aankoopbegeleiding', href: path }]} />
+  <AiBlocks path={path} />
+  <TrustStrip />
+
+  <section class="section">
+    <div class="container prose" style="max-width:760px">
+      <p><strong>Aankoopbegeleiding bij vastgoed in Marokko</strong> is het verschil tussen een gok en een weloverwogen aankoop. Als onafhankelijke partij staan wij volledig aan úw kant: wij verdienen niets aan een specifiek object, maar zorgen dat u de juiste woning tegen de juiste prijs én met kloppende papieren koopt. Dat is precies waar het bij zelf kopen zo vaak misgaat.</p>
+      <p>Wij combineren Nederlandse duidelijkheid met lokale aanwezigheid en marktkennis. U hoeft niets te vertalen, niets te interpreteren en niet te vertrouwen op een tussenpersoon met eigen belangen. Wij zijn uw vaste gids van de eerste oriëntatie tot de sleutel in uw hand.</p>
+
+      <h2>Wat wij voor u doen</h2>
+      <ul class="checks">
+        <li><strong>Wensen & strategie:</strong> eigen gebruik, verhuur of <a href="/investeren-vastgoed-marokko/">investering</a> — wij bepalen samen het doel en budget.</li>
+        <li><strong>Selectie & beoordeling:</strong> een eerlijke shortlist met de voor- én nadelen per object, op basis van marktdata.</li>
+        <li><strong>Onderhandeling:</strong> een realistische prijs, zodat u niet de “buitenlander-prijs” betaalt.</li>
+        <li><strong>Due diligence:</strong> controle van de <a href="/titre-foncier-marokko/">titre foncier</a>, kadaster, hypotheken/beslagen en het koopcontract.</li>
+        <li><strong>Notaris & overdracht:</strong> begeleiding bij de <a href="/notaris-marokko-vastgoed/">notaris</a>, contracten en inschrijving op uw naam.</li>
+      </ul>
+
+      <CtaInline
+        title="Al een woning op het oog?"
+        text="Laat de aankoop controleren vóór u tekent. Wij beoordelen het dossier, de prijs en de aanbieder — eerlijk en onafhankelijk."
+        label="Laat je aankoop controleren"
+        href="/contact/?doel=aankoopcontrole"
+      />
+
+      <h2>Zelf kopen vs. aankoopbegeleiding via Maghreb Estates</h2>
+      <div class="compare-wrap">
+        <table class="compare">
+          <caption>Vergelijking: zelf kopen vs. begeleiding via Maghreb Estates</caption>
+          <thead>
+            <tr><th>Aspect</th><th>Zelf kopen</th><th>Via Maghreb Estates</th></tr>
+          </thead>
+          <tbody>
+            <tr><th>Titelcontrole (titre foncier)</th><td>Zelf uitzoeken, taalbarrière</td><td>Wij verifiëren bij het kadaster</td></tr>
+            <tr><th>Prijs</th><td>Risico op “buitenlander-prijs”</td><td>Onderhandeling op marktdata</td></tr>
+            <tr><th>Koopcontract</th><td>Vaak onbegrepen clausules</td><td>Contract gecontroleerd vóór tekenen</td></tr>
+            <tr><th>Onafhankelijkheid</th><td>Afhankelijk van verkoper/familie</td><td>Alleen jouw belang</td></tr>
+            <tr><th>Op afstand</th><td>Lastig te regelen</td><td>Volledig met volmacht mogelijk</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>Bescherming tegen de bekende valkuilen</h2>
+      <p>Onduidelijke eigendom, dubbele verkoop, informele afspraken en afhankelijkheid van familie of tussenpersonen zijn de grootste risico’s. Onze begeleiding is precies hierop gebouwd. Lees welke <a href="/risicos-huis-kopen-marokko/">risico’s er spelen en hoe wij ze afdekken</a>, en wat de <a href="/kosten-huis-kopen-marokko/">kosten en verborgen kosten</a> zijn zodat u niet voor verrassingen komt te staan.</p>
+
+      <div class="warn">
+        <strong>Onze belofte: geen aankoop zonder complete dossiercontrole.</strong>
+        <p>Ontbreekt een geregistreerde eigendomstitel, klopt het contract niet, of is de ontwikkelaar niet te verifiëren? Dan adviseren wij u niet te kopen — hoe aantrekkelijk het object ook lijkt. Uw veiligheid gaat vóór de deal.</p>
+      </div>
+
+      <h2>Ook volledig op afstand</h2>
+      <p>Koopt u <a href="/huis-kopen-marokko-vanuit-nederland/">vanuit Nederland</a>? Met een <a href="/volmacht-huis-kopen-marokko/">volmacht</a> ronden wij het traject veilig voor u af, tot en met de akte bij de notaris. En na de aankoop kunnen wij uw woning <a href="/vastgoedbeheer-marokko/">beheren en verhuren</a>, zodat u ook op langere termijn ontzorgd bent.</p>
+
+      <h2>Voor wie is aankoopbegeleiding bedoeld?</h2>
+      <p>Voor iedereen die zekerheid wil: de koper van een <a href="/huis-kopen-marokko/">eerste huis</a> of <a href="/appartement-kopen-marokko/">appartement</a>, de investeerder die <a href="/investeren-vastgoed-marokko/">rendement</a> zoekt, en de koper van een <a href="/nieuwbouwprojecten-marokko/">nieuwbouwproject</a> die de ontwikkelaar wil laten controleren. In alle gevallen geldt: hoe eerder u ons inschakelt, hoe meer wij voor u kunnen betekenen.</p>
+    </div>
+  </section>
+
+  <Faq items={faqs} title="Veelgestelde vragen over aankoopbegeleiding" />
+  <CtaBand label="Laat je aankoop controleren" title="Twijfelt u over een aankoop?" text="Stuur ons het object of de aanbieder. Wij kijken kritisch mee en vertellen u eerlijk of het klopt — vóór u tekent." href="/contact/?doel=aankoopcontrole" />
+</BaseLayout>

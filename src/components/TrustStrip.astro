@@ -1,0 +1,24 @@
+---
+// Vaste trust-elementen die op elke belangrijke pagina terugkomen.
+const items = [
+  { ic: '🇳🇱', t: 'Nederlandstalige begeleiding', s: 'Eén vast aanspreekpunt dat uw taal spreekt.' },
+  { ic: '📍', t: 'Lokale controle in Marokko', s: 'Wij staan ter plaatse, met kennis van de markt.' },
+  { ic: '⚖️', t: 'Juridische check', s: 'Titre foncier én notaris altijd gecontroleerd.' },
+  { ic: '🛡️', t: 'Nooit kopen zonder dossiercontrole', s: 'Geen handtekening voordat het dossier klopt.' },
+];
+---
+<section class="section" style="padding-block:56px">
+  <div class="container">
+    <div class="trust-strip">
+      {items.map((i) => (
+        <div class="trust-strip__item">
+          <span class="trust-strip__ic">{i.ic}</span>
+          <div>
+            <strong>{i.t}</strong>
+            <span>{i.s}</span>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,29 @@
+---
+interface Cta { label: string; href: string; primary?: boolean; }
+interface Props {
+  eyebrow?: string;
+  title: string;
+  sub?: string;
+  image?: string;
+  compact?: boolean;
+  ctas?: Cta[];
+}
+const { eyebrow, title, sub, image = '/images/villa5.jpg', compact = false, ctas = [] } = Astro.props;
+---
+<section class={`hero ${compact ? 'hero--compact' : ''}`} style={`background-image: url('${image}')`}>
+  <div class="hero__overlay"></div>
+  <div class="container">
+    <div class="hero__inner">
+      {eyebrow && <p class="eyebrow eyebrow--light">{eyebrow}</p>}
+      <h1 set:html={title} />
+      {sub && <p class="hero__sub">{sub}</p>}
+      {ctas.length > 0 && (
+        <div class="hero__actions">
+          {ctas.map((c) => (
+            <a href={c.href} class={`btn ${c.primary ? 'btn--light' : 'btn--outline'}`} style={c.primary ? '' : 'color:var(--cream);border-color:var(--cream)'}>{c.label}</a>
+          ))}
+        </div>
+      )}
+    </div>
+  </div>
+</section>

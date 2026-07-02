@@ -1,0 +1,62 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import AiBlocks from '../components/AiBlocks.astro';
+import Faq from '../components/Faq.astro';
+import CtaBand from '../components/CtaBand.astro';
+import { faqSchema, articleSchema } from '../data/schema';
+
+const path = '/risicos-huis-kopen-marokko/';
+const faqs = [
+  { q: 'Wat zijn de grootste risico’s bij een huis kopen in Marokko?', a: 'De grootste risico’s zijn onduidelijke eigendomspapieren (geen titre foncier), dubbele verkoop, informele afspraken zonder notaris, en afhankelijkheid van familie of tussenpersonen. Met due diligence en een officiële akte zijn deze risico’s goed af te dekken.' },
+  { q: 'Hoe voorkom ik oplichting bij vastgoed in Marokko?', a: 'Koop nooit op basis van een advertentie alleen, verifieer de eigendomstitel bij het kadaster, betaal niets buiten de notaris om en laat alle contracten controleren. Een onafhankelijke begeleider die de markt kent is uw beste bescherming.' },
+  { q: 'Is het riskant om via familie een huis te kopen in Marokko?', a: 'Kopen via familie voelt vertrouwd, maar leidt vaak tot onduidelijke afspraken en conflicten. Een zakelijke, officiële aanpak via de notaris beschermt zowel u als de relatie.' },
+];
+---
+<BaseLayout
+  title="Risico’s huis kopen in Marokko (en hoe u ze vermijdt) | Maghreb Estates"
+  description="De belangrijkste risico’s bij een huis kopen in Marokko: onduidelijke papieren, dubbele verkoop, oplichting en familie-afhankelijkheid — en precies hoe u ze voorkomt."
+  path={path}
+  schema={[faqSchema(faqs), articleSchema({ titel: 'Risico’s huis kopen in Marokko', beschrijving: 'De belangrijkste risico’s bij vastgoed kopen in Marokko en hoe u ze vermijdt.', path })]}
+>
+  <Hero
+    compact
+    eyebrow="Gids · Risico’s"
+    title="Risico’s bij een huis kopen<br /><em>in Marokko vermijden</em>"
+    sub="Onduidelijke papieren, dubbele verkoop, oplichting, familie-afhankelijkheid. Dit zijn de valkuilen — en zo dekt u ze af."
+    image="/images/villa3.jpg"
+    ctas={[{ label: 'Laat je aankoop controleren', href: '/contact/?doel=aankoopcontrole', primary: true }]}
+  />
+  <Breadcrumbs items={[{ label: 'Vastgoed Marokko', href: '/vastgoed-marokko/' }, { label: 'Gids: risico’s', href: path }]} />
+  <AiBlocks path={path} />
+
+  <section class="section">
+    <div class="container prose" style="max-width:760px">
+      <p>De <strong>risico’s bij een huis kopen in Marokko</strong> zijn reëel, maar bijna allemaal te voorkomen met de juiste aanpak. De markt is minder gereguleerd dan in Nederland en informatie is versnipperd — juist daarom is zorgvuldigheid en onafhankelijke controle zo belangrijk.</p>
+
+      <h2>De belangrijkste risico’s</h2>
+      <ul>
+        <li><strong>Onduidelijke eigendom:</strong> geen geregistreerde <a href="/titre-foncier-marokko/">titre foncier</a>, waardoor eigendom niet vaststaat.</li>
+        <li><strong>Dubbele verkoop:</strong> hetzelfde object aan meerdere kopers verkocht.</li>
+        <li><strong>Informele afspraken:</strong> betalingen of afspraken buiten de <a href="/notaris-marokko-vastgoed/">notaris</a> om.</li>
+        <li><strong>Familie- en tussenpersoon-afhankelijkheid:</strong> onduidelijke belangen en afspraken.</li>
+        <li><strong>Onbetrouwbare ontwikkelaars:</strong> vooral bij <a href="/nieuwbouwprojecten-marokko/">off-plan projecten</a>.</li>
+      </ul>
+
+      <h2>Hoe u zich beschermt</h2>
+      <ul>
+        <li>Verifieer de eigendomstitel bij het kadaster (conservation foncière).</li>
+        <li>Betaal uitsluitend via de notaris, nooit informeel.</li>
+        <li>Laat elk contract (compromis de vente) controleren — zie de <a href="/kosten-huis-kopen-marokko/">kostengids</a>.</li>
+        <li>Werk met een onafhankelijke partij die aan úw kant staat.</li>
+      </ul>
+
+      <h2>Onze rol</h2>
+      <p>Onze <a href="/aankoopbegeleiding-vastgoed-marokko/">aankoopbegeleiding</a> is precies hierop gebouwd: due diligence, papiercontrole en een officieel traject. Zo wordt kopen — ook <a href="/huis-kopen-marokko-vanuit-nederland/">vanuit Nederland</a> — geen gok.</p>
+    </div>
+  </section>
+
+  <Faq items={faqs} title="Veelgestelde vragen over risico’s" />
+  <CtaBand label="Laat je aankoop controleren" title="Twijfelt u over een aankoop?" text="Stuur ons het object of de aanbieder. Wij kijken kritisch mee vóór u tekent." href="/contact/?doel=aankoopcontrole" />
+</BaseLayout>

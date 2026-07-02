@@ -1,0 +1,56 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import AiBlocks from '../components/AiBlocks.astro';
+import Faq from '../components/Faq.astro';
+import CtaBand from '../components/CtaBand.astro';
+import { faqSchema, serviceSchema } from '../data/schema';
+
+const path = '/airbnb-beheer-marokko/';
+const faqs = [
+  { q: 'Wat houdt Airbnb-beheer in Marokko in?', a: 'Wij verzorgen het volledige proces van vakantieverhuur: advertentie en fotografie, prijsstrategie, gastencommunicatie, check-in en check-out, schoonmaak en onderhoud. U ontvangt de inkomsten en een heldere rapportage.' },
+  { q: 'Is Airbnb-verhuur rendabeler dan langetermijnverhuur?', a: 'In toeristische steden als Marrakech, Agadir en de kuststeden kan Airbnb-verhuur een hoger bruto rendement opleveren dan langetermijnverhuur. Wel zijn er meer kosten en seizoensinvloeden. Wij rekenen het eerlijk door.' },
+  { q: 'Moet ik mijn vakantiewoning in Marokko registreren?', a: 'Voor toeristische verhuur gelden lokale regels en registratie-eisen. Wij zorgen dat de verhuur correct en volgens de regels verloopt.' },
+];
+---
+<BaseLayout
+  title="Airbnb-beheer Marokko: vakantieverhuur geregeld | Maghreb Estates"
+  description="Airbnb- en vakantieverhuurbeheer in Marokko: advertentie, prijsstrategie, gasten, schoonmaak en onderhoud. Hoger rendement uit uw woning, volledig uit handen genomen."
+  path={path}
+  schema={[faqSchema(faqs), serviceSchema({ naam: 'Airbnb beheer Marokko', beschrijving: 'Beheer van Airbnb- en vakantieverhuur van woningen in Marokko.', path })]}
+>
+  <Hero
+    compact
+    eyebrow="Airbnb & vakantieverhuur"
+    title="Airbnb-beheer in Marokko,<br /><em>maximaal rendement, nul gedoe</em>"
+    sub="Van advertentie en prijsstrategie tot gasten, schoonmaak en onderhoud. Wij halen het hoogste uit uw vakantiewoning, u ontvangt de inkomsten."
+    image="/images/apt2.jpg"
+    ctas={[{ label: 'Plan gratis adviesgesprek', href: '/contact/', primary: true }]}
+  />
+  <Breadcrumbs items={[{ label: 'Vastgoed Marokko', href: '/vastgoed-marokko/' }, { label: 'Vastgoedbeheer', href: '/vastgoedbeheer-marokko/' }, { label: 'Airbnb-beheer', href: path }]} />
+  <AiBlocks path={path} />
+
+  <section class="section">
+    <div class="container prose" style="max-width:760px">
+      <p><strong>Airbnb-beheer in Marokko</strong> is ideaal als u een woning heeft in een toeristische stad en het hoogste rendement wilt halen zonder zelf de dagelijkse rompslomp te doen. Wij runnen uw verhuur professioneel, zodat uw agenda vol raakt en uw gasten tevreden zijn.</p>
+
+      <h2>Wat ons Airbnb-beheer omvat</h2>
+      <ul>
+        <li><strong>Advertentie & fotografie:</strong> een aantrekkelijke listing die opvalt.</li>
+        <li><strong>Prijsstrategie:</strong> dynamische prijzen per seizoen voor maximale opbrengst.</li>
+        <li><strong>Gastenbeheer:</strong> communicatie, check-in/-out en reviews.</li>
+        <li><strong>Schoonmaak & onderhoud:</strong> uw woning blijft in topconditie.</li>
+      </ul>
+
+      <h2>Waar werkt Airbnb het best?</h2>
+      <p>Toeristische steden als <a href="/vastgoed-marrakech/">Marrakech</a>, <a href="/vastgoed-agadir/">Agadir</a> en de kuststeden hebben de sterkste vakantieverhuurmarkt. Bekijk <a href="/beste-stad-investeren-vastgoed-marokko/">de beste steden om te investeren</a>.</p>
+
+      <h2>Onderdeel van uw totale rendement</h2>
+      <p>Airbnb-verhuur kan uw <a href="/rendement-vastgoed-marokko/">rendement</a> flink verhogen. Wilt u liever stabiele langetermijnhuur? Bekijk <a href="/huis-verhuren-marokko-vanuit-nederland/">huis verhuren in Marokko</a> of het volledige <a href="/vastgoedbeheer-marokko/">vastgoedbeheer</a>.</p>
+    </div>
+  </section>
+
+  <Faq items={faqs} title="Veelgestelde vragen over Airbnb-beheer in Marokko" />
+  <CtaBand title="Het maximale uit uw vakantiewoning?" />
+</BaseLayout>

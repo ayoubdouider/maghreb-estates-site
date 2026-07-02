@@ -1,0 +1,78 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import TrustStrip from '../components/TrustStrip.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import AiBlocks from '../components/AiBlocks.astro';
+import CtaInline from '../components/CtaInline.astro';
+import Faq from '../components/Faq.astro';
+import CtaBand from '../components/CtaBand.astro';
+import { faqSchema, articleSchema } from '../data/schema';
+
+const path = '/veilig-huis-kopen-marokko/';
+const faqs = [
+  { q: 'Hoe koop je veilig een huis in Marokko?', a: 'Door vóór aankoop de eigendomstitel (titre foncier) te verifiëren bij het kadaster, het koopcontract te laten controleren en de overdracht uitsluitend via de notaris te laten verlopen. Betaal nooit informeel.' },
+  { q: 'Wat is de grootste fout die kopers maken?', a: 'Aanbetalen op basis van een advertentie of belofte, buiten de notaris om. Dat is precies waar geld verloren gaat.' },
+  { q: 'Welke documenten moet je controleren?', a: 'De titre foncier (eigendomstitel), de kadastrale gegevens, eventuele hypotheken of beslagen, en het compromis de vente (koopcontract).' },
+  { q: 'Is kopen op afstand ook veilig?', a: 'Ja, mits een betrouwbare partij ter plaatse de controle doet en de overdracht via de notaris verloopt, eventueel met een beperkte volmacht.' },
+];
+---
+<BaseLayout
+  title="Veilig een huis kopen in Marokko: zo doe je dat | Maghreb Estates"
+  description="Veilig een huis kopen in Marokko begint bij dossiercontrole: titre foncier verifiëren, koopcontract laten controleren en overdracht via de notaris. Zo vermijd je de valkuilen."
+  path={path}
+  schema={[faqSchema(faqs), articleSchema({ titel: 'Veilig een huis kopen in Marokko', beschrijving: 'Hoe je veilig vastgoed koopt in Marokko via dossiercontrole en de notaris.', path })]}
+>
+  <Hero
+    compact
+    eyebrow="Veelgestelde vraag"
+    title="Hoe koop je <em>veilig</em><br />een huis in Marokko?"
+    sub="Veilig kopen draait om één principe: eerst het dossier controleren, dan pas betalen. Zo werkt het."
+    image="/images/villa2.jpg"
+    ctas={[
+      { label: 'Laat je aankoop controleren', href: '/contact/?doel=aankoopcontrole', primary: true },
+      { label: 'Download de checklist', href: '/contact/?doel=checklist' },
+    ]}
+  />
+  <Breadcrumbs items={[{ label: 'Vastgoed Marokko', href: '/vastgoed-marokko/' }, { label: 'Veilig huis kopen', href: path }]} />
+  <AiBlocks
+    path={path}
+    vraag="Hoe koop je veilig een huis in Marokko?"
+    antwoord="Veilig kopen betekent: verifieer de eigendomstitel (titre foncier) bij het kadaster, controleer of de verkoper de echte eigenaar is, laat het koopcontract (compromis de vente) toetsen en laat de overdracht uitsluitend via de notaris verlopen. Koop niet voordat de eigendomspapieren gecontroleerd zijn — een lage prijs is pas interessant als het juridische dossier klopt."
+    voorWie="Kopers die zekerheid willen en de bekende valkuilen willen vermijden."
+    watLeerJe="De concrete stappen en controles die een aankoop veilig maken."
+    wanneerHelpen="Met volledige dossiercontrole (due diligence) en begeleiding tot de overdracht."
+    letOp="Betaal nooit informeel; alles loopt via de notaris."
+  />
+  <TrustStrip />
+
+  <section class="section">
+    <div class="container prose" style="max-width:760px">
+      <h2>Welke documenten moet je controleren bij vastgoed in Marokko?</h2>
+      <ul class="checks">
+        <li>De <a href="/titre-foncier-marokko/">titre foncier</a> (geregistreerde eigendomstitel) — is die er en klopt de eigenaar?</li>
+        <li>De kadastrale gegevens en eventuele hypotheken of beslagen.</li>
+        <li>Het <a href="/koopcontract-marokko-vastgoed/">compromis de vente</a> met correcte, beschermende voorwaarden.</li>
+        <li>Bij nieuwbouw: de ontwikkelaar, bouwvergunning en betalingsstructuur.</li>
+      </ul>
+
+      <div class="warn">
+        <strong>Koop niet voordat de eigendomspapieren gecontroleerd zijn.</strong>
+        <p>Bijna elk probleem in Marokko ontstaat vóór de notaris: een aanbetaling zonder geregistreerde titel, of een “deal via familie” zonder papieren. Wij kijken eerst naar risico, daarna pas naar prijs.</p>
+      </div>
+
+      <CtaInline
+        title="Al een woning op het oog?"
+        text="Laat de aankoop controleren vóór je tekent. Wij beoordelen dossier, prijs en aanbieder."
+        label="Laat je aankoop controleren"
+        href="/contact/?doel=aankoopcontrole"
+      />
+
+      <h2>Hoe voorkom je oplichting?</h2>
+      <p>De meeste vormen van oplichting verdwijnen zodra je de titel verifieert en via de notaris betaalt. Lees de complete uitleg op <a href="/oplichting-vastgoed-marokko-voorkomen/">oplichting voorkomen</a> en de bredere <a href="/risicos-huis-kopen-marokko/">risico’s bij een huis kopen</a>. Onze <a href="/aankoopbegeleiding-vastgoed-marokko/">aankoopbegeleiding</a> is precies hierop gebouwd — ook als je <a href="/huis-kopen-marokko-vanuit-nederland/">vanuit Nederland</a> koopt.</p>
+    </div>
+  </section>
+
+  <Faq items={faqs} title="Veelgestelde vragen over veilig kopen" />
+  <CtaBand label="Laat je aankoop controleren" href="/contact/?doel=aankoopcontrole" />
+</BaseLayout>

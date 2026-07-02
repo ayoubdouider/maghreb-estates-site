@@ -1,0 +1,44 @@
+---
+// AI-laag: Direct Answer Block + AI Summary Block.
+// Data komt uit src/data/aicontent.ts (per pad) of wordt direct als props gegeven
+// (bv. stadspagina's die per stad genereren).
+import { aicontent } from '../data/aicontent';
+
+interface Props {
+  path?: string;
+  vraag?: string;
+  antwoord?: string;
+  voorWie?: string;
+  watLeerJe?: string;
+  wanneerHelpen?: string;
+  letOp?: string;
+}
+const p = Astro.props;
+const c = p.path ? aicontent[p.path] : undefined;
+const vraag = p.vraag ?? c?.vraag;
+const antwoord = p.antwoord ?? c?.antwoord;
+const voorWie = p.voorWie ?? c?.voorWie;
+const watLeerJe = p.watLeerJe ?? c?.watLeerJe;
+const wanneerHelpen = p.wanneerHelpen ?? c?.wanneerHelpen;
+const letOp = p.letOp ?? c?.letOp;
+---
+{vraag && antwoord && (
+  <section class="container" style="max-width:820px;padding-top:40px">
+    <div class="direct-answer">
+      <p class="direct-answer__label">Kort antwoord</p>
+      <p class="direct-answer__q">{vraag}</p>
+      <p class="direct-answer__a">{antwoord}</p>
+    </div>
+    {(voorWie || watLeerJe || wanneerHelpen || letOp) && (
+      <div class="ai-summary">
+        <p class="ai-summary__title">Samenvatting</p>
+        <dl>
+          {voorWie && (<><dt>Voor wie</dt><dd>{voorWie}</dd></>)}
+          {watLeerJe && (<><dt>Wat je hier leert</dt><dd>{watLeerJe}</dd></>)}
+          {wanneerHelpen && (<><dt>Wanneer wij helpen</dt><dd>{wanneerHelpen}</dd></>)}
+          {letOp && (<><dt>Belangrijkste aandachtspunt</dt><dd>{letOp}</dd></>)}
+        </dl>
+      </div>
+    )}
+  </section>
+)}

@@ -1,0 +1,73 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import AiBlocks from '../components/AiBlocks.astro';
+import Faq from '../components/Faq.astro';
+import CtaBand from '../components/CtaBand.astro';
+import { faqSchema, serviceSchema } from '../data/schema';
+
+const path = '/nieuwbouwprojecten-marokko/';
+const faqs = [
+  { q: 'Is off-plan (op plan) kopen in Marokko veilig?', a: 'Off-plan kopen kan aantrekkelijk zijn qua prijs en betaling in termijnen, maar brengt risico’s mee: vertraging, afwijkende oplevering of een onbetrouwbare ontwikkelaar. Wij controleren de ontwikkelaar, vergunningen en het contract vóór u zich verbindt.' },
+  { q: 'Hoe controleer ik een projectontwikkelaar in Marokko?', a: 'Kijk naar eerdere opgeleverde projecten, de bouwvergunning, de grondtitel en de financiële soliditeit. Wij doen deze verificatie voor u en beoordelen of de beloftes realistisch zijn.' },
+  { q: 'Kan ik een nieuwbouwappartement in termijnen betalen?', a: 'Ja, bij nieuwbouw is gespreide betaling tijdens de bouw gebruikelijk. Wij toetsen of de termijnen gekoppeld zijn aan bouwfasen en of uw betalingen goed beschermd zijn.' },
+];
+---
+<BaseLayout
+  title="Nieuwbouwprojecten Marokko controleren & kopen | Maghreb Estates"
+  description="Nieuwbouw en off-plan vastgoed in Marokko kopen? Wij controleren de projectontwikkelaar, vergunningen en het contract. Betaling in termijnen met Nederlandstalige begeleiding."
+  path={path}
+  schema={[faqSchema(faqs), serviceSchema({ naam: 'Nieuwbouwprojecten Marokko', beschrijving: 'Controle en begeleiding bij aankoop van nieuwbouw en off-plan vastgoed in Marokko.', path })]}
+>
+  <Hero
+    compact
+    eyebrow="Nieuwbouw & off-plan"
+    title="Nieuwbouwprojecten in Marokko,<br /><em>eerst gecontroleerd</em>"
+    sub="Off-plan kopen biedt kansen op prijs en betaling in termijnen — mits de ontwikkelaar deugt. Wij controleren het project vóór u zich verbindt."
+    image="/images/villa3.jpg"
+    ctas={[{ label: 'Laat het project controleren', href: '/contact/?doel=aankoopcontrole', primary: true }]}
+  />
+  <Breadcrumbs items={[{ label: 'Vastgoed Marokko', href: '/vastgoed-marokko/' }, { label: 'Nieuwbouwprojecten', href: path }]} />
+  <AiBlocks path={path} />
+
+  <section class="section">
+    <div class="container prose" style="max-width:760px">
+      <p><strong>Nieuwbouwprojecten in Marokko</strong> — off-plan of “op plan” gekocht — zijn populair: u koopt vaak onder de marktprijs en betaalt in termijnen tijdens de bouw. Maar juist bij off-plan is het risico groter, omdat u koopt wat er nog niet staat. Controle van de ontwikkelaar is dan cruciaal.</p>
+
+      <h2>Wat wij controleren bij een project</h2>
+      <ul>
+        <li><strong>De ontwikkelaar:</strong> track record, eerder opgeleverde projecten en soliditeit.</li>
+        <li><strong>Papieren:</strong> grondtitel (<a href="/titre-foncier-marokko/">titre foncier</a>), bouwvergunning en bestemming.</li>
+        <li><strong>Het contract:</strong> zijn de termijnen gekoppeld aan bouwfasen en zijn uw betalingen beschermd?</li>
+        <li><strong>Realistische oplevering:</strong> klopt de planning en de beloofde kwaliteit?</li>
+      </ul>
+
+      <h2>Betalen in termijnen</h2>
+      <p>Gespreid betalen verlaagt de instapdrempel, zeker voor een <a href="/appartement-kopen-marokko/">appartement</a>. Wij zorgen dat de betalingsstructuur logisch en veilig is en begeleiden de gang naar de <a href="/notaris-marokko-vastgoed/">notaris</a>.</p>
+
+      <h2>Nieuwbouw vs. bestaande bouw: wat kies je?</h2>
+      <div class="compare-wrap">
+        <table class="compare">
+          <caption>Vergelijking: nieuwbouw (off-plan) vs. bestaande bouw</caption>
+          <thead>
+            <tr><th>Aspect</th><th>Nieuwbouw / off-plan</th><th>Bestaande bouw</th></tr>
+          </thead>
+          <tbody>
+            <tr><th>Prijs</th><td>Vaak lagere instapprijs</td><td>Marktprijs, direct beschikbaar</td></tr>
+            <tr><th>Betaling</th><td>Vaak in termijnen tijdens de bouw</td><td>Doorgaans ineens bij overdracht</td></tr>
+            <tr><th>Zekerheid</th><td>Je koopt wat er nog niet staat</td><td>Je ziet wat je koopt</td></tr>
+            <tr><th>Grootste risico</th><td>Ontwikkelaar, vertraging, oplevering</td><td>Staat/onderhoud en titelstatus</td></tr>
+            <tr><th>Controle vooraf</th><td>Ontwikkelaar, vergunning, contract</td><td>Titre foncier, bouwkundige staat</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>Kansen voor investeerders</h2>
+      <p>Off-plan kan sterk zijn voor <a href="/investeren-vastgoed-marokko/">investeerders</a>: instappen vóór de waardestijging. Combineer dit met <a href="/beste-stad-investeren-vastgoed-marokko/">de beste steden</a> en ons <a href="/vastgoedbeheer-marokko/">beheer</a> voor verhuur na oplevering.</p>
+    </div>
+  </section>
+
+  <Faq items={faqs} title="Veelgestelde vragen over nieuwbouw in Marokko" />
+  <CtaBand label="Laat het project controleren" title="Overweegt u een nieuwbouwproject?" text="Stuur ons de brochure of de ontwikkelaar. Wij beoordelen of het klopt vóór u een euro overmaakt." href="/contact/?doel=aankoopcontrole" />
+</BaseLayout>

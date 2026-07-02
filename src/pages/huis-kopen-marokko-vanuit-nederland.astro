@@ -1,0 +1,81 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import TrustStrip from '../components/TrustStrip.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import AiBlocks from '../components/AiBlocks.astro';
+import CtaInline from '../components/CtaInline.astro';
+import Faq from '../components/Faq.astro';
+import CtaBand from '../components/CtaBand.astro';
+import { faqSchema, serviceSchema } from '../data/schema';
+
+const path = '/huis-kopen-marokko-vanuit-nederland/';
+const faqs = [
+  { q: 'Kan ik een huis kopen in Marokko zonder er zelf naartoe te reizen?', a: 'Ja. Met een volmacht (procuration) kunnen wij het volledige aankooptraject namens u afronden — van bezichtiging via video en onderhandeling tot de akte bij de notaris. U hoeft niet steeds af te reizen.' },
+  { q: 'Hoe werkt kopen op afstand met een volmacht?', a: 'U geeft ons of een vertrouwenspersoon een notariële volmacht voor specifieke, duidelijk afgebakende handelingen. Wij tekenen dan namens u. Houd de volmacht altijd beperkt en specifiek — lees onze aparte gids over kopen met volmacht voor de waarborgen.' },
+  { q: 'Hoe weet ik zeker dat de woning is wat wordt beloofd?', a: 'Wij bezichtigen persoonlijk, maken eigen beeldmateriaal en doen volledige dossiercontrole op de papieren. U koopt nooit op basis van alleen een advertentie of een foto.' },
+  { q: 'Is kopen op afstand niet extra riskant?', a: 'Kopen op afstand vraagt om extra zorgvuldigheid, maar is veilig mits u met een betrouwbare partij ter plaatse werkt die uitsluitend uw belang behartigt. Onze dossiercontrole en de officiële route via de notaris dekken de risico’s af.' },
+  { q: 'Kan ik als in Nederland wonende Marokkaan ook op afstand kopen?', a: 'Zeker. Veel van onze kopers zijn Nederlands-Marokkanen die vanuit Nederland of België kopen. Wij begrijpen zowel de Nederlandse verwachtingen als de Marokkaanse praktijk en slaan die brug voor u.' },
+  { q: 'Hoe verloopt de betaling bij kopen op afstand?', a: 'Betalingen lopen via de officiële kanalen en de notaris, nooit informeel. Wij zorgen dat u weet welk bedrag wanneer en waarvoor betaald wordt, met de juiste bewijsstukken.' },
+  { q: 'Kunnen jullie na aankoop de woning ook beheren?', a: 'Ja. Omdat u in Nederland woont, is beheer op afstand logisch: wij verzorgen verhuur, onderhoud en toezicht met transparante rapportage, zodat uw woning rendeert of goed onderhouden blijft.' },
+];
+---
+<BaseLayout
+  title="Huis kopen in Marokko vanuit Nederland (op afstand) | Maghreb Estates"
+  description="Een huis kopen in Marokko vanuit Nederland, ook volledig op afstand met volmacht. Wij regelen bezichtiging, dossiercontrole en notaris. Nederlandstalige begeleiding van A tot Z voor de diaspora."
+  path={path}
+  schema={[faqSchema(faqs), serviceSchema({ naam: 'Huis kopen Marokko vanuit Nederland', beschrijving: 'Begeleiding bij het op afstand kopen van vastgoed in Marokko vanuit Nederland.', path })]}
+>
+  <Hero
+    compact
+    eyebrow="Kopen op afstand"
+    title="Een huis kopen in Marokko,<br /><em>vanuit uw stoel in Nederland</em>"
+    sub="Geen tijd of mogelijkheid om steeds af te reizen? Wij regelen het volledige aankooptraject veilig op afstand — desgewenst met volmacht, altijd met dossiercontrole."
+    image="/images/villa1.jpg"
+    ctas={[
+      { label: 'Plan gratis adviesgesprek', href: '/contact/', primary: true },
+      { label: 'Download de checklist', href: '/contact/?doel=checklist' },
+    ]}
+  />
+  <Breadcrumbs items={[{ label: 'Vastgoed Marokko', href: '/vastgoed-marokko/' }, { label: 'Kopen vanuit Nederland', href: path }]} />
+  <AiBlocks path={path} />
+  <TrustStrip />
+
+  <section class="section">
+    <div class="container prose" style="max-width:760px">
+      <p>Een <strong>huis kopen in Marokko vanuit Nederland</strong> is goed te doen — ook zonder er zelf telkens bij te zijn. Voor veel Nederlanders en Nederlands-Marokkanen is dat precies de uitdaging: het werk, het gezin en de afstand maken het lastig om maandenlang zelf in Marokko de markt af te struinen, bezichtigingen te plannen en bij de notaris te zitten. De sleutel is een betrouwbare partij ter plaatse die uw belangen behartigt. Wij zijn uw ogen, oren en handen in Marokko.</p>
+      <p>Wij begrijpen zowel de verwachtingen van iemand die vanuit Nederland kijkt als hoe de markt in Marokko werkelijk beweegt. Die brugfunctie — Nederlandse duidelijkheid, lokale controle — is waar het bij kopen op afstand op aankomt.</p>
+
+      <h2>Zo verloopt kopen op afstand</h2>
+      <ul class="checks">
+        <li><strong>Selectie op afstand:</strong> wij delen een gefilterde shortlist met eigen beeld en een eerlijke analyse.</li>
+        <li><strong>Bezichtiging via video:</strong> live rondleidingen zodat u een realistisch beeld krijgt, geen geregisseerde foto’s.</li>
+        <li><strong>Dossiercontrole:</strong> due diligence op de <a href="/titre-foncier-marokko/">titre foncier</a>, het kadaster en het koopcontract.</li>
+        <li><strong>Volmacht:</strong> desgewenst tekenen wij namens u — zie onze <a href="/volmacht-huis-kopen-marokko/">gids over de volmacht</a>.</li>
+        <li><strong>Notaris & overdracht:</strong> begeleiding bij de <a href="/notaris-marokko-vastgoed/">notaris</a> tot de inschrijving op uw naam.</li>
+      </ul>
+
+      <CtaInline
+        title="Wilt u veilig op afstand kopen?"
+        text="Plan een gratis adviesgesprek. Wij leggen uit hoe het traject op afstand werkt en wat wij voor u kunnen regelen."
+      />
+
+      <h2>Kopen met volmacht (procuration)</h2>
+      <p>Met een <a href="/volmacht-huis-kopen-marokko/">volmacht</a> machtigt u ons of een vertrouwenspersoon om specifieke handelingen namens u te verrichten, tot en met de akte. Belangrijk: houd de volmacht <strong>beperkt en specifiek</strong>. Een te ruime, algemene volmacht is af te raden. Wij zorgen dat de volmacht zorgvuldig en veilig is opgesteld.</p>
+
+      <div class="warn">
+        <strong>De grootste fout bij kopen op afstand: betalen zonder controle.</strong>
+        <p>Een aanbetaling doen op basis van foto’s en een belofte, of geld overmaken naar een tussenpersoon, is precies hoe het misgaat. Bij ons geldt: eerst dossiercontrole en de officiële route via de notaris, dan pas betalen.</p>
+      </div>
+
+      <h2>Veilig, ook zonder fysieke aanwezigheid</h2>
+      <p>Kopen op afstand vraagt om extra zorgvuldigheid. Daarom is onze <a href="/aankoopbegeleiding-vastgoed-marokko/">aankoopbegeleiding</a> hier onmisbaar. Lees ook welke <a href="/risicos-huis-kopen-marokko/">risico’s</a> spelen en wat de <a href="/kosten-huis-kopen-marokko/">kosten</a> zijn, zodat u met open ogen en zonder verrassingen koopt. Voor het complete stappenplan ziet u <a href="/huis-kopen-marokko/">huis kopen in Marokko</a>.</p>
+
+      <h2>En na de aankoop?</h2>
+      <p>Woont u in Nederland en staat de woning in Marokko? Dan is beheer op afstand de logische volgende stap. Wij verzorgen het <a href="/vastgoedbeheer-marokko/">vastgoedbeheer</a>, de <a href="/huis-verhuren-marokko-vanuit-nederland/">verhuur</a> en zo gewenst <a href="/airbnb-beheer-marokko/">Airbnb-beheer</a>, zodat uw woning rendeert of goed onderhouden blijft terwijl u thuis bent. Koopt u als investering, bekijk dan ook <a href="/investeren-vastgoed-marokko/">investeren in vastgoed Marokko</a>.</p>
+    </div>
+  </section>
+
+  <Faq items={faqs} title="Veelgestelde vragen over kopen vanuit Nederland" />
+  <CtaBand />
+</BaseLayout>

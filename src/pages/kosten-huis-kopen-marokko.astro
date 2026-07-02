@@ -1,0 +1,67 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import AiBlocks from '../components/AiBlocks.astro';
+import Faq from '../components/Faq.astro';
+import CtaBand from '../components/CtaBand.astro';
+import { faqSchema, articleSchema } from '../data/schema';
+
+const path = '/kosten-huis-kopen-marokko/';
+const faqs = [
+  { q: 'Hoeveel bijkomende kosten heb ik bij een huis kopen in Marokko?', a: 'Reken op circa 6 tot 10% van de koopsom aan bijkomende kosten. De grootste post zijn de registratierechten (droits d’enregistrement), gevolgd door notariskosten, kadaster-/inschrijvingskosten en eventueel begeleidings- of makelaarskosten.' },
+  { q: 'Wat zijn de notariskosten in Marokko?', a: 'De notariskosten (honoraires) liggen doorgaans rond 0,5 tot 1% van de koopsom, plus zegel- en administratiekosten. De notaris int daarnaast de registratierechten en schrijft de akte in bij het kadaster.' },
+  { q: 'Zijn er verborgen kosten bij vastgoed in Marokko?', a: 'De bekende valkuil zijn informele afspraken en onduidelijke servicekosten. Wij maken vooraf een volledig kostenoverzicht, zodat u niet voor verrassingen komt te staan.' },
+];
+---
+<BaseLayout
+  title="Kosten huis kopen in Marokko: alle bijkomende kosten | Maghreb Estates"
+  description="Wat kost een huis kopen in Marokko? Volledig overzicht van registratierechten, notariskosten, kadaster en verborgen kosten. Reken op 6-10% bovenop de koopsom."
+  path={path}
+  schema={[faqSchema(faqs), articleSchema({ titel: 'Kosten huis kopen in Marokko', beschrijving: 'Overzicht van alle bijkomende kosten bij het kopen van een huis in Marokko.', path })]}
+>
+  <Hero
+    compact
+    eyebrow="Gids · Kosten"
+    title="De kosten van een<br /><em>huis kopen in Marokko</em>"
+    sub="Naast de koopsom betaalt u circa 6 tot 10% aan bijkomende kosten. Hier ziet u precies welke — zodat u niet voor verrassingen komt te staan."
+    image="/images/villa2.jpg"
+    ctas={[{ label: 'Ontvang de checklist', href: '/contact/?doel=checklist', primary: true }]}
+  />
+  <Breadcrumbs items={[{ label: 'Vastgoed Marokko', href: '/vastgoed-marokko/' }, { label: 'Gids: kosten', href: path }]} />
+  <AiBlocks path={path} />
+
+  <section class="section">
+    <div class="container prose" style="max-width:760px">
+      <p>De <strong>kosten van een huis kopen in Marokko</strong> gaan verder dan de koopsom. Reken op ongeveer <strong>6 tot 10% bijkomende kosten</strong>. Hieronder de opbouw, zodat u vooraf een compleet beeld heeft.</p>
+
+      <h2>De belangrijkste kostenposten</h2>
+      <ul>
+        <li><strong>Registratierechten (droits d’enregistrement):</strong> de grootste post. Voor een <strong>gebouwde woning</strong> geldt in beginsel <strong>4%</strong>; voor <strong>onbebouwde grond</strong> <strong>5%</strong>; voor de eerste verkoop van bepaalde <strong>sociale woningen</strong> <strong>3%</strong>.</li>
+        <li><strong>Notariskosten (honoraires):</strong> in de praktijk circa <strong>0,5–1%</strong> van de koopsom, met een praktisch minimum rond <strong>3.000 MAD</strong>, plus zegel- en administratiekosten. Zie de <a href="/notaris-marokko-vastgoed/">gids over de notaris</a>.</li>
+        <li><strong>Kadaster / inschrijving (conservation foncière):</strong> indicatief <strong>±1–1,5%</strong> plus kleine vaste kosten, voor de inschrijving van de <a href="/titre-foncier-marokko/">titre foncier</a> op uw naam.</li>
+        <li><strong>Zegelrechten (droits de timbre):</strong> doorgaans kleine vaste bedragen.</li>
+        <li><strong>Begeleiding / makelaar:</strong> optioneel; in de markt vaak ± 2,5% per partij of een totale fee rond 5%.</li>
+      </ul>
+      <p><strong>Totaalindicatie:</strong> zonder makelaar is <strong>±5,5–8,5%</strong> bovenop de koopsom realistisch; mét klassieke makelaarsfee eerder <strong>±8,5–11,5%</strong>. De vuistregel "6–10%" klopt dus redelijk, maar valt aan de lage kant uit als u ook courtage betaalt.</p>
+
+      <div class="warn">
+        <strong>Nieuwe cash-regel (sinds 1 juli 2026).</strong>
+        <p>Bij transacties boven <strong>300.000 MAD</strong> geldt een <strong>extra registratierecht van 2%</strong> als de betaalmodaliteiten niet correct in de akte staan of (deels) buiten de toegestane modaliteiten contant is betaald. Betaal daarom altijd via de notaris en correct gedocumenteerd. Op nieuwbouw van een ontwikkelaar zit doorgaans <strong>20% TVA</strong> in de prijs verdisconteerd.</p>
+      </div>
+
+      <h2>Het koopcontract (compromis de vente)</h2>
+      <p>Bij het voorlopig koopcontract betaalt u meestal een aanbetaling (in de praktijk vaak <strong>5–10%</strong>). Laat dit contract altijd controleren; onze <a href="/aankoopbegeleiding-vastgoed-marokko/">aankoopbegeleiding</a> doet dit standaard. Meer hierover in onze <a href="/koopcontract-marokko-vastgoed/">gids over het koopcontract</a>.</p>
+
+      <p style="font-size:14px;color:var(--text-muted)"><em>Percentages zijn indicatief (fiscale referentie begin 2026) en geen fiscaal advies. Officiële tarieven voor notaris, kadaster en zegels lopen in de praktijk uiteen — vraag vóór ondertekening altijd een gespecificeerd kostenblad bij de notaris.</em></p>
+
+      <h2>Verborgen kosten vermijden</h2>
+      <p>De grootste risico’s zijn informele afspraken en onduidelijke servicekosten. Lees de <a href="/risicos-huis-kopen-marokko/">gids over risico’s</a>. Wij maken vooraf een transparant totaaloverzicht voor uw situatie.</p>
+
+      <p>Klaar om te beginnen? Bekijk het volledige stappenplan op <a href="/huis-kopen-marokko/">huis kopen in Marokko</a>.</p>
+    </div>
+  </section>
+
+  <Faq items={faqs} title="Veelgestelde vragen over de kosten" />
+  <CtaBand label="Ontvang de checklist" title="Wilt u een compleet kostenoverzicht?" text="Wij maken een transparante kostenberekening voor uw specifieke aankoop. Vraag de checklist aan." href="/contact/?doel=checklist" />
+</BaseLayout>

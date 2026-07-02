@@ -1,0 +1,75 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import TrustStrip from '../components/TrustStrip.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import AiBlocks from '../components/AiBlocks.astro';
+import CtaInline from '../components/CtaInline.astro';
+import Faq from '../components/Faq.astro';
+import CtaBand from '../components/CtaBand.astro';
+import { faqSchema, articleSchema } from '../data/schema';
+
+const path = '/huis-kopen-marokko-zonder-oplichting/';
+const faqs = [
+  { q: 'Hoe koop ik een huis in Marokko zonder opgelicht te worden?', a: 'Verifieer de titre foncier bij het kadaster, controleer of de verkoper de echte eigenaar is en betaal uitsluitend via de notaris. Wees alert op haast, onduidelijke papieren en te lage prijzen.' },
+  { q: 'Waaraan herken ik een onbetrouwbare aanbieder?', a: 'Aan druk om snel aan te betalen buiten de notaris om, ontwijkende antwoorden over eigendomspapieren, alleen contant willen afhandelen, en geen onafhankelijke controle toestaan.' },
+  { q: 'Is kopen via familie veiliger?', a: 'Niet per se. Informele afspraken via familie leiden vaak tot onduidelijkheid. Een zakelijke, officiële aanpak via de notaris beschermt zowel jou als de relatie.' },
+  { q: 'Kan Maghreb Estates een aanbieder controleren?', a: 'Ja. Wij doen due diligence op het object, de eigendomstitel en de aanbieder, zodat je weet of het klopt vóór je betaalt.' },
+];
+---
+<BaseLayout
+  title="Huis kopen in Marokko zonder oplichting | Maghreb Estates"
+  description="Een huis kopen in Marokko zonder opgelicht te worden? Herken de trucs, controleer de titre foncier en betaal alleen via de notaris. Zo bescherm je jezelf stap voor stap."
+  path={path}
+  schema={[faqSchema(faqs), articleSchema({ titel: 'Huis kopen in Marokko zonder oplichting', beschrijving: 'Hoe je oplichting voorkomt bij het kopen van vastgoed in Marokko.', path })]}
+>
+  <Hero
+    compact
+    eyebrow="Veelgestelde vraag"
+    title="Een huis kopen in Marokko<br /><em>zonder oplichting</em>"
+    sub="De angst voor oplichting is terecht — maar bijna elk risico is te vermijden met de juiste controles."
+    image="/images/villa3.jpg"
+    ctas={[{ label: 'Laat je aankoop controleren', href: '/contact/?doel=aankoopcontrole', primary: true }]}
+  />
+  <Breadcrumbs items={[{ label: 'Vastgoed Marokko', href: '/vastgoed-marokko/' }, { label: 'Kopen zonder oplichting', href: path }]} />
+  <AiBlocks
+    path={path}
+    vraag="Hoe koop je een huis in Marokko zonder opgelicht te worden?"
+    antwoord="Verifieer altijd de titre foncier bij het kadaster, controleer of de verkoper daadwerkelijk de eigenaar is en betaal uitsluitend via de notaris. Wees alert op druk om snel aan te betalen, onduidelijke papieren en prijzen die te mooi lijken. Met deze controles sluit je de meeste vormen van oplichting uit."
+    voorWie="Kopers die bang zijn opgelicht te worden — terecht voorzichtig."
+    watLeerJe="De trucs, de waarschuwingssignalen en de controles die je beschermen."
+    wanneerHelpen="Met controle van de aanbieder, de eigenaar en het dossier vóór je betaalt."
+    letOp="Geen betaling zonder controle en zonder notaris — ook niet bij haast."
+  />
+  <TrustStrip />
+
+  <section class="section">
+    <div class="container prose" style="max-width:760px">
+      <h2>Waar gaat het meestal mis?</h2>
+      <ul>
+        <li>Verkoop zonder geregistreerde <a href="/titre-foncier-marokko/">titre foncier</a>.</li>
+        <li>Een “verkoper” die niet de echte eigenaar is, of dubbele verkoop.</li>
+        <li>Aanbetalingen buiten de <a href="/notaris-marokko-vastgoed/">notaris</a> om die verdwijnen.</li>
+        <li>Onbetrouwbare ontwikkelaars bij <a href="/off-plan-vastgoed-marokko/">off-plan</a> projecten.</li>
+      </ul>
+
+      <div class="warn">
+        <strong>De gouden regel.</strong>
+        <p>Geen betaling zonder controle en zonder notaris. Ook niet als de verkoper haast maakt of een “speciale prijs” belooft. Wij helpen je niet alleen zoeken, maar vooral voorkomen dat je verkeerd koopt.</p>
+      </div>
+
+      <CtaInline
+        title="Twijfel je over een aanbieder?"
+        text="Stuur ons het object of de aanbieder. Wij controleren de eigenaar, de titel en het dossier."
+        label="Laat je aankoop controleren"
+        href="/contact/?doel=aankoopcontrole"
+      />
+
+      <h2>Zo bescherm je jezelf</h2>
+      <p>Volledige uitleg vind je op <a href="/oplichting-vastgoed-marokko-voorkomen/">oplichting bij vastgoed in Marokko voorkomen</a> en <a href="/risicos-huis-kopen-marokko/">de grootste risico’s</a>. Onze <a href="/aankoopbegeleiding-vastgoed-marokko/">aankoopbegeleiding</a> voert de controles voor je uit — van <a href="/titre-foncier-marokko/">titelcontrole</a> tot het <a href="/koopcontract-marokko-vastgoed/">koopcontract</a>.</p>
+    </div>
+  </section>
+
+  <Faq items={faqs} title="Veelgestelde vragen" />
+  <CtaBand label="Laat je aankoop controleren" href="/contact/?doel=aankoopcontrole" />
+</BaseLayout>

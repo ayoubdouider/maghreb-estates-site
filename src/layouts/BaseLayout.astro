@@ -1,0 +1,100 @@
+---
+import '../styles/global.css';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import { site } from '../data/site';
+
+interface Props {
+  title: string;
+  description: string;
+  /** Pad zonder domein, bv. "/huis-kopen-marokko/". Default = huidige pagina. */
+  path?: string;
+  image?: string;
+  /** Extra JSON-LD objecten (FAQPage, Service, Article, BreadcrumbList...) */
+  schema?: object[];
+  noindex?: boolean;
+}
+
+const { title, description, image = site.ogImage, schema = [], noindex = false } = Astro.props;
+
+const canonical = new URL(Astro.props.path ?? Astro.url.pathname, site.url).href;
+const ogImageAbs = new URL(image, site.url).href;
+
+// Organization-schema staat op elke pagina (merk-autoriteit).
+const orgSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'RealEstateAgent',
+  '@id': site.url + '/#organization',
+  name: site.naam,
+  url: site.url,
+  image: ogImageAbs,
+  logo: new URL(site.logo, site.url).href,
+  telephone: site.telefoon,
+  email: site.email,
+  description: site.tagline,
+  areaServed: [
+    { '@type': 'Country', name: 'Marokko' },
+    { '@type': 'Country', name: 'Nederland' },
+    { '@type': 'Country', name: 'België' },
+  ],
+  knowsLanguage: ['nl', 'ar', 'fr', 'en'],
+  slogan: 'Vastgoed in Marokko, met Nederlandse duidelijkheid en lokale controle.',
+  foundingDate: String(site.oprichting),
+  contactPoint: {
+    '@type': 'ContactPoint',
+    telephone: site.telefoon,
+    email: site.email,
+    contactType: 'customer service',
+    areaServed: ['NL', 'BE', 'MA'],
+    availableLanguage: ['Dutch', 'Arabic', 'French', 'English'],
+  },
+  ...(site.sameAs.length ? { sameAs: site.sameAs } : {}),
+};
+
+const allSchema = [orgSchema, ...schema];
+---
+
+<!doctype html>
+<html lang="nl" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    {noindex && <meta name="robots" content="noindex, follow" />}
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={site.naam} />
+    <meta property="og:locale" content="nl_NL" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImageAbs} />
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageAbs} />
+
+    <link rel="icon" type="image/png" href="/images/logo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    {allSchema.map((s) => (
+      <script type="application/ld+json" set:html={JSON.stringify(s)} />
+    ))}
+  </head>
+  <body>
+    <Nav />
+    <main>
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

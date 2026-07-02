@@ -1,0 +1,79 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import TrustStrip from '../components/TrustStrip.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import AiBlocks from '../components/AiBlocks.astro';
+import CtaInline from '../components/CtaInline.astro';
+import Faq from '../components/Faq.astro';
+import CtaBand from '../components/CtaBand.astro';
+import { faqSchema, articleSchema } from '../data/schema';
+
+const path = '/airbnb-marokko-investering/';
+const faqs = [
+  { q: 'Is een Airbnb-woning in Marokko een goede investering?', a: 'In toeristische steden kan vakantieverhuur via Airbnb een aantrekkelijk bruto rendement geven, hoger dan langetermijnverhuur. Het is wel seizoens- en beheerintensiever, en de netto opbrengst hangt af van bezetting en kosten. Wij rekenen het realistisch door.' },
+  { q: 'Welke steden zijn geschikt voor een Airbnb-investering?', a: 'Steden met een sterke toeristische vraag, zoals Marrakech, Agadir en de kuststeden, zijn vaak het meest geschikt. De haalbare bezetting verschilt per stad, wijk en object en moet individueel worden beoordeeld.' },
+  { q: 'Wat kost het beheer van een Airbnb in Marokko?', a: 'Beheer wordt meestal berekend als percentage van de omzet. Daarnaast zijn er kosten voor schoonmaak, onderhoud, nutsvoorzieningen en platformkosten. Deze bepalen samen uw netto rendement.' },
+  { q: 'Moet ik mijn vakantiewoning registreren?', a: 'Voor toeristische verhuur gelden lokale regels en registratie-eisen. Wij zorgen dat de verhuur correct en volgens de regels verloopt.' },
+  { q: 'Regelen jullie ook het volledige beheer?', a: 'Ja. Via ons Airbnb-beheer verzorgen wij advertentie, prijsstrategie, gasten, schoonmaak en onderhoud, zodat uw investering rendeert zonder dat u het zelf hoeft te doen.' },
+];
+---
+<BaseLayout
+  title="Airbnb Marokko als investering: rendement & aanpak | Maghreb Estates"
+  description="Een Airbnb-woning in Marokko als investering? Ontdek de rendementskansen, de beste steden, de kosten en de risico’s van vakantieverhuur — met realistische, netto berekeningen."
+  path={path}
+  schema={[faqSchema(faqs), articleSchema({ titel: 'Airbnb Marokko als investering', beschrijving: 'Vakantieverhuur via Airbnb in Marokko als investering: rendement, steden en aanpak.', path })]}
+>
+  <Hero
+    compact
+    eyebrow="Investeren"
+    title="Airbnb in Marokko<br /><em>als investering</em>"
+    sub="Vakantieverhuur kan sterk renderen in de juiste stad. Wat realistisch is, waar de kansen zitten en welke kosten en risico’s meewegen."
+    image="/images/villa4.jpg"
+    ctas={[
+      { label: 'Vraag investeringsanalyse aan', href: '/contact/?doel=investeringsanalyse', primary: true },
+      { label: 'Plan gratis adviesgesprek', href: '/contact/' },
+    ]}
+  />
+  <Breadcrumbs items={[{ label: 'Vastgoed Marokko', href: '/vastgoed-marokko/' }, { label: 'Investeren', href: '/investeren-vastgoed-marokko/' }, { label: 'Airbnb-investering', href: path }]} />
+  <AiBlocks path={path} />
+  <TrustStrip />
+
+  <section class="section">
+    <div class="container prose" style="max-width:760px">
+      <p>Een <strong>Airbnb-woning in Marokko als investering</strong> spreekt tot de verbeelding: hogere opbrengsten dan langetermijnverhuur, in een land met sterk groeiend toerisme. Maar vakantieverhuur is ook intensiever en gevoeliger voor seizoen en bezetting. Deze pagina helpt u de kansen nuchter te wegen.</p>
+
+      <h2>Waarom Airbnb interessant kan zijn</h2>
+      <ul class="checks">
+        <li>Hoger <a href="/huur-rendement-marokko/">bruto huurrendement</a> dan langetermijnverhuur in toeristische steden.</li>
+        <li>Flexibiliteit: zelf gebruiken én verhuren.</li>
+        <li>Sterke, groeiende toeristische vraag in bepaalde steden.</li>
+      </ul>
+
+      <h2>Waar het rendement zit — en de valkuilen</h2>
+      <p>De haalbaarheid verschilt sterk per stad en wijk. Toeristische steden als <a href="/vastgoed-marrakech/">Marrakech</a>, <a href="/vastgoed-agadir/">Agadir</a> en <a href="/vastgoed-essaouira/">Essaouira</a> hebben doorgaans de sterkste vraag. Reken wel met leegstand buiten het seizoen en met de nodige kosten.</p>
+      <p>Indicatieve bezettingsgraden uit marktdata (begin 2026): <strong>Agadir ±47%</strong>, <strong>Essaouira ±46%</strong>, <strong>Marrakech ±44%</strong>, <strong>Tanger ±43%</strong>, <strong>Tétouan ±42%</strong>, <strong>Dakhla ±38%</strong>. Gemiddelde nachtprijzen lopen sterk uiteen (bijv. Marrakech duidelijk hoger dan de kuststeden). Behandel dit als oriëntatie: de werkelijke bezetting hangt af van wijk, kwaliteit en beheer.</p>
+
+      <div class="warn">
+        <strong>Bruto is niet netto.</strong>
+        <p>Schoonmaak, beheer, onderhoud, platformkosten, nutsvoorzieningen en leegstand drukken het rendement. Reken altijd netto en houd rekening met seizoensschommelingen. Wees kritisch op te mooie bezettings- en rendementsbeloftes.</p>
+      </div>
+
+      <CtaInline
+        title="Wilt u weten of Airbnb rendeert?"
+        text="Wij maken een realistische, netto berekening voor een specifiek object of stad — inclusief bezetting en kosten."
+        label="Vraag investeringsanalyse aan"
+        href="/contact/?doel=investeringsanalyse"
+      />
+
+      <h2>Regels en registratie</h2>
+      <p>Toeristische verhuur kent lokale regels en registratie-eisen. Wij zorgen dat uw verhuur correct verloopt, zodat u geen problemen krijgt met de regelgeving.</p>
+
+      <h2>Van aankoop tot beheer</h2>
+      <p>Begint u nog? Laat de aankoop begeleiden via onze <a href="/aankoopbegeleiding-vastgoed-marokko/">aankoopbegeleiding</a> en dossiercontrole. Voor de exploitatie verzorgen wij het volledige <a href="/airbnb-beheer-marokko/">Airbnb-beheer</a>. Vergelijk ook met stabiele <a href="/verhuurbeheer-marokko/">langetermijnverhuur</a> en bekijk de bredere aanpak op <a href="/investeren-vastgoed-marokko/">investeren in vastgoed Marokko</a>.</p>
+    </div>
+  </section>
+
+  <Faq items={faqs} title="Veelgestelde vragen over Airbnb als investering" />
+  <CtaBand label="Vraag investeringsanalyse aan" title="Airbnb-investering overwegen?" text="Wij rekenen de vakantieverhuur realistisch voor u door — netto, per stad en object." href="/contact/?doel=investeringsanalyse" />
+</BaseLayout>

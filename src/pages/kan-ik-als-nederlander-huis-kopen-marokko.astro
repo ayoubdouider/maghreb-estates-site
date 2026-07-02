@@ -1,0 +1,66 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import TrustStrip from '../components/TrustStrip.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import AiBlocks from '../components/AiBlocks.astro';
+import CtaInline from '../components/CtaInline.astro';
+import Faq from '../components/Faq.astro';
+import CtaBand from '../components/CtaBand.astro';
+import { faqSchema, articleSchema } from '../data/schema';
+
+const path = '/kan-ik-als-nederlander-huis-kopen-marokko/';
+const faqs = [
+  { q: 'Kan ik als Nederlander een huis kopen in Marokko?', a: 'Ja. Er zijn geen nationaliteitsbeperkingen voor het kopen van een woning, appartement of villa. Alleen bepaalde landbouwgrond is voor buitenlanders uitgezonderd.' },
+  { q: 'Heb ik de Marokkaanse nationaliteit nodig?', a: 'Nee. Zowel Nederlanders zonder Marokkaanse achtergrond als Nederlands-Marokkanen kunnen kopen. De aankoop verloopt in beide gevallen via de notaris.' },
+  { q: 'Kan ik kopen zonder in Marokko te wonen of te zijn?', a: 'Ja. Kopen kan vanuit Nederland, desgewenst volledig op afstand met een notariële volmacht (procuration).' },
+  { q: 'Wat heb ik nodig om te kopen?', a: 'Een geldig identiteitsbewijs en de financiële middelen. Voor de overdracht is een notaris nodig; wij regelen de dossiercontrole en begeleiding.' },
+];
+---
+<BaseLayout
+  title="Kan ik als Nederlander een huis kopen in Marokko? | Maghreb Estates"
+  description="Ja, als Nederlander of Nederlands-Marokkaan kun je vrijwel overal in Marokko een huis kopen — ook op afstand. Lees de voorwaarden, de stappen en hoe je veilig koopt."
+  path={path}
+  schema={[faqSchema(faqs), articleSchema({ titel: 'Kan ik als Nederlander een huis kopen in Marokko?', beschrijving: 'De voorwaarden voor Nederlanders en Nederlands-Marokkanen om vastgoed te kopen in Marokko.', path })]}
+>
+  <Hero
+    compact
+    eyebrow="Veelgestelde vraag"
+    title="Kan ik als Nederlander<br /><em>een huis kopen in Marokko?</em>"
+    sub="Het korte antwoord is ja — maar veilig kopen vraagt om controle van de papieren. Hier lees je precies hoe het zit."
+    image="/images/villa1.jpg"
+    ctas={[{ label: 'Plan gratis adviesgesprek', href: '/contact/', primary: true }]}
+  />
+  <Breadcrumbs items={[{ label: 'Vastgoed Marokko', href: '/vastgoed-marokko/' }, { label: 'Kan ik als Nederlander kopen?', href: path }]} />
+  <AiBlocks
+    path={path}
+    vraag="Kan ik als Nederlander een huis kopen in Marokko?"
+    antwoord="Ja. Nederlanders en Nederlands-Marokkanen mogen vrijwel overal in Marokko een woning, appartement of villa kopen; alleen bepaalde landbouwgrond is uitgezonderd. Je hoeft er niet te wonen en zelfs niet aanwezig te zijn — kopen kan op afstand met een volmacht. Belangrijk: koop nooit voordat de eigendomstitel (titre foncier) is gecontroleerd en de overdracht via de notaris loopt."
+    voorWie="Nederlanders en Nederlands-Marokkanen die overwegen te kopen in Marokko."
+    watLeerJe="Of je mag kopen, wat je nodig hebt en hoe je het veilig aanpakt."
+    wanneerHelpen="Met dossiercontrole, begeleiding en de gang naar de notaris — ook op afstand."
+    letOp="Geen aankoop zonder gecontroleerde titre foncier en notaris."
+  />
+  <TrustStrip />
+
+  <section class="section">
+    <div class="container prose" style="max-width:760px">
+      <h2>Mag je als buitenlander vastgoed kopen in Marokko?</h2>
+      <p>Ja. Marokko kent geen nationaliteitsbeperking voor het kopen van bebouwd vastgoed. Een woning, appartement of villa staat open voor Nederlanders, Belgen en Nederlands-Marokkanen. De enige noemenswaardige uitzondering is bepaalde <em>landbouwgrond</em> (terres agricoles). Voor het reguliere woningaanbod hoef je je hier geen zorgen over te maken.</p>
+
+      <h2>Moet ik in Marokko zijn om te kopen?</h2>
+      <p>Nee. Je kunt <a href="/huis-kopen-marokko-vanuit-nederland/">kopen vanuit Nederland</a>, en met een <a href="/volmacht-huis-kopen-marokko/">volmacht (procuration)</a> zelfs zonder er zelf bij te zijn. Wij bezichtigen, controleren de papieren en begeleiden de overdracht bij de notaris namens jou.</p>
+
+      <CtaInline
+        title="Wil je weten of jouw situatie kan?"
+        text="Plan een gratis adviesgesprek. Wij vertellen je eerlijk wat mogelijk is en wat de stappen zijn."
+      />
+
+      <h2>Hoe koop je dan veilig?</h2>
+      <p>Kunnen kopen is niet hetzelfde als veilig kopen. De echte vraag is of het dossier klopt. Lees het complete stappenplan op <a href="/huis-kopen-marokko/">huis kopen in Marokko</a>, de <a href="/risicos-huis-kopen-marokko/">risico’s en hoe je ze vermijdt</a>, en waarom de <a href="/titre-foncier-marokko/">titre foncier</a> en de <a href="/notaris-marokko-vastgoed/">notaris</a> bepalend zijn. Onze <a href="/aankoopbegeleiding-vastgoed-marokko/">aankoopbegeleiding</a> neemt de controle voor je uit handen.</p>
+    </div>
+  </section>
+
+  <Faq items={faqs} title="Veelgestelde vragen" />
+  <CtaBand />
+</BaseLayout>

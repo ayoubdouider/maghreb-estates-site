@@ -1,0 +1,59 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import AiBlocks from '../components/AiBlocks.astro';
+import Definitie from '../components/Definitie.astro';
+import Faq from '../components/Faq.astro';
+import CtaBand from '../components/CtaBand.astro';
+import { faqSchema, articleSchema } from '../data/schema';
+
+const path = '/notaris-marokko-vastgoed/';
+const faqs = [
+  { q: 'Wat doet de notaris bij een huis kopen in Marokko?', a: 'De notaris stelt de definitieve koopakte op, controleert de eigendomstitel, int de registratierechten en zorgt voor inschrijving op uw naam bij het kadaster. De notaris is de spil van een veilige, officiële transactie.' },
+  { q: 'Heb ik een notaris of een adoul nodig in Marokko?', a: 'Voor geregistreerd vastgoed (met titre foncier) werkt u met een notaire. Voor bepaald traditioneel of niet-geregistreerd bezit wordt soms een adoul (traditionele akteopsteller) gebruikt. Voor buitenlandse kopers adviseren wij vrijwel altijd de notaire-route.' },
+  { q: 'Heb ik ook een advocaat nodig?', a: 'Een advocaat is niet verplicht, maar bij complexe situaties (erfenis, onduidelijke eigendom, geschillen) kan juridisch advies verstandig zijn. Wij schakelen indien nodig een betrouwbare jurist in.' },
+];
+---
+<BaseLayout
+  title="Notaris Marokko vastgoed: rol bij huis kopen | Maghreb Estates"
+  description="De rol van de notaris bij een huis kopen in Marokko: koopakte, controle van de eigendomstitel, registratierechten en inschrijving. Notaris, adoul of advocaat — wat heeft u nodig?"
+  path={path}
+  schema={[faqSchema(faqs), articleSchema({ titel: 'Notaris Marokko vastgoed', beschrijving: 'De rol van de notaris bij het kopen van vastgoed in Marokko.', path })]}
+>
+  <Hero
+    compact
+    eyebrow="Gids · Notaris"
+    title="De notaris bij vastgoed<br /><em>in Marokko</em>"
+    sub="De notaris is de spil van een veilige aankoop: akte, controle van de titel en inschrijving. Zo werkt het — en wanneer u een adoul of advocaat nodig heeft."
+    image="/images/villa1.jpg"
+    ctas={[{ label: 'Plan gratis adviesgesprek', href: '/contact/', primary: true }]}
+  />
+  <Breadcrumbs items={[{ label: 'Vastgoed Marokko', href: '/vastgoed-marokko/' }, { label: 'Gids: notaris', href: path }]} />
+  <AiBlocks path={path} />
+
+  <section class="section">
+    <div class="container prose" style="max-width:760px">
+      <p>De <strong>notaris speelt bij vastgoed in Marokko</strong> een centrale rol. Anders dan bij informele afspraken zorgt de notaris (notaire) voor een officiële, controleerbare transactie — uw belangrijkste waarborg tegen de bekende <a href="/risicos-huis-kopen-marokko/">risico’s</a>.</p>
+
+      <Definitie id="notaris" />
+
+      <h2>Wat de notaris voor u doet</h2>
+      <ul>
+        <li><strong>Koopakte opstellen:</strong> de definitieve akte (acte de vente).</li>
+        <li><strong>Titel controleren:</strong> verificatie van de <a href="/titre-foncier-marokko/">titre foncier</a> en eventuele lasten.</li>
+        <li><strong>Registratierechten innen:</strong> zie de <a href="/kosten-huis-kopen-marokko/">kostengids</a>.</li>
+        <li><strong>Inschrijving:</strong> uw eigendom op uw naam bij het kadaster (conservation foncière).</li>
+      </ul>
+
+      <h2>Notaire, adoul of advocaat?</h2>
+      <p>Voor geregistreerd vastgoed werkt u met een <strong>notaire</strong>. Een <strong>adoul</strong> komt voor bij bepaald traditioneel bezit. Een <strong>advocaat</strong> is optioneel, maar nuttig bij erfenis of geschillen. Wij adviseren u welke route bij uw situatie past.</p>
+
+      <h2>Begeleiding bij de notaris</h2>
+      <p>Wij begeleiden u door het notariële traject — ook <a href="/huis-kopen-marokko-vanuit-nederland/">op afstand</a>, desgewenst met <a href="/volmacht-huis-kopen-marokko/">volmacht</a>. Onderdeel van onze <a href="/aankoopbegeleiding-vastgoed-marokko/">aankoopbegeleiding</a>.</p>
+    </div>
+  </section>
+
+  <Faq items={faqs} title="Veelgestelde vragen over de notaris" />
+  <CtaBand />
+</BaseLayout>

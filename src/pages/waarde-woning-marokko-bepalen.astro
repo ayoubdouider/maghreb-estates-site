@@ -1,0 +1,78 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import TrustStrip from '../components/TrustStrip.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import AiBlocks from '../components/AiBlocks.astro';
+import CtaInline from '../components/CtaInline.astro';
+import Faq from '../components/Faq.astro';
+import CtaBand from '../components/CtaBand.astro';
+import { faqSchema, serviceSchema } from '../data/schema';
+
+const path = '/waarde-woning-marokko-bepalen/';
+const faqs = [
+  { q: 'Hoe bepaal ik de waarde van een woning in Marokko?', a: 'Een realistische waarde volgt uit een vergelijking met soortgelijke, recent verkochte of aangeboden objecten in dezelfde stad en wijk, gecorrigeerd voor staat, ligging, oppervlakte en voorzieningen. Vraagprijzen alleen zijn misleidend; het gaat om realistische transactiewaarden.' },
+  { q: 'Waarom is een goede waardebepaling belangrijk?', a: 'Bij aankoop voorkomt het dat u te veel betaalt (de “buitenlander-prijs”); bij verkoop voorkomt het langdurige leegstand of onderverkoop; bij investeren is het de basis onder uw rendementsberekening.' },
+  { q: 'Welke factoren beïnvloeden de waarde?', a: 'Locatie en wijk, oppervlakte en indeling, bouwjaar en staat, afwerking, voorzieningen (lift, parkeren, zwembad), zeezicht, en de aanwezigheid van een geregistreerde titre foncier. Ook de lokale vraag speelt mee.' },
+  { q: 'Kan de waarde op afstand worden bepaald?', a: 'Deels. Een eerste inschatting kan op basis van gegevens en marktdata, maar een betrouwbare waardebepaling vraagt vaak om een controle ter plaatse. Wij combineren beide.' },
+  { q: 'Maken jullie een waardebepaling voor mij?', a: 'Ja. Wij stellen op basis van marktdata en lokale kennis een realistische waardebepaling op, of u nu wilt kopen, verkopen of investeren.' },
+];
+---
+<BaseLayout
+  title="Waarde woning in Marokko bepalen (taxatie & marktwaarde) | Maghreb Estates"
+  description="Hoe bepaalt u de waarde van een woning in Marokko? Realistische marktwaarde op basis van vergelijkbare objecten, ligging en staat — belangrijk bij kopen, verkopen en investeren."
+  path={path}
+  schema={[faqSchema(faqs), serviceSchema({ naam: 'Waardebepaling woning Marokko', beschrijving: 'Realistische waardebepaling van woningen in Marokko voor koop, verkoop en investering.', path })]}
+>
+  <Hero
+    compact
+    eyebrow="Verkoop & waarde"
+    title="De waarde van een woning<br /><em>in Marokko bepalen</em>"
+    sub="Een realistische waardebepaling voorkomt dat u te veel betaalt of te goedkoop verkoopt. Hoe het werkt en waar het op aankomt."
+    image="/images/villa2.jpg"
+    ctas={[
+      { label: 'Vraag een waardebepaling aan', href: '/contact/?doel=investeringsanalyse', primary: true },
+      { label: 'Plan gratis adviesgesprek', href: '/contact/' },
+    ]}
+  />
+  <Breadcrumbs items={[{ label: 'Vastgoed Marokko', href: '/vastgoed-marokko/' }, { label: 'Waarde woning bepalen', href: path }]} />
+  <AiBlocks path={path} />
+  <TrustStrip />
+
+  <section class="section">
+    <div class="container prose" style="max-width:760px">
+      <p>De <strong>waarde van een woning in Marokko bepalen</strong> is bij elke stap cruciaal: bij aankoop om niet te veel te betalen, bij verkoop om een reële prijs te vragen, en bij investeren als basis onder uw rendement. Vraagprijzen zeggen weinig — het gaat om realistische marktwaarde.</p>
+
+      <h2>Hoe een waardebepaling tot stand komt</h2>
+      <p>Een betrouwbare waardebepaling vergelijkt uw woning met soortgelijke objecten in dezelfde stad en wijk, gecorrigeerd voor de relevante factoren. Wij gebruiken marktdata én lokale kennis, want de Marokkaanse markt is versnipperd en cijfers moeten in context worden geplaatst.</p>
+
+      <h2>Factoren die de waarde bepalen</h2>
+      <ul class="checks">
+        <li>Locatie, wijk en bereikbaarheid.</li>
+        <li>Oppervlakte, indeling en bouwjaar.</li>
+        <li>Staat en afwerking.</li>
+        <li>Voorzieningen: lift, parkeren, zwembad, zeezicht.</li>
+        <li>Aanwezigheid van een geregistreerde <a href="/titre-foncier-marokko/">titre foncier</a>.</li>
+        <li>Lokale vraag en verhuurpotentie.</li>
+      </ul>
+
+      <div class="warn">
+        <strong>Pas op met vraagprijzen en “buitenlander-prijzen”.</strong>
+        <p>Advertentieprijzen liggen vaak hoger dan de werkelijke transactiewaarde, en buitenlandse kopers krijgen niet altijd de reële prijs. Een onafhankelijke waardebepaling beschermt u.</p>
+      </div>
+
+      <CtaInline
+        title="Wilt u de waarde weten?"
+        text="Wij stellen een realistische waardebepaling op — voor aankoop, verkoop of investering."
+        label="Vraag een waardebepaling aan"
+        href="/contact/?doel=investeringsanalyse"
+      />
+
+      <h2>Waardebepaling bij kopen, verkopen en investeren</h2>
+      <p>Gaat u <a href="/huis-kopen-marokko/">kopen</a>? Dan onderhandelen wij op basis van de reële waarde, als onderdeel van onze <a href="/aankoopbegeleiding-vastgoed-marokko/">aankoopbegeleiding</a>. Wilt u <a href="/huis-verkopen-marokko-vanuit-nederland/">verkopen vanuit Nederland</a>? Dan bepaalt de juiste vraagprijs uw succes. En voor <a href="/investeren-vastgoed-marokko/">investeerders</a> is de waarde de basis onder het <a href="/huur-rendement-marokko/">huurrendement</a>.</p>
+    </div>
+  </section>
+
+  <Faq items={faqs} title="Veelgestelde vragen over waardebepaling" />
+  <CtaBand label="Vraag een waardebepaling aan" title="Benieuwd naar de waarde?" text="Wij maken een realistische waardebepaling op basis van marktdata en lokale kennis." href="/contact/?doel=investeringsanalyse" />
+</BaseLayout>

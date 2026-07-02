@@ -1,0 +1,81 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import TrustStrip from '../components/TrustStrip.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import AiBlocks from '../components/AiBlocks.astro';
+import CtaInline from '../components/CtaInline.astro';
+import Faq from '../components/Faq.astro';
+import CtaBand from '../components/CtaBand.astro';
+import { faqSchema, articleSchema } from '../data/schema';
+
+const path = '/beste-stad-vastgoed-investeren-marokko/';
+const faqs = [
+  { q: 'Welke stad in Marokko is het beste voor vastgoedinvestering?', a: 'Er is niet één beste stad; het hangt af van je doel. Casablanca, Rabat en Tanger zijn sterk voor stabiele waarde en verhuur; Marrakech en Agadir voor toeristische verhuur; Kenitra, Nador en Dakhla voor vroege groeikansen.' },
+  { q: 'Is Tanger beter dan Casablanca voor investeren?', a: 'Beide zijn sterk, maar met een ander profiel. Tanger biedt hoge groei en export-/expatverhuur; Casablanca de grootste, meest liquide markt met stabiele zakelijke verhuur. De keuze hangt af van je risicoprofiel en horizon.' },
+  { q: 'Waar is het rendement het hoogst?', a: 'Toeristische steden (Marrakech, Agadir, kust) kunnen bij vakantieverhuur hogere bruto rendementen geven; groeisteden bieden waardestijging. Reken altijd netto en per object.' },
+  { q: 'Welke stad past bij vakantieverhuur?', a: 'Marrakech, Agadir en de kuststeden hebben de sterkste toeristische vraag en zijn daardoor geschikt voor Airbnb-verhuur.' },
+];
+---
+<BaseLayout
+  title="Beste stad om in vastgoed te investeren in Marokko | Maghreb Estates"
+  description="Welke stad in Marokko is het beste voor vastgoedinvestering? Vergelijk Tanger, Casablanca, Rabat, Marrakech en Agadir op waarde, verhuur en rendement — en kies op basis van je doel."
+  path={path}
+  schema={[faqSchema(faqs), articleSchema({ titel: 'Beste stad om in vastgoed te investeren in Marokko', beschrijving: 'Vergelijking van steden voor vastgoedinvestering in Marokko.', path })]}
+>
+  <Hero
+    compact
+    eyebrow="Veelgestelde vraag"
+    title="Welke stad is het beste<br /><em>voor vastgoedinvestering?</em>"
+    sub="Er is niet één beste stad — wel een beste stad voor jóuw doel. Vergelijk de profielen."
+    image="/images/villa4.jpg"
+    ctas={[{ label: 'Vraag investeringsanalyse aan', href: '/contact/?doel=investeringsanalyse', primary: true }]}
+  />
+  <Breadcrumbs items={[{ label: 'Vastgoed Marokko', href: '/vastgoed-marokko/' }, { label: 'Investeren', href: '/investeren-vastgoed-marokko/' }, { label: 'Beste stad', href: path }]} />
+  <AiBlocks
+    path={path}
+    vraag="Welke stad in Marokko is het beste om in vastgoed te investeren?"
+    antwoord="Er is niet één beste stad; het hangt af van je doel. Voor stabiele waarde en zakelijke verhuur zijn Casablanca, Rabat en Tanger sterk; voor toeristische verhuur Marrakech, Agadir en de kuststeden; voor vroege groeikansen Kenitra, Nador en Dakhla. Kies op basis van doel en risicoprofiel, niet op basis van het toevallige aanbod."
+    voorWie="Investeerders die nog moeten kiezen waar ze instappen."
+    watLeerJe="Het profiel per stad en welke stad bij welk doel past."
+    wanneerHelpen="Met een stad- en objectkeuze op basis van je doel en budget."
+    letOp="Groeiverwachting is geen garantie op waardestijging."
+  />
+  <TrustStrip />
+
+  <section class="section">
+    <div class="container prose" style="max-width:820px">
+      <h2>Is Tanger beter dan Casablanca voor investeren?</h2>
+      <p>Beide zijn sterk, maar met een ander karakter. Onderstaande tabel vergelijkt vijf kernsteden op hoofdprofiel. De cijfers zijn indicatief; het werkelijke rendement moet per object worden beoordeeld.</p>
+
+      <div class="compare-wrap">
+        <table class="compare">
+          <caption>Vergelijking: vijf steden voor vastgoedinvestering</caption>
+          <thead>
+            <tr><th>Stad</th><th>Sterkste profiel</th><th>Populair bij</th><th>Let op</th></tr>
+          </thead>
+          <tbody>
+            <tr><th><a href="/vastgoed-tanger/">Tanger</a></th><td>Groei + export/expatverhuur</td><td>Groei-investeerders, diaspora noord</td><td>Grote prijsspread per wijk</td></tr>
+            <tr><th><a href="/vastgoed-casablanca/">Casablanca</a></th><td>Grootste, meest liquide markt; zakelijke verhuur</td><td>Investeerders die stabiliteit zoeken</td><td>Toplocaties duur</td></tr>
+            <tr><th><a href="/vastgoed-rabat/">Rabat</a></th><td>Stabiele waarde, laag risico</td><td>Kopers die zekerheid zoeken</td><td>Gematigde yield</td></tr>
+            <tr><th><a href="/vastgoed-marrakech/">Marrakech</a></th><td>Toeristische/Airbnb-verhuur</td><td>Vakantieverhuur-investeerders</td><td>Seizoens- en beheerintensief</td></tr>
+            <tr><th><a href="/vastgoed-agadir/">Agadir</a></th><td>Kust + vakantieverhuur</td><td>Tweede woning + verhuur</td><td>Seizoensgebonden</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <CtaInline
+        title="Welke stad past bij jouw doel?"
+        text="Wij maken een investeringsanalyse per stad en object — realistisch en netto."
+        label="Vraag investeringsanalyse aan"
+        href="/contact/?doel=investeringsanalyse"
+      />
+
+      <h2>Kies op basis van je doel</h2>
+      <p>Zie het volledige overzicht met alle 18 steden op <a href="/beste-stad-investeren-vastgoed-marokko/">beste steden om te investeren</a>, en verdiep je in <a href="/rendement-vastgoed-marokko/">rendement</a>, <a href="/huur-rendement-marokko/">huurrendement</a> en <a href="/investeren-vastgoed-marokko/">investeren in vastgoed Marokko</a>. Overweeg je vakantieverhuur? Bekijk <a href="/airbnb-marokko-investering/">Airbnb als investering</a>.</p>
+    </div>
+  </section>
+
+  <Faq items={faqs} title="Veelgestelde vragen over de beste investeringsstad" />
+  <CtaBand label="Vraag investeringsanalyse aan" href="/contact/?doel=investeringsanalyse" />
+</BaseLayout>

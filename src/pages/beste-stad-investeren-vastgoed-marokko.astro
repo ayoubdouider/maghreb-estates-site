@@ -1,0 +1,66 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import AiBlocks from '../components/AiBlocks.astro';
+import Faq from '../components/Faq.astro';
+import CtaBand from '../components/CtaBand.astro';
+import { steden } from '../data/steden';
+import { faqSchema, serviceSchema } from '../data/schema';
+
+const path = '/beste-stad-investeren-vastgoed-marokko/';
+const faqs = [
+  { q: 'Wat is de beste stad om te investeren in vastgoed in Marokko?', a: 'Er is niet één beste stad — het hangt af van uw doel. Voor langetermijnwaarde en zakelijke verhuur zijn Casablanca, Tanger en Rabat sterk. Voor toeristische verhuur scoren Marrakech, Agadir en de kuststeden. Voor vroege groeikansen kijkt u naar Kenitra en Dakhla.' },
+  { q: 'Waar is de waardegroei het sterkst?', a: 'Groeisteden met grote infrastructuurinvesteringen — zoals Tanger (haven), Kenitra (industrie) en Dakhla (zuidelijke ontwikkeling) — laten sterke waardestijging zien. Instappen vóór de piek verhoogt uw rendement.' },
+  { q: 'Waar kan ik het beste investeren voor toeristische verhuur?', a: 'Marrakech, Agadir, Essaouira en de noordelijke kuststeden (M’diq, Martil, Saïdia) hebben een sterke toeristische verhuurmarkt, ideaal voor Airbnb-rendement.' },
+];
+---
+<BaseLayout
+  title="Beste steden om te investeren in vastgoed Marokko | Maghreb Estates"
+  description="Wat zijn de beste steden om te investeren in vastgoed in Marokko? Vergelijk Tanger, Casablanca, Marrakech, Agadir en opkomende steden op rendement en groei."
+  path={path}
+  schema={[faqSchema(faqs), serviceSchema({ naam: 'Beste steden investeren Marokko', beschrijving: 'Advies over de beste steden om te investeren in vastgoed in Marokko.', path })]}
+>
+  <Hero
+    compact
+    eyebrow="Waar investeren"
+    title="De beste steden om te investeren<br /><em>in vastgoed in Marokko</em>"
+    sub="Elke stad heeft een eigen profiel: rendement, groei of toeristische verhuur. Wij helpen u de stad te kiezen die bij uw doel past."
+    image="/images/villa4.jpg"
+    ctas={[{ label: 'Vraag investeringsanalyse aan', href: '/contact/?doel=investeringsanalyse', primary: true }]}
+  />
+  <Breadcrumbs items={[{ label: 'Vastgoed Marokko', href: '/vastgoed-marokko/' }, { label: 'Investeren', href: '/investeren-vastgoed-marokko/' }, { label: 'Beste steden', href: path }]} />
+  <AiBlocks path={path} />
+
+  <section class="section">
+    <div class="container prose" style="max-width:760px">
+      <p>Er bestaat niet één <strong>beste stad om te investeren in Marokko</strong>. De juiste keuze hangt af van uw doel: stabiele waarde, maximale huurinkomsten of vroege groeikansen. Hieronder vindt u de profielen; klik door naar een stad voor de details.</p>
+      <h2>Naar doel</h2>
+      <ul>
+        <li><strong>Langetermijnwaarde & zakelijke verhuur:</strong> <a href="/vastgoed-casablanca/">Casablanca</a>, <a href="/vastgoed-rabat/">Rabat</a>, <a href="/vastgoed-tanger/">Tanger</a>.</li>
+        <li><strong>Toeristische verhuur (Airbnb):</strong> <a href="/vastgoed-marrakech/">Marrakech</a>, <a href="/vastgoed-agadir/">Agadir</a>, <a href="/vastgoed-essaouira/">Essaouira</a>, <a href="/vastgoed-mdiq/">M’diq</a>.</li>
+        <li><strong>Vroege groeikansen:</strong> <a href="/vastgoed-kenitra/">Kenitra</a>, <a href="/vastgoed-dakhla/">Dakhla</a>, <a href="/vastgoed-nador/">Nador</a>.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section section--tinted">
+    <div class="container">
+      <div class="section__header section__header--center">
+        <p class="eyebrow">Alle steden</p>
+        <h2>Vergelijk de <em>steden</em></h2>
+      </div>
+      <div class="steden">
+        {steden.map((s) => (
+          <a class="stad-chip" href={`/vastgoed-${s.slug}/`}>
+            <strong>{s.naam}</strong>
+            <span>{s.hoek}</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <Faq items={faqs} title="Veelgestelde vragen over investeren per stad" />
+  <CtaBand label="Vraag investeringsanalyse aan" href="/contact/?doel=investeringsanalyse" />
+</BaseLayout>

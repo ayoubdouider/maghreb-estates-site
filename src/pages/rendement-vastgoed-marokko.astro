@@ -1,0 +1,58 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import AiBlocks from '../components/AiBlocks.astro';
+import Faq from '../components/Faq.astro';
+import CtaBand from '../components/CtaBand.astro';
+import { faqSchema, serviceSchema } from '../data/schema';
+
+const path = '/rendement-vastgoed-marokko/';
+const faqs = [
+  { q: 'Wat is een realistisch huurrendement in Marokko?', a: 'Bruto huurrendementen liggen vaak tussen 5 en 8% bij langetermijnverhuur. Bij toeristische verhuur (Airbnb) in steden als Marrakech of Agadir kan het bruto rendement hoger uitvallen, maar met meer kosten en seizoensinvloed.' },
+  { q: 'Wat is het verschil tussen bruto- en nettorendement?', a: 'Brutorendement is de jaarhuur gedeeld door de aankoopprijs. Nettorendement trekt daar kosten van af: beheer, onderhoud, belasting, verzekering en leegstand. Wij rekenen altijd met netto, zodat u een eerlijk beeld heeft.' },
+  { q: 'Telt waardegroei mee in het rendement?', a: 'Ja. Naast huurinkomsten is waardestijging een belangrijke rendementsbron, vooral in groeisteden als Tanger, Kenitra en Dakhla. Wij nemen beide componenten mee in de analyse.' },
+];
+---
+<BaseLayout
+  title="Rendement vastgoed Marokko: huurinkomsten & ROI | Maghreb Estates"
+  description="Wat is het rendement van vastgoed in Marokko? Realistische huurrendementen, bruto vs netto, waardegroei en ROI per stad. Vraag een investeringsanalyse aan."
+  path={path}
+  schema={[faqSchema(faqs), serviceSchema({ naam: 'Rendement vastgoed Marokko', beschrijving: 'Analyse van rendement, huurinkomsten en ROI van vastgoed in Marokko.', path })]}
+>
+  <Hero
+    compact
+    eyebrow="Rendement"
+    title="Het rendement van<br /><em>vastgoed in Marokko</em>"
+    sub="Huurinkomsten én waardegroei — eerlijk doorgerekend. Wij tonen u netto wat een investering realistisch oplevert."
+    image="/images/villa2.jpg"
+    ctas={[{ label: 'Vraag investeringsanalyse aan', href: '/contact/?doel=investeringsanalyse', primary: true }]}
+  />
+  <Breadcrumbs items={[{ label: 'Vastgoed Marokko', href: '/vastgoed-marokko/' }, { label: 'Investeren', href: '/investeren-vastgoed-marokko/' }, { label: 'Rendement', href: path }]} />
+  <AiBlocks path={path} />
+
+  <section class="section">
+    <div class="container prose" style="max-width:760px">
+      <p>Het <strong>rendement van vastgoed in Marokko</strong> is een van de belangrijkste redenen om te investeren. Maar rendement is meer dan een mooi percentage in een brochure. Wij rekenen realistisch — netto en met alle kosten — zodat u weet wat u écht overhoudt.</p>
+
+      <h2>Twee bronnen van rendement</h2>
+      <ul>
+        <li><strong>Huurinkomsten:</strong> langetermijnverhuur (5–8% bruto) of <a href="/airbnb-beheer-marokko/">toeristische verhuur</a> met hoger maar wisselend rendement.</li>
+        <li><strong>Waardegroei:</strong> sterke stijging in groeisteden — bekijk <a href="/beste-stad-investeren-vastgoed-marokko/">de beste steden om te investeren</a>.</li>
+      </ul>
+
+      <h2>Wat is realistisch? (landelijk anker)</h2>
+      <p>Volgens marktdata lag het <strong>gemiddelde bruto huurrendement in Marokko rond 6,7–7,3%</strong> (Q2 2025–Q1 2026). Als werkband voor Nederlandstalige kopers houden wij <strong>±6–8% bruto</strong> aan bij langetermijnverhuur, met grote verschillen per stad en wijk. Bekijk de indicaties per stad op onze <a href="/vastgoed-marokko/#steden">stadspagina’s</a>.</p>
+
+      <h2>Bruto versus netto</h2>
+      <p>Een brutorendement zegt weinig. Pas na aftrek van <a href="/kosten-huis-kopen-marokko/">kosten</a>, beheer, onderhoud, belasting en leegstand ziet u het nettorendement. Reken op een realistische afslag van <strong>±20–35%</strong> van bruto naar netto. Wij maken die berekening transparant voor uw situatie.</p>
+      <p style="font-size:14px;color:var(--text-muted)"><em>Rendementscijfers zijn indicatief (marktdata begin 2026) en geen beleggingsadvies; elk object moet apart worden doorgerekend.</em></p>
+
+      <h2>Rendement veiligstellen met goed beheer</h2>
+      <p>Rendement op papier is niets waard zonder uitvoering. Ons <a href="/vastgoedbeheer-marokko/">vastgoedbeheer</a> en <a href="/huis-verhuren-marokko-vanuit-nederland/">verhuurbeheer</a> zorgen dat de inkomsten daadwerkelijk binnenkomen. Lees meer over de aanpak op <a href="/investeren-vastgoed-marokko/">investeren in vastgoed Marokko</a>.</p>
+    </div>
+  </section>
+
+  <Faq items={faqs} title="Veelgestelde vragen over rendement in Marokko" />
+  <CtaBand label="Vraag investeringsanalyse aan" title="Benieuwd naar uw netto rendement?" text="Wij rekenen uw specifieke situatie door — huurinkomsten, kosten en waardegroei — en tonen wat u realistisch overhoudt." href="/contact/?doel=investeringsanalyse" />
+</BaseLayout>

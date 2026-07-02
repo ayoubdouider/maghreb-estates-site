@@ -1,0 +1,67 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import TrustStrip from '../components/TrustStrip.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import AiBlocks from '../components/AiBlocks.astro';
+import CtaInline from '../components/CtaInline.astro';
+import Faq from '../components/Faq.astro';
+import CtaBand from '../components/CtaBand.astro';
+import { faqSchema, articleSchema } from '../data/schema';
+
+const path = '/woning-marokko-beheren-vanuit-nederland/';
+const faqs = [
+  { q: 'Kun je een woning in Marokko beheren vanuit Nederland?', a: 'Ja. Met lokale aanwezigheid en Nederlandstalige rapportage kan het volledige beheer op afstand: huurders, huurinning, onderhoud en toezicht — of alleen toezicht bij een tweede woning.' },
+  { q: 'Wat als ik niet verhuur maar de woning zelf gebruik?', a: 'Ook dan is beheer waardevol. Woningbeheer en sleutelbeheer houden je woning in goede staat en zorgen dat die klaar is als je komt.' },
+  { q: 'Hoe weet ik dat mijn huurinkomsten kloppen?', a: 'Je ontvangt periodieke, transparante rapportage over bezetting, inkomsten en kosten. Onduidelijke afrekeningen zijn juist wat je bij ons niet krijgt.' },
+  { q: 'Kunnen jullie een bestaand beheer overnemen?', a: 'Ja. Veel eigenaren stappen over vanwege onduidelijke afspraken; wij nemen het over met controleerbare afspraken en heldere rapportage.' },
+];
+---
+<BaseLayout
+  title="Woning in Marokko beheren vanuit Nederland | Maghreb Estates"
+  description="Je woning in Marokko beheren vanuit Nederland: verhuur, huurinning, onderhoud en toezicht met transparante rapportage. Ook alleen toezicht voor een tweede woning."
+  path={path}
+  schema={[faqSchema(faqs), articleSchema({ titel: 'Woning in Marokko beheren vanuit Nederland', beschrijving: 'Vastgoedbeheer en verhuur van een woning in Marokko vanuit Nederland.', path })]}
+>
+  <Hero
+    compact
+    eyebrow="Beheer op afstand"
+    title="Je woning in Marokko<br /><em>beheren vanuit Nederland</em>"
+    sub="Verhuur, onderhoud en toezicht op afstand — zodat je woning rendeert of in topconditie blijft, zonder dat jij er telkens voor moet zijn."
+    image="/images/apt2.jpg"
+    ctas={[{ label: 'Plan gratis adviesgesprek', href: '/contact/', primary: true }]}
+  />
+  <Breadcrumbs items={[{ label: 'Vastgoed Marokko', href: '/vastgoed-marokko/' }, { label: 'Beheren vanuit Nederland', href: path }]} />
+  <AiBlocks
+    path={path}
+    vraag="Kun je je woning in Marokko laten beheren vanuit Nederland?"
+    antwoord="Ja. Met lokale aanwezigheid en Nederlandstalige rapportage nemen wij het volledige beheer op afstand uit handen: huurders vinden en screenen, huur innen, onderhoud regelen en toezicht houden. Verhuur je niet, dan houden woning- en sleutelbeheer je tweede woning in goede staat en klaar voor je komst."
+    voorWie="Eigenaren in Nederland met een woning of investering in Marokko."
+    watLeerJe="Wat beheer op afstand omvat en hoe je grip en inzicht houdt."
+    wanneerHelpen="Met volledig verhuur- en vastgoedbeheer, of alleen toezicht en sleutelbeheer."
+    letOp="Eis transparante rapportage; onduidelijke afrekeningen zijn de grootste klacht."
+  />
+  <TrustStrip />
+
+  <section class="section">
+    <div class="container prose" style="max-width:760px">
+      <h2>Hoe werkt vastgoedbeheer in Marokko als je in Nederland woont?</h2>
+      <p>Wij zijn ter plaatse aanwezig en rapporteren aan jou in Nederland. Afhankelijk van je situatie kies je:</p>
+      <ul class="checks">
+        <li><strong>Volledig <a href="/vastgoedbeheer-marokko/">vastgoedbeheer</a>:</strong> alles in één hand.</li>
+        <li><strong><a href="/verhuurbeheer-marokko/">Verhuurbeheer</a>:</strong> huurders, contracten en huurinning.</li>
+        <li><strong><a href="/woningbeheer-marokko/">Woningbeheer</a>:</strong> onderhoud, controle en toezicht (ook zonder verhuur).</li>
+        <li><strong><a href="/sleutelbeheer-marokko/">Sleutelbeheer</a>:</strong> sleutels bewaren en toegang regelen.</li>
+        <li><strong>Toeristische verhuur:</strong> <a href="/airbnb-beheer-marokko/">Airbnb-beheer</a>.</li>
+      </ul>
+
+      <CtaInline title="Wat kan jouw woning opleveren — of wat kost goed beheer?" text="Plan een gesprek. Wij vertellen je precies wat mogelijk is en wat je mag verwachten." />
+
+      <h2>Voor verhuur én voor eigen gebruik</h2>
+      <p>Verhuur je? Dan zorgt beheer dat je <a href="/huur-rendement-marokko/">huurrendement</a> daadwerkelijk binnenkomt — lees ook <a href="/huis-verhuren-marokko-vanuit-nederland/">huis verhuren vanuit Nederland</a>. Gebruik je de woning zelf? Dan voorkomt regelmatig toezicht kostbare schade. Overweeg je nog aankoop? Start bij <a href="/vastgoed-marokko-vanuit-nederland/">vastgoed regelen vanuit Nederland</a>.</p>
+    </div>
+  </section>
+
+  <Faq items={faqs} title="Veelgestelde vragen over beheer vanuit Nederland" />
+  <CtaBand title="Je woning zorgeloos laten beheren?" />
+</BaseLayout>

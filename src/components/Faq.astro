@@ -1,0 +1,22 @@
+---
+interface QA { q: string; a: string; }
+interface Props { items: QA[]; title?: string; eyebrow?: string; }
+const { items, title = 'Veelgestelde vragen', eyebrow = 'FAQ' } = Astro.props;
+// FAQPage JSON-LD wordt door de pagina zelf meegegeven aan BaseLayout via faqSchema().
+---
+<section class="section section--tinted">
+  <div class="container">
+    <div class="section__header section__header--center">
+      <p class="eyebrow">{eyebrow}</p>
+      <h2>{title}</h2>
+    </div>
+    <div class="faq">
+      {items.map((item) => (
+        <details class="faq__item">
+          <summary class="faq__q">{item.q}</summary>
+          <div class="faq__a" set:html={item.a} />
+        </details>
+      ))}
+    </div>
+  </div>
+</section>
