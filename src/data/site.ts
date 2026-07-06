@@ -14,10 +14,15 @@ export const site = {
   // Facebook, YouTube, Google Business Profile). Leeg laten is beter dan verzinnen.
   sameAs: [] as string[],
   oprichting: 2024,
-  // Bedrijfsgegevens — TODO: invullen zodra bekend. Leeg = niet tonen (geen nepdata).
-  vestigingsplaats: '', // TODO: bv. "Tanger, Marokko" of NL-vestiging
-  kvk: '',              // TODO: KvK-nummer indien NL-inschrijving
-  btw: '',              // TODO: BTW-nummer indien relevant
+  // Bedrijfsgegevens — officiële Marokkaanse inschrijving (SARL, ingeschreven bij de
+  // rechtbank van Rabat, geïmmatriculeerd 03-05-2026). Leeg = niet tonen (geen nepdata).
+  vestigingsplaats: 'Rabat, Marokko',
+  adres: 'N°48 Appt 1, Avenue Fal Ouled Oumeir, Agdal', // straat + wijk (Rabat)
+  rechtsvorm: 'SARL', // Société à Responsabilité Limitée (besloten vennootschap)
+  activiteit: 'Agence immobilière',
+  rc: '199575',            // Registre de Commerce (Tribunal de Commerce, Rabat)
+  ice: '003968179000032',  // Identifiant Commun de l'Entreprise
+  kapitaal: '100.000 MAD',
 };
 
 // WhatsApp-linkhelper (optioneel voorgevuld bericht).
@@ -62,19 +67,19 @@ export const prominenteSteden = [
   { naam: 'Al Hoceima', slug: 'al-hoceima' },
 ];
 
-// Hoofdnavigatie — rustig, 6 items + losse CTA-knop in Nav.astro.
+// Hoofdnavigatie — bewust rustig. Per dropdown alleen de kernpagina's die een
+// bezoeker direct nodig heeft (max. 3-4 items). Ondersteunende en long-tail
+// SEO-pagina's blijven indexeerbaar en worden via de footer en interne links
+// bereikbaar gehouden, niet via het hoofdmenu.
 export const nav = [
   {
     label: 'Kopen in Marokko',
     href: '/huis-kopen-marokko/',
     children: [
-      { label: 'Huis kopen Marokko', href: '/huis-kopen-marokko/' },
+      { label: 'Huis kopen in Marokko', href: '/huis-kopen-marokko/' },
       { label: 'Kopen vanuit Nederland', href: '/huis-kopen-marokko-vanuit-nederland/' },
       { label: 'Aankoopbegeleiding', href: '/aankoopbegeleiding-vastgoed-marokko/' },
-      { label: 'Appartement kopen', href: '/appartement-kopen-marokko/' },
-      { label: 'Nieuwbouwprojecten', href: '/nieuwbouwprojecten-marokko/' },
-      { label: 'Off-plan vastgoed', href: '/off-plan-vastgoed-marokko/' },
-      { label: 'Appartement in termijnen', href: '/appartement-marokko-kopen-in-termijnen/' },
+      { label: 'Nieuwbouw & off-plan', href: '/nieuwbouw-vastgoed-marokko/' },
     ],
   },
   {
@@ -82,23 +87,18 @@ export const nav = [
     href: '/investeren-vastgoed-marokko/',
     children: [
       { label: 'Investeren in vastgoed', href: '/investeren-vastgoed-marokko/' },
-      { label: 'Rendement vastgoed', href: '/rendement-vastgoed-marokko/' },
-      { label: 'Huurrendement Marokko', href: '/huur-rendement-marokko/' },
-      { label: 'Beste stad om te investeren', href: '/beste-stad-investeren-vastgoed-marokko/' },
-      { label: 'Airbnb als investering', href: '/airbnb-marokko-investering/' },
+      { label: 'Steden vergelijken', href: '/beste-stad-investeren-vastgoed-marokko/' },
+      { label: 'Airbnb & verhuur', href: '/airbnb-marokko-investering/' },
     ],
   },
   {
-    label: 'Beheer & verhuur',
+    label: 'Beheer & verkoop',
     href: '/vastgoedbeheer-marokko/',
     children: [
       { label: 'Vastgoedbeheer', href: '/vastgoedbeheer-marokko/' },
-      { label: 'Verhuurbeheer', href: '/verhuurbeheer-marokko/' },
+      { label: 'Woning verhuren', href: '/huis-verhuren-marokko-vanuit-nederland/' },
       { label: 'Airbnb-beheer', href: '/airbnb-beheer-marokko/' },
-      { label: 'Huis verhuren', href: '/huis-verhuren-marokko-vanuit-nederland/' },
-      { label: 'Woningbeheer', href: '/woningbeheer-marokko/' },
-      { label: 'Huis verkopen', href: '/huis-verkopen-marokko-vanuit-nederland/' },
-      { label: 'Waarde woning bepalen', href: '/waarde-woning-marokko-bepalen/' },
+      { label: 'Woning verkopen', href: '/huis-verkopen-marokko-vanuit-nederland/' },
     ],
   },
   {
@@ -106,21 +106,18 @@ export const nav = [
     href: '/vastgoed-marokko/',
     children: [
       ...prominenteSteden.map((s) => ({ label: s.naam, href: `/vastgoed-${s.slug}/` })),
+      { label: 'Alle steden', href: '/vastgoed-marokko/' },
     ],
   },
   {
     label: 'Kennisbank',
-    href: '/risicos-huis-kopen-marokko/',
+    href: '/kennisbank/',
     children: [
-      { label: 'Risico’s huis kopen', href: '/risicos-huis-kopen-marokko/' },
-      { label: 'Kosten huis kopen', href: '/kosten-huis-kopen-marokko/' },
-      { label: 'Verborgen kosten', href: '/verborgen-kosten-huis-kopen-marokko/' },
-      { label: 'Oplichting voorkomen', href: '/oplichting-vastgoed-marokko-voorkomen/' },
-      { label: 'Koopcontract', href: '/koopcontract-marokko-vastgoed/' },
-      { label: 'Notaris Marokko', href: '/notaris-marokko-vastgoed/' },
-      { label: 'Titre foncier', href: '/titre-foncier-marokko/' },
-      { label: 'Volmacht bij aankoop', href: '/volmacht-huis-kopen-marokko/' },
+      { label: 'Kosten', href: '/kosten-huis-kopen-marokko/' },
+      { label: 'Risico’s', href: '/risicos-huis-kopen-marokko/' },
+      { label: 'Juridische documenten', href: '/juridische-documenten-vastgoed-marokko/' },
       { label: 'Begrippenlijst', href: '/begrippen-vastgoed-marokko/' },
+      { label: 'Alle artikelen', href: '/kennisbank/' },
     ],
   },
   { label: 'Over ons', href: '/over-ons/' },

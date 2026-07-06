@@ -10,6 +10,14 @@ import { steden } from '../data/steden';
 import { faqSchema, serviceSchema } from '../data/schema';
 
 const path = '/vastgoed-marokko/';
+
+// Steden gegroepeerd per type markt (rustiger overzicht dan één lange lijst).
+const stedenGroepen = [
+  { titel: 'Noord-Marokko', slugs: ['tanger', 'tetouan', 'martil', 'mdiq', 'al-hoceima', 'nador'] },
+  { titel: 'Grote steden & zakelijke markten', slugs: ['casablanca', 'rabat', 'kenitra', 'temara', 'skhirat'] },
+  { titel: 'Toerisme & lifestyle', slugs: ['marrakech', 'agadir', 'essaouira', 'saidia', 'dakhla'] },
+  { titel: 'Overige steden', slugs: ['oujda', 'fes'] },
+].map((g) => ({ titel: g.titel, steden: g.slugs.map((slug) => steden.find((s) => s.slug === slug)!).filter(Boolean) }));
 const faqs = [
   { q: 'Waarom kopen Nederlanders en Belgen vastgoed in Marokko?', a: 'Marokko biedt relatief lage instapprijzen, sterke groei in steden als Tanger, Casablanca en Marrakech, en aantrekkelijke huurinkomsten. Voor veel Nederlands-Marokkanen speelt ook binding met het land en de wens om terug te keren of familie dichtbij te hebben.' },
   { q: 'Is vastgoed in Marokko een veilige aankoop?', a: 'Ja, mits u de eigendomspapieren goed controleert en alles officieel via de notaris regelt. De risico’s zitten in onduidelijke titels, dubbele verkoop en informele afspraken. Wij doen due diligence op elk object om die risico’s weg te nemen.' },
@@ -51,10 +59,10 @@ const faqs = [
       </div>
 
       <h2>Kopen in Marokko</h2>
-      <p>Begint u met oriënteren? Lees eerst <a href="/huis-kopen-marokko/">huis kopen in Marokko</a> voor het complete stappenplan, of <a href="/appartement-kopen-marokko/">appartement kopen in Marokko</a> als u specifiek een appartement zoekt. Koopt u vanuit Nederland, dan zijn <a href="/huis-kopen-marokko-vanuit-nederland/">huis kopen vanuit Nederland</a> en <a href="/volmacht-huis-kopen-marokko/">kopen met volmacht</a> relevant. Overweegt u nieuwbouw, lees dan hoe u <a href="/nieuwbouwprojecten-marokko/">nieuwbouwprojecten controleert</a> voordat u instapt.</p>
+      <p>Begint u met oriënteren? Lees eerst <a href="/huis-kopen-marokko/">huis kopen in Marokko</a> voor het complete stappenplan, of <a href="/appartement-kopen-marokko/">appartement kopen in Marokko</a> als u specifiek een appartement zoekt. Koopt u vanuit Nederland, dan zijn <a href="/huis-kopen-marokko-vanuit-nederland/">huis kopen vanuit Nederland</a> en <a href="/volmacht-huis-kopen-marokko/">kopen met volmacht</a> relevant. Overweegt u nieuwbouw, lees dan hoe u <a href="/nieuwbouw-vastgoed-marokko/">nieuwbouwprojecten controleert</a> voordat u instapt.</p>
 
       <h2>Investeren & rendement</h2>
-      <p>Zoekt u rendement? Op <a href="/investeren-vastgoed-marokko/">investeren in vastgoed Marokko</a> leest u onze data-gedreven aanpak, en op <a href="/rendement-vastgoed-marokko/">rendement vastgoed Marokko</a> hoe huurinkomsten en waardegroei realistisch worden berekend. Weet u nog niet in welke stad? Bekijk <a href="/beste-stad-investeren-vastgoed-marokko/">de beste steden om te investeren</a>, met per stad een eigen profiel.</p>
+      <p>Zoekt u rendement? Op <a href="/investeren-vastgoed-marokko/">investeren in vastgoed Marokko</a> leest u onze data-gedreven aanpak, en op <a href="/investeren-vastgoed-marokko/">rendement vastgoed Marokko</a> hoe huurinkomsten en waardegroei realistisch worden berekend. Weet u nog niet in welke stad? Bekijk <a href="/beste-stad-investeren-vastgoed-marokko/">de beste steden om te investeren</a>, met per stad een eigen profiel.</p>
 
       <h2>Veilig kopen: begeleiding & juridische controle</h2>
       <p>Veiligheid begint bij goede begeleiding. Onze <a href="/aankoopbegeleiding-vastgoed-marokko/">aankoopbegeleiding</a> omvat volledige due diligence. Verdiep u in de <a href="/risicos-huis-kopen-marokko/">risico’s en hoe u ze vermijdt</a>, de <a href="/kosten-huis-kopen-marokko/">kosten en verborgen kosten</a>, de rol van de <a href="/notaris-marokko-vastgoed/">notaris</a> en het belang van de <a href="/titre-foncier-marokko/">titre foncier</a> — de geregistreerde eigendomstitel die bepaalt of eigendom écht vaststaat.</p>
@@ -79,16 +87,21 @@ const faqs = [
       <div class="section__header section__header--center">
         <p class="eyebrow">Alle steden</p>
         <h2>Vastgoed per <em>stad in Marokko</em></h2>
-        <p class="section__desc">Kies uw stad voor gerichte informatie over de markt, prijzen en verhuurpotentie.</p>
+        <p class="section__desc">Gegroepeerd per type markt. Kies uw stad voor gerichte informatie over de markt, prijzen en verhuurpotentie.</p>
       </div>
-      <div class="steden">
-        {steden.map((s) => (
-          <a class="stad-chip" href={`/vastgoed-${s.slug}/`}>
-            <strong>{s.naam}</strong>
-            <span>{s.regio}</span>
-          </a>
-        ))}
-      </div>
+      {stedenGroepen.map((g) => (
+        <div class="steden-groep">
+          <h3 class="steden-groep__titel">{g.titel}</h3>
+          <div class="steden">
+            {g.steden.map((s) => (
+              <a class="stad-chip" href={`/vastgoed-${s.slug}/`}>
+                <strong>{s.naam}</strong>
+                <span>{s.regio}</span>
+              </a>
+            ))}
+          </div>
+        </div>
+      ))}
     </div>
   </section>
 

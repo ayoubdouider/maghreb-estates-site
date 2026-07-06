@@ -84,18 +84,20 @@ const faqs = [
       </ul>
 
       <h2>Bedrijfsgegevens</h2>
+      <p>Maghreb Estates is officieel ingeschreven in Marokko als vennootschap met beperkte aansprakelijkheid (SARL), bij de rechtbank van Rabat.</p>
       <ul>
-        {site.vestigingsplaats && <li>Vestigingsplaats: {site.vestigingsplaats}</li>}
-        {site.kvk && <li>KvK: {site.kvk}</li>}
-        {site.btw && <li>BTW: {site.btw}</li>}
+        <li>Handelsnaam: Maghreb Estates {site.rechtsvorm}</li>
+        {site.activiteit && <li>Activiteit: {site.activiteit} (agence immobilière)</li>}
+        {site.adres && <li>Adres: {site.adres}, {site.vestigingsplaats}</li>}
+        {!site.adres && site.vestigingsplaats && <li>Vestigingsplaats: {site.vestigingsplaats}</li>}
+        {site.rc && <li>Registre de Commerce (RC): {site.rc} — Rabat</li>}
+        {site.ice && <li>ICE (Identifiant Commun de l’Entreprise): {site.ice}</li>}
+        {site.kapitaal && <li>Maatschappelijk kapitaal: {site.kapitaal}</li>}
         <li>E-mail: <a href={`mailto:${site.email}`}>{site.email}</a></li>
         <li>Telefoon / WhatsApp: <a href={`tel:${site.telefoonHref}`}>{site.telefoon}</a></li>
         <li>Werkgebied: heel Marokko, vanuit Nederland en België</li>
         <li><a href="/privacybeleid/">Privacybeleid</a> · <a href="/disclaimer/">Disclaimer</a> · <a href="/algemene-voorwaarden/">Algemene voorwaarden</a></li>
       </ul>
-      {!(site.kvk || site.vestigingsplaats) && (
-        <p>Bedrijfsgegevens worden aangevuld na afronding van de registratie. Voor vragen over onze werkwijze of overeenkomst kunt u ons direct bereiken via <a href={`mailto:${site.email}`}>{site.email}</a> of {site.telefoon}.</p>
-      )}
     </div>
   </section>
 

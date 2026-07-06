@@ -1,0 +1,99 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import AiBlocks from '../components/AiBlocks.astro';
+import LeadCta from '../components/LeadCta.astro';
+import { serviceSchema } from '../data/schema';
+
+const path = '/kennisbank/';
+
+const groepen = [
+  {
+    titel: 'Kosten & risico’s',
+    artikelen: [
+      { label: 'Kosten van een huis kopen in Marokko', href: '/kosten-huis-kopen-marokko/' },
+      { label: 'Risico’s bij een huis kopen (en hoe u ze vermijdt)', href: '/risicos-huis-kopen-marokko/' },
+      { label: 'Waarde van een woning bepalen', href: '/waarde-woning-marokko-bepalen/' },
+    ],
+  },
+  {
+    titel: 'Juridische documenten',
+    artikelen: [
+      { label: 'Juridische documenten: overzicht', href: '/juridische-documenten-vastgoed-marokko/' },
+      { label: 'De notaris in Marokko', href: '/notaris-marokko-vastgoed/' },
+      { label: 'Titre foncier (eigendomstitel)', href: '/titre-foncier-marokko/' },
+      { label: 'Koopcontract (compromis de vente)', href: '/koopcontract-marokko-vastgoed/' },
+      { label: 'Volmacht bij aankoop (procuration)', href: '/volmacht-huis-kopen-marokko/' },
+      { label: 'Begrippenlijst vastgoed Marokko', href: '/begrippen-vastgoed-marokko/' },
+    ],
+  },
+  {
+    titel: 'Kopen & begeleiding',
+    artikelen: [
+      { label: 'Huis kopen in Marokko: stappenplan', href: '/huis-kopen-marokko/' },
+      { label: 'Kopen vanuit Nederland', href: '/huis-kopen-marokko-vanuit-nederland/' },
+      { label: 'Aankoopbegeleiding', href: '/aankoopbegeleiding-vastgoed-marokko/' },
+      { label: 'Nieuwbouw & off-plan kopen', href: '/nieuwbouw-vastgoed-marokko/' },
+      { label: 'Appartement kopen in Marokko', href: '/appartement-kopen-marokko/' },
+    ],
+  },
+  {
+    titel: 'Investeren & rendement',
+    artikelen: [
+      { label: 'Investeren in vastgoed in Marokko', href: '/investeren-vastgoed-marokko/' },
+      { label: 'Beste steden om te investeren', href: '/beste-stad-investeren-vastgoed-marokko/' },
+      { label: 'Airbnb als investering', href: '/airbnb-marokko-investering/' },
+    ],
+  },
+  {
+    titel: 'Beheer & verhuur',
+    artikelen: [
+      { label: 'Vastgoedbeheer op afstand', href: '/vastgoedbeheer-marokko/' },
+      { label: 'Woning verhuren vanuit Nederland', href: '/huis-verhuren-marokko-vanuit-nederland/' },
+      { label: 'Airbnb-beheer', href: '/airbnb-beheer-marokko/' },
+      { label: 'Woning verkopen vanuit Nederland', href: '/huis-verkopen-marokko-vanuit-nederland/' },
+    ],
+  },
+];
+---
+<BaseLayout
+  title="Kennisbank: vastgoed kopen in Marokko | Maghreb Estates"
+  description="De kennisbank van Maghreb Estates: alle gidsen over kopen, kosten, risico’s, juridische documenten, investeren en beheer van vastgoed in Marokko — helder en betrouwbaar op één plek."
+  path={path}
+  schema={[serviceSchema({ naam: 'Kennisbank vastgoed Marokko', beschrijving: 'Gidsen en artikelen over het kopen, beoordelen, investeren en beheren van vastgoed in Marokko.', path })]}
+>
+  <Hero
+    compact
+    eyebrow="Kennisbank"
+    title="Alles over vastgoed in Marokko,<br /><em>helder uitgelegd</em>"
+    sub="Onze gidsen over kopen, kosten, risico’s, juridische documenten, investeren en beheer. Geschreven om u te beschermen — niet om u iets te verkopen."
+    image="/images/villa4.jpg"
+    ctas={[{ label: 'Plan gratis adviesgesprek', href: '/contact/', primary: true }]}
+  />
+  <Breadcrumbs items={[{ label: 'Vastgoed Marokko', href: '/vastgoed-marokko/' }, { label: 'Kennisbank', href: path }]} />
+  <AiBlocks path={path} />
+
+  <section class="section">
+    <div class="container prose" style="max-width:820px">
+      <p>Welkom in de <strong>kennisbank</strong>. Hier vindt u alle gidsen die u nodig heeft om veilig vastgoed te kopen, beoordelen, verhuren en beheren in Marokko. We houden het nuchter en concreet: eerst risico en zekerheid, dan pas rendement.</p>
+    </div>
+  </section>
+
+  <section class="section section--tinted">
+    <div class="container">
+      <div class="grid grid--2">
+        {groepen.map((g) => (
+          <div class="card">
+            <h2 style="font-size:22px;margin-bottom:12px">{g.titel}</h2>
+            <ul class="linklist">
+              {g.artikelen.map((a) => <li><a href={a.href}>{a.label}</a></li>)}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <LeadCta path={path} />
+</BaseLayout>

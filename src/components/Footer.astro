@@ -15,12 +15,13 @@ const jaar = new Date().getFullYear();
           <li><Icon name="chat" size={16} /><a href={waLink('Hallo Maghreb Estates, ik heb een vraag over vastgoed in Marokko.')}>WhatsApp</a></li>
           <li><Icon name="mail" size={16} /><a href={`mailto:${site.email}`}>{site.email}</a></li>
         </ul>
-        {/* Bedrijfsgegevens — alleen tonen zodra ingevuld (geen nepdata). TODO invullen in site.ts */}
-        {(site.vestigingsplaats || site.kvk || site.btw) && (
+        {/* Bedrijfsgegevens — officiële Marokkaanse inschrijving (SARL). */}
+        {(site.vestigingsplaats || site.rc || site.ice) && (
           <p class="footer__bedrijf">
-            {site.vestigingsplaats && <>Vestigingsplaats: {site.vestigingsplaats}<br /></>}
-            {site.kvk && <>KvK: {site.kvk}<br /></>}
-            {site.btw && <>BTW: {site.btw}</>}
+            Maghreb Estates {site.rechtsvorm}{site.activiteit && <> · {site.activiteit}</>}<br />
+            {site.adres && <>{site.adres}<br /></>}
+            {site.vestigingsplaats && <>{site.vestigingsplaats}<br /></>}
+            {site.rc && <>RC {site.rc} (Rabat){site.ice && <> · ICE {site.ice}</>}</>}
           </p>
         )}
       </div>
@@ -30,46 +31,43 @@ const jaar = new Date().getFullYear();
         <a href="/huis-kopen-marokko/">Huis kopen Marokko</a>
         <a href="/huis-kopen-marokko-vanuit-nederland/">Kopen vanuit Nederland</a>
         <a href="/aankoopbegeleiding-vastgoed-marokko/">Aankoopbegeleiding</a>
+        <a href="/nieuwbouw-vastgoed-marokko/">Nieuwbouw & off-plan</a>
         <a href="/appartement-kopen-marokko/">Appartement kopen</a>
-        <a href="/nieuwbouwprojecten-marokko/">Nieuwbouwprojecten</a>
-        <a href="/off-plan-vastgoed-marokko/">Off-plan vastgoed</a>
       </div>
 
       <div>
         <h4>Investeren</h4>
         <a href="/investeren-vastgoed-marokko/">Investeren in vastgoed</a>
-        <a href="/rendement-vastgoed-marokko/">Rendement</a>
-        <a href="/huur-rendement-marokko/">Huurrendement</a>
-        <a href="/beste-stad-investeren-vastgoed-marokko/">Beste stad</a>
+        <a href="/beste-stad-investeren-vastgoed-marokko/">Beste steden voor investering</a>
         <a href="/airbnb-marokko-investering/">Airbnb als investering</a>
       </div>
 
       <div>
-        <h4>Beheer & verhuur</h4>
+        <h4>Beheer & verkoop</h4>
         <a href="/vastgoedbeheer-marokko/">Vastgoedbeheer</a>
-        <a href="/verhuurbeheer-marokko/">Verhuurbeheer</a>
+        <a href="/huis-verhuren-marokko-vanuit-nederland/">Woning verhuren</a>
         <a href="/airbnb-beheer-marokko/">Airbnb-beheer</a>
-        <a href="/huis-verhuren-marokko-vanuit-nederland/">Huis verhuren</a>
-        <a href="/woningbeheer-marokko/">Woningbeheer</a>
-        <a href="/huis-verkopen-marokko-vanuit-nederland/">Huis verkopen</a>
+        <a href="/huis-verkopen-marokko-vanuit-nederland/">Woning verkopen</a>
       </div>
 
       <div>
         <h4>Kennisbank</h4>
-        <a href="/risicos-huis-kopen-marokko/">Risico’s vermijden</a>
-        <a href="/kosten-huis-kopen-marokko/">Kosten huis kopen</a>
-        <a href="/oplichting-vastgoed-marokko-voorkomen/">Oplichting voorkomen</a>
-        <a href="/notaris-marokko-vastgoed/">Notaris Marokko</a>
-        <a href="/titre-foncier-marokko/">Titre foncier</a>
+        <a href="/kosten-huis-kopen-marokko/">Kosten</a>
+        <a href="/risicos-huis-kopen-marokko/">Risico’s</a>
+        <a href="/juridische-documenten-vastgoed-marokko/">Juridische documenten</a>
         <a href="/begrippen-vastgoed-marokko/">Begrippenlijst</a>
-        <a href="/over-ons/">Over ons</a>
+        <a href="/notaris-marokko-vastgoed/">Notaris</a>
+        <a href="/titre-foncier-marokko/">Titre foncier</a>
+        <a href="/volmacht-huis-kopen-marokko/">Volmacht</a>
+        <a href="/koopcontract-marokko-vastgoed/">Koopcontract</a>
       </div>
     </div>
 
     <div class="footer__steden">
-      <h4>Vastgoed per stad</h4>
+      <h4>Steden</h4>
       <div class="footer__steden-links">
         {prominenteSteden.map((s) => <a href={`/vastgoed-${s.slug}/`}>{s.naam}</a>)}
+        <a href="/vastgoed-marokko/">Alle steden</a>
       </div>
     </div>
 

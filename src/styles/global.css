@@ -203,6 +203,11 @@ details.faq__item summary::-webkit-details-marker { display: none; }
 
 /* ===== STEDEN GRID ===== */
 .steden { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.steden-groep { margin-bottom: 34px; }
+.steden-groep__titel { font-family: var(--font-serif); font-size: 20px; font-weight: 500; color: var(--green); margin-bottom: 16px; }
+.linklist { list-style: none; padding: 0; margin: 0; }
+.linklist li { padding: 6px 0; border-bottom: 1px solid var(--border); }
+.linklist li:last-child { border-bottom: 0; }
 .stad-chip { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px 20px; transition: all var(--transition); }
 .stad-chip:hover { border-color: var(--green-mid); transform: translateY(-3px); box-shadow: var(--shadow); }
 .stad-chip strong { display: block; font-family: var(--font-serif); font-size: 20px; font-weight: 500; color: var(--green); }
@@ -281,6 +286,21 @@ details.faq__item summary::-webkit-details-marker { display: none; }
 .marktkader__lead strong { color: #7a5b1f; }
 .marktkader__meta { margin: 8px 0 0; font-size: 13px; color: #8a7a5a; }
 
+/* ===== ONS TEAM (homepage foto-kaarten) ===== */
+.teamsectie { max-width: 720px; }
+.teamsectie .section__header { margin-bottom: 28px; }
+.teamkaarten { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; }
+.teamkaart { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; transition: box-shadow var(--transition), transform var(--transition); }
+.teamkaart:hover { box-shadow: var(--shadow); transform: translateY(-3px); }
+.teamkaart__foto { width: 100%; aspect-ratio: 1 / 1.05; object-fit: cover; object-position: center top; display: block; background: var(--cream-dark); }
+.teamkaart__body { padding: 20px 22px 24px; }
+.teamkaart__naam { font-family: var(--font-serif); font-size: 21px; font-weight: 500; color: var(--green); margin-bottom: 4px; }
+.teamkaart__rol { font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--green-mid); margin-bottom: 16px; }
+.teamkaart__contact { display: flex; flex-direction: column; gap: 9px; }
+.teamkaart__contact a { display: inline-flex; align-items: center; gap: 10px; font-size: 14px; color: var(--text); }
+.teamkaart__contact a:hover { color: var(--green-mid); }
+.teamkaart__contact svg { color: var(--green-mid); flex-shrink: 0; }
+
 /* ===== TEAM / PERSOON PLACEHOLDER ===== */
 .personen { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
 .persoon { display: flex; gap: 20px; background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); padding: 22px; }
@@ -353,7 +373,7 @@ table.compare tr:last-child td, table.compare tr:last-child th { border-bottom: 
 }
 @media (max-width: 560px) {
   .container { padding: 0 20px; }
-  .grid--2, .grid--3, .grid--4, .steden { grid-template-columns: 1fr; }
+  .grid--2, .grid--3, .grid--4, .steden, .teamkaarten { grid-template-columns: 1fr; }
   .footer__grid { grid-template-columns: 1fr; }
   .hero__actions { flex-direction: column; }
   .hero__actions .btn { width: 100%; text-align: center; }

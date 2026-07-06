@@ -1,0 +1,88 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import TrustStrip from '../components/TrustStrip.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import AiBlocks from '../components/AiBlocks.astro';
+import CtaInline from '../components/CtaInline.astro';
+import Faq from '../components/Faq.astro';
+import LeadCta from '../components/LeadCta.astro';
+import { faqSchema, articleSchema } from '../data/schema';
+
+const path = '/juridische-documenten-vastgoed-marokko/';
+const faqs = [
+  { q: 'Welke documenten heb ik nodig om een huis te kopen in Marokko?', a: 'De kern is de titre foncier (geregistreerde eigendomstitel), het koopcontract (compromis de vente) en de definitieve akte bij de notaris. Bij kopen op afstand komt daar een notariële volmacht (procuration) bij. Bij nieuwbouw ook de bouwvergunning en de projectpapieren.' },
+  { q: 'Wat is het belangrijkste document bij vastgoed in Marokko?', a: 'De titre foncier. Alleen een geregistreerde eigendomstitel bewijst onbetwistbaar wie de eigenaar is. Koop nooit voordat deze is gecontroleerd bij het kadaster (conservation foncière).' },
+  { q: 'Controleren jullie deze documenten voor mij?', a: 'Ja. Als onderdeel van onze aankoopbegeleiding voeren wij due diligence uit op de titel, het contract, de volmacht en de betaling, zodat u pas tekent als het dossier klopt.' },
+];
+const docs = [
+  { titel: 'De notaris', tekst: 'Stelt de definitieve akte op, controleert de titel, int de registratierechten en schrijft de woning op uw naam in.', href: '/notaris-marokko-vastgoed/' },
+  { titel: 'Titre foncier', tekst: 'De officiële, bij het kadaster geregistreerde eigendomstitel. Alleen hiermee staat eigendom onbetwistbaar vast.', href: '/titre-foncier-marokko/' },
+  { titel: 'Koopcontract (compromis de vente)', tekst: 'Het bindende voorlopige koopcontract, vaak met aanbetaling. Let op de eigenaar, kadastrale gegevens en ontbindende voorwaarden.', href: '/koopcontract-marokko-vastgoed/' },
+  { titel: 'Volmacht (procuration)', tekst: 'Machtigt iemand om namens u te handelen, tot en met de akte. Zo koopt u op afstand. Houd de volmacht beperkt en specifiek.', href: '/volmacht-huis-kopen-marokko/' },
+];
+---
+<BaseLayout
+  title="Juridische documenten bij vastgoed in Marokko | Maghreb Estates"
+  description="Welke juridische documenten spelen bij een huis kopen in Marokko? Notaris, titre foncier, koopcontract (compromis de vente), volmacht, kadaster en overdracht — helder uitgelegd en gecontroleerd."
+  path={path}
+  schema={[faqSchema(faqs), articleSchema({ titel: 'Juridische documenten bij vastgoed in Marokko', beschrijving: 'Overzicht van de belangrijkste juridische documenten bij het kopen van vastgoed in Marokko.', path })]}
+>
+  <Hero
+    compact
+    eyebrow="Kennisbank · Juridisch"
+    title="De juridische documenten bij<br /><em>vastgoed in Marokko</em>"
+    sub="Van titre foncier tot koopcontract, volmacht en overdracht: welke papieren bepalen of uw aankoop veilig is — en wat u per document controleert."
+    image="/images/villa2.jpg"
+    ctas={[
+      { label: 'Laat mijn dossier controleren', href: '/contact/?doel=aankoopcontrole', primary: true },
+      { label: 'Plan gratis adviesgesprek', href: '/contact/' },
+    ]}
+  />
+  <Breadcrumbs items={[{ label: 'Vastgoed Marokko', href: '/vastgoed-marokko/' }, { label: 'Kennisbank', href: '/kennisbank/' }, { label: 'Juridische documenten', href: path }]} />
+  <AiBlocks path={path} />
+  <TrustStrip />
+
+  <section class="section">
+    <div class="container prose" style="max-width:760px">
+      <p>Een veilige aankoop in Marokko draait om de <strong>juridische documenten</strong>. De meeste problemen ontstaan niet tijdens, maar vóór de overdracht: een aanbetaling op een woning zonder geregistreerde titel, of een contract met vage clausules. Deze pagina brengt de belangrijkste papieren samen en linkt per onderwerp naar de verdiepende gids.</p>
+
+      <h2>De belangrijkste documenten op een rij</h2>
+      <div class="grid grid--2" style="margin:24px 0">
+        {docs.map((d) => (
+          <div class="pakket">
+            <h3>{d.titel}</h3>
+            <p>{d.tekst}</p>
+            <p><a href={d.href}>Lees meer →</a></p>
+          </div>
+        ))}
+      </div>
+
+      <h2>Kadaster, aanbetaling en overdracht</h2>
+      <ul class="checks">
+        <li><strong>Kadaster (conservation foncière):</strong> hier is de titre foncier geregistreerd en wordt de woning op uw naam ingeschreven. Verificatie van de titel gebeurt hier.</li>
+        <li><strong>Eigendomspapieren:</strong> controleer of de verkoper daadwerkelijk de geregistreerde eigenaar is en of er geen hypotheken of beslagen op het object rusten.</li>
+        <li><strong>Aanbetaling:</strong> hoort bij het koopcontract, maar loopt altijd via de notaris — nooit informeel. Zo is uw geld beschermd.</li>
+        <li><strong>Levering en overdracht:</strong> de definitieve akte bij de notaris rondt de koop af en leidt tot inschrijving in het kadaster.</li>
+      </ul>
+
+      <div class="warn">
+        <strong>De gouden regel: geen handtekening of betaling zonder gecontroleerd dossier.</strong>
+        <p>Verifieer altijd de <a href="/titre-foncier-marokko/">titre foncier</a> bij het kadaster en betaal uitsluitend via de <a href="/notaris-marokko-vastgoed/">notaris</a>. Dit alleen al sluit de meeste vormen van oplichting uit.</p>
+      </div>
+
+      <CtaInline
+        title="Heeft u een dossier of contract ontvangen?"
+        text="Stuur ons de documenten. Wij controleren de titel, het contract, de volmacht en de betalingsroute vóór u tekent of aanbetaalt."
+        label="Laat mijn dossier controleren"
+        href="/contact/?doel=aankoopcontrole"
+      />
+
+      <h2>Zo passen de documenten in het koopproces</h2>
+      <p>Deze papieren komen samen in onze <a href="/aankoopbegeleiding-vastgoed-marokko/">aankoopbegeleiding</a>. Bekijk ook het complete <a href="/huis-kopen-marokko/">stappenplan om een huis te kopen</a>, de <a href="/kosten-huis-kopen-marokko/">kosten</a> en de bredere <a href="/risicos-huis-kopen-marokko/">risico’s</a>. Koopt u <a href="/huis-kopen-marokko-vanuit-nederland/">vanuit Nederland</a>, dan is de volmacht extra belangrijk.</p>
+    </div>
+  </section>
+
+  <Faq items={faqs} title="Veelgestelde vragen over juridische documenten" />
+  <LeadCta path={path} />
+</BaseLayout>

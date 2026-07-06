@@ -52,20 +52,18 @@ export const ctaContent: Record<CtaVariant, CtaBlok> = {
 };
 
 const juridisch = [
-  '/risicos-huis-kopen-marokko/', '/oplichting-vastgoed-marokko-voorkomen/',
+  '/risicos-huis-kopen-marokko/', '/juridische-documenten-vastgoed-marokko/',
   '/titre-foncier-marokko/', '/notaris-marokko-vastgoed/',
   '/koopcontract-marokko-vastgoed/', '/volmacht-huis-kopen-marokko/',
 ];
 const investering = [
-  '/investeren-vastgoed-marokko/', '/rendement-vastgoed-marokko/', '/huur-rendement-marokko/',
-  '/beste-stad-investeren-vastgoed-marokko/', '/beste-stad-vastgoed-investeren-marokko/',
+  '/investeren-vastgoed-marokko/', '/beste-stad-investeren-vastgoed-marokko/',
   '/airbnb-marokko-investering/',
 ];
 const beheer = [
-  '/vastgoedbeheer-marokko/', '/verhuurbeheer-marokko/', '/airbnb-beheer-marokko/',
-  '/woningbeheer-marokko/', '/sleutelbeheer-marokko/', '/huis-verhuren-marokko-vanuit-nederland/',
-  '/huis-verkopen-marokko-vanuit-nederland/', '/waarde-woning-marokko-bepalen/',
-  '/woning-marokko-beheren-vanuit-nederland/',
+  '/vastgoedbeheer-marokko/', '/airbnb-beheer-marokko/',
+  '/huis-verhuren-marokko-vanuit-nederland/', '/huis-verkopen-marokko-vanuit-nederland/',
+  '/waarde-woning-marokko-bepalen/', '/woning-marokko-beheren-vanuit-nederland/',
 ];
 
 // Categoriseer een pad → CTA-variant. Onbekend/koopgidsen → 'koop'.

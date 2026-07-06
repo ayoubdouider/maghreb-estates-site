@@ -1,0 +1,146 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import TrustStrip from '../components/TrustStrip.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import AiBlocks from '../components/AiBlocks.astro';
+import Definitie from '../components/Definitie.astro';
+import CtaInline from '../components/CtaInline.astro';
+import Faq from '../components/Faq.astro';
+import LeadCta from '../components/LeadCta.astro';
+import { faqSchema, serviceSchema } from '../data/schema';
+
+const path = '/nieuwbouw-vastgoed-marokko/';
+const faqs = [
+  { q: 'Wat betekent off-plan kopen in Marokko?', a: 'Off-plan (of “op plan”) betekent dat u koopt vóór of tijdens de bouw, op basis van tekeningen en specificaties. U betaalt vaak in termijnen naarmate de bouw vordert. Het voordeel is een lagere instapprijs; het nadeel is dat u koopt wat er nog niet staat.' },
+  { q: 'Is nieuwbouw of off-plan kopen in Marokko veilig?', a: 'Het kan veilig zijn, maar valt of staat met de ontwikkelaar en het contract. Wij controleren het track record van de ontwikkelaar, de grondtitel (titre foncier), de bouwvergunning en de contractvoorwaarden vóór u zich verbindt of iets aanbetaalt.' },
+  { q: 'Kan ik een nieuwbouwappartement in termijnen betalen?', a: 'Ja, bij nieuwbouw is gespreide betaling tijdens de bouw gebruikelijk. Belangrijk is dat de termijnen gekoppeld zijn aan bouwfasen en dat uw betalingen in het contract beschermd zijn. Wij toetsen dit voor u.' },
+  { q: 'Hoe controleer ik een projectontwikkelaar in Marokko?', a: 'Kijk naar eerder opgeleverde projecten, de bouwvergunning, de grondtitel en de financiële soliditeit. Wij doen deze verificatie voor u en beoordelen of de beloftes realistisch zijn.' },
+  { q: 'Kan ik als Nederlander een hypotheek krijgen in Marokko?', a: 'Sommige Marokkaanse banken bieden financiering aan niet-ingezetenen (MRE), met eigen voorwaarden. Dit verschilt per bank en situatie. Laat u hierover goed adviseren; wij denken met u mee over de mogelijkheden.' },
+];
+---
+<BaseLayout
+  title="Nieuwbouw & off-plan vastgoed in Marokko kopen | Maghreb Estates"
+  description="Nieuwbouw en off-plan vastgoed in Marokko kopen: wat het is, hoe kopen in termijnen werkt, welke documenten en risico’s spelen, en hoe wij de ontwikkelaar, het project en het contract controleren."
+  path={path}
+  schema={[faqSchema(faqs), serviceSchema({ naam: 'Nieuwbouw & off-plan vastgoed Marokko', beschrijving: 'Controle en begeleiding bij aankoop van nieuwbouw en off-plan vastgoed in Marokko, inclusief betaling in termijnen.', path })]}
+>
+  <Hero
+    compact
+    eyebrow="Kopen · Nieuwbouw & off-plan"
+    title="Nieuwbouw & off-plan in Marokko,<br /><em>eerst gecontroleerd</em>"
+    sub="Kopen vóór de bouw af is: een lagere prijs en betaling in termijnen, maar met extra risico. Wat u moet weten — en hoe wij het project vóór u zich verbindt controleren."
+    image="/images/villa3.jpg"
+    ctas={[
+      { label: 'Laat het project controleren', href: '/contact/?doel=aankoopcontrole', primary: true },
+      { label: 'Plan gratis adviesgesprek', href: '/contact/' },
+    ]}
+  />
+  <Breadcrumbs items={[{ label: 'Vastgoed Marokko', href: '/vastgoed-marokko/' }, { label: 'Kopen', href: '/huis-kopen-marokko/' }, { label: 'Nieuwbouw & off-plan', href: path }]} />
+  <AiBlocks path={path} />
+  <TrustStrip />
+
+  <section class="section">
+    <div class="container prose" style="max-width:760px">
+      <p><strong>Nieuwbouw en off-plan vastgoed in Marokko</strong> zijn populair: u koopt vaak onder de marktprijs en betaalt in termijnen terwijl het project wordt gebouwd. Voor investeerders kan dat aantrekkelijk zijn — instappen vóór de waardestijging. Maar juist bij een project dat er nog niet staat, is controle van de ontwikkelaar, de papieren en het contract doorslaggevend.</p>
+
+      <h2>Wat is nieuwbouw kopen in Marokko?</h2>
+      <p>Bij nieuwbouw koopt u een woning of appartement in een project dat wordt ontwikkeld, meestal rechtstreeks van een projectontwikkelaar. U kiest vaak nog de indeling en afwerking, en de oplevering ligt in de toekomst. De koop verloopt via een reserverings- of koopovereenkomst en uiteindelijk de definitieve akte bij de <a href="/notaris-marokko-vastgoed/">notaris</a>, met inschrijving in het kadaster.</p>
+
+      <h2>Wat is off-plan vastgoed?</h2>
+      <p>Off-plan (“op plan”) is de meest voorkomende vorm van nieuwbouw: u koopt <em>vóór of tijdens</em> de bouw, op basis van tekeningen en specificaties. U legt een lagere instapprijs vast en betaalt in termijnen naarmate het project vordert. Het risico is dat u koopt wat er nog niet staat — de oplevering, kwaliteit en planning moeten dus geloofwaardig én contractueel geborgd zijn.</p>
+
+      <Definitie id="off-plan" />
+
+      <h2>Hoe werkt kopen in termijnen?</h2>
+      <p>Bij nieuwbouw en off-plan wordt de koopsom opgedeeld in termijnen. Idealiter zijn die gekoppeld aan <strong>bouwfasen</strong> (bijvoorbeeld fundering, ruwbouw, afbouw, oplevering), zodat u betaalt naarmate er daadwerkelijk wordt gebouwd. Zo verlaagt u de instapdrempel en houdt u een prikkel bij de ontwikkelaar. Bij bestaande bouw is termijnbetaling ongebruikelijk en afhankelijk van de verkoper of financiering.</p>
+      <div class="warn">
+        <strong>Termijnbetaling zonder waarborgen is riskant.</strong>
+        <p>Betaal alleen als de ontwikkelaar betrouwbaar is, de grondtitel (<a href="/titre-foncier-marokko/">titre foncier</a>) en vergunningen kloppen, en de termijnen aan bouwfasen zijn gekoppeld. Zorg dat uw betalingen in het contract beschermd zijn.</p>
+      </div>
+
+      <h2>Welke documenten moet u controleren?</h2>
+      <ul class="checks">
+        <li><strong>Grondtitel:</strong> een geregistreerde <a href="/titre-foncier-marokko/">titre foncier</a> op naam van de ontwikkelaar, zonder belemmerende inschrijvingen.</li>
+        <li><strong>Bouwvergunning (permis de construire)</strong> en de goedgekeurde plannen.</li>
+        <li><strong>Reserverings-/koopovereenkomst</strong> met een duidelijke termijnstructuur, opleverdatum en ontbindende voorwaarden.</li>
+        <li><strong>Bestemming en oppervlakte</strong> zoals vastgelegd, plus wat wél en niet in de prijs zit (casco of afgewerkt).</li>
+        <li><strong>Oplevergaranties</strong> en de gang naar de <a href="/notaris-marokko-vastgoed/">notaris</a> voor de definitieve akte.</li>
+      </ul>
+      <p>Zie ook onze gids over <a href="/juridische-documenten-vastgoed-marokko/">juridische documenten bij vastgoed in Marokko</a> voor de volledige uitleg per papier.</p>
+
+      <h2>Welke risico’s zijn er bij projectontwikkelaars?</h2>
+      <ul>
+        <li>Vertraging of, in het ergste geval, niet-oplevering.</li>
+        <li>Afwijkende kwaliteit of afwerking ten opzichte van de belofte.</li>
+        <li>Een onbetrouwbare of financieel zwakke ontwikkelaar.</li>
+        <li>Termijnbetalingen die onvoldoende beschermd zijn.</li>
+        <li>Een aantrekkelijke brochure zonder onderbouwing in track record en papieren.</li>
+      </ul>
+
+      <h2>Nieuwbouw vs. bestaande bouw: wat kiest u?</h2>
+      <div class="compare-wrap">
+        <table class="compare">
+          <caption>Vergelijking: nieuwbouw (off-plan) vs. bestaande bouw</caption>
+          <thead>
+            <tr><th>Aspect</th><th>Nieuwbouw / off-plan</th><th>Bestaande bouw</th></tr>
+          </thead>
+          <tbody>
+            <tr><th>Prijs</th><td>Vaak lagere instapprijs</td><td>Marktprijs, direct beschikbaar</td></tr>
+            <tr><th>Betaling</th><td>Vaak in termijnen tijdens de bouw</td><td>Doorgaans ineens bij overdracht</td></tr>
+            <tr><th>Zekerheid</th><td>U koopt wat er nog niet staat</td><td>U ziet wat u koopt</td></tr>
+            <tr><th>Grootste risico</th><td>Ontwikkelaar, vertraging, oplevering</td><td>Staat/onderhoud en titelstatus</td></tr>
+            <tr><th>Controle vooraf</th><td>Ontwikkelaar, vergunning, contract</td><td>Titre foncier, bouwkundige staat</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>Wanneer is nieuwbouw interessant?</h2>
+      <ul class="checks">
+        <li>U wilt gespreid betalen en niet ineens de volledige koopsom neerleggen.</li>
+        <li>U zoekt waardegroei: instappen vóór de oplevering in een groeimarkt.</li>
+        <li>U wilt een moderne woning met keuze in indeling en afwerking.</li>
+        <li>U koopt voor <a href="/investeren-vastgoed-marokko/">verhuur</a> en wilt een instapklaar, onderhoudsarm object.</li>
+      </ul>
+
+      <h2>Wanneer moet u juist oppassen?</h2>
+      <ul>
+        <li>De ontwikkelaar heeft geen aantoonbaar track record of opgeleverde projecten.</li>
+        <li>De grondtitel of bouwvergunning ontbreekt of is onduidelijk.</li>
+        <li>Termijnen zijn niet aan bouwfasen gekoppeld, of u moet vooraf een groot bedrag storten.</li>
+        <li>Er wordt druk gezet met een “speciale prijs” of een korte beslistermijn.</li>
+        <li>Betaling wordt informeel of buiten de notaris om gevraagd.</li>
+      </ul>
+
+      <CtaInline
+        title="Overweegt u een nieuwbouw- of off-plan project?"
+        text="Stuur ons de brochure of de ontwikkelaar. Wij beoordelen het project, de papieren en het contract vóór u een euro overmaakt."
+        label="Laat het project controleren"
+        href="/contact/?doel=aankoopcontrole"
+      />
+
+      <h2>Financiering en hypotheek</h2>
+      <p>Naast termijnbetaling bij de ontwikkelaar bieden meerdere Marokkaanse banken financiering aan niet-ingezetenen (MRE), waaronder <strong>Attijariwafa bank, Bank of Africa, Chaabi Bank (Banque Populaire), BMCI</strong> en <strong>CIH</strong>. Indicatieve voorwaarden uit publieke bankinformatie:</p>
+      <ul class="checks">
+        <li><strong>Financiering:</strong> bij sommige profielen/producten tot <strong>100%</strong>, afhankelijk van dossier.</li>
+        <li><strong>Looptijd:</strong> vaak tot circa <strong>25 jaar</strong>.</li>
+        <li><strong>Rente:</strong> in 2026 grofweg <strong>±4–6%</strong>, sterk profielafhankelijk.</li>
+        <li><strong>Documenten (loondienst):</strong> identiteitsbewijs, adresbewijs, werkgeversverklaring, recente loonstroken en meestal domiciliëring van inkomen.</li>
+      </ul>
+      <p style="font-size:14px;color:var(--text-muted)"><em>Voorwaarden en rentes zijn indicatief (begin 2026) en geen financieel advies; vraag altijd een offerte bij de bank.</em></p>
+
+      <h2>Hoe Maghreb Estates u beschermt</h2>
+      <p>Off-plan valt of staat met de ontwikkelaar en het contract. Onze <a href="/aankoopbegeleiding-vastgoed-marokko/">aankoopbegeleiding</a> controleert vier dingen vóór u zich verbindt:</p>
+      <ul class="checks">
+        <li><strong>Het project:</strong> plannen, vergunning, realistische planning en beloofde kwaliteit.</li>
+        <li><strong>De ontwikkelaar:</strong> track record, eerder opgeleverde projecten en soliditeit.</li>
+        <li><strong>Het contract:</strong> termijnen gekoppeld aan bouwfasen, ontbindende voorwaarden en bescherming van uw betalingen.</li>
+        <li><strong>De betaling:</strong> uitsluitend via de notaris, correct gedocumenteerd, nooit informeel.</li>
+      </ul>
+      <p>Voor investeerders kan nieuwbouw sterk zijn: bekijk <a href="/investeren-vastgoed-marokko/">investeren in vastgoed Marokko</a> en <a href="/beste-stad-investeren-vastgoed-marokko/">de beste steden om te investeren</a>, en combineer dit met ons <a href="/vastgoedbeheer-marokko/">beheer</a> voor verhuur na oplevering. Zoekt u specifiek een appartement? Lees <a href="/appartement-kopen-marokko/">appartement kopen in Marokko</a>, of start bij het complete <a href="/huis-kopen-marokko/">stappenplan om te kopen</a>.</p>
+    </div>
+  </section>
+
+  <Faq items={faqs} title="Veelgestelde vragen over nieuwbouw & off-plan in Marokko" />
+  <LeadCta path={path} />
+</BaseLayout>

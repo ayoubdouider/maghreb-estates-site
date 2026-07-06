@@ -143,32 +143,32 @@ const topSteden = steden.filter((s) => prominenteSteden.some((p) => p.slug === s
     </div>
   </section>
 
-  <!-- WIE BEGELEIDT UW AANKOOP -->
+  <!-- ONS TEAM -->
   <section class="section">
     <div class="container">
-      <div class="section__header section__header--center">
-        <p class="eyebrow">Wie begeleidt uw aankoop?</p>
-        <h2>Mensen die de markt én uw taal kennen</h2>
-        <p class="section__desc">U werkt met een vast, herkenbaar aanspreekpunt — geen anoniem callcenter.</p>
-      </div>
-      <div class="personen">
-        {team.map((p) => (
-          <div class="persoon">
-            <img class="persoon__foto" src={p.foto} alt={p.naam} width="92" height="92" loading="lazy" />
-            <div>
-              <h3>{p.naam}</h3>
-              <p class="persoon__rol">{p.rol}</p>
-              <p>{p.bio}</p>
-              <div class="persoon__links">
-                <a href={waLink('Hallo, ik heb een vraag over vastgoed in Marokko.', p.whatsapp)}><Icon name="chat" size={16} /> WhatsApp</a>
-                <a href={`mailto:${p.email}`}><Icon name="mail" size={16} /> E-mail</a>
-                {p.linkedin && <a href={p.linkedin}><Icon name="linkedin" size={16} /> LinkedIn</a>}
+      <div class="teamsectie">
+        <div class="section__header">
+          <p class="eyebrow">Ons team</p>
+          <h2>Persoonlijk contact met<br /><em>mensen die het kennen</em></h2>
+          <p class="section__desc">Wij zijn twee adviseurs met kennis van zowel de Nederlandse als de Marokkaanse markt. U heeft altijd een vast aanspreekpunt.</p>
+        </div>
+        <div class="teamkaarten">
+          {team.map((p) => (
+            <div class="teamkaart">
+              <img class="teamkaart__foto" src={p.foto} alt={p.naam} width="330" height="360" loading="lazy" />
+              <div class="teamkaart__body">
+                <h3 class="teamkaart__naam">{p.naam}</h3>
+                <p class="teamkaart__rol">Real estate agent</p>
+                <div class="teamkaart__contact">
+                  <a href={`tel:${p.telefoonHref}`}><Icon name="telefoon" size={16} /> {p.telefoon}</a>
+                  <a href={`mailto:${p.email}`}><Icon name="mail" size={16} /> {p.email}</a>
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
+        <p style="margin-top:28px"><a href="/over-ons/" class="btn btn--outline">Meer over Maghreb Estates</a></p>
       </div>
-      <p style="text-align:center;margin-top:28px"><a href="/over-ons/" class="btn btn--outline">Meer over Maghreb Estates</a></p>
     </div>
   </section>
 

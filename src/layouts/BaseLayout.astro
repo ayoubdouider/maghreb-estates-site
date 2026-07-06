@@ -31,12 +31,26 @@ const orgSchema = {
   '@type': 'RealEstateAgent',
   '@id': site.url + '/#organization',
   name: site.naam,
+  legalName: `${site.naam} ${site.rechtsvorm}`,
   url: site.url,
   image: ogImageAbs,
   logo: new URL(site.logo, site.url).href,
   telephone: site.telefoon,
   email: site.email,
   description: site.tagline,
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: site.adres,
+    addressLocality: 'Rabat',
+    addressRegion: 'Rabat-Salé-Kénitra',
+    addressCountry: 'MA',
+  },
+  // Officiële Marokkaanse bedrijfsidentificatie (entity SEO / vertrouwen).
+  taxID: site.ice,
+  identifier: [
+    { '@type': 'PropertyValue', name: 'RC', value: `${site.rc} (Rabat)` },
+    { '@type': 'PropertyValue', name: 'ICE', value: site.ice },
+  ],
   areaServed: [
     { '@type': 'Country', name: 'Marokko' },
     { '@type': 'Country', name: 'Nederland' },

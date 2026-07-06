@@ -50,19 +50,17 @@ export const labelSets: Record<AiVariant, AiLabelSet> = {
 };
 
 const investering = [
-  '/investeren-vastgoed-marokko/', '/rendement-vastgoed-marokko/',
-  '/beste-stad-investeren-vastgoed-marokko/', '/beste-stad-vastgoed-investeren-marokko/',
-  '/huur-rendement-marokko/', '/airbnb-marokko-investering/',
+  '/investeren-vastgoed-marokko/', '/beste-stad-investeren-vastgoed-marokko/',
+  '/airbnb-marokko-investering/',
 ];
 const kennis = [
-  '/kosten-huis-kopen-marokko/', '/verborgen-kosten-huis-kopen-marokko/',
-  '/risicos-huis-kopen-marokko/', '/notaris-marokko-vastgoed/', '/titre-foncier-marokko/',
+  '/kosten-huis-kopen-marokko/', '/risicos-huis-kopen-marokko/',
+  '/juridische-documenten-vastgoed-marokko/', '/kennisbank/',
+  '/notaris-marokko-vastgoed/', '/titre-foncier-marokko/',
   '/volmacht-huis-kopen-marokko/', '/koopcontract-marokko-vastgoed/',
-  '/oplichting-vastgoed-marokko-voorkomen/',
 ];
 const beheer = [
-  '/vastgoedbeheer-marokko/', '/verhuurbeheer-marokko/', '/airbnb-beheer-marokko/',
-  '/woningbeheer-marokko/', '/sleutelbeheer-marokko/',
+  '/vastgoedbeheer-marokko/', '/airbnb-beheer-marokko/',
   '/huis-verhuren-marokko-vanuit-nederland/', '/huis-verkopen-marokko-vanuit-nederland/',
   '/waarde-woning-marokko-bepalen/', '/woning-marokko-beheren-vanuit-nederland/',
 ];

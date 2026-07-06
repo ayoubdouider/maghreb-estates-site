@@ -55,6 +55,6 @@ export const begripLink: Record<string, string> = {
   aankoopbegeleiding: '/aankoopbegeleiding-vastgoed-marokko/',
   'due-diligence': '/aankoopbegeleiding-vastgoed-marokko/',
   vastgoedbeheer: '/vastgoedbeheer-marokko/',
-  verhuurbeheer: '/verhuurbeheer-marokko/',
-  'off-plan': '/off-plan-vastgoed-marokko/',
+  verhuurbeheer: '/vastgoedbeheer-marokko/',
+  'off-plan': '/nieuwbouw-vastgoed-marokko/',
 };
