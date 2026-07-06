@@ -5,7 +5,7 @@ export const site = {
   tagline: 'Nederlandstalige begeleiding bij het kopen, beoordelen en beheren van vastgoed in Marokko.',
   telefoon: '+31 6 83 49 87 15',
   telefoonHref: '+31683498715',
-  email: 'info@maghreb-estates.com',
+  email: 'a.douider@maghreb-estates.com',
   whatsapp: '31683498715',
   land: 'NL',
   logo: '/images/logo.png',
@@ -21,8 +21,35 @@ export const site = {
 };
 
 // WhatsApp-linkhelper (optioneel voorgevuld bericht).
-export const waLink = (bericht = '') =>
-  `https://wa.me/${site.whatsapp}${bericht ? `?text=${encodeURIComponent(bericht)}` : ''}`;
+export const waLink = (bericht = '', nummer = site.whatsapp) =>
+  `https://wa.me/${nummer}${bericht ? `?text=${encodeURIComponent(bericht)}` : ''}`;
+
+// Team — echte gegevens overgenomen van de oude site.
+// TODO: LinkedIn-URL's toevoegen zodra bekend; eventueel persoonlijkere bio.
+export const team = [
+  {
+    naam: 'Ayoub Douider',
+    rol: 'Vastgoedadviseur & aankoopbegeleider',
+    foto: '/images/ayoub.jpg',
+    telefoon: '+31 6 83 49 87 15',
+    telefoonHref: '+31683498715',
+    whatsapp: '31683498715',
+    email: 'a.douider@maghreb-estates.com',
+    linkedin: '',
+    bio: 'Begeleidt Nederlandstalige kopers bij het kopen, controleren en beheren van vastgoed in Marokko. Spreekt Nederlands, Arabisch/Darija en Frans.',
+  },
+  {
+    naam: 'Marouane Haddane',
+    rol: 'Vastgoedadviseur & aankoopbegeleider',
+    foto: '/images/marouane.png',
+    telefoon: '+31 6 44 68 17 82',
+    telefoonHref: '+31644681782',
+    whatsapp: '31644681782',
+    email: 'm.haddane@maghreb-estates.com',
+    linkedin: '',
+    bio: 'Begeleidt kopers en eigenaren bij aankoop, dossiercontrole en beheer in Marokko, met lokale kennis van de markt en de papieren. Spreekt Nederlands, Arabisch/Darija en Frans.',
+  },
+];
 
 // De 7 prominente steden (rijke pagina's + Steden-dropdown).
 export const prominenteSteden = [

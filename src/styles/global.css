@@ -254,7 +254,8 @@ details.faq__item summary::-webkit-details-marker { display: none; }
 /* ===== TEAM / PERSOON PLACEHOLDER ===== */
 .personen { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
 .persoon { display: flex; gap: 20px; background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); padding: 22px; }
-.persoon__foto { width: 84px; height: 84px; border-radius: 50%; background: var(--cream-dark); border: 1px dashed var(--border); flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 11px; color: var(--text-muted); text-align: center; }
+.persoon__foto { width: 92px; height: 92px; border-radius: 50%; background: var(--cream-dark); border: 1px solid var(--border); flex-shrink: 0; object-fit: cover; display: flex; align-items: center; justify-content: center; font-size: 11px; color: var(--text-muted); text-align: center; }
+img.persoon__foto { object-position: center top; }
 .persoon h3 { margin-bottom: 2px; }
 .persoon__rol { font-size: 13px; color: var(--green-mid); letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 8px; }
 .persoon p { font-size: 14.5px; color: var(--text-muted); margin-bottom: 10px; }

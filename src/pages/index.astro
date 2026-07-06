@@ -8,6 +8,7 @@ import Icon from '../components/Icon.astro';
 import Faq from '../components/Faq.astro';
 import CtaBand from '../components/CtaBand.astro';
 import { steden } from '../data/steden';
+import { team, waLink } from '../data/site';
 import { faqSchema } from '../data/schema';
 
 const faqs = [
@@ -153,31 +154,21 @@ const topSteden = steden.slice(0, 8);
         <p class="section__desc">U werkt met een vast, herkenbaar aanspreekpunt — geen anoniem callcenter.</p>
       </div>
       <div class="personen">
-        {/* TODO: vervang placeholders door echte teamgegevens (foto, naam, rol, talen, bio, LinkedIn). Geen stockpersoon gebruiken. */}
-        <div class="persoon">
-          <div class="persoon__foto">Foto<br />volgt</div>
-          <div>
-            <h3>[TODO: naam]</h3>
-            <p class="persoon__rol">[TODO: rol]</p>
-            <p>[TODO: korte persoonlijke uitleg — waarom deze persoon kopers begeleidt en welke ervaring hij/zij meebrengt.] Talen: Nederlands, Arabisch/Darija, Frans.</p>
-            <div class="persoon__links">
-              <a href="/contact/"><Icon name="linkedin" size={16} /> LinkedIn [TODO]</a>
-              <a href="/contact/"><Icon name="chat" size={16} /> WhatsApp</a>
+        {team.map((p) => (
+          <div class="persoon">
+            <img class="persoon__foto" src={p.foto} alt={p.naam} width="92" height="92" loading="lazy" />
+            <div>
+              <h3>{p.naam}</h3>
+              <p class="persoon__rol">{p.rol}</p>
+              <p>{p.bio}</p>
+              <div class="persoon__links">
+                <a href={waLink('Hallo, ik heb een vraag over vastgoed in Marokko.', p.whatsapp)}><Icon name="chat" size={16} /> WhatsApp</a>
+                <a href={`mailto:${p.email}`}><Icon name="mail" size={16} /> E-mail</a>
+                {p.linkedin && <a href={p.linkedin}><Icon name="linkedin" size={16} /> LinkedIn</a>}
+              </div>
             </div>
           </div>
-        </div>
-        <div class="persoon">
-          <div class="persoon__foto">Foto<br />volgt</div>
-          <div>
-            <h3>[TODO: naam]</h3>
-            <p class="persoon__rol">[TODO: rol]</p>
-            <p>[TODO: korte persoonlijke uitleg.] Talen: Nederlands, Arabisch/Darija, Frans.</p>
-            <div class="persoon__links">
-              <a href="/contact/"><Icon name="linkedin" size={16} /> LinkedIn [TODO]</a>
-              <a href="/contact/"><Icon name="chat" size={16} /> WhatsApp</a>
-            </div>
-          </div>
-        </div>
+        ))}
       </div>
       <p style="text-align:center;margin-top:28px"><a href="/over-ons/" class="btn btn--outline">Meer over Maghreb Estates</a></p>
     </div>
