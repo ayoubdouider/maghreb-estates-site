@@ -4,9 +4,9 @@
 // (body krijgt op mobiel padding-bottom in global.css).
 import { waLink } from '../data/site';
 import Icon from './Icon.astro';
-const href = waLink('Hallo Maghreb Estates, ik wil graag een woning of project in Marokko laten controleren. Kunnen jullie meekijken?');
+const href = waLink('Hallo Maghreb Estates, ik heb een vraag over vastgoed in Marokko.');
 ---
-<a class="sticky-wa" href={href} rel="noopener" aria-label="Stuur een woninglink via WhatsApp">
+<a class="sticky-wa" href={href} rel="noopener" aria-label="Stel een vraag via WhatsApp">
   <Icon name="chat" size={18} />
-  <span>Stuur woninglink via WhatsApp</span>
+  <span>Stel je vraag via WhatsApp</span>
 </a>
