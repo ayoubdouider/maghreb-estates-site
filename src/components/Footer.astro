@@ -1,6 +1,5 @@
 ---
-import { site, legal, waLink } from '../data/site';
-import { steden } from '../data/steden';
+import { site, legal, waLink, prominenteSteden } from '../data/site';
 import Icon from './Icon.astro';
 const jaar = new Date().getFullYear();
 ---
@@ -70,7 +69,8 @@ const jaar = new Date().getFullYear();
     <div class="footer__steden">
       <h4>Vastgoed per stad</h4>
       <div class="footer__steden-links">
-        {steden.map((s) => <a href={`/vastgoed-${s.slug}/`}>{s.naam}</a>)}
+        {prominenteSteden.map((s) => <a href={`/vastgoed-${s.slug}/`}>{s.naam}</a>)}
+        <a href="/vastgoed-marokko/">Bekijk alle steden</a>
       </div>
     </div>
 
