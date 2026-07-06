@@ -200,11 +200,17 @@ details.faq__item summary::-webkit-details-marker { display: none; }
 .footer__brand .logo-sub { font-size: 12px; letter-spacing: 0.3em; color: var(--gold); }
 .footer__brand p { font-size: 14px; margin-top: 14px; max-width: 34ch; }
 .footer__bottom { border-top: 1px solid rgba(245,241,232,0.15); padding-top: 24px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; font-size: 13px; }
+.footer .contactlist li { margin-bottom: 8px; }
+.footer .contactlist svg { color: var(--gold); }
+.footer .contactlist a { padding: 0; display: inline; }
+.footer__bedrijf { font-size: 13px; margin-top: 16px; color: rgba(245,241,232,0.7); line-height: 1.7; }
+.footer__legal a { display: inline; padding: 0; }
+.footer__legal a:hover { color: var(--cream); text-decoration: underline; }
 
 /* ===== TRUST STRIP ===== */
 .trust-strip { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
 .trust-strip__item { display: flex; gap: 14px; align-items: flex-start; }
-.trust-strip__ic { font-size: 22px; line-height: 1; flex-shrink: 0; }
+.trust-strip__ic { display: inline-flex; color: var(--green-mid); line-height: 1; flex-shrink: 0; margin-top: 2px; }
 .trust-strip__item strong { display: block; font-family: var(--font-sans); font-size: 15px; font-weight: 500; color: var(--green); }
 .trust-strip__item span { font-size: 13.5px; color: var(--text-muted); }
 
@@ -225,8 +231,49 @@ details.faq__item summary::-webkit-details-marker { display: none; }
 /* ===== KENMERKEN-LIJST (checks) ===== */
 .checks { list-style: none; margin: 0 0 20px 0 !important; }
 .checks li { position: relative; padding-left: 30px; margin-bottom: 12px; color: var(--text-muted); }
-.checks li::before { content: '✓'; position: absolute; left: 0; top: 0; color: var(--green-mid); font-weight: 600; }
+.checks li::before { content: ''; position: absolute; left: 0; top: 4px; width: 17px; height: 17px; background: var(--green-mid);
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m4 12.5 5 5L20 6.5'/%3E%3C/svg%3E") center/contain no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m4 12.5 5 5L20 6.5'/%3E%3C/svg%3E") center/contain no-repeat; }
 .checks strong { color: var(--text); font-weight: 500; }
+
+/* ===== ICON WRAPPERS / KAARTEN ===== */
+.card__ic { display: inline-flex; color: var(--green-mid); margin-bottom: 18px; }
+.card__num { display: block; font-family: var(--font-serif); font-size: 32px; color: var(--green); line-height: 1; margin-bottom: 12px; }
+
+/* ===== HERO TRUSTLINE ===== */
+.trustline { display: flex; flex-wrap: wrap; gap: 8px 10px; margin-top: 26px; font-size: 13.5px; color: rgba(245,241,232,0.85); }
+.trustline span { position: relative; padding-right: 10px; }
+.trustline span:not(:last-child)::after { content: '·'; position: absolute; right: 0; opacity: 0.6; }
+
+/* ===== MARKTKADER (disclaimer) ===== */
+.marktkader { background: #fbf6ec; border: 1px solid #e6d9bf; border-left: 3px solid var(--gold); border-radius: var(--radius); padding: 16px 20px; margin: 24px 0; }
+.marktkader__lead { margin: 0; font-size: 14.5px; color: #6a5a3a; }
+.marktkader__lead strong { color: #7a5b1f; }
+.marktkader__meta { margin: 8px 0 0; font-size: 13px; color: #8a7a5a; }
+
+/* ===== TEAM / PERSOON PLACEHOLDER ===== */
+.personen { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+.persoon { display: flex; gap: 20px; background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); padding: 22px; }
+.persoon__foto { width: 84px; height: 84px; border-radius: 50%; background: var(--cream-dark); border: 1px dashed var(--border); flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 11px; color: var(--text-muted); text-align: center; }
+.persoon h3 { margin-bottom: 2px; }
+.persoon__rol { font-size: 13px; color: var(--green-mid); letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 8px; }
+.persoon p { font-size: 14.5px; color: var(--text-muted); margin-bottom: 10px; }
+.persoon__links { display: flex; gap: 14px; align-items: center; }
+.persoon__links a { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: var(--green-mid); }
+
+/* ===== BEHEERPAKKETTEN ===== */
+.pakket { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); padding: 28px 26px; }
+.pakket h3 { margin-bottom: 4px; }
+.pakket__voor { font-size: 13.5px; color: var(--text-muted); margin-bottom: 16px; }
+.pakket ul { list-style: none; margin: 0; }
+.pakket li { position: relative; padding-left: 24px; margin-bottom: 8px; font-size: 14.5px; color: var(--text-muted); }
+.pakket li::before { content: ''; position: absolute; left: 0; top: 7px; width: 8px; height: 8px; border-radius: 50%; background: var(--green-light); border: 1.5px solid var(--green-mid); }
+
+/* ===== INLINE CONTACTREGELS ===== */
+.contactlist { list-style: none; margin: 0; }
+.contactlist li { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+.contactlist svg { color: var(--green-mid); flex-shrink: 0; }
+
 
 /* ===== AI: DIRECT ANSWER ===== */
 .direct-answer { background: var(--green); color: var(--cream); border-radius: var(--radius); padding: 28px 32px; margin: 0 0 8px; }
@@ -283,4 +330,6 @@ table.compare tr:last-child td, table.compare tr:last-child th { border-bottom: 
   .cta-inline .btn { width: 100%; text-align: center; }
   .ai-summary dl { grid-template-columns: 1fr; gap: 2px 0; }
   .ai-summary dt { margin-top: 10px; }
+  .personen { grid-template-columns: 1fr; }
+  .persoon { flex-direction: column; }
 }

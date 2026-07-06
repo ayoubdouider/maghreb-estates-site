@@ -1,0 +1,45 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import { site } from '../data/site';
+const path = '/privacybeleid/';
+---
+<BaseLayout
+  title="Privacybeleid | Maghreb Estates"
+  description="Hoe Maghreb Estates omgaat met uw persoonsgegevens: welke gegevens wij verwerken, waarom, hoe lang en welke rechten u heeft."
+  path={path}
+>
+  <Breadcrumbs items={[{ label: 'Privacybeleid', href: path }]} />
+  <section class="section">
+    <div class="container prose" style="max-width:760px">
+      <h1>Privacybeleid</h1>
+      <p>Maghreb Estates hecht waarde aan uw privacy. In dit beleid leest u welke persoonsgegevens wij verwerken wanneer u contact met ons opneemt of gebruikmaakt van onze diensten, en met welk doel.</p>
+      <p><em>[TODO: dit privacybeleid is een concept en dient vóór livegang juridisch te worden gecontroleerd en aangevuld met de definitieve bedrijfsgegevens.]</em></p>
+
+      <h2>Wie zijn wij?</h2>
+      <p>Maghreb Estates, bereikbaar via {site.email} en {site.telefoon}. Vestigingsplaats: [TODO]. KvK: [TODO].</p>
+
+      <h2>Welke gegevens verwerken wij?</h2>
+      <ul>
+        <li>Contactgegevens die u zelf verstrekt: naam, e-mailadres, telefoonnummer.</li>
+        <li>Informatie over uw vraag: doel, stad/regio, budgetindicatie en een eventuele link naar een woning of project.</li>
+        <li>Technische gegevens van de website, uitsluitend voor beveiliging en verbetering.</li>
+      </ul>
+
+      <h2>Waarom verwerken wij deze gegevens?</h2>
+      <ul>
+        <li>Om uw vraag te beantwoorden en u te begeleiden bij aankoop, investering, verhuur, beheer of verkoop.</li>
+        <li>Om met u te communiceren en afspraken vast te leggen.</li>
+      </ul>
+
+      <h2>Hoe lang bewaren wij gegevens?</h2>
+      <p>Niet langer dan noodzakelijk voor de hierboven genoemde doelen, of zolang wettelijk vereist.</p>
+
+      <h2>Delen met derden</h2>
+      <p>Wij delen uw gegevens niet met derden, tenzij dat nodig is voor de uitvoering van onze dienstverlening (bijvoorbeeld notaris) of wanneer wij daartoe wettelijk verplicht zijn.</p>
+
+      <h2>Uw rechten</h2>
+      <p>U heeft het recht op inzage, correctie of verwijdering van uw persoonsgegevens. Neem hiervoor contact op via {site.email}.</p>
+    </div>
+  </section>
+</BaseLayout>

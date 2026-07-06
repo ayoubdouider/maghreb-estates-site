@@ -4,149 +4,90 @@ import Hero from '../components/Hero.astro';
 import TrustStrip from '../components/TrustStrip.astro';
 import AiBlocks from '../components/AiBlocks.astro';
 import CtaInline from '../components/CtaInline.astro';
+import Icon from '../components/Icon.astro';
 import Faq from '../components/Faq.astro';
 import CtaBand from '../components/CtaBand.astro';
 import { steden } from '../data/steden';
 import { faqSchema } from '../data/schema';
 
 const faqs = [
-  { q: 'Kan ik veilig vastgoed kopen in Marokko vanuit Nederland?', a: 'Ja. Met de juiste begeleiding koopt u veilig vastgoed in Marokko, ook volledig op afstand. Wij controleren de eigendomspapieren (titre foncier), begeleiden bij notaris en contracten en kunnen met een volmacht het hele traject voor u regelen. Zonder complete dossiercontrole tekent u bij ons nooit.' },
-  { q: 'Wat kost het kopen van een huis in Marokko?', a: 'Reken naast de koopsom op circa 6 tot 10% bijkomende kosten: registratierechten, notariskosten, kadaster en eventueel begeleidingskosten. Wij maken vooraf een transparante kostenberekening voor uw specifieke situatie, zodat u niet voor verborgen kosten komt te staan.' },
-  { q: 'Hoe voorkom ik oplichting bij vastgoed in Marokko?', a: 'De grootste risico’s zijn onduidelijke eigendomspapieren, dubbele verkoop en informele afspraken buiten de notaris om. Wij doen due diligence op elk object, verifiëren de titre foncier bij het kadaster en laten alles officieel via de notaris verlopen.' },
-  { q: 'Ben ik niet afhankelijk van familie of tussenpersonen?', a: 'Nee. Veel kopers regelen het via een oom, neef of kennis en lopen vast in onduidelijke afspraken. Wij zijn een onafhankelijke, zakelijke partij die uitsluitend uw belang behartigt — zo blijft de relatie met familie gezond én uw aankoop veilig.' },
-  { q: 'Kan Maghreb Estates ook mijn woning verhuren en beheren?', a: 'Ja. Wij verzorgen verhuurbeheer en vastgoedbeheer op afstand: van huurders vinden en Airbnb-beheer tot onderhoud en toezicht, zodat uw woning rendeert zonder dat u er zelf voor in Marokko hoeft te zijn.' },
-  { q: 'In welke steden zijn jullie actief?', a: 'In alle grote en opkomende steden — van Tanger, Nador en Al Hoceima in het noorden tot Casablanca, Rabat, Marrakech, Agadir en Dakhla. Wij kennen de markt, prijzen en verhuurpotentie per stad.' },
-  { q: 'Wat kost een adviesgesprek?', a: 'Het eerste adviesgesprek is gratis en vrijblijvend. We luisteren naar uw situatie en vertellen u eerlijk wat mogelijk is — zonder verplichtingen.' },
+  { q: 'Kan ik als Nederlander veilig vastgoed kopen in Marokko?', a: 'Ja. Nederlanders, Belgen en Nederlands-Marokkanen mogen vrijwel overal in Marokko vastgoed kopen, ook op afstand. Veilig kopen staat of valt met controle van de eigendomstitel en een officiële overdracht via de notaris. Zonder complete dossiercontrole adviseren wij niet te tekenen.' },
+  { q: 'Wat kost het kopen van een huis in Marokko?', a: 'Naast de koopsom betaalt u circa 6 tot 10% aan bijkomende kosten: registratierechten, notaris en kadaster. Wij maken vooraf een transparante berekening voor uw situatie, zodat u niet voor verborgen kosten komt te staan.' },
+  { q: 'Hoe voorkom ik oplichting bij vastgoed in Marokko?', a: 'De grootste risico’s zijn onduidelijke eigendomspapieren, dubbele verkoop en betalingen buiten de notaris om. Wij verifiëren de titre foncier bij het kadaster, controleren of de verkoper bevoegd is en laten alles officieel verlopen.' },
+  { q: 'Ben ik niet afhankelijk van familie of tussenpersonen?', a: 'Nee. Veel kopers regelen het via een oom, neef of kennis en lopen vast in onduidelijke afspraken. Wij zijn een onafhankelijke partij die uitsluitend uw belang behartigt.' },
+  { q: 'Kan Maghreb Estates ook mijn woning verhuren en beheren?', a: 'Ja. Wij verzorgen verhuur- en vastgoedbeheer op afstand: van huurders vinden en Airbnb-beheer tot onderhoud en toezicht.' },
+  { q: 'Wat kost een adviesgesprek?', a: 'Het eerste gesprek is gratis en vrijblijvend. We luisteren naar uw situatie en vertellen u eerlijk wat mogelijk is.' },
 ];
 
-const topSteden = steden.slice(0, 9);
+const topSteden = steden.slice(0, 8);
 ---
 <BaseLayout
-  title="Vastgoed Marokko kopen vanuit Nederland | Maghreb Estates"
-  description="Veilig vastgoed kopen, investeren, verhuren en beheren in Marokko — met Nederlandse duidelijkheid en lokale controle. Aankoopbegeleiding, dossiercontrole en vastgoedbeheer voor Nederlandstalige kopers."
+  title="Vastgoed kopen in Marokko, zonder blind vertrouwen | Maghreb Estates"
+  description="Maghreb Estates begeleidt Nederlanders, Belgen en Nederlands-Marokkanen bij het kopen, beoordelen en beheren van vastgoed in Marokko. Wij controleren eerst het dossier, de prijs en de risico’s."
   path="/"
   schema={[faqSchema(faqs)]}
 >
   <Hero
-    eyebrow="Vastgoed in Marokko — vanuit Nederland & België"
-    title="Veilig vastgoed kopen in Marokko,<br /><em>met controle van A tot Z</em>"
-    sub="Wij helpen Nederlanders, Belgen en Nederlands-Marokkanen bij het vinden, beoordelen, kopen, verhuren en beheren van vastgoed in Marokko — met Nederlandse duidelijkheid en lokale controle."
+    eyebrow="Aankoopbegeleiding & vastgoedbeheer in Marokko"
+    title="Vastgoed kopen in Marokko,<br /><em>zonder blind vertrouwen</em>"
+    sub="Maghreb Estates begeleidt Nederlanders, Belgen en Nederlands-Marokkanen bij het kopen, beoordelen en beheren van vastgoed in Marokko. Wij controleren eerst het dossier, de prijs en de risico’s — pas daarna kijken we of een aankoop verstandig is."
     image="/images/villa5.jpg"
     ctas={[
-      { label: 'Plan gratis adviesgesprek', href: '/contact/', primary: true },
-      { label: 'Download de checklist', href: '/contact/?doel=checklist' },
+      { label: 'Stuur een woning ter controle', href: '/contact/?doel=aankoopcontrole', primary: true },
+      { label: 'Plan gratis adviesgesprek', href: '/contact/' },
     ]}
+    trust={['Nederlandstalige begeleiding', 'Lokale controle', 'Dossiercheck vóór betaling', 'Beheer na aankoop']}
   />
 
-  <TrustStrip />
   <AiBlocks path="/" />
 
-  <!-- POSITIONERING / WAAR KOPERS BANG VOOR ZIJN -->
+  <!-- WAAR WIJ OP CONTROLEREN -->
   <section class="section section--tinted">
     <div class="container">
       <div class="section__header section__header--center">
-        <p class="eyebrow">Waarom dit anders moet</p>
-        <h2>De Marokkaanse markt is <em>anders</em> — en dat weet u</h2>
-        <p class="section__desc">De meeste Nederlandstalige kopers hebben dezelfde zorgen. Terecht. Wij zijn opgericht om precies die zorgen weg te nemen.</p>
+        <p class="eyebrow">Onze werkwijze</p>
+        <h2>Waar wij op controleren voordat u koopt</h2>
+        <p class="section__desc">Een woning in Marokko kopen gaat mis vóór de notaris, niet erna. Daarom begint elke aankoop bij ons met controle — niet bij de prijs.</p>
       </div>
-      <div class="grid grid--3">
+      <div class="grid grid--4">
         <div class="card">
-          <span class="card__icon">⚠️</span>
-          <h3>“Word ik opgelicht?”</h3>
-          <p>Onduidelijke papieren, dubbele verkoop en mooie praatjes. Wij controleren de titre foncier bij het kadaster en laten niets informeel verlopen.</p>
+          <span class="card__ic"><Icon name="titel" size={28} /></span>
+          <h3>Eigendomstitel</h3>
+          <p>We controleren of de woning correct geregistreerd is en of de verkoper bevoegd is om te verkopen.</p>
         </div>
         <div class="card">
-          <span class="card__icon">📄</span>
-          <h3>“Kloppen de papieren wel?”</h3>
-          <p>Geen geregistreerde eigendomstitel? Dan kopen wij niet. Elke aankoop start met volledige dossiercontrole via notaris en kadaster.</p>
+          <span class="card__ic"><Icon name="contract" size={28} /></span>
+          <h3>Koopcontract</h3>
+          <p>We beoordelen voorwaarden, aanbetaling, leverdatum en risico’s vóórdat u tekent.</p>
         </div>
         <div class="card">
-          <span class="card__icon">👨‍👩‍👧</span>
-          <h3>“Moet ik het via familie doen?”</h3>
-          <p>Afhankelijkheid van familie of een tussenpersoon leidt vaak tot gedoe. Wij zijn onafhankelijk en behartigen alleen úw belang.</p>
+          <span class="card__ic"><Icon name="prijs" size={28} /></span>
+          <h3>Prijs en locatie</h3>
+          <p>We vergelijken de vraagprijs met marktinformatie en beoordelen of het object bij uw doel past.</p>
+        </div>
+        <div class="card">
+          <span class="card__ic"><Icon name="notaris" size={28} /></span>
+          <h3>Notaris en overdracht</h3>
+          <p>We bewaken dat betalingen en overdracht officieel en controleerbaar verlopen.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- DIENSTEN -->
+  <!-- WAAROM KOPERS ONS INSCHAKELEN -->
   <section class="section">
-    <div class="container">
-      <div class="section__header section__header--center">
-        <p class="eyebrow">Wat wij doen</p>
-        <h2>Alles rond vastgoed in Marokko,<br /><em>op één plek geregeld</em></h2>
-        <p class="section__desc">Van de eerste oriëntatie tot verhuur en beheer. U heeft één vast, Nederlandstalig aanspreekpunt dat de Marokkaanse markt door en door kent.</p>
-      </div>
-      <div class="grid grid--3">
-        <a class="card card--link" href="/huis-kopen-marokko/">
-          <span class="card__icon">🔑</span>
-          <h3>Huis kopen</h3>
-          <p>Van woning tot appartement of villa — wij selecteren, beoordelen en begeleiden uw aankoop tot de sleuteloverdracht.</p>
-          <span class="card__more">Meer over kopen →</span>
-        </a>
-        <a class="card card--link" href="/investeren-vastgoed-marokko/">
-          <span class="card__icon">📈</span>
-          <h3>Investeren</h3>
-          <p>Data-gedreven advies over rendement, huurinkomsten en de beste steden om te investeren in Marokkaans vastgoed.</p>
-          <span class="card__more">Meer over investeren →</span>
-        </a>
-        <a class="card card--link" href="/aankoopbegeleiding-vastgoed-marokko/">
-          <span class="card__icon">🛡️</span>
-          <h3>Aankoopbegeleiding</h3>
-          <p>Due diligence, controle van de titre foncier, notaris en contracten. Wij verkleinen de onzekerheid bij elke stap.</p>
-          <span class="card__more">Meer over begeleiding →</span>
-        </a>
-        <a class="card card--link" href="/vastgoedbeheer-marokko/">
-          <span class="card__icon">🏠</span>
-          <h3>Vastgoedbeheer</h3>
-          <p>Verhuurbeheer, Airbnb-beheer, onderhoud en toezicht — uw woning rendeert terwijl u in Nederland bent.</p>
-          <span class="card__more">Meer over beheer →</span>
-        </a>
-        <a class="card card--link" href="/huis-kopen-marokko-vanuit-nederland/">
-          <span class="card__icon">✈️</span>
-          <h3>Kopen op afstand</h3>
-          <p>Het volledige aankooptraject vanuit Nederland, desgewenst met volmacht. U hoeft niet steeds af te reizen.</p>
-          <span class="card__more">Kopen vanuit Nederland →</span>
-        </a>
-        <a class="card card--link" href="/huis-verkopen-marokko-vanuit-nederland/">
-          <span class="card__icon">🤝</span>
-          <h3>Verkoopbegeleiding</h3>
-          <p>Uw Marokkaanse woning verkopen vanuit Nederland — correcte waardebepaling en begeleiding tot de overdracht.</p>
-          <span class="card__more">Meer over verkopen →</span>
-        </a>
-      </div>
-      <div class="container" style="padding:0;max-width:820px;margin-top:48px">
-        <CtaInline
-          title="Niet zeker waar u moet beginnen?"
-          text="Plan een gratis adviesgesprek. Wij luisteren naar uw situatie en maken een helder plan — kopen, investeren of beheren."
-        />
-      </div>
-    </div>
-  </section>
-
-  <!-- WAAROM WIJ (split) -->
-  <section class="section section--dark">
     <div class="container">
       <div class="split">
         <div class="split__text">
-          <p class="eyebrow eyebrow--light">Waarom Maghreb Estates</p>
-          <h2 style="margin-bottom:32px">Nederlandse duidelijkheid,<br /><em>lokale controle</em></h2>
-          <div class="feature">
-            <h3>Wij spreken uw taal — en die van de markt</h3>
-            <p>Nederlands, Arabisch, Darija/Amazigh en Frans. U hoeft niets te vertalen of te interpreteren; wij zijn uw vaste gids tussen twee werelden.</p>
-          </div>
-          <div class="feature">
-            <h3>Data-gedreven, geen mooie plaatjes</h3>
-            <p>Wij analyseren marktdata uit heel Marokko en beoordelen elk object eerlijk op locatie, prijs, verhuurpotentie en toekomstwaarde.</p>
-          </div>
-          <div class="feature">
-            <h3>Veiligheid staat voorop</h3>
-            <p>Due diligence, controle van eigendomspapieren en alles officieel via de notaris. Zo voorkomt u de bekende valkuilen.</p>
-          </div>
+          <p class="eyebrow">Waarom kopers ons inschakelen</p>
+          <h2 style="margin-bottom:22px">Onafhankelijk, en eerlijk wanneer iets niet klopt</h2>
+          <p style="color:var(--text-muted);font-size:17px;margin-bottom:18px">Een woning kopen in Marokko is vaak emotioneel én financieel groot. Juist daarom wilt u niet afhankelijk zijn van losse tips, familieconstructies of mooie verkoopverhalen.</p>
+          <p style="color:var(--text-muted);font-size:17px;margin-bottom:28px">Maghreb Estates werkt als onafhankelijke begeleider: wij zoeken mee, controleren documenten, beoordelen risico’s en zeggen het ook eerlijk wanneer een object niet klopt.</p>
+          <a href="/contact/?doel=aankoopcontrole" class="btn btn--primary">Laat uw aankoop controleren</a>
         </div>
         <div class="split__visual">
           <div class="quote-block">
-            <blockquote>“Wij verkopen geen vastgoedideeën. Wij bieden begeleiding, duidelijkheid en vertrouwen tijdens een belangrijke stap.”</blockquote>
+            <blockquote>“Wij helpen u niet alleen zoeken, maar vooral voorkomen dat u verkeerd koopt.”</blockquote>
             <cite>— Maghreb Estates</cite>
           </div>
         </div>
@@ -154,13 +95,101 @@ const topSteden = steden.slice(0, 9);
     </div>
   </section>
 
+  <!-- DIENSTEN -->
+  <section class="section section--tinted">
+    <div class="container">
+      <div class="section__header section__header--center">
+        <p class="eyebrow">Waarmee wij helpen</p>
+        <h2>Van aankoop tot beheer, op één plek</h2>
+        <p class="section__desc">U heeft één vast, Nederlandstalig aanspreekpunt — van de eerste oriëntatie tot verhuur en beheer na aankoop.</p>
+      </div>
+      <div class="grid grid--3">
+        <a class="card card--link" href="/huis-kopen-marokko/">
+          <span class="card__ic"><Icon name="sleutel" size={26} /></span>
+          <h3>Huis kopen</h3>
+          <p>Van woning tot appartement of villa: wij selecteren, beoordelen en begeleiden uw aankoop tot de overdracht.</p>
+          <span class="card__more">Meer over kopen</span>
+        </a>
+        <a class="card card--link" href="/investeren-vastgoed-marokko/">
+          <span class="card__ic"><Icon name="prijs" size={26} /></span>
+          <h3>Investeren</h3>
+          <p>Nuchter advies over realistisch rendement na kosten, huurinkomsten en de keuze van stad en object.</p>
+          <span class="card__more">Meer over investeren</span>
+        </a>
+        <a class="card card--link" href="/aankoopbegeleiding-vastgoed-marokko/">
+          <span class="card__ic"><Icon name="schild" size={26} /></span>
+          <h3>Aankoopbegeleiding</h3>
+          <p>Dossiercontrole, verificatie van de titre foncier, notaris en contracten. Wij verkleinen de onzekerheid.</p>
+          <span class="card__more">Meer over begeleiding</span>
+        </a>
+        <a class="card card--link" href="/vastgoedbeheer-marokko/">
+          <span class="card__ic"><Icon name="beheer" size={26} /></span>
+          <h3>Vastgoedbeheer</h3>
+          <p>Verhuurbeheer, Airbnb-beheer, onderhoud en toezicht terwijl u in Nederland bent.</p>
+          <span class="card__more">Meer over beheer</span>
+        </a>
+        <a class="card card--link" href="/huis-kopen-marokko-vanuit-nederland/">
+          <span class="card__ic"><Icon name="afstand" size={26} /></span>
+          <h3>Kopen op afstand</h3>
+          <p>Het volledige aankooptraject vanuit Nederland, desgewenst met een beperkte volmacht.</p>
+          <span class="card__more">Kopen vanuit Nederland</span>
+        </a>
+        <a class="card card--link" href="/huis-verkopen-marokko-vanuit-nederland/">
+          <span class="card__ic"><Icon name="contract" size={26} /></span>
+          <h3>Verkoopbegeleiding</h3>
+          <p>Uw Marokkaanse woning verkopen vanuit Nederland, met een reële waardebepaling en officiële overdracht.</p>
+          <span class="card__more">Meer over verkopen</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- WIE BEGELEIDT UW AANKOOP -->
+  <section class="section">
+    <div class="container">
+      <div class="section__header section__header--center">
+        <p class="eyebrow">Wie begeleidt uw aankoop?</p>
+        <h2>Mensen die de markt én uw taal kennen</h2>
+        <p class="section__desc">U werkt met een vast, herkenbaar aanspreekpunt — geen anoniem callcenter.</p>
+      </div>
+      <div class="personen">
+        {/* TODO: vervang placeholders door echte teamgegevens (foto, naam, rol, talen, bio, LinkedIn). Geen stockpersoon gebruiken. */}
+        <div class="persoon">
+          <div class="persoon__foto">Foto<br />volgt</div>
+          <div>
+            <h3>[TODO: naam]</h3>
+            <p class="persoon__rol">[TODO: rol]</p>
+            <p>[TODO: korte persoonlijke uitleg — waarom deze persoon kopers begeleidt en welke ervaring hij/zij meebrengt.] Talen: Nederlands, Arabisch/Darija, Frans.</p>
+            <div class="persoon__links">
+              <a href="/contact/"><Icon name="linkedin" size={16} /> LinkedIn [TODO]</a>
+              <a href="/contact/"><Icon name="chat" size={16} /> WhatsApp</a>
+            </div>
+          </div>
+        </div>
+        <div class="persoon">
+          <div class="persoon__foto">Foto<br />volgt</div>
+          <div>
+            <h3>[TODO: naam]</h3>
+            <p class="persoon__rol">[TODO: rol]</p>
+            <p>[TODO: korte persoonlijke uitleg.] Talen: Nederlands, Arabisch/Darija, Frans.</p>
+            <div class="persoon__links">
+              <a href="/contact/"><Icon name="linkedin" size={16} /> LinkedIn [TODO]</a>
+              <a href="/contact/"><Icon name="chat" size={16} /> WhatsApp</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p style="text-align:center;margin-top:28px"><a href="/over-ons/" class="btn btn--outline">Meer over Maghreb Estates</a></p>
+    </div>
+  </section>
+
   <!-- STEDEN -->
-  <section class="section" id="steden">
+  <section class="section section--tinted" id="steden">
     <div class="container">
       <div class="section__header section__header--center">
         <p class="eyebrow">Waar wij actief zijn</p>
-        <h2>Vastgoed in de <em>belangrijkste steden</em> van Marokko</h2>
-        <p class="section__desc">Van Tanger en Nador in het noorden tot Marrakech, Agadir en Dakhla. Wij kennen de markt per stad en helpen u de juiste keuze maken.</p>
+        <h2>Vastgoed per stad in Marokko</h2>
+        <p class="section__desc">Van Tanger en Nador in het noorden tot Marrakech en Agadir. Elke stad heeft een eigen markt; wij beoordelen elk object afzonderlijk.</p>
       </div>
       <div class="steden">
         {topSteden.map((s) => (
@@ -171,23 +200,29 @@ const topSteden = steden.slice(0, 9);
         ))}
       </div>
       <p style="text-align:center;margin-top:32px">
-        <a href="/vastgoed-marokko/" class="btn btn--outline">Bekijk alle steden &amp; gidsen</a>
+        <a href="/vastgoed-marokko/" class="btn btn--outline">Bekijk alle steden</a>
       </p>
     </div>
   </section>
 
   <!-- PROCES -->
-  <section class="section section--tinted">
+  <section class="section">
     <div class="container">
       <div class="section__header section__header--center">
         <p class="eyebrow">Hoe het werkt</p>
-        <h2>Van eerste vraag tot <em>sleutel in de hand</em></h2>
+        <h2>Van eerste vraag tot overdracht</h2>
       </div>
       <div class="grid grid--4">
-        <div class="card"><span class="card__icon">1</span><h3>Kennismaking</h3><p>Een vrijblijvend gesprek over uw situatie, doel en budget.</p></div>
-        <div class="card"><span class="card__icon">2</span><h3>Selectie & analyse</h3><p>Een gefilterde selectie met eerlijke analyse van voor- en nadelen.</p></div>
-        <div class="card"><span class="card__icon">3</span><h3>Controle & bezichtiging</h3><p>Due diligence, papiercontrole en bezichtiging — ter plaatse of op afstand.</p></div>
-        <div class="card"><span class="card__icon">4</span><h3>Aankoop & beheer</h3><p>Notaris, contracten en overdracht. Daarna optioneel verhuur en beheer.</p></div>
+        <div class="card"><span class="card__num">1</span><h3>Kennismaking</h3><p>Een vrijblijvend gesprek over uw situatie, doel en budget.</p></div>
+        <div class="card"><span class="card__num">2</span><h3>Selectie & controle</h3><p>Een gefilterde selectie, of controle van uw eigen object, met eerlijke analyse.</p></div>
+        <div class="card"><span class="card__num">3</span><h3>Dossier & bezichtiging</h3><p>Papiercontrole en bezichtiging, ter plaatse of op afstand via video.</p></div>
+        <div class="card"><span class="card__num">4</span><h3>Notaris & beheer</h3><p>Officiële overdracht bij de notaris, daarna optioneel verhuur en beheer.</p></div>
+      </div>
+      <div class="container" style="padding:0;max-width:820px;margin-top:44px">
+        <CtaInline
+          title="Niet zeker waar u moet beginnen?"
+          text="Plan een gratis, vrijblijvend adviesgesprek. Wij luisteren en maken een helder plan — kopen, investeren of beheren."
+        />
       </div>
     </div>
   </section>

@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import AiBlocks from '../components/AiBlocks.astro';
+import MarketDisclaimer from '../components/MarketDisclaimer.astro';
 import Faq from '../components/Faq.astro';
 import CtaBand from '../components/CtaBand.astro';
 import { faqSchema, articleSchema } from '../data/schema';
@@ -26,7 +27,7 @@ const faqs = [
     title="De kosten van een<br /><em>huis kopen in Marokko</em>"
     sub="Naast de koopsom betaalt u circa 6 tot 10% aan bijkomende kosten. Hier ziet u precies welke — zodat u niet voor verrassingen komt te staan."
     image="/images/villa2.jpg"
-    ctas={[{ label: 'Ontvang de checklist', href: '/contact/?doel=checklist', primary: true }]}
+    ctas={[{ label: 'Ontvang de checklist', href: '/checklist-vastgoed-marokko/', primary: true }]}
   />
   <Breadcrumbs items={[{ label: 'Vastgoed Marokko', href: '/vastgoed-marokko/' }, { label: 'Gids: kosten', href: path }]} />
   <AiBlocks path={path} />
@@ -53,7 +54,7 @@ const faqs = [
       <h2>Het koopcontract (compromis de vente)</h2>
       <p>Bij het voorlopig koopcontract betaalt u meestal een aanbetaling (in de praktijk vaak <strong>5–10%</strong>). Laat dit contract altijd controleren; onze <a href="/aankoopbegeleiding-vastgoed-marokko/">aankoopbegeleiding</a> doet dit standaard. Meer hierover in onze <a href="/koopcontract-marokko-vastgoed/">gids over het koopcontract</a>.</p>
 
-      <p style="font-size:14px;color:var(--text-muted)"><em>Percentages zijn indicatief (fiscale referentie begin 2026) en geen fiscaal advies. Officiële tarieven voor notaris, kadaster en zegels lopen in de praktijk uiteen — vraag vóór ondertekening altijd een gespecificeerd kostenblad bij de notaris.</em></p>
+      <MarketDisclaimer />
 
       <h2>Verborgen kosten vermijden</h2>
       <p>De grootste risico’s zijn informele afspraken en onduidelijke servicekosten. Lees de <a href="/risicos-huis-kopen-marokko/">gids over risico’s</a>. Wij maken vooraf een transparant totaaloverzicht voor uw situatie.</p>
@@ -63,5 +64,5 @@ const faqs = [
   </section>
 
   <Faq items={faqs} title="Veelgestelde vragen over de kosten" />
-  <CtaBand label="Ontvang de checklist" title="Wilt u een compleet kostenoverzicht?" text="Wij maken een transparante kostenberekening voor uw specifieke aankoop. Vraag de checklist aan." href="/contact/?doel=checklist" />
+  <CtaBand label="Ontvang de checklist" title="Wilt u een compleet kostenoverzicht?" text="Wij maken een transparante kostenberekening voor uw specifieke aankoop. Vraag de checklist aan." href="/checklist-vastgoed-marokko/" />
 </BaseLayout>

@@ -1,0 +1,31 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import { site } from '../data/site';
+const path = '/disclaimer/';
+---
+<BaseLayout
+  title="Disclaimer | Maghreb Estates"
+  description="Disclaimer bij de informatie op de website van Maghreb Estates. Bedragen, tarieven en rendementen zijn indicatief en geen fiscaal, juridisch of beleggingsadvies."
+  path={path}
+>
+  <Breadcrumbs items={[{ label: 'Disclaimer', href: path }]} />
+  <section class="section">
+    <div class="container prose" style="max-width:760px">
+      <h1>Disclaimer</h1>
+      <p>De informatie op deze website is met zorg samengesteld en bedoeld als algemene voorlichting voor Nederlandstalige kopers, investeerders en eigenaren van vastgoed in Marokko.</p>
+
+      <h2>Geen advies op maat</h2>
+      <p>De inhoud van deze website vormt geen fiscaal, juridisch of beleggingsadvies. Beslissingen over aankoop, investering, verhuur of verkoop dient u altijd te baseren op een beoordeling van uw eigen situatie, zo nodig met een notaris, bank of fiscalist.</p>
+
+      <h2>Indicatieve cijfers</h2>
+      <p>Alle bedragen, percentages, prijzen en rendementen op deze website zijn indicatief en gebaseerd op publieke marktinformatie, officiële bronnen en eigen objectanalyses op een bepaalde peildatum. Regels en tarieven kunnen wijzigen. Wij controleren bedragen per dossier opnieuw. Aan de informatie kunnen geen rechten worden ontleend en er wordt geen garantie gegeven op juistheid of volledigheid.</p>
+
+      <h2>Externe links</h2>
+      <p>Deze website kan verwijzen naar websites van derden. Wij zijn niet verantwoordelijk voor de inhoud of het privacybeleid van die websites.</p>
+
+      <h2>Contact</h2>
+      <p>Vragen over deze disclaimer? Neem contact op via {site.email} of {site.telefoon}.</p>
+    </div>
+  </section>
+</BaseLayout>

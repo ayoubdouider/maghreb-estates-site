@@ -1,6 +1,7 @@
 ---
-import { site } from '../data/site';
+import { site, legal, waLink } from '../data/site';
 import { steden } from '../data/steden';
+import Icon from './Icon.astro';
 const jaar = new Date().getFullYear();
 ---
 <footer class="footer">
@@ -10,52 +11,59 @@ const jaar = new Date().getFullYear();
         <span class="logo-word">Maghreb</span>
         <span class="logo-sub">ESTATES</span>
         <p>{site.tagline}</p>
-        <p style="margin-top:14px">
-          <a href={`tel:${site.telefoonHref}`}>{site.telefoon}</a>
-          <a href={`mailto:${site.email}`}>{site.email}</a>
-        </p>
+        <ul class="contactlist" style="margin-top:16px">
+          <li><Icon name="telefoon" size={16} /><a href={`tel:${site.telefoonHref}`}>{site.telefoon}</a></li>
+          <li><Icon name="chat" size={16} /><a href={waLink('Hallo Maghreb Estates, ik heb een vraag over vastgoed in Marokko.')}>WhatsApp</a></li>
+          <li><Icon name="mail" size={16} /><a href={`mailto:${site.email}`}>{site.email}</a></li>
+        </ul>
+        {/* Bedrijfsgegevens — alleen tonen zodra ingevuld (geen nepdata). TODO invullen in site.ts */}
+        {(site.vestigingsplaats || site.kvk || site.btw) && (
+          <p class="footer__bedrijf">
+            {site.vestigingsplaats && <>Vestigingsplaats: {site.vestigingsplaats}<br /></>}
+            {site.kvk && <>KvK: {site.kvk}<br /></>}
+            {site.btw && <>BTW: {site.btw}</>}
+          </p>
+        )}
       </div>
+
       <div>
         <h4>Kopen</h4>
         <a href="/huis-kopen-marokko/">Huis kopen Marokko</a>
         <a href="/huis-kopen-marokko-vanuit-nederland/">Kopen vanuit Nederland</a>
+        <a href="/aankoopbegeleiding-vastgoed-marokko/">Aankoopbegeleiding</a>
         <a href="/appartement-kopen-marokko/">Appartement kopen</a>
-        <a href="/appartement-marokko-kopen-in-termijnen/">Kopen in termijnen</a>
         <a href="/nieuwbouwprojecten-marokko/">Nieuwbouwprojecten</a>
         <a href="/off-plan-vastgoed-marokko/">Off-plan vastgoed</a>
-        <a href="/aankoopbegeleiding-vastgoed-marokko/">Aankoopbegeleiding</a>
       </div>
-      <div>
-        <h4>Veilig kopen</h4>
-        <a href="/risicos-huis-kopen-marokko/">Risico’s vermijden</a>
-        <a href="/oplichting-vastgoed-marokko-voorkomen/">Oplichting voorkomen</a>
-        <a href="/kosten-huis-kopen-marokko/">Kosten huis kopen</a>
-        <a href="/verborgen-kosten-huis-kopen-marokko/">Verborgen kosten</a>
-        <a href="/koopcontract-marokko-vastgoed/">Koopcontract</a>
-        <a href="/notaris-marokko-vastgoed/">Notaris Marokko</a>
-        <a href="/titre-foncier-marokko/">Titre foncier</a>
-        <a href="/volmacht-huis-kopen-marokko/">Volmacht</a>
-        <a href="/begrippen-vastgoed-marokko/">Begrippenlijst</a>
-        <a href="/over-ons/">Over ons</a>
-      </div>
+
       <div>
         <h4>Investeren</h4>
         <a href="/investeren-vastgoed-marokko/">Investeren in vastgoed</a>
         <a href="/rendement-vastgoed-marokko/">Rendement</a>
         <a href="/huur-rendement-marokko/">Huurrendement</a>
         <a href="/beste-stad-investeren-vastgoed-marokko/">Beste stad</a>
-        <a href="/airbnb-marokko-investering/">Airbnb-investering</a>
+        <a href="/airbnb-marokko-investering/">Airbnb als investering</a>
       </div>
+
       <div>
-        <h4>Beheer & verkoop</h4>
+        <h4>Beheer & verhuur</h4>
         <a href="/vastgoedbeheer-marokko/">Vastgoedbeheer</a>
         <a href="/verhuurbeheer-marokko/">Verhuurbeheer</a>
-        <a href="/woningbeheer-marokko/">Woningbeheer</a>
-        <a href="/sleutelbeheer-marokko/">Sleutelbeheer</a>
-        <a href="/huis-verhuren-marokko-vanuit-nederland/">Huis verhuren</a>
         <a href="/airbnb-beheer-marokko/">Airbnb-beheer</a>
+        <a href="/huis-verhuren-marokko-vanuit-nederland/">Huis verhuren</a>
+        <a href="/woningbeheer-marokko/">Woningbeheer</a>
         <a href="/huis-verkopen-marokko-vanuit-nederland/">Huis verkopen</a>
-        <a href="/waarde-woning-marokko-bepalen/">Waarde bepalen</a>
+      </div>
+
+      <div>
+        <h4>Kennisbank</h4>
+        <a href="/risicos-huis-kopen-marokko/">Risico’s vermijden</a>
+        <a href="/kosten-huis-kopen-marokko/">Kosten huis kopen</a>
+        <a href="/oplichting-vastgoed-marokko-voorkomen/">Oplichting voorkomen</a>
+        <a href="/notaris-marokko-vastgoed/">Notaris Marokko</a>
+        <a href="/titre-foncier-marokko/">Titre foncier</a>
+        <a href="/begrippen-vastgoed-marokko/">Begrippenlijst</a>
+        <a href="/over-ons/">Over ons</a>
       </div>
     </div>
 
@@ -68,7 +76,9 @@ const jaar = new Date().getFullYear();
 
     <div class="footer__bottom">
       <span>&copy; {jaar} {site.naam}. Alle rechten voorbehouden.</span>
-      <span>Vastgoed in Marokko — vanuit Nederland &amp; België.</span>
+      <span class="footer__legal">
+        {legal.map((l, i) => <>{i > 0 && <span aria-hidden="true"> · </span>}<a href={l.href}>{l.label}</a></>)}
+      </span>
     </div>
   </div>
 </footer>

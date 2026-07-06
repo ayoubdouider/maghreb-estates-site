@@ -1,0 +1,11 @@
+---
+// Herbruikbaar marktkader bij cijfers/percentages (kosten, rendement, stadsdata).
+interface Props { compact?: boolean; }
+const { compact = false } = Astro.props;
+---
+<div class="marktkader">
+  <p class="marktkader__lead"><strong>Let op.</strong> Alle bedragen, percentages en rendementen zijn indicatief. Regels en tarieven kunnen wijzigen. Wij gebruiken publieke marktinformatie, officiële bronnen en eigen objectanalyses, maar controleren bedragen per dossier opnieuw met notaris, bank of fiscalist. Deze informatie is geen fiscaal, juridisch of beleggingsadvies.</p>
+  {!compact && (
+    <p class="marktkader__meta">Bij concrete cijfers geldt: peildatum begin 2026 · bron is publieke marktreferentie of eigen analyse · bedragen zijn bruto tenzij anders vermeld · geen garantie · uitkomst hangt af van wijk, object, staat, beheer en bezetting.</p>
+  )}
+</div>

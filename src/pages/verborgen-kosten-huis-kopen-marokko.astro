@@ -4,6 +4,7 @@ import Hero from '../components/Hero.astro';
 import TrustStrip from '../components/TrustStrip.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import AiBlocks from '../components/AiBlocks.astro';
+import MarketDisclaimer from '../components/MarketDisclaimer.astro';
 import CtaInline from '../components/CtaInline.astro';
 import Faq from '../components/Faq.astro';
 import CtaBand from '../components/CtaBand.astro';
@@ -31,7 +32,7 @@ const faqs = [
     sub="Niet alleen de koopsom telt. Ontdek de kosten die kopers vaak over het hoofd zien — en krijg vooraf een compleet overzicht."
     image="/images/apt2.jpg"
     ctas={[
-      { label: 'Download de checklist', href: '/contact/?doel=checklist', primary: true },
+      { label: 'Ontvang de checklist', href: '/checklist-vastgoed-marokko/', primary: true },
       { label: 'Plan gratis adviesgesprek', href: '/contact/' },
     ]}
   />
@@ -71,11 +72,13 @@ const faqs = [
         <p>Verhuurt u? Houd rekening met belasting op huurinkomsten in Marokko en aangifte in Nederland (box 3). Reken altijd met <em>netto</em> rendement. Laat u fiscaal adviseren voor uw situatie.</p>
       </div>
 
+      <MarketDisclaimer />
+
       <CtaInline
         title="Wilt u een compleet kostenoverzicht?"
         text="Wij stellen een transparante berekening op — aankoopkosten, jaarlijkse lasten en verwacht onderhoud — voor uw specifieke situatie."
-        label="Download de checklist"
-        href="/contact/?doel=checklist"
+        label="Ontvang de checklist"
+        href="/checklist-vastgoed-marokko/"
       />
 
       <h2>Zo voorkomt u verrassingen</h2>
@@ -84,5 +87,5 @@ const faqs = [
   </section>
 
   <Faq items={faqs} title="Veelgestelde vragen over verborgen kosten" />
-  <CtaBand label="Download de checklist" title="Geen verrassingen achteraf" text="Vraag de checklist ‘Veilig vastgoed kopen in Marokko’ aan en krijg vooraf zicht op alle kosten." href="/contact/?doel=checklist" />
+  <CtaBand label="Ontvang de checklist" title="Geen verrassingen achteraf" text="Vraag de checklist ‘Veilig vastgoed kopen in Marokko’ aan en krijg vooraf zicht op alle kosten." href="/checklist-vastgoed-marokko/" />
 </BaseLayout>

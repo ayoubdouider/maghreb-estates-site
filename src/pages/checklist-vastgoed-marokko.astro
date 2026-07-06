@@ -1,0 +1,90 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import { site } from '../data/site';
+const path = '/checklist-vastgoed-marokko/';
+const inputStyle = 'width:100%;padding:12px;border:1px solid var(--border);border-radius:var(--radius);margin-top:6px;font-family:inherit';
+---
+<BaseLayout
+  title="Checklist: veilig vastgoed kopen in Marokko | Maghreb Estates"
+  description="Ontvang een praktische checklist met de belangrijkste documenten, risico’s en vragen die u moet controleren vóórdat u tekent of betaalt bij een woning in Marokko."
+  path={path}
+>
+  <Hero
+    compact
+    eyebrow="Gratis checklist"
+    title="Checklist: veilig vastgoed<br /><em>kopen in Marokko</em>"
+    sub="De belangrijkste documenten, risico’s en vragen die u controleert vóórdat u tekent of betaalt."
+    image="/images/villa2.jpg"
+  />
+  <Breadcrumbs items={[{ label: 'Checklist', href: path }]} />
+
+  <section class="section">
+    <div class="container">
+      <div class="split">
+        <div class="split__text">
+          <h2 style="margin-bottom:16px">Wat u vóór het tekenen controleert</h2>
+          <p style="color:var(--text-muted);font-size:17px;margin-bottom:20px">Ontvang een praktische checklist met de belangrijkste documenten, risico’s en vragen die u moet controleren vóórdat u tekent of betaalt. Vul uw gegevens in; wij sturen de checklist per e-mail en denken graag met u mee.</p>
+          <ul class="checks">
+            <li>Eigendomstitel (titre foncier) en bevoegdheid van de verkoper</li>
+            <li>Koopcontract, aanbetaling en ontbindende voorwaarden</li>
+            <li>Betalingsroute via de notaris</li>
+            <li>Reële marktwaarde en verborgen kosten</li>
+            <li>Aandachtspunten bij nieuwbouw en op afstand kopen</li>
+          </ul>
+        </div>
+
+        <form class="card" id="checklistForm" novalidate>
+          <div class="form__group" style="margin-bottom:16px">
+            <label for="naam">Naam *</label>
+            <input type="text" id="naam" name="naam" placeholder="Uw volledige naam" required style={inputStyle} />
+          </div>
+          <div class="form__group" style="margin-bottom:16px">
+            <label for="email">E-mailadres *</label>
+            <input type="email" id="email" name="email" placeholder="uw@email.nl" required style={inputStyle} />
+          </div>
+          <div class="form__group" style="margin-bottom:16px">
+            <label for="telefoon">Telefoon / WhatsApp (optioneel)</label>
+            <input type="tel" id="telefoon" name="telefoon" placeholder="+31 6 00 00 00 00" style={inputStyle} />
+          </div>
+          <div class="form__group" style="margin-bottom:20px">
+            <label for="doel">Wat is uw doel? *</label>
+            <select id="doel" name="doel" required style={`${inputStyle};background:#fff`}>
+              <option value="">Selecteer een optie</option>
+              <option value="Kopen">Kopen</option>
+              <option value="Investeren">Investeren</option>
+              <option value="Verhuren">Verhuren</option>
+              <option value="Verkopen">Verkopen</option>
+            </select>
+          </div>
+          <button type="button" id="sendChecklist" class="btn btn--primary btn--full">Checklist aanvragen</button>
+          <p id="checklistNote" style="font-size:13px;color:var(--text-muted);margin-top:14px">Na verzenden opent uw e-mailprogramma of WhatsApp met uw aanvraag. Wij sturen de checklist per e-mail toe.</p>
+          <div id="checklistDone" style="display:none;margin-top:16px;padding:14px 16px;background:var(--green-light);border-radius:var(--radius);font-size:15px">
+            Bedankt. Uw aanvraag staat klaar. Wij sturen de checklist per e-mail. Liever direct contact?
+            <a href="" id="checklistWa" style="color:var(--green-mid);text-decoration:underline">Stuur uw aanvraag via WhatsApp</a>.
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <script is:inline define:vars={{ whatsapp: site.whatsapp, email: site.email }}>
+    (function () {
+      function val(id) { const el = document.getElementById(id); return el ? el.value.trim() : ''; }
+      function build() {
+        if (!val('naam') || !val('email')) { alert('Vul uw naam en e-mailadres in.'); return null; }
+        return ['Checklist-aanvraag via maghreb-estates.com', '', 'Naam: ' + val('naam'), 'E-mail: ' + val('email'),
+          val('telefoon') && 'Telefoon: ' + val('telefoon'), 'Doel: ' + (val('doel') || '-'),
+          '', 'Verzoek: stuur mij de checklist “Veilig vastgoed kopen in Marokko”.'].filter(Boolean).join('\n');
+      }
+      document.getElementById('sendChecklist').addEventListener('click', function () {
+        const msg = build(); if (!msg) return;
+        const wa = 'https://wa.me/' + whatsapp + '?text=' + encodeURIComponent(msg);
+        document.getElementById('checklistWa').setAttribute('href', wa);
+        document.getElementById('checklistDone').style.display = 'block';
+        window.location.href = 'mailto:' + email + '?subject=' + encodeURIComponent('Checklist-aanvraag') + '&body=' + encodeURIComponent(msg);
+      });
+    })();
+  </script>
+</BaseLayout>

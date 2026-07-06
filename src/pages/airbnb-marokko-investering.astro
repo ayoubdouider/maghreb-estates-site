@@ -7,6 +7,7 @@ import AiBlocks from '../components/AiBlocks.astro';
 import CtaInline from '../components/CtaInline.astro';
 import Faq from '../components/Faq.astro';
 import CtaBand from '../components/CtaBand.astro';
+import MarketDisclaimer from '../components/MarketDisclaimer.astro';
 import { faqSchema, articleSchema } from '../data/schema';
 
 const path = '/airbnb-marokko-investering/';
@@ -28,7 +29,7 @@ const faqs = [
     compact
     eyebrow="Investeren"
     title="Airbnb in Marokko<br /><em>als investering</em>"
-    sub="Vakantieverhuur kan sterk renderen in de juiste stad. Wat realistisch is, waar de kansen zitten en welke kosten en risico’s meewegen."
+    sub="Vakantieverhuur kan interessant zijn, maar is seizoensgevoelig en beheerintensief. Wat realistisch is, waar de kansen zitten en welke kosten en risico’s meewegen."
     image="/images/villa4.jpg"
     ctas={[
       { label: 'Vraag investeringsanalyse aan', href: '/contact/?doel=investeringsanalyse', primary: true },
@@ -53,6 +54,8 @@ const faqs = [
       <h2>Waar het rendement zit — en de valkuilen</h2>
       <p>De haalbaarheid verschilt sterk per stad en wijk. Toeristische steden als <a href="/vastgoed-marrakech/">Marrakech</a>, <a href="/vastgoed-agadir/">Agadir</a> en <a href="/vastgoed-essaouira/">Essaouira</a> hebben doorgaans de sterkste vraag. Reken wel met leegstand buiten het seizoen en met de nodige kosten.</p>
       <p>Indicatieve bezettingsgraden uit marktdata (begin 2026): <strong>Agadir ±47%</strong>, <strong>Essaouira ±46%</strong>, <strong>Marrakech ±44%</strong>, <strong>Tanger ±43%</strong>, <strong>Tétouan ±42%</strong>, <strong>Dakhla ±38%</strong>. Gemiddelde nachtprijzen lopen sterk uiteen (bijv. Marrakech duidelijk hoger dan de kuststeden). Behandel dit als oriëntatie: de werkelijke bezetting hangt af van wijk, kwaliteit en beheer.</p>
+
+      <MarketDisclaimer />
 
       <div class="warn">
         <strong>Bruto is niet netto.</strong>

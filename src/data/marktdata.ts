@@ -29,7 +29,7 @@ export const marktdata: Record<string, Marktdata> = {
     villa: 'Benchmark villa ± 11.760 MAD/m² (± €1.115).',
     rekencase: 'Rekenvoorbeeld (benchmark): studio 40 m² ± 321.000 MAD (€30.400) · 2-kamer 70 m² ± 562.000 MAD (€53.300) · 3-kamer 100 m² ± 803.000 MAD (€76.100) · villa 250 m² ± 2,94 mln MAD (€278.700).',
     huurYield: 'Langetermijn bruto indicatief 6,5–8,5%. Voorbeeldhuren: studio ± 1.400–3.000 MAD/mnd, 2–3-kamer ± 7.500–16.500 MAD/mnd.',
-    airbnb: 'Toeristische verhuur sterk: ± 43% bezetting, ± $84 gemiddelde nachtprijs (Tanger-Assilah, lopende 12 maanden 2026).',
+    airbnb: '± 43% bezetting, ± $84 gemiddelde nachtprijs (Tanger-Assilah, lopende 12 maanden 2026).',
   },
   casablanca: {
     appartement: 'Benchmark appartement ± 12.500 MAD/m² (± €1.185).',
@@ -47,11 +47,11 @@ export const marktdata: Record<string, Marktdata> = {
     appartement: 'Benchmark appartement ± 8.885 MAD/m² (± €842).',
     rekencase: 'Rekenvoorbeeld (benchmark): studio 40 m² ± 355.000 MAD (€33.700) · 2-kamer 70 m² ± 622.000 MAD (€59.000) · 3-kamer 100 m² ± 889.000 MAD (€84.200).',
     huurYield: 'Bovengemiddelde yielddynamiek (lagere aankoopprijs bij niet-navenant lagere huren dan Casablanca).',
-    airbnb: 'Zeer sterke vakantieverhuur: ± 44% bezetting, ± $289 gemiddelde nachtprijs (Marrakech-prefectuur, 2026). Gewilde wijken o.a. Guéliz en Majorelle.',
+    airbnb: '± 44% bezetting, ± $289 gemiddelde nachtprijs (Marrakech-prefectuur, 2026). Gewilde wijken o.a. Guéliz en Majorelle.',
   },
   agadir: {
     appartement: 'Geen betrouwbaar stadsbreed gemiddelde in de bron; wijkreferentie Hay Dakhla ± 9.190 MAD/m² (± €871) appartement, ± 9.210 MAD/m² villa. Niet als stadsmediaan gebruiken.',
-    airbnb: 'Sterke vakantieverhuur: ± 47% bezetting, ± $77 gemiddelde nachtprijs (Agadir Ida-Outanane, 2026).',
+    airbnb: '± 47% bezetting, ± $77 gemiddelde nachtprijs (Agadir Ida-Outanane, 2026).',
     opmerking: 'Voor Agadir ontbreekt nog een betrouwbare stadsbrede prijs- en huurmediaan; op aanvraag maken wij een actuele analyse per wijk en object.',
   },
   nador: {
@@ -66,7 +66,7 @@ export const marktdata: Record<string, Marktdata> = {
     opmerking: 'Sterk seizoensgebonden kustmarkt; geen robuuste huurmediaan beschikbaar.',
   },
   tetouan: {
-    airbnb: 'Toeristische verhuur: ± 42% bezetting, ± $64 gemiddelde nachtprijs (Tetouan, 2026).',
+    airbnb: '± 42% bezetting, ± $64 gemiddelde nachtprijs (Tetouan, 2026).',
     opmerking: 'Geen zuivere stadsbrede prijs- of huurmediaan in de bron; Tétouan is doorgaans goedkoper dan Tanger. Op aanvraag een analyse per wijk.',
   },
   martil: {
@@ -98,7 +98,7 @@ export const marktdata: Record<string, Marktdata> = {
     appartement: 'Vraagprijs ± 16.280 MAD/m² (± €1.543); wijkband ± 6.820–16.290 MAD/m², top in Kasbah/Des Dunes.',
     villa: 'Wijkband villa ± 4.560–13.160 MAD/m² (± €432–€1.247).',
     rekencase: 'Rekenvoorbeeld (vraagprijs): studio 40 m² ± 651.000 MAD (€61.700) · 2-kamer 70 m² ± 1,14 mln MAD (€108.000) · 3-kamer 100 m² ± 1,63 mln MAD (€154.300).',
-    airbnb: 'Sterke vakantieverhuur: ± 46% bezetting, ± $112 gemiddelde nachtprijs (Essaouira, 2026).',
+    airbnb: '± 46% bezetting, ± $112 gemiddelde nachtprijs (Essaouira, 2026).',
     opmerking: 'Toeristisch karakter maakt klassieke jaarverhuur minder representatief; let op renovatie en vergunningen bij oud patrimonium.',
   },
   kenitra: {
@@ -114,7 +114,7 @@ export const marktdata: Record<string, Marktdata> = {
     opmerking: 'Verspreide kust-/projectmarkt; grondige project- en titelcontrole nodig.',
   },
   dakhla: {
-    airbnb: 'Toeristische verhuur (niche, volatiel): ± 38% bezetting, ± $49 gemiddelde nachtprijs (bronnen lopen uiteen; een andere bron noemt ± 23% bezetting).',
+    airbnb: 'Niche en volatiel: ± 38% bezetting, ± $49 gemiddelde nachtprijs (bronnen lopen uiteen; een andere bron noemt ± 23% bezetting).',
     opmerking: 'Geen betrouwbare stadsbrede prijs- of huurmediaan: aanbod is heterogeen (terreinen, villa’s, luxeprojecten). Meer een niche watersport-/toerismemarkt dan een brede woonbeleggingsmarkt.',
   },
 };
