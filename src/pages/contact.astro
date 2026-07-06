@@ -6,6 +6,8 @@ import { site, waLink } from '../data/site';
 
 const path = '/contact/';
 const inputStyle = 'width:100%;padding:12px;border:1px solid var(--border);border-radius:var(--radius);margin-top:6px;font-family:inherit';
+// TODO (later): formulier loopt nu via WhatsApp/mailto. Koppel aan CRM of e-mailautomatisering
+// (bv. Web3Forms/Formspree) zodra beschikbaar, zonder de mobiele WhatsApp-flow te verliezen.
 ---
 <BaseLayout
   title="Contact & gratis adviesgesprek | Maghreb Estates"
@@ -86,7 +88,7 @@ const inputStyle = 'width:100%;padding:12px;border:1px solid var(--border);borde
             <button type="button" id="sendWhatsapp" class="btn btn--primary" style="flex:1;min-width:180px">Verstuur via WhatsApp</button>
             <button type="button" id="sendMail" class="btn btn--outline" style="flex:1;min-width:180px">Verstuur via e-mail</button>
           </div>
-          <p id="formNote" style="font-size:13px;color:var(--text-muted);margin-top:14px">Uw bericht wordt geopend in WhatsApp of uw e-mailprogramma, met de gegevens alvast ingevuld. Wij reageren doorgaans dezelfde dag.</p>
+          <p id="formNote" style="font-size:13px;color:var(--text-muted);margin-top:14px">Uw bericht wordt geopend in WhatsApp of uw e-mailprogramma, met de gegevens alvast ingevuld. U ontvangt eerst een inhoudelijke reactie en wij reageren doorgaans dezelfde dag. Wij gebruiken uw gegevens alleen om op uw aanvraag te reageren. Geen spam.</p>
         </form>
       </div>
     </div>

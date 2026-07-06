@@ -6,7 +6,7 @@ import Breadcrumbs from '../components/Breadcrumbs.astro';
 import AiBlocks from '../components/AiBlocks.astro';
 import CtaInline from '../components/CtaInline.astro';
 import Faq from '../components/Faq.astro';
-import CtaBand from '../components/CtaBand.astro';
+import LeadCta from '../components/LeadCta.astro';
 import { faqSchema, articleSchema } from '../data/schema';
 
 const path = '/beste-stad-vastgoed-investeren-marokko/';
@@ -77,5 +77,5 @@ const faqs = [
   </section>
 
   <Faq items={faqs} title="Veelgestelde vragen over de beste investeringsstad" />
-  <CtaBand label="Vraag investeringsanalyse aan" href="/contact/?doel=investeringsanalyse" />
+  <LeadCta path={path} />
 </BaseLayout>

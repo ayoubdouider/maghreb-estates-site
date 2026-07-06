@@ -6,7 +6,7 @@ import Breadcrumbs from '../components/Breadcrumbs.astro';
 import AiBlocks from '../components/AiBlocks.astro';
 import CtaInline from '../components/CtaInline.astro';
 import Faq from '../components/Faq.astro';
-import CtaBand from '../components/CtaBand.astro';
+import LeadCta from '../components/LeadCta.astro';
 import { faqSchema, serviceSchema } from '../data/schema';
 
 const path = '/vastgoedbeheer-marokko/';
@@ -116,11 +116,26 @@ const faqs = [
       </div>
       <p>Beschikbaarheid verschilt per stad en wijk. Tijdens het adviesgesprek bevestigen wij of volledig beheer in uw regio mogelijk is.</p>
 
+      <h2>Zo ziet grip op afstand eruit</h2>
+      <p>Eigenaren willen niet alleen horen dat alles goed gaat. Ze willen overzicht. Daarom werken wij met duidelijke updates over huur, onderhoud, betalingen en openstaande punten.</p>
+      <div class="card" style="margin:24px 0">
+        <p style="font-family:var(--font-serif);font-size:20px;color:var(--green);margin-bottom:14px">Maandrapportage — voorbeeld</p>
+        <ul class="spec">
+          <li><b>Huur ontvangen</b><span>Bedrag en datum van ontvangst</span></li>
+          <li><b>Kosten deze maand</b><span>Onderhoud, nutsvoorzieningen en beheer</span></li>
+          <li><b>Onderhoud of schade</b><span>Wat is gemeld en de status ervan</span></li>
+          <li><b>Foto-update</b><span>Actueel beeld van de woning</span></li>
+          <li><b>Openstaande acties</b><span>Punten die nog worden opgevolgd</span></li>
+          <li><b>Advies volgende maand</b><span class="spec--advies">Onze aanbeveling voor de komende periode</span></li>
+        </ul>
+      </div>
+      <p><a href="/contact/?doel=beheer" class="btn btn--primary">Bespreek beheer van mijn woning</a></p>
+
       <h2>Nog aan het kopen — of juist verkopen?</h2>
       <p>Bent u nog aan het oriënteren? Start bij <a href="/huis-kopen-marokko/">huis kopen in Marokko</a> en onze <a href="/aankoopbegeleiding-vastgoed-marokko/">aankoopbegeleiding</a>, zodat u vanaf dag één goed zit. Wilt u juist afscheid nemen van uw woning? Bekijk onze <a href="/huis-verkopen-marokko-vanuit-nederland/">verkoopbegeleiding</a> — soms is verhuren en beheren echter aantrekkelijker dan verkopen; wij rekenen het graag voor u door.</p>
     </div>
   </section>
 
   <Faq items={faqs} title="Veelgestelde vragen over vastgoedbeheer in Marokko" />
-  <CtaBand title="Uw woning zorgeloos laten renderen?" text="Plan een gesprek over verhuur en beheer. Wij vertellen u precies wat mogelijk is en wat u aan rendement kunt verwachten." />
+  <LeadCta path={path} />
 </BaseLayout>

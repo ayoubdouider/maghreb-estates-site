@@ -6,7 +6,7 @@ import Breadcrumbs from '../components/Breadcrumbs.astro';
 import AiBlocks from '../components/AiBlocks.astro';
 import CtaInline from '../components/CtaInline.astro';
 import Faq from '../components/Faq.astro';
-import CtaBand from '../components/CtaBand.astro';
+import LeadCta from '../components/LeadCta.astro';
 import { faqSchema, serviceSchema } from '../data/schema';
 
 const path = '/huis-kopen-marokko/';
@@ -99,5 +99,5 @@ const faqs = [
   </section>
 
   <Faq items={faqs} title="Veelgestelde vragen over huis kopen in Marokko" />
-  <CtaBand label="Laat je aankoop controleren" title="Klaar om veilig te kopen?" text="Plan een gratis adviesgesprek of laat uw aankoop controleren. Wij kijken kritisch mee en begeleiden u tot de sleutel." href="/contact/?doel=aankoopcontrole" />
+  <LeadCta path={path} />
 </BaseLayout>

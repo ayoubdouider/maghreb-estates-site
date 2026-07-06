@@ -2,7 +2,12 @@
 import '../styles/global.css';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
+import StickyWhatsapp from '../components/StickyWhatsapp.astro';
 import { site } from '../data/site';
+
+// Mobiele sticky-WhatsApp niet tonen op juridische/bedankpagina's.
+const geenSticky = ['/privacybeleid/', '/algemene-voorwaarden/', '/disclaimer/'];
+const toonSticky = !geenSticky.includes(Astro.props.path ?? Astro.url.pathname);
 
 interface Props {
   title: string;
@@ -90,11 +95,12 @@ const allSchema = [orgSchema, ...schema];
       <script type="application/ld+json" set:html={JSON.stringify(s)} />
     ))}
   </head>
-  <body>
+  <body class:list={[toonSticky && 'has-sticky-cta']}>
     <Nav />
     <main>
       <slot />
     </main>
     <Footer />
+    {toonSticky && <StickyWhatsapp />}
   </body>
 </html>

@@ -4,7 +4,7 @@ import Hero from '../components/Hero.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import AiBlocks from '../components/AiBlocks.astro';
 import Faq from '../components/Faq.astro';
-import CtaBand from '../components/CtaBand.astro';
+import LeadCta from '../components/LeadCta.astro';
 import { faqSchema, serviceSchema } from '../data/schema';
 
 const path = '/huis-verkopen-marokko-vanuit-nederland/';
@@ -52,5 +52,5 @@ const faqs = [
   </section>
 
   <Faq items={faqs} title="Veelgestelde vragen over huis verkopen in Marokko" />
-  <CtaBand title="Uw woning verkopen?" text="Plan een gesprek over de verkoop. Wij maken een realistische waardebepaling en vertellen u wat haalbaar is." />
+  <LeadCta path={path} />
 </BaseLayout>

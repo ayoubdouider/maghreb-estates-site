@@ -7,7 +7,7 @@ import AiBlocks from '../components/AiBlocks.astro';
 import Definitie from '../components/Definitie.astro';
 import CtaInline from '../components/CtaInline.astro';
 import Faq from '../components/Faq.astro';
-import CtaBand from '../components/CtaBand.astro';
+import LeadCta from '../components/LeadCta.astro';
 import { faqSchema, articleSchema } from '../data/schema';
 
 const path = '/koopcontract-marokko-vastgoed/';
@@ -84,5 +84,5 @@ const faqs = [
   </section>
 
   <Faq items={faqs} title="Veelgestelde vragen over het koopcontract" />
-  <CtaBand label="Laat je contract controleren" title="Nog niet getekend?" text="Laat uw koopcontract controleren vóór u zich verbindt. Wij beoordelen de voorwaarden en de papieren." href="/contact/?doel=aankoopcontrole" />
+  <LeadCta path={path} />
 </BaseLayout>

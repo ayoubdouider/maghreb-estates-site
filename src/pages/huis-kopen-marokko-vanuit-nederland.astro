@@ -6,7 +6,7 @@ import Breadcrumbs from '../components/Breadcrumbs.astro';
 import AiBlocks from '../components/AiBlocks.astro';
 import CtaInline from '../components/CtaInline.astro';
 import Faq from '../components/Faq.astro';
-import CtaBand from '../components/CtaBand.astro';
+import LeadCta from '../components/LeadCta.astro';
 import { faqSchema, serviceSchema } from '../data/schema';
 
 const path = '/huis-kopen-marokko-vanuit-nederland/';
@@ -103,5 +103,5 @@ const faqs = [
   </section>
 
   <Faq items={faqs} title="Veelgestelde vragen over kopen vanuit Nederland" />
-  <CtaBand />
+  <LeadCta path={path} />
 </BaseLayout>

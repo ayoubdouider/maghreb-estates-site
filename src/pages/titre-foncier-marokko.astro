@@ -5,7 +5,7 @@ import Breadcrumbs from '../components/Breadcrumbs.astro';
 import AiBlocks from '../components/AiBlocks.astro';
 import Definitie from '../components/Definitie.astro';
 import Faq from '../components/Faq.astro';
-import CtaBand from '../components/CtaBand.astro';
+import LeadCta from '../components/LeadCta.astro';
 import { faqSchema, articleSchema } from '../data/schema';
 
 const path = '/titre-foncier-marokko/';
@@ -52,5 +52,5 @@ const faqs = [
   </section>
 
   <Faq items={faqs} title="Veelgestelde vragen over de titre foncier" />
-  <CtaBand label="Laat de titel controleren" title="Twijfelt u over de eigendomspapieren?" text="Wij verifiëren de titre foncier bij het kadaster vóór u koopt." href="/contact/?doel=aankoopcontrole" />
+  <LeadCta path={path} />
 </BaseLayout>

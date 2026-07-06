@@ -4,7 +4,7 @@ import Hero from '../components/Hero.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import AiBlocks from '../components/AiBlocks.astro';
 import Faq from '../components/Faq.astro';
-import CtaBand from '../components/CtaBand.astro';
+import LeadCta from '../components/LeadCta.astro';
 import MarketDisclaimer from '../components/MarketDisclaimer.astro';
 import { faqSchema, serviceSchema } from '../data/schema';
 
@@ -55,5 +55,5 @@ const faqs = [
   </section>
 
   <Faq items={faqs} title="Veelgestelde vragen over rendement in Marokko" />
-  <CtaBand label="Vraag investeringsanalyse aan" title="Benieuwd naar uw netto rendement?" text="Wij rekenen uw specifieke situatie door — huurinkomsten, kosten en waardegroei — en tonen wat u realistisch overhoudt." href="/contact/?doel=investeringsanalyse" />
+  <LeadCta path={path} />
 </BaseLayout>

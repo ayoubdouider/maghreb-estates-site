@@ -4,7 +4,7 @@ import Hero from '../components/Hero.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import AiBlocks from '../components/AiBlocks.astro';
 import Faq from '../components/Faq.astro';
-import CtaBand from '../components/CtaBand.astro';
+import LeadCta from '../components/LeadCta.astro';
 import { steden } from '../data/steden';
 import { faqSchema, serviceSchema } from '../data/schema';
 
@@ -62,5 +62,5 @@ const faqs = [
   </section>
 
   <Faq items={faqs} title="Veelgestelde vragen over investeren per stad" />
-  <CtaBand label="Vraag investeringsanalyse aan" href="/contact/?doel=investeringsanalyse" />
+  <LeadCta path={path} />
 </BaseLayout>

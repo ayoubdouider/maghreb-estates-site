@@ -6,7 +6,7 @@ import Breadcrumbs from '../components/Breadcrumbs.astro';
 import AiBlocks from '../components/AiBlocks.astro';
 import CtaInline from '../components/CtaInline.astro';
 import Faq from '../components/Faq.astro';
-import CtaBand from '../components/CtaBand.astro';
+import LeadCta from '../components/LeadCta.astro';
 import MarketDisclaimer from '../components/MarketDisclaimer.astro';
 import { faqSchema, articleSchema } from '../data/schema';
 
@@ -78,5 +78,5 @@ const faqs = [
   </section>
 
   <Faq items={faqs} title="Veelgestelde vragen over Airbnb als investering" />
-  <CtaBand label="Vraag investeringsanalyse aan" title="Airbnb-investering overwegen?" text="Wij rekenen de vakantieverhuur realistisch voor u door — netto, per stad en object." href="/contact/?doel=investeringsanalyse" />
+  <LeadCta path={path} />
 </BaseLayout>

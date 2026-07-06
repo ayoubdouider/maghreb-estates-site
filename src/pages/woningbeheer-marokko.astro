@@ -6,7 +6,7 @@ import Breadcrumbs from '../components/Breadcrumbs.astro';
 import AiBlocks from '../components/AiBlocks.astro';
 import CtaInline from '../components/CtaInline.astro';
 import Faq from '../components/Faq.astro';
-import CtaBand from '../components/CtaBand.astro';
+import LeadCta from '../components/LeadCta.astro';
 import { faqSchema, serviceSchema } from '../data/schema';
 
 const path = '/woningbeheer-marokko/';
@@ -70,5 +70,5 @@ const faqs = [
   </section>
 
   <Faq items={faqs} title="Veelgestelde vragen over woningbeheer" />
-  <CtaBand title="Uw woning goed onderhouden houden?" text="Plan een gesprek over woningbeheer. Wij houden uw woning in topconditie, ook zonder verhuur." />
+  <LeadCta path={path} />
 </BaseLayout>

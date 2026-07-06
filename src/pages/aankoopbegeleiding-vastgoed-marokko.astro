@@ -6,7 +6,7 @@ import Breadcrumbs from '../components/Breadcrumbs.astro';
 import AiBlocks from '../components/AiBlocks.astro';
 import CtaInline from '../components/CtaInline.astro';
 import Faq from '../components/Faq.astro';
-import CtaBand from '../components/CtaBand.astro';
+import LeadCta from '../components/LeadCta.astro';
 import { faqSchema, serviceSchema } from '../data/schema';
 
 const path = '/aankoopbegeleiding-vastgoed-marokko/';
@@ -112,6 +112,23 @@ const faqs = [
         <p>Ontbreekt een geregistreerde eigendomstitel, klopt het contract niet, of is de ontwikkelaar niet te verifiëren? Dan adviseren wij u niet te kopen — hoe aantrekkelijk het object ook lijkt.</p>
       </div>
 
+      <h2>Voorbeeld van wat wij in een aankoopcheck beoordelen</h2>
+      <p>Een aankoopcheck is geen oppervlakkige mening over een mooie woning. Wij kijken naar papieren, prijs, betalingsroute, verkoper, locatie, verhuurbaarheid en risico’s. Als informatie ontbreekt, benoemen wij dat voordat u verdergaat.</p>
+      <div class="card" style="margin:24px 0">
+        <ul class="spec">
+          <li><b>Object</b><span>Appartement, villa of nieuwbouwproject</span></li>
+          <li><b>Stad/regio</b><span>De stad en wijk waar het object ligt</span></li>
+          <li><b>Vraagprijs</b><span>Zoals opgegeven, met toets aan marktinformatie</span></li>
+          <li><b>Doel koper</b><span>Eigen gebruik, verhuur of investering</span></li>
+          <li><b>Documenten ontvangen</b><span>Bijvoorbeeld titre foncier, plattegrond en koopcontract</span></li>
+          <li><b>Wat ontbreekt</b><span>Ontbrekende of onduidelijke stukken die wij opvragen</span></li>
+          <li><b>Eerste risico-inschatting</b><span>Laag, midden of hoog, met toelichting</span></li>
+          <li><b>Vragen voor verkoper</b><span>Bevestiging van eigendom, lasten en opleverdatum</span></li>
+          <li><b>Advies</b><span class="spec--advies">Doorgaan · eerst extra documenten · niet verdergaan</span></li>
+        </ul>
+      </div>
+      <p><a href="/contact/?doel=aankoopcontrole" class="btn btn--primary">Stuur uw woning ter controle</a></p>
+
       <h2>Ook volledig op afstand</h2>
       <p>Koopt u <a href="/huis-kopen-marokko-vanuit-nederland/">vanuit Nederland</a>? Met een <a href="/volmacht-huis-kopen-marokko/">volmacht</a> ronden wij het traject veilig voor u af, tot en met de akte bij de notaris. En na de aankoop kunnen wij uw woning <a href="/vastgoedbeheer-marokko/">beheren en verhuren</a>, zodat u ook op langere termijn ontzorgd bent.</p>
 
@@ -121,5 +138,5 @@ const faqs = [
   </section>
 
   <Faq items={faqs} title="Veelgestelde vragen over aankoopbegeleiding" />
-  <CtaBand label="Stuur een woning ter controle" title="Twijfelt u over een aankoop?" text="Stuur ons het object of de aanbieder. Wij kijken kritisch mee en vertellen u eerlijk of het klopt — vóór u tekent." href="/contact/?doel=aankoopcontrole" />
+  <LeadCta path={path} />
 </BaseLayout>

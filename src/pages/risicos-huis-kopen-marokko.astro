@@ -4,7 +4,7 @@ import Hero from '../components/Hero.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import AiBlocks from '../components/AiBlocks.astro';
 import Faq from '../components/Faq.astro';
-import CtaBand from '../components/CtaBand.astro';
+import LeadCta from '../components/LeadCta.astro';
 import { faqSchema, articleSchema } from '../data/schema';
 
 const path = '/risicos-huis-kopen-marokko/';
@@ -58,5 +58,5 @@ const faqs = [
   </section>
 
   <Faq items={faqs} title="Veelgestelde vragen over risico’s" />
-  <CtaBand label="Laat je aankoop controleren" title="Twijfelt u over een aankoop?" text="Stuur ons het object of de aanbieder. Wij kijken kritisch mee vóór u tekent." href="/contact/?doel=aankoopcontrole" />
+  <LeadCta path={path} />
 </BaseLayout>

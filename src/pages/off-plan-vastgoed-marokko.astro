@@ -7,7 +7,7 @@ import AiBlocks from '../components/AiBlocks.astro';
 import Definitie from '../components/Definitie.astro';
 import CtaInline from '../components/CtaInline.astro';
 import Faq from '../components/Faq.astro';
-import CtaBand from '../components/CtaBand.astro';
+import LeadCta from '../components/LeadCta.astro';
 import { faqSchema, articleSchema } from '../data/schema';
 
 const path = '/off-plan-vastgoed-marokko/';
@@ -83,5 +83,5 @@ const faqs = [
   </section>
 
   <Faq items={faqs} title="Veelgestelde vragen over off-plan vastgoed" />
-  <CtaBand label="Laat het project controleren" title="Off-plan overwegen?" text="Wij controleren de ontwikkelaar, de papieren en het contract vóór u zich verbindt." href="/contact/?doel=aankoopcontrole" />
+  <LeadCta path={path} />
 </BaseLayout>

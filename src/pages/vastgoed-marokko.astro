@@ -5,7 +5,7 @@ import TrustStrip from '../components/TrustStrip.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import CtaInline from '../components/CtaInline.astro';
 import Faq from '../components/Faq.astro';
-import CtaBand from '../components/CtaBand.astro';
+import LeadCta from '../components/LeadCta.astro';
 import { steden } from '../data/steden';
 import { faqSchema, serviceSchema } from '../data/schema';
 
@@ -93,5 +93,5 @@ const faqs = [
   </section>
 
   <Faq items={faqs} title="Veelgestelde vragen over vastgoed in Marokko" />
-  <CtaBand />
+  <LeadCta path={path} />
 </BaseLayout>

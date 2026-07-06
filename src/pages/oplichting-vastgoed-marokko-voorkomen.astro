@@ -6,7 +6,7 @@ import Breadcrumbs from '../components/Breadcrumbs.astro';
 import AiBlocks from '../components/AiBlocks.astro';
 import CtaInline from '../components/CtaInline.astro';
 import Faq from '../components/Faq.astro';
-import CtaBand from '../components/CtaBand.astro';
+import LeadCta from '../components/LeadCta.astro';
 import { faqSchema, articleSchema } from '../data/schema';
 
 const path = '/oplichting-vastgoed-marokko-voorkomen/';
@@ -81,5 +81,5 @@ const faqs = [
   </section>
 
   <Faq items={faqs} title="Veelgestelde vragen over oplichting voorkomen" />
-  <CtaBand label="Laat je aankoop controleren" title="Koop met een gerust hart" text="Laat de aanbieder en het dossier controleren vóór u betaalt. Wij vertellen u eerlijk of het klopt." href="/contact/?doel=aankoopcontrole" />
+  <LeadCta path={path} />
 </BaseLayout>

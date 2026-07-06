@@ -8,7 +8,7 @@ import Bronnen from '../components/Bronnen.astro';
 import MarketDisclaimer from '../components/MarketDisclaimer.astro';
 import CtaInline from '../components/CtaInline.astro';
 import Faq from '../components/Faq.astro';
-import CtaBand from '../components/CtaBand.astro';
+import LeadCta from '../components/LeadCta.astro';
 import { steden } from '../data/steden';
 import { prominenteSteden } from '../data/site';
 import { stedenExtra } from '../data/stedenExtra';
@@ -167,5 +167,5 @@ const faqs = prominent
   {prominent && <Bronnen extra={[`Marktindicaties ${stad.naam}: publieke prijsreferenties (o.a. Agenz, Yakeey, Properstar) en AirDNA — peildatum begin 2026`]} />}
 
   <Faq items={faqs} title={`Veelgestelde vragen over vastgoed in ${stad.naam}`} />
-  <CtaBand title={`Vastgoed in ${stad.naam}?`} text={`Plan een vrijblijvend gesprek of stuur ons een woning ter controle. Wij kennen de markt en beoordelen elk object afzonderlijk.`} />
+  <LeadCta path={path} />
 </BaseLayout>

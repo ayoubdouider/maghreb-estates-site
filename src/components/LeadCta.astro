@@ -1,0 +1,18 @@
+---
+// Type-afhankelijk CTA-blok (onderaan pagina). Kiest titel/tekst/knoppen op basis
+// van het paginatype (ctaContent.ts). Vervangt de generieke CtaBand op contentpagina's.
+import { ctaContent, ctaVariantForPath, type CtaVariant } from '../data/ctaContent';
+interface Props { path?: string; variant?: CtaVariant; }
+const c = ctaContent[Astro.props.variant ?? ctaVariantForPath(Astro.props.path)];
+---
+<section class="ctaband">
+  <div class="container">
+    <h2>{c.titel}</h2>
+    <p>{c.tekst}</p>
+    <div class="ctaband__actions">
+      {c.knoppen.map((k) => (
+        <a href={k.href} class={`btn ${k.primary ? 'btn--light' : 'btn--outline'}`} style={k.primary ? '' : 'color:var(--cream);border-color:var(--cream)'}>{k.label}</a>
+      ))}
+    </div>
+  </div>
+</section>
