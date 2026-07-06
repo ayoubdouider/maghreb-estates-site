@@ -1,20 +1,17 @@
 ---
-// "Bronnen en marktinformatie" — transparantieblok. Voorlopig voorzichtig; ruimte
-// voor officiële bronnen zodra beschikbaar. Geen verzonnen cijfers.
+// "Bronnen en marktinformatie" — transparant, zonder valse referenties.
+// We tonen brontypen (geen verzonnen bronlinks). `extra` voegt paginaspecifieke
+// nuance toe (bv. per stad de gebruikte platformen).
 interface Props { extra?: string[]; }
-const standaard = [
-  'Bank Al-Maghrib — macro-economische en rente-informatie',
-  'ANCFCC — kadaster en eigendomsregistratie (titre foncier)',
-  'Direction Générale des Impôts (DGI) — belasting- en registratieregels',
-  'Publieke marktreferenties (o.a. Agenz, Yakeey) voor prijsoriëntatie',
-  'Eigen objectanalyses en marktdata van Maghreb Estates',
-];
-const items = [...standaard, ...(Astro.props.extra ?? [])];
+const extra = Astro.props.extra ?? [];
 ---
 <div class="bronnen container" style="max-width:760px">
   <h3>Bronnen en marktinformatie</h3>
-  <ul>
-    {items.map((i) => <li>{i}</li>)}
-  </ul>
-  <p>Cijfers en tarieven zijn indicatief en kunnen wijzigen. Wij verwerken officiële en actuele bronnen zodra beschikbaar en verifiëren belangrijke bedragen per dossier bij notaris, bank of fiscalist. Geen fiscaal, juridisch of beleggingsadvies.</p>
+  <p>Gebruikte brontypen: publieke marktdata, officiële registraties waar beschikbaar, platformdata en objectvergelijkingen.</p>
+  {extra.length > 0 && (
+    <ul>
+      {extra.map((i) => <li>{i}</li>)}
+    </ul>
+  )}
+  <p>Cijfers en tarieven zijn indicatief en kunnen wijzigen. Wij controleren belangrijke bedragen per dossier bij notaris, bank of fiscalist. Deze informatie is geen fiscaal, juridisch of beleggingsadvies.</p>
 </div>

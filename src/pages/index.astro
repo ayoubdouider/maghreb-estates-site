@@ -7,7 +7,7 @@ import Icon from '../components/Icon.astro';
 import Faq from '../components/Faq.astro';
 import CtaBand from '../components/CtaBand.astro';
 import { steden } from '../data/steden';
-import { team, waLink } from '../data/site';
+import { team, waLink, prominenteSteden } from '../data/site';
 import { faqSchema } from '../data/schema';
 
 const faqs = [
@@ -19,7 +19,7 @@ const faqs = [
   { q: 'Wat kost een adviesgesprek?', a: 'Het eerste gesprek is gratis en vrijblijvend. We luisteren naar uw situatie en vertellen u eerlijk wat mogelijk is.' },
 ];
 
-const topSteden = steden.slice(0, 8);
+const topSteden = steden.filter((s) => prominenteSteden.some((p) => p.slug === s.slug));
 ---
 <BaseLayout
   title="Vastgoed kopen in Marokko, zonder blind vertrouwen | Maghreb Estates"
@@ -188,9 +188,6 @@ const topSteden = steden.slice(0, 8);
           </a>
         ))}
       </div>
-      <p style="text-align:center;margin-top:32px">
-        <a href="/vastgoed-marokko/" class="btn btn--outline">Bekijk alle steden</a>
-      </p>
     </div>
   </section>
 

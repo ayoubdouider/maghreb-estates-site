@@ -1,11 +1,13 @@
 ---
 // AI-laag: Direct Answer Block + AI Summary Block.
 // Data komt uit src/data/aicontent.ts (per pad) of wordt direct als props gegeven
-// (bv. stadspagina's die per stad genereren).
+// (bv. stadspagina's die per stad genereren). Labels per paginatype (aiLabels.ts).
 import { aicontent } from '../data/aicontent';
+import { labelSets, variantForPath, type AiVariant } from '../data/aiLabels';
 
 interface Props {
   path?: string;
+  variant?: AiVariant;
   vraag?: string;
   antwoord?: string;
   voorWie?: string;
@@ -21,22 +23,23 @@ const voorWie = p.voorWie ?? c?.voorWie;
 const watLeerJe = p.watLeerJe ?? c?.watLeerJe;
 const wanneerHelpen = p.wanneerHelpen ?? c?.wanneerHelpen;
 const letOp = p.letOp ?? c?.letOp;
+const L = labelSets[p.variant ?? variantForPath(p.path)];
 ---
 {vraag && antwoord && (
   <section class="container" style="max-width:820px;padding-top:40px">
     <div class="direct-answer">
-      <p class="direct-answer__label">Kort antwoord</p>
+      <p class="direct-answer__label">{L.kort}</p>
       <p class="direct-answer__q">{vraag}</p>
       <p class="direct-answer__a">{antwoord}</p>
     </div>
     {(voorWie || watLeerJe || wanneerHelpen || letOp) && (
       <div class="ai-summary">
-        <p class="ai-summary__title">Samenvatting</p>
+        <p class="ai-summary__title">{L.samenvatting}</p>
         <dl>
-          {voorWie && (<><dt>Voor wie</dt><dd>{voorWie}</dd></>)}
-          {watLeerJe && (<><dt>Wat je hier leert</dt><dd>{watLeerJe}</dd></>)}
+          {voorWie && (<><dt>{L.voorWie}</dt><dd>{voorWie}</dd></>)}
+          {watLeerJe && (<><dt>{L.watLeerJe}</dt><dd>{watLeerJe}</dd></>)}
           {wanneerHelpen && (<><dt>Wanneer wij helpen</dt><dd>{wanneerHelpen}</dd></>)}
-          {letOp && (<><dt>Belangrijkste aandachtspunt</dt><dd>{letOp}</dd></>)}
+          {letOp && (<><dt>{L.aandachtspunt}</dt><dd>{letOp}</dd></>)}
         </dl>
       </div>
     )}

@@ -106,7 +106,6 @@ export const nav = [
     href: '/vastgoed-marokko/',
     children: [
       ...prominenteSteden.map((s) => ({ label: s.naam, href: `/vastgoed-${s.slug}/` })),
-      { label: 'Bekijk alle steden', href: '/vastgoed-marokko/' },
     ],
   },
   {
