@@ -9,7 +9,8 @@
   --text:        #1C2E1D;
   --text-muted:  #55685a;
   --border:      #d8d1c4;
-  --gold:        #b08d57;
+  --accent:      #C4622D; /* terracotta — accenten/highlights (uit stijlgids) */
+  --gold:        #C9A84C; /* goud — highlights (uit stijlgids) */
 
   --font-serif:  'Cormorant Garamond', Georgia, serif;
   --font-sans:   'Jost', system-ui, sans-serif;
@@ -130,6 +131,9 @@ em { font-style: italic; color: var(--green-mid); }
 .hero__overlay { position: absolute; inset: 0; background: linear-gradient(to right, rgba(28,46,29,0.82), rgba(28,46,29,0.45)); }
 .hero__inner { position: relative; z-index: 2; color: var(--cream); max-width: 720px; padding-block: 60px; }
 .hero__inner h1 { color: var(--cream); margin-bottom: 22px; }
+/* Cursieve highlight op donkere achtergronden: goud (hoog contrast, goed leesbaar op
+   de foto), i.p.v. de donkergroene em-kleur die alleen voor lichte secties bedoeld is. */
+.hero em, .hero__sub em, .ctaband em, .direct-answer em { color: var(--gold); }
 .hero__sub { font-size: 20px; margin-bottom: 32px; color: rgba(245,241,232,0.92); font-weight: 300; }
 .hero__actions { display: flex; gap: 14px; flex-wrap: wrap; }
 
