@@ -77,9 +77,10 @@ BreadcrumbList + FAQPage + Service + Organization (RealEstateAgent) JSON-LD, aut
 2. **Fase 2 (klaar):** overige diensten­pagina's (kopen-vanuit-NL, appartement, nieuwbouw, rendement, beste steden, verhuren, Airbnb, verkopen) + juridische gidsen (risico's, kosten, notaris, titre foncier, volmacht). Alle intern gelinkt, geen dode links meer.
 3. **Fase 3:** fiscale gids (belasting NL/tweede woning), `/gids/`-indexpagina, blog/kennisbank, meertaligheid (EN/FR/AR), koppeling live vastgoedaanbod (Supabase-data uit de scraper).
 
-## 5. Openstaande acties vóór livegang
-- [ ] Web3Forms access key invullen in `contact.astro`.
-- [ ] `info@maghreb-estates.com` als mailbox aanmaken (of bestaand adres gebruiken).
-- [ ] Unieke OG-afbeelding(en) per hoofdpagina (nu 1 gedeelde).
-- [ ] Google Search Console + sitemap indienen na livegang.
+## 5. Openstaande acties (status 2026-07-10)
+- [x] ~~Web3Forms access key~~ — **achterhaald**: contactformulier loopt via WhatsApp/mailto, geen key nodig.
+- [x] Mailbox — `a.douider@` en `info@maghreb-estates.com` bestaan en ontvangen mail (one.com). Mailto-route veilig.
+- [x] **Site is live** op maghreb-estates.com (nieuwe Astro-site via repo `maghreb-estates-site`, GitHub Pages). Sitemap (53 URL's), robots.txt en JSON-LD staan live.
+- [ ] **Google Search Console opzetten + sitemap indienen** — nog niet gedaan (geen verificatie gevonden). **Nu #1 prioriteit.**
+- [ ] Unieke OG-afbeelding(en) per hoofdpagina (nu 1 gedeelde: villa5.jpg).
 - [ ] Overweeg node_modules/dist buiten iCloud-sync (grote map, sync-conflicten).
