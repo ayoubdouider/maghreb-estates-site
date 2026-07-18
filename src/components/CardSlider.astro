@@ -1,0 +1,42 @@
+---
+// Kaartenrij die op desktop een gewoon raster blijft en onder 560px een
+// horizontale swipe-slider wordt. Zie .grid--slider in global.css.
+// Gebruik: <CardSlider cols={4}> ...kaarten... </CardSlider>
+interface Props { cols?: 2 | 3 | 4; hint?: string; }
+const { cols = 4, hint = 'Veeg' } = Astro.props;
+---
+<div class="cardslider">
+  <p class="cardslider__hint">
+    {hint}
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M5 12h14M13 6l6 6-6 6" />
+    </svg>
+  </p>
+  <div class={`grid grid--${cols} grid--slider`}><slot /></div>
+  <div class="cardslider__dots" aria-hidden="true"></div>
+</div>
+
+<script>
+  // Stipjes worden uit het aantal kaarten opgebouwd, zodat de markup per pagina
+  // niets hoeft te weten van het aantal. Alleen zichtbaar onder 560px (CSS).
+  document.querySelectorAll<HTMLElement>('.cardslider').forEach((wrap) => {
+    const slider = wrap.querySelector<HTMLElement>('.grid--slider');
+    const dots = wrap.querySelector<HTMLElement>('.cardslider__dots');
+    if (!slider || !dots) return;
+
+    const kaarten = Array.from(slider.children) as HTMLElement[];
+    if (kaarten.length < 2) return;
+    dots.innerHTML = kaarten.map((_, i) => `<i class="${i === 0 ? 'on' : ''}"></i>`).join('');
+
+    const start = kaarten[0].offsetLeft;
+    const afstand = (k: HTMLElement) => Math.abs(k.offsetLeft - start - slider.scrollLeft);
+    const markeer = () => {
+      const actief = kaarten.reduce((best, k, n) => (afstand(k) < afstand(kaarten[best]) ? n : best), 0);
+      Array.from(dots.children).forEach((d, n) => d.classList.toggle('on', n === actief));
+    };
+    slider.addEventListener('scroll', markeer, { passive: true });
+    // scrollend vuurt pas nadat scroll-snap is uitgeklikt — anders kan het laatste
+    // stipje één kaart achterlopen op waar de slider werkelijk stopt.
+    slider.addEventListener('scrollend', markeer, { passive: true });
+  });
+</script>

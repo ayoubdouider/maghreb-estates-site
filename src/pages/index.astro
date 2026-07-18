@@ -4,6 +4,7 @@ import Hero from '../components/Hero.astro';
 import TrustStrip from '../components/TrustStrip.astro';
 import CtaInline from '../components/CtaInline.astro';
 import Icon from '../components/Icon.astro';
+import CardSlider from '../components/CardSlider.astro';
 import Faq from '../components/Faq.astro';
 import CtaBand from '../components/CtaBand.astro';
 import { steden } from '../data/steden';
@@ -48,7 +49,7 @@ const topSteden = steden.filter((s) => prominenteSteden.some((p) => p.slug === s
         <h2>Waar wij op controleren voordat u koopt</h2>
         <p class="section__desc">Een woning in Marokko kopen gaat mis vóór de notaris, niet erna. Daarom begint elke aankoop bij ons met controle — niet bij de prijs.</p>
       </div>
-      <div class="grid grid--4">
+      <CardSlider cols={4}>
         <div class="card">
           <span class="card__ic"><Icon name="titel" size={28} /></span>
           <h3>Eigendomstitel</h3>
@@ -69,7 +70,7 @@ const topSteden = steden.filter((s) => prominenteSteden.some((p) => p.slug === s
           <h3>Notaris en overdracht</h3>
           <p>We bewaken dat betalingen en overdracht officieel en controleerbaar verlopen.</p>
         </div>
-      </div>
+      </CardSlider>
     </div>
   </section>
 
@@ -198,12 +199,12 @@ const topSteden = steden.filter((s) => prominenteSteden.some((p) => p.slug === s
         <p class="eyebrow">Hoe het werkt</p>
         <h2>Van eerste vraag tot overdracht</h2>
       </div>
-      <div class="grid grid--4">
+      <CardSlider cols={4} hint="Veeg door de stappen">
         <div class="card"><span class="card__num">1</span><h3>Kennismaking</h3><p>Een vrijblijvend gesprek over uw situatie, doel en budget.</p></div>
         <div class="card"><span class="card__num">2</span><h3>Selectie & controle</h3><p>Een gefilterde selectie, of controle van uw eigen object, met eerlijke analyse.</p></div>
         <div class="card"><span class="card__num">3</span><h3>Dossier & bezichtiging</h3><p>Papiercontrole en bezichtiging, ter plaatse of op afstand via video.</p></div>
         <div class="card"><span class="card__num">4</span><h3>Notaris & beheer</h3><p>Officiële overdracht bij de notaris, daarna optioneel verhuur en beheer.</p></div>
-      </div>
+      </CardSlider>
       <div class="container" style="padding:0;max-width:820px;margin-top:44px">
         <CtaInline
           title="Niet zeker waar u moet beginnen?"

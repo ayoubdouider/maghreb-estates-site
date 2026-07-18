@@ -360,6 +360,42 @@ table.compare tr:last-child td, table.compare tr:last-child th { border-bottom: 
 .bronnen li { margin-bottom: 5px; }
 .bronnen p { font-size: 13px; color: var(--text-muted); font-style: italic; }
 
+/* ===== CARD SLIDER =====
+   Op desktop/tablet verandert er niets: het blijft het gewone .grid raster.
+   Onder 560px worden de kaarten een horizontale swipe-slider met scroll-snap,
+   zodat één sectie niet meer twee schermen scrollen kost. De volgende kaart
+   steekt bewust ~18% uit beeld — die glimp vertelt de bezoeker dat er meer is. */
+.cardslider__hint, .cardslider__dots { display: none; }
+
+@media (max-width: 560px) {
+  .cardslider__hint {
+    display: flex; align-items: center; justify-content: flex-end; gap: 7px;
+    font-size: 11.5px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--text-muted); margin-bottom: 12px;
+  }
+  .grid--slider {
+    display: flex; gap: 14px;
+    overflow-x: auto; scroll-snap-type: x mandatory;
+    /* Buiten de containerpadding treden zodat de slider van rand tot rand loopt,
+       maar de eerste kaart wel op de normale 20px marge begint. */
+    margin-inline: -20px; padding-inline: 20px; scroll-padding-left: 20px;
+    padding-block: 4px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .grid--slider::-webkit-scrollbar { display: none; }
+  .grid--slider > * { flex: 0 0 82%; scroll-snap-align: start; }
+  /* Hover-lift heeft op touch geen zin en blijft er na een tik aan plakken. */
+  .grid--slider .card:hover { transform: none; box-shadow: none; }
+
+  .cardslider__dots { display: flex; gap: 7px; justify-content: center; margin-top: 18px; }
+  .cardslider__dots i {
+    width: 6px; height: 6px; border-radius: 99px;
+    background: var(--border); transition: all var(--transition);
+  }
+  .cardslider__dots i.on { width: 22px; background: var(--green-mid); }
+}
+
 /* ===== RESPONSIVE ===== */
 @media (max-width: 940px) {
   :root { --section-pad: 64px; }
