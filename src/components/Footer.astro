@@ -1,5 +1,5 @@
 ---
-import { site, legal, waLink, prominenteSteden } from '../data/site';
+import { site, legal, waLink, homeMarkten } from '../data/site';
 import Icon from './Icon.astro';
 const jaar = new Date().getFullYear();
 ---
@@ -27,47 +27,26 @@ const jaar = new Date().getFullYear();
       </div>
 
       <div>
-        <h4>Kopen</h4>
-        <a href="/huis-kopen-marokko/">Huis kopen Marokko</a>
-        <a href="/huis-kopen-marokko-vanuit-nederland/">Kopen vanuit Nederland</a>
+        <h4>Services</h4>
         <a href="/aankoopbegeleiding-vastgoed-marokko/">Aankoopbegeleiding</a>
         <a href="/nieuwbouw-vastgoed-marokko/">Nieuwbouw & off-plan</a>
-        <a href="/appartement-kopen-marokko/">Appartement kopen</a>
-      </div>
-
-      <div>
-        <h4>Investeren</h4>
-        <a href="/investeren-vastgoed-marokko/">Investeren in vastgoed</a>
-        <a href="/beste-stad-investeren-vastgoed-marokko/">Beste steden voor investering</a>
-        <a href="/airbnb-marokko-investering/">Airbnb als investering</a>
-      </div>
-
-      <div>
-        <h4>Beheer & verkoop</h4>
+        <a href="/investeren-vastgoed-marokko/">Investeringsadvies</a>
         <a href="/vastgoedbeheer-marokko/">Vastgoedbeheer</a>
-        <a href="/huis-verhuren-marokko-vanuit-nederland/">Woning verhuren</a>
-        <a href="/airbnb-beheer-marokko/">Airbnb-beheer</a>
-        <a href="/huis-verkopen-marokko-vanuit-nederland/">Woning verkopen</a>
+        <a href="/huis-verkopen-marokko-vanuit-nederland/">Verkoopbegeleiding</a>
       </div>
 
       <div>
-        <h4>Kennisbank</h4>
-        <a href="/kosten-huis-kopen-marokko/">Kosten</a>
+        <h4>Insights</h4>
+        <a href="/kosten-huis-kopen-marokko/">Kosten bij aankoop</a>
         <a href="/risicos-huis-kopen-marokko/">Risico’s</a>
         <a href="/juridische-documenten-vastgoed-marokko/">Juridische documenten</a>
-        <a href="/begrippen-vastgoed-marokko/">Begrippenlijst</a>
-        <a href="/notaris-marokko-vastgoed/">Notaris</a>
-        <a href="/titre-foncier-marokko/">Titre foncier</a>
-        <a href="/volmacht-huis-kopen-marokko/">Volmacht</a>
-        <a href="/koopcontract-marokko-vastgoed/">Koopcontract</a>
+        <a href="/kennisbank/">Kennisbank</a>
       </div>
-    </div>
 
-    <div class="footer__steden">
-      <h4>Steden</h4>
-      <div class="footer__steden-links">
-        {prominenteSteden.map((s) => <a href={`/vastgoed-${s.slug}/`}>{s.naam}</a>)}
-        <a href="/vastgoed-marokko/">Alle steden</a>
+      <div>
+        <h4>Markets</h4>
+        {homeMarkten.map((s) => <a href={`/vastgoed-${s.slug}/`}>{s.naam}</a>)}
+        <a href="/vastgoed-marokko/">Alle markten</a>
       </div>
     </div>
 

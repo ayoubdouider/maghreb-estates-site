@@ -1,77 +1,56 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
-import TrustStrip from '../components/TrustStrip.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import AiBlocks from '../components/AiBlocks.astro';
-import CtaInline from '../components/CtaInline.astro';
 import Faq from '../components/Faq.astro';
 import LeadCta from '../components/LeadCta.astro';
+import VerderLezen from '../components/VerderLezen.astro';
 import { faqSchema, serviceSchema } from '../data/schema';
 
 const path = '/vastgoedbeheer-marokko/';
 const faqs = [
-  { q: 'Wat houdt vastgoedbeheer in Marokko in?', a: 'Vastgoedbeheer omvat alles rond uw woning terwijl u er niet bent: huurders vinden en screenen, huur innen, onderhoud en reparaties regelen, toezicht houden en periodiek aan u rapporteren. Zo rendeert uw woning zonder dat u zelf in Marokko hoeft te zijn.' },
-  { q: 'Kan Maghreb Estates mijn woning verhuren via Airbnb?', a: 'Ja. Wij verzorgen volledig Airbnb- en vakantieverhuurbeheer: advertentie en fotografie, prijsstrategie, gastencommunicatie, check-in/-out, schoonmaak en onderhoud. Bekijk onze pagina over Airbnb-beheer voor de details.' },
-  { q: 'Hoe weet ik zeker dat mijn huurinkomsten kloppen?', a: 'U ontvangt heldere, periodieke rapportage over bezetting, inkomsten en kosten. Transparantie staat centraal: u houdt op afstand volledig zicht op uw woning en rendement.' },
-  { q: 'Wat kost vastgoedbeheer in Marokko?', a: 'Beheerkosten worden meestal berekend als een percentage van de huurinkomsten, zodat onze belangen gelijklopen: u betaalt bij resultaat. In een gesprek maken wij de tarieven en de precieze dienstverlening transparant.' },
-  { q: 'Kunnen jullie ook alleen toezicht houden op een leegstaande woning?', a: 'Ja. Ook zonder verhuur kunnen wij uw woning in de gaten houden: periodieke controle, klein onderhoud, en ingrijpen bij problemen. Ideaal voor een tweede woning die u zelf gebruikt.' },
-  { q: 'Ik vertrouw de huidige beheerder niet meer — kunnen jullie het overnemen?', a: 'Ja. Veel eigenaren stappen over omdat afspraken onduidelijk zijn of inkomsten niet transparant. Wij nemen het beheer over met heldere rapportage en controleerbare afspraken.' },
-  { q: 'Beheren jullie in heel Marokko?', a: 'Wij zijn actief in alle grote en opkomende steden. In een gesprek bevestigen we of wij in uw specifieke stad of wijk beheer kunnen verzorgen.' },
+  { q: 'Wat houdt vastgoedbeheer in Marokko in?', a: 'Alles rond uw woning terwijl u er niet bent: huurders vinden en screenen, huur innen, onderhoud en reparaties regelen, toezicht houden en periodiek aan u rapporteren. Zo rendeert uw woning zonder dat u zelf in Marokko hoeft te zijn.' },
+  { q: 'Hoe weet ik zeker dat mijn huurinkomsten kloppen?', a: 'U ontvangt heldere, periodieke rapportage over bezetting, inkomsten en kosten. U houdt op afstand volledig zicht op uw woning en rendement.' },
+  { q: 'Wat kost vastgoedbeheer in Marokko?', a: 'Beheerkosten worden meestal berekend als een percentage van de huurinkomsten, zodat onze belangen gelijklopen: u betaalt bij resultaat. In een gesprek maken wij tarieven en dienstverlening transparant.' },
+  { q: 'Kunnen jullie het beheer van een andere partij overnemen?', a: 'Ja. Veel eigenaren stappen over omdat afspraken onduidelijk zijn of inkomsten niet transparant. Wij nemen het beheer over met heldere rapportage en controleerbare afspraken.' },
 ];
 ---
 <BaseLayout
   title="Vastgoedbeheer Marokko: verhuur & beheer op afstand | Maghreb Estates"
-  description="Vastgoedbeheer en verhuurbeheer in Marokko vanuit Nederland: huurders, huurinning, onderhoud, toezicht en Airbnb-beheer. Uw woning rendeert met volledige transparantie en lokale controle."
+  description="Vastgoedbeheer en verhuurbeheer in Marokko voor eigenaren buiten Marokko: huurders, huurinning, onderhoud, toezicht en rapportage. Transparant, met lokale aanwezigheid."
   path={path}
   schema={[faqSchema(faqs), serviceSchema({ naam: 'Vastgoedbeheer Marokko', beschrijving: 'Verhuurbeheer en vastgoedbeheer op afstand voor eigenaren van vastgoed in Marokko.', path })]}
 >
   <Hero
     compact
-    eyebrow="Vastgoedbeheer Marokko"
+    eyebrow="Vastgoedbeheer"
     title="Vastgoedbeheer op afstand,<br /><em>met volledige controle</em>"
-    sub="Uw woning in Marokko verhuurd en beheerd terwijl u in Nederland bent: huurders, huurinning, onderhoud, toezicht en rapportage — transparant en zorgeloos."
+    sub="Uw woning in Marokko verhuurd en beheerd terwijl u buiten Marokko bent: huurders, huurinning, onderhoud, toezicht en rapportage — transparant en controleerbaar."
     image="/images/apt2.jpg"
     ctas={[
-      { label: 'Plan gratis adviesgesprek', href: '/contact/', primary: true },
+      { label: 'Plan adviesgesprek', href: '/contact/', primary: true },
       { label: 'Vraag rendementsindicatie aan', href: '/contact/?doel=investeringsanalyse' },
     ]}
   />
   <Breadcrumbs items={[{ label: 'Vastgoed Marokko', href: '/vastgoed-marokko/' }, { label: 'Vastgoedbeheer', href: path }]} />
   <AiBlocks path={path} />
-  <TrustStrip />
 
   <section class="section">
     <div class="container prose" style="max-width:760px">
-      <p><strong>Vastgoedbeheer in Marokko</strong> lost het grootste bezwaar van kopen op afstand op: hoe houdt u grip op een woning die honderden kilometers verderop staat? Zelf huurders regelen, huur innen en onderhoud aansturen vanuit Nederland is bijna ondoenlijk — en juist daar ontstaan problemen: leegstand, wanbetaling, achterstallig onderhoud of een beheerder die niet transparant is.</p>
-      <p>Wij nemen het volledige beheer uit handen, met lokale aanwezigheid en Nederlandstalige rapportage. Uw woning rendeert, blijft in goede staat, en u houdt op afstand volledig zicht op inkomsten en kosten.</p>
+      <h2>Voor wie is dit?</h2>
+      <p>Voor eigenaren buiten Marokko: investeerders die hun woning laten renderen, en bezitters van een tweede woning die willen dat het huis in goede staat blijft. Zelf huurders regelen, huur innen en onderhoud aansturen op afstand is nauwelijks te doen — daar ontstaan leegstand, wanbetaling en achterstallig onderhoud.</p>
 
-      <h2>Wat ons beheer omvat</h2>
+      <h2>Wat doen wij concreet?</h2>
       <ul class="checks">
-        <li><strong>Verhuurbeheer:</strong> huurders vinden, screenen en correcte contracten opstellen — lees meer over <a href="/huis-verhuren-marokko-vanuit-nederland/">huis verhuren in Marokko</a>.</li>
-        <li><strong>Airbnb & vakantieverhuur:</strong> advertentie, prijsstrategie en gastenbeheer via <a href="/airbnb-beheer-marokko/">Airbnb-beheer</a>.</li>
+        <li><strong>Verhuurbeheer:</strong> huurders vinden, screenen en correcte contracten opstellen.</li>
+        <li><strong>Vakantieverhuur:</strong> advertentie, prijsstrategie en gastenbeheer voor kortetermijnverhuur.</li>
         <li><strong>Huurinning:</strong> tijdige inning en een heldere administratie.</li>
-        <li><strong>Onderhoud & toezicht:</strong> reparaties, schoonmaak en periodieke controle van uw woning.</li>
+        <li><strong>Onderhoud &amp; toezicht:</strong> reparaties, schoonmaak en periodieke controle van uw woning.</li>
         <li><strong>Rapportage:</strong> transparant overzicht van bezetting, inkomsten en kosten.</li>
       </ul>
 
-      <CtaInline
-        title="Wat kan uw woning opleveren?"
-        text="Wij maken een realistische rendementsindicatie op basis van uw stad, type woning en verhuurvorm."
-        label="Vraag rendementsindicatie aan"
-        href="/contact/?doel=investeringsanalyse"
-      />
-
-      <h2>Voor investeerders én tweede-woningbezitters</h2>
-      <p>Heeft u <a href="/investeren-vastgoed-marokko/">geïnvesteerd voor rendement</a>? Dan zorgt goed beheer dat uw <a href="/investeren-vastgoed-marokko/">rendement</a> daadwerkelijk binnenkomt. Heeft u een tweede woning voor eigen gebruik? Dan houden wij die in topconditie en verhuren we tijdens uw afwezigheid, zodat de woning niet leeg staat en toch beschikbaar is wanneer u komt.</p>
-
-      <div class="warn">
-        <strong>Herkent u dit? “Ik krijg geen duidelijk beeld van mijn inkomsten.”</strong>
-        <p>Onduidelijke afspraken en niet-transparante afrekeningen zijn de meest gehoorde klacht over beheer in Marokko. Bij ons ziet u zwart-op-wit wat er binnenkomt en wat er uitgaat — controleerbaar en op tijd.</p>
-      </div>
-
       <h2>Onze beheerpakketten</h2>
-      <p>U kiest het niveau dat bij uw situatie past:</p>
       <div class="grid grid--2" style="margin:24px 0">
         <div class="pakket">
           <h3>Basis toezicht</h3>
@@ -95,15 +74,14 @@ const faqs = [
           </ul>
         </div>
         <div class="pakket">
-          <h3>Airbnb-beheer</h3>
-          <p class="pakket__voor">Voor vakantieverhuur.</p>
+          <h3>Vakantieverhuur</h3>
+          <p class="pakket__voor">Voor kortetermijn- en seizoensverhuur.</p>
           <ul>
             <li>Advertentiebeheer</li>
             <li>Prijsstrategie</li>
             <li>Gastencommunicatie</li>
             <li>Schoonmaak</li>
             <li>Onderhoud</li>
-            <li>Reviews</li>
           </ul>
         </div>
         <div class="pakket">
@@ -116,26 +94,34 @@ const faqs = [
       </div>
       <p>Beschikbaarheid verschilt per stad en wijk. Tijdens het adviesgesprek bevestigen wij of volledig beheer in uw regio mogelijk is.</p>
 
-      <h2>Zo ziet grip op afstand eruit</h2>
-      <p>Eigenaren willen niet alleen horen dat alles goed gaat. Ze willen overzicht. Daarom werken wij met duidelijke updates over huur, onderhoud, betalingen en openstaande punten.</p>
-      <div class="card" style="margin:24px 0">
-        <p style="font-family:var(--font-serif);font-size:20px;color:var(--green);margin-bottom:14px">Maandrapportage — voorbeeld</p>
-        <ul class="spec">
-          <li><b>Huur ontvangen</b><span>Bedrag en datum van ontvangst</span></li>
-          <li><b>Kosten deze maand</b><span>Onderhoud, nutsvoorzieningen en beheer</span></li>
-          <li><b>Onderhoud of schade</b><span>Wat is gemeld en de status ervan</span></li>
-          <li><b>Foto-update</b><span>Actueel beeld van de woning</span></li>
-          <li><b>Openstaande acties</b><span>Punten die nog worden opgevolgd</span></li>
-          <li><b>Advies volgende maand</b><span class="spec--advies">Onze aanbeveling voor de komende periode</span></li>
-        </ul>
-      </div>
-      <p><a href="/contact/?doel=beheer" class="btn btn--primary">Bespreek beheer van mijn woning</a></p>
+      <h2>Hoe werkt het traject?</h2>
+      <ol>
+        <li><strong>Intake.</strong> Uw woning, uw doel en het gewenste beheerniveau.</li>
+        <li><strong>Opname ter plaatse.</strong> Staat van de woning, verhuurpotentie en benodigd onderhoud.</li>
+        <li><strong>Beheerplan en afspraken.</strong> Diensten, tarieven en rapportagefrequentie zwart-op-wit.</li>
+        <li><strong>Exploitatie.</strong> Verhuur, inning en onderhoud, met periodieke rapportage aan u.</li>
+      </ol>
 
-      <h2>Nog aan het kopen — of juist verkopen?</h2>
-      <p>Bent u nog aan het oriënteren? Start bij <a href="/huis-kopen-marokko/">huis kopen in Marokko</a> en onze <a href="/aankoopbegeleiding-vastgoed-marokko/">aankoopbegeleiding</a>, zodat u vanaf dag één goed zit. Wilt u juist afscheid nemen van uw woning? Bekijk onze <a href="/huis-verkopen-marokko-vanuit-nederland/">verkoopbegeleiding</a> — soms is verhuren en beheren echter aantrekkelijker dan verkopen; wij rekenen het graag voor u door.</p>
+      <div class="warn">
+        <strong>Herkent u dit? “Ik krijg geen duidelijk beeld van mijn inkomsten.”</strong>
+        <p>Onduidelijke afspraken en niet-transparante afrekeningen zijn de meest gehoorde klacht over beheer in Marokko. Bij ons ziet u zwart-op-wit wat er binnenkomt en wat er uitgaat — controleerbaar en op tijd.</p>
+      </div>
+
+      <h2>Waarom Maghreb Estates?</h2>
+      <p>Wij combineren lokale aanwezigheid met rapportage die u van een professioneel kantoor mag verwachten: heldere cijfers over huur, kosten, onderhoud en openstaande punten. Onze klanten zijn eigenaren uit heel Europa; wij communiceren in het Nederlands, Engels, Frans en Arabisch.</p>
+
+      <p style="margin-top:36px"><a href="/contact/?doel=beheer" class="btn btn--primary">Bespreek beheer van mijn woning</a></p>
     </div>
   </section>
 
   <Faq items={faqs} title="Veelgestelde vragen over vastgoedbeheer in Marokko" />
+
+  <VerderLezen items={[
+    { label: 'Woning verhuren in Marokko', href: '/huis-verhuren-marokko-vanuit-nederland/', tekst: 'Wat komt er kijken bij verhuur op afstand.' },
+    { label: 'Airbnb-beheer', href: '/airbnb-beheer-marokko/', tekst: 'Kortetermijnverhuur: bezetting, prijsstrategie en gasten.' },
+    { label: 'Verkoopbegeleiding', href: '/huis-verkopen-marokko-vanuit-nederland/', tekst: 'Wanneer verkopen aantrekkelijker is dan aanhouden.' },
+    { label: 'Markten in Marokko', href: '/vastgoed-marokko/', tekst: 'Overzicht van de steden en regio’s waarin wij actief zijn.' },
+  ]} />
+
   <LeadCta path={path} />
 </BaseLayout>

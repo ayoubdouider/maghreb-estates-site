@@ -9,6 +9,7 @@ import MarketDisclaimer from '../components/MarketDisclaimer.astro';
 import CtaInline from '../components/CtaInline.astro';
 import Faq from '../components/Faq.astro';
 import LeadCta from '../components/LeadCta.astro';
+import VerderLezen from '../components/VerderLezen.astro';
 import { steden } from '../data/steden';
 import { prominenteSteden } from '../data/site';
 import { stedenExtra } from '../data/stedenExtra';
@@ -28,20 +29,20 @@ const heeftCijfers = md && (md.appartement || md.villa || md.rekencase || md.huu
 
 const faqs = prominent
   ? [
-      { q: `Kan ik als Nederlander vastgoed kopen in ${stad.naam}?`, a: `Ja. Nederlanders, Belgen en Nederlands-Marokkanen kunnen vrijwel overal in ${stad.naam} onroerend goed kopen, ook op afstand. Wij begeleiden u in het Nederlands en controleren de eigendomspapieren en de notarisroute.` },
+      { q: `Kan ik als buitenlandse koper vastgoed kopen in ${stad.naam}?`, a: `Ja. Buitenlandse kopers kunnen vrijwel overal in ${stad.naam} onroerend goed kopen, ook op afstand. Wij controleren de eigendomspapieren en de notarisroute, en begeleiden u in het Nederlands, Engels, Frans of Arabisch.` },
       { q: `Waar moet ik in ${stad.naam} op letten?`, a: `${stad.risicos[0]} Wij beoordelen elk object afzonderlijk op locatie, papieren, prijs en beheerbaarheid.` },
       { q: `Wat is de verhuurpotentie in ${stad.naam}?`, a: `${stad.verhuur}` },
       { q: `Kan Maghreb Estates mijn woning in ${stad.naam} beheren?`, a: `Ja. Na aankoop verzorgen wij verhuur, onderhoud en toezicht in ${stad.naam}, ook volledig op afstand.` },
     ]
   : [
       { q: `Hebben jullie objecten beschikbaar in ${stad.naam}?`, a: `Op dit moment hebben wij geen eigen objecten in ${stad.naam}. Heeft u zelf een woning, project of advertentie op het oog? Stuur ons de link — wij helpen u vanuit Marokko met de controle en afhandeling.` },
-      { q: `Kan ik als Nederlander een woning kopen in ${stad.naam}?`, a: `Ja. Nederlanders en Nederlands-Marokkanen kunnen in ${stad.naam} kopen. Wij controleren de eigendomstitel, het contract en begeleiden de overdracht via de notaris.` },
+      { q: `Kan ik als buitenlandse koper een woning kopen in ${stad.naam}?`, a: `Ja. Buitenlandse kopers kunnen in ${stad.naam} kopen. Wij controleren de eigendomstitel, het contract en begeleiden de overdracht via de notaris.` },
       { q: `Waarmee kunnen jullie in ${stad.naam} helpen?`, a: `Met dossiercontrole (titre foncier), het koopcontract, de betalingsroute, de notaris en de overdracht, en met beheer na aankoop.` },
     ];
 ---
 <BaseLayout
   title={`Vastgoed kopen in ${stad.naam} | Maghreb Estates`}
-  description={`Vastgoed kopen in ${stad.naam}, Marokko, als Nederlander? ${stad.invalshoek} Nederlandstalige begeleiding, dossiercontrole en beheer in ${stad.naam}.`}
+  description={`Vastgoed kopen in ${stad.naam}, Marokko? ${stad.invalshoek} Onafhankelijke begeleiding, dossiercontrole en beheer in ${stad.naam} voor internationale kopers.`}
   path={path}
   schema={[faqSchema(faqs), serviceSchema({ naam: `Vastgoed kopen in ${stad.naam}`, beschrijving: `Begeleiding bij kopen, controleren en beheren van vastgoed in ${stad.naam}, Marokko.`, path })]}
 >
@@ -49,7 +50,7 @@ const faqs = prominent
     compact
     eyebrow={`Vastgoed in ${stad.regio}`}
     title={`Vastgoed kopen in <em>${stad.naam}</em>`}
-    sub={`${stad.invalshoek} Wij begeleiden Nederlandstalige kopers en beoordelen elk object afzonderlijk.`}
+    sub={`${stad.invalshoek} Wij begeleiden internationale kopers en beoordelen elk object afzonderlijk.`}
     image="/images/villa5.jpg"
     ctas={[
       { label: 'Stuur een woning ter controle', href: '/contact/?doel=aankoopcontrole', primary: true },
@@ -65,7 +66,7 @@ const faqs = prominent
       : `Wij hebben op dit moment geen eigen objecten in ${stad.naam}. Heeft u zelf een woning of project gevonden? Stuur ons de link, dan helpen wij u vanuit Marokko met de dossiercontrole, de notaris en de overdracht.`}
     voorWie={`Kopers en eigenaren die actief zijn of willen worden in ${stad.naam}.`}
     watLeerJe={prominent ? `Waarom ${stad.naam} kan passen, voor wie juist niet, en waar wij op letten.` : `Waarmee wij u in ${stad.naam} kunnen helpen, ook zonder eigen aanbod.`}
-    wanneerHelpen={`Met dossiercontrole, de notaris en beheer in ${stad.naam} — ook vanuit Nederland.`}
+    wanneerHelpen={`Met dossiercontrole, de notaris en beheer in ${stad.naam} — ook op afstand.`}
     letOp={stad.risicos[0]}
   />
   <TrustStrip />
@@ -123,7 +124,7 @@ const faqs = prominent
         )}
 
         <h2>Hoe wij u helpen in {stad.naam}</h2>
-        <p>Wij zijn uw onafhankelijke, Nederlandstalige aanspreekpunt: van <a href="/aankoopbegeleiding-vastgoed-marokko/">aankoopbegeleiding</a> en dossiercontrole tot de <a href="/notaris-marokko-vastgoed/">notaris</a> en beheer na aankoop. Lees ook het algemene <a href="/huis-kopen-marokko/">stappenplan om te kopen</a> en de <a href="/kosten-huis-kopen-marokko/">kosten</a>.</p>
+        <p>Wij zijn uw onafhankelijke aanspreekpunt: van <a href="/aankoopbegeleiding-vastgoed-marokko/">aankoopbegeleiding</a> en dossiercontrole tot de notaris en beheer na aankoop.</p>
 
         <CtaInline
           title={`Een woning in ${stad.naam} op het oog?`}
@@ -145,19 +146,19 @@ const faqs = prominent
 
         <h2>Waarmee wij u in {stad.naam} helpen</h2>
         <ul class="checks">
-          <li>Controle van de eigendomstitel (<a href="/titre-foncier-marokko/">titre foncier</a>) en of de verkoper bevoegd is.</li>
-          <li>Beoordeling van het <a href="/koopcontract-marokko-vastgoed/">koopcontract</a>, de aanbetaling en de betalingsroute.</li>
-          <li>Begeleiding bij de <a href="/notaris-marokko-vastgoed/">notaris</a> en de overdracht.</li>
+          <li>Controle van de eigendomstitel (titre foncier) en of de verkoper bevoegd is.</li>
+          <li>Beoordeling van het koopcontract, de aanbetaling en de betalingsroute.</li>
+          <li>Begeleiding bij de notaris en de overdracht.</li>
           <li>Een reële inschatting van prijs en marktwaarde.</li>
-          <li>Beheer na aankoop: <a href="/vastgoedbeheer-marokko/">vastgoedbeheer</a>, verhuur en toezicht.</li>
+          <li>Beheer na aankoop: verhuur, onderhoud en toezicht.</li>
         </ul>
 
-        <p>Meer weten over hoe kopen in Marokko verloopt? Lees het <a href="/huis-kopen-marokko/">stappenplan om een huis te kopen</a>, onze <a href="/aankoopbegeleiding-vastgoed-marokko/">aankoopbegeleiding</a> en, als u vanuit Nederland koopt, <a href="/huis-kopen-marokko-vanuit-nederland/">kopen op afstand</a>.</p>
+        
 
         <CtaInline
           title={`Een woning in ${stad.naam} gevonden?`}
-          text="Stuur ons de link of documenten. Wij helpen u met de controle en de afhandeling vanuit Marokko."
-          label="Stuur een woning ter controle"
+          text="Stuur ons de link of documenten. Wij helpen u met de controle en de afhandeling ter plaatse."
+          label="Laat een object beoordelen"
           href="/contact/?doel=aankoopcontrole"
         />
       </div>
@@ -167,5 +168,13 @@ const faqs = prominent
   {prominent && <Bronnen extra={[`Marktindicaties ${stad.naam}: publieke prijsreferenties (o.a. Agenz, Yakeey, Properstar) en AirDNA — peildatum begin 2026`]} />}
 
   <Faq items={faqs} title={`Veelgestelde vragen over vastgoed in ${stad.naam}`} />
+
+  <VerderLezen items={[
+    { label: 'Aankoopbegeleiding', href: '/aankoopbegeleiding-vastgoed-marokko/', tekst: `Selectie, due diligence en overdracht in ${stad.naam}.` },
+    { label: 'Investeringsadvies', href: '/investeren-vastgoed-marokko/', tekst: 'Netto rendement en strategie, onderbouwd met marktdata.' },
+    { label: 'Markten in Marokko', href: '/vastgoed-marokko/', tekst: 'Vergelijk deze markt met andere steden en regio\u2019s.' },
+    { label: 'Contact', href: '/contact/', tekst: 'Plan een vrijblijvend adviesgesprek.' },
+  ]} />
+
   <LeadCta path={path} />
 </BaseLayout>

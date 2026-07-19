@@ -2,7 +2,7 @@
 export const site = {
   naam: 'Maghreb Estates',
   url: 'https://maghreb-estates.com',
-  tagline: 'Nederlandstalige begeleiding bij het kopen, beoordelen en beheren van vastgoed in Marokko.',
+  tagline: 'International real estate advisory in Morocco — buying, investment, management and sales.',
   telefoon: '+31 6 83 49 87 15',
   telefoonHref: '+31683498715',
   email: 'a.douider@maghreb-estates.com',
@@ -41,7 +41,7 @@ export const team = [
     whatsapp: '31683498715',
     email: 'a.douider@maghreb-estates.com',
     linkedin: '',
-    bio: 'Begeleidt Nederlandstalige kopers bij het kopen, controleren en beheren van vastgoed in Marokko. Spreekt Nederlands, Arabisch/Darija en Frans.',
+    bio: 'Begeleidt internationale kopers en investeerders bij het kopen, controleren en beheren van vastgoed in Marokko. Spreekt Nederlands, Engels, Frans en Arabisch/Darija.',
   },
   {
     naam: 'Marouane Haddane',
@@ -52,11 +52,11 @@ export const team = [
     whatsapp: '31644681782',
     email: 'm.haddane@maghreb-estates.com',
     linkedin: '',
-    bio: 'Begeleidt kopers en eigenaren bij aankoop, dossiercontrole en beheer in Marokko, met lokale kennis van de markt en de papieren. Spreekt Nederlands, Arabisch/Darija en Frans.',
+    bio: 'Begeleidt kopers en eigenaren bij aankoop, dossiercontrole en beheer in Marokko, met lokale kennis van de markt en de papieren. Spreekt Nederlands, Engels, Frans en Arabisch/Darija.',
   },
 ];
 
-// De 7 prominente steden (rijke pagina's + Steden-dropdown).
+// De 7 prominente steden (rijke pagina's + footer).
 export const prominenteSteden = [
   { naam: 'Tanger', slug: 'tanger' },
   { naam: 'Casablanca', slug: 'casablanca' },
@@ -67,17 +67,21 @@ export const prominenteSteden = [
   { naam: 'Al Hoceima', slug: 'al-hoceima' },
 ];
 
-// Hoofdnavigatie — bewust rustig. Per dropdown alleen de kernpagina's die een
-// bezoeker direct nodig heeft (max. 3-4 items). Ondersteunende en long-tail
-// SEO-pagina's blijven indexeerbaar en worden via de footer en interne links
-// bereikbaar gehouden, niet via het hoofdmenu.
+// De 5 markten die we in de hoofdbeleving tonen (homepage + footer). Bewust kort:
+// de volledige stedenlijst leeft op /vastgoed-marokko/ en in de sitemap.
+export const homeMarkten = prominenteSteden.slice(0, 5);
+
+// Hoofdnavigatie — bewust rustig, als een adviseskantoor en niet als een
+// SEO-kennisbank. Vijf routes, maximaal 2 submenu-items per route.
+// Ondersteunende en long-tail SEO-pagina's (kennisbank, stadspagina's,
+// juridische gidsen) blijven volledig indexeerbaar en zijn bereikbaar via de
+// footer, "Verder lezen"-blokken, /vastgoed-marokko/ en de sitemap — maar niet
+// via het hoofdmenu.
 export const nav = [
   {
-    label: 'Kopen in Marokko',
-    href: '/huis-kopen-marokko/',
+    label: 'Vastgoed kopen',
+    href: '/aankoopbegeleiding-vastgoed-marokko/',
     children: [
-      { label: 'Huis kopen in Marokko', href: '/huis-kopen-marokko/' },
-      { label: 'Kopen vanuit Nederland', href: '/huis-kopen-marokko-vanuit-nederland/' },
       { label: 'Aankoopbegeleiding', href: '/aankoopbegeleiding-vastgoed-marokko/' },
       { label: 'Nieuwbouw & off-plan', href: '/nieuwbouw-vastgoed-marokko/' },
     ],
@@ -86,9 +90,8 @@ export const nav = [
     label: 'Investeren',
     href: '/investeren-vastgoed-marokko/',
     children: [
-      { label: 'Investeren in vastgoed', href: '/investeren-vastgoed-marokko/' },
-      { label: 'Steden vergelijken', href: '/beste-stad-investeren-vastgoed-marokko/' },
-      { label: 'Airbnb & verhuur', href: '/airbnb-marokko-investering/' },
+      { label: 'Investeringsadvies', href: '/investeren-vastgoed-marokko/' },
+      { label: 'Steden & markt', href: '/beste-stad-investeren-vastgoed-marokko/' },
     ],
   },
   {
@@ -96,30 +99,11 @@ export const nav = [
     href: '/vastgoedbeheer-marokko/',
     children: [
       { label: 'Vastgoedbeheer', href: '/vastgoedbeheer-marokko/' },
-      { label: 'Woning verhuren', href: '/huis-verhuren-marokko-vanuit-nederland/' },
-      { label: 'Airbnb-beheer', href: '/airbnb-beheer-marokko/' },
-      { label: 'Woning verkopen', href: '/huis-verkopen-marokko-vanuit-nederland/' },
-    ],
-  },
-  {
-    label: 'Steden',
-    href: '/vastgoed-marokko/',
-    children: [
-      ...prominenteSteden.map((s) => ({ label: s.naam, href: `/vastgoed-${s.slug}/` })),
-    ],
-  },
-  {
-    label: 'Kennisbank',
-    href: '/kennisbank/',
-    children: [
-      { label: 'Kosten', href: '/kosten-huis-kopen-marokko/' },
-      { label: 'Risico’s', href: '/risicos-huis-kopen-marokko/' },
-      { label: 'Juridische documenten', href: '/juridische-documenten-vastgoed-marokko/' },
-      { label: 'Begrippenlijst', href: '/begrippen-vastgoed-marokko/' },
-      { label: 'Alle artikelen', href: '/kennisbank/' },
+      { label: 'Verkoopbegeleiding', href: '/huis-verkopen-marokko-vanuit-nederland/' },
     ],
   },
   { label: 'Over ons', href: '/over-ons/' },
+  { label: 'Contact', href: '/contact/' },
 ];
 
 // Juridische pagina's (footer).
@@ -131,8 +115,8 @@ export const legal = [
 
 // CTA-varianten.
 export const ctas = {
-  advies: { label: 'Plan gratis adviesgesprek', href: '/contact/' },
-  controle: { label: 'Stuur een woning ter controle', href: '/contact/?doel=aankoopcontrole' },
+  advies: { label: 'Plan adviesgesprek', href: '/contact/' },
+  controle: { label: 'Laat een object beoordelen', href: '/contact/?doel=aankoopcontrole' },
   checklist: { label: 'Ontvang de checklist', href: '/checklist-vastgoed-marokko/' },
   analyse: { label: 'Vraag investeringsanalyse aan', href: '/contact/?doel=investeringsanalyse' },
 };

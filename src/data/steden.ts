@@ -37,7 +37,7 @@ export const steden: Stad[] = [
   {
     slug: 'tanger', naam: 'Tanger', regio: 'Tanger-Tetouan-Al Hoceima',
     invalshoek: 'Een van de snelst groeiende steden van Marokko, met sterke waardeontwikkeling en verhuur aan expats en zakelijke huurders.',
-    intro: 'Tanger is de poort tussen Europa en Afrika en een van de dynamischste steden van Marokko. De haven Tanger Med, een groeiende economie en veel Nederlands-Marokkanen met roots in het noorden zorgen voor een aanhoudende vraag naar vastgoed. De stad ontwikkelt zich snel, van de moderne baai tot de historische medina.',
+    intro: 'Tanger is de poort tussen Europa en Afrika en een van de dynamischste steden van Marokko. De haven Tanger Med, een groeiende economie en een grote diaspora met roots in het noorden zorgen voor een aanhoudende vraag naar vastgoed. De stad ontwikkelt zich snel, van de moderne baai tot de historische medina.',
     voorWie: ['Investeerders die inzetten op waardegroei', 'Noord-Marokkaanse (Rif-)families uit Nederland en België', 'Kopers die verhuren aan expats of zakelijke huurders', 'Wie een moderne stad met kust én vliegveldverbinding zoekt'],
     voordelen: ['Sterke economische groei en werkgelegenheid rond Tanger Med', 'Goede verbindingen met Europa (haven, luchthaven, ferry)', 'Breed aanbod: van medina tot moderne nieuwbouw aan de baai'],
     risicos: ['Prijzen lopen per wijk sterk uiteen — vergelijken is essentieel', 'Snelle ontwikkeling betekent ook off-plan aanbod dat u goed moet laten controleren', 'Kwaliteit van nieuwbouw verschilt per ontwikkelaar'],
@@ -114,7 +114,7 @@ export const steden: Stad[] = [
   {
     slug: 'nador', naam: 'Nador', regio: 'Oriental',
     invalshoek: 'Thuisbasis voor veel Rif-families uit de diaspora, met gebiedsontwikkeling rond de Marchica-lagune en de haven.',
-    intro: 'Nador is voor veel Nederlands-Marokkanen uit de Rif dé plek van herkomst. De stad groeit door de nabijheid van de haven Nador West Med en de ontwikkeling rond de lagune van Marchica. Familievastgoed en binding met de regio spelen hier een grote rol.',
+    intro: 'Nador is voor veel families uit de Rif-diaspora dé plek van herkomst. De stad groeit door de nabijheid van de haven Nador West Med en de ontwikkeling rond de lagune van Marchica. Familievastgoed en binding met de regio spelen hier een grote rol.',
     voorWie: ['Rif-families uit Nederland en België', 'Kopers met binding aan de regio', 'Investeerders die inzetten op gebiedsontwikkeling'],
     voordelen: ['Sterke diasporaband en familienetwerken', 'Gebiedsontwikkeling rond Marchica en de haven', 'Herkenbare, vertrouwde omgeving voor de doelgroep'],
     risicos: ['Informele afspraken binnen families kunnen tot onduidelijkheid leiden', 'Eigendomspapieren en titelregistratie extra goed controleren', 'Marktdata is beperkter dan in grote steden'],

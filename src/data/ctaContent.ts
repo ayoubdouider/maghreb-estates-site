@@ -35,7 +35,7 @@ export const ctaContent: Record<CtaVariant, CtaBlok> = {
   },
   beheer: {
     titel: 'Wilt u grip houden op uw woning in Marokko?',
-    tekst: 'Wij helpen eigenaren met toezicht, verhuur, rapportage en verkoopbegeleiding. Zo blijft u betrokken, zonder alles zelf vanuit Nederland te hoeven regelen.',
+    tekst: 'Wij helpen eigenaren met toezicht, verhuur, rapportage en verkoopbegeleiding. Zo blijft u betrokken, zonder alles zelf op afstand te hoeven regelen.',
     knoppen: [
       { label: 'Bespreek beheer van mijn woning', href: '/contact/?doel=beheer', primary: true },
       { label: 'Vraag verkoopadvies aan', href: '/contact/?doel=verkoop' },

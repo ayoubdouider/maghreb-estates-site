@@ -1,0 +1,24 @@
+---
+// "Verder lezen" — verzamelt de verdiepende links die vroeger als onderstreepte
+// tekstlinks door de lopende tekst van commerciële pagina's liepen. Zo houden we
+// de leestekst rustig, terwijl de interne links (en dus de SEO-waarde) behouden
+// blijven. Bedoeld voor 3 à 4 kaarten; meer maakt de pagina weer druk.
+interface Kaart { label: string; href: string; tekst?: string; }
+interface Props { title?: string; items: Kaart[]; }
+const { title = 'Verder lezen', items } = Astro.props;
+---
+{items.length > 0 && (
+  <section class="section verder" style="padding-block:0 var(--section-pad)">
+    <div class="container" style="max-width:860px">
+      <h2 class="verder__titel">{title}</h2>
+      <div class="verder__grid">
+        {items.map((i) => (
+          <a class="verder__kaart" href={i.href}>
+            <strong>{i.label}</strong>
+            {i.tekst && <span>{i.tekst}</span>}
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+)}

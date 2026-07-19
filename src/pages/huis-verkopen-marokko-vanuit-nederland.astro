@@ -5,52 +5,78 @@ import Breadcrumbs from '../components/Breadcrumbs.astro';
 import AiBlocks from '../components/AiBlocks.astro';
 import Faq from '../components/Faq.astro';
 import LeadCta from '../components/LeadCta.astro';
+import VerderLezen from '../components/VerderLezen.astro';
 import { faqSchema, serviceSchema } from '../data/schema';
 
 const path = '/huis-verkopen-marokko-vanuit-nederland/';
 const faqs = [
-  { q: 'Kan ik mijn huis in Marokko verkopen vanuit Nederland?', a: 'Ja. Wij begeleiden de verkoop op afstand: waardebepaling, presentatie, bezichtigingen, onderhandeling en de gang naar de notaris. Met een volmacht kunnen wij de overdracht namens u afronden.' },
-  { q: 'Hoe bepaal ik de juiste vraagprijs in Marokko?', a: 'Wij maken een realistische waardebepaling op basis van markdata en vergelijkbare objecten in uw stad. Een correcte prijs voorkomt langdurige leegstand of onderverkoop.' },
-  { q: 'Wat komt er kijken bij de overdracht bij verkoop?', a: 'De verkoop verloopt officieel via de notaris, met controle van de eigendomstitel en afhandeling van eventuele belastingen. Wij begeleiden het hele traject tot de overdracht.' },
+  { q: 'Kan ik mijn huis in Marokko op afstand verkopen?', a: 'Ja. Wij begeleiden de verkoop op afstand: waardebepaling, presentatie, bezichtigingen, onderhandeling en de gang naar de notaris. Met een volmacht kunnen wij de overdracht namens u afronden.' },
+  { q: 'Hoe bepaal ik de juiste vraagprijs?', a: 'Wij maken een realistische waardebepaling op basis van marktdata en vergelijkbare objecten in uw stad. Een correcte prijs voorkomt langdurige leegstand of onderverkoop.' },
+  { q: 'Wat komt er kijken bij de overdracht?', a: 'De verkoop verloopt officieel via de notaris, met controle van de eigendomstitel en afhandeling van eventuele belastingen. Wij begeleiden het hele traject tot de overdracht.' },
+  { q: 'Is verkopen wel de beste keuze?', a: 'Niet altijd. Soms levert verhuren met professioneel beheer op termijn meer op dan verkopen. Wij rekenen beide scenario’s voor u door voordat u besluit.' },
 ];
 ---
 <BaseLayout
-  title="Huis verkopen in Marokko vanuit Nederland | Maghreb Estates"
-  description="Uw huis verkopen in Marokko vanuit Nederland? Verkoopbegeleiding met realistische waardebepaling, presentatie, onderhandeling en notaris. Nederlandstalig en transparant."
+  title="Huis verkopen in Marokko vanaf afstand | Maghreb Estates"
+  description="Uw woning in Marokko verkopen terwijl u in het buitenland woont: verkoopbegeleiding met realistische waardebepaling, presentatie, onderhandeling en officiële overdracht bij de notaris."
   path={path}
-  schema={[faqSchema(faqs), serviceSchema({ naam: 'Huis verkopen Marokko', beschrijving: 'Verkoopbegeleiding van vastgoed in Marokko voor eigenaren in Nederland.', path })]}
+  schema={[faqSchema(faqs), serviceSchema({ naam: 'Verkoopbegeleiding vastgoed Marokko', beschrijving: 'Verkoopbegeleiding van vastgoed in Marokko voor eigenaren buiten Marokko.', path })]}
 >
   <Hero
     compact
     eyebrow="Verkoopbegeleiding"
-    title="Uw huis verkopen in Marokko,<br /><em>begeleid tot de overdracht</em>"
-    sub="Van realistische waardebepaling tot de akte bij de notaris — wij verkopen uw Marokkaanse woning correct, ook vanuit Nederland."
+    title="Uw woning verkopen in Marokko,<br /><em>begeleid tot de overdracht</em>"
+    sub="Van realistische waardebepaling tot de akte bij de notaris — wij verkopen uw Marokkaanse woning correct, ook wanneer u buiten Marokko woont."
     image="/images/villa5.jpg"
-    ctas={[{ label: 'Plan gratis adviesgesprek', href: '/contact/', primary: true }]}
+    ctas={[
+      { label: 'Plan adviesgesprek', href: '/contact/', primary: true },
+      { label: 'Vraag verkoopadvies aan', href: '/contact/?doel=verkoop' },
+    ]}
   />
-  <Breadcrumbs items={[{ label: 'Vastgoed Marokko', href: '/vastgoed-marokko/' }, { label: 'Huis verkopen', href: path }]} />
+  <Breadcrumbs items={[{ label: 'Vastgoed Marokko', href: '/vastgoed-marokko/' }, { label: 'Verkoopbegeleiding', href: path }]} />
   <AiBlocks path={path} />
 
   <section class="section">
     <div class="container prose" style="max-width:760px">
-      <p>Uw <strong>huis verkopen in Marokko vanuit Nederland</strong> vraagt om lokale kennis en een correcte afhandeling. Wij begeleiden de verkoop van A tot Z, zodat u een goede prijs krijgt en de overdracht juridisch klopt — zonder dat u er telkens voor hoeft af te reizen.</p>
+      <h2>Voor wie is dit?</h2>
+      <p>Voor eigenaren buiten Marokko die hun woning willen verkopen zonder er telkens voor af te reizen: investeerders die hun positie afbouwen, families die een geërfde woning willen overdragen, en tweede-woningbezitters die de woning niet meer gebruiken.</p>
 
-      <h2>Onze verkoopbegeleiding</h2>
-      <ul>
-        <li><strong>Waardebepaling:</strong> een realistische vraagprijs op basis van markdata.</li>
-        <li><strong>Presentatie:</strong> goede foto’s en een aantrekkelijke advertentie.</li>
-        <li><strong>Bezichtigingen & onderhandeling:</strong> wij vertegenwoordigen u ter plaatse.</li>
-        <li><strong>Notaris & overdracht:</strong> begeleiding bij de <a href="/notaris-marokko-vastgoed/">notaris</a>, met controle van de <a href="/titre-foncier-marokko/">eigendomstitel</a>.</li>
+      <h2>Wat doen wij concreet?</h2>
+      <ul class="checks">
+        <li><strong>Waardebepaling:</strong> een realistische vraagprijs op basis van marktdata en vergelijkbare transacties.</li>
+        <li><strong>Presentatie:</strong> professionele foto’s en een advertentie die de juiste kopers trekt.</li>
+        <li><strong>Bezichtigingen &amp; onderhandeling:</strong> wij vertegenwoordigen u ter plaatse.</li>
+        <li><strong>Dossier:</strong> controle van de eigendomstitel en de stukken die de koper nodig heeft.</li>
+        <li><strong>Notaris &amp; overdracht:</strong> begeleiding tot en met de akte, desgewenst met volmacht.</li>
       </ul>
 
-      <h2>Verkopen op afstand</h2>
-      <p>Net als bij <a href="/huis-kopen-marokko-vanuit-nederland/">kopen op afstand</a> kunnen wij met een <a href="/volmacht-huis-kopen-marokko/">volmacht</a> de overdracht namens u afronden.</p>
+      <h2>Hoe werkt het traject?</h2>
+      <ol>
+        <li><strong>Intake en waardebepaling.</strong> Uw situatie, de woning en een reële vraagprijs.</li>
+        <li><strong>Dossier op orde.</strong> Eigendomstitel en documenten gecontroleerd vóór u in de verkoop gaat.</li>
+        <li><strong>Presentatie en bezichtigingen.</strong> Marketing en rondleidingen ter plaatse.</li>
+        <li><strong>Onderhandeling.</strong> Wij voeren de gesprekken namens u.</li>
+        <li><strong>Notaris en overdracht.</strong> Officiële afhandeling, ook op afstand met volmacht.</li>
+      </ol>
 
-      <h2>Verkopen of juist verhuren?</h2>
-      <p>Twijfelt u tussen verkopen en aanhouden? Bereken eerst het <a href="/investeren-vastgoed-marokko/">rendement bij verhuur</a> — soms is <a href="/vastgoedbeheer-marokko/">verhuren en beheren</a> aantrekkelijker dan verkopen.</p>
+      <h2>Verkopen of juist aanhouden?</h2>
+      <p>Twijfelt u? Een woning die goed verhuurd en beheerd wordt, kan op termijn meer opleveren dan een verkoop tegen de huidige marktprijs. Wij zetten beide scenario’s voor u naast elkaar — inclusief kosten, belastingen en verwachte waardeontwikkeling — voordat u besluit.</p>
+
+      <h2>Waarom Maghreb Estates?</h2>
+      <p>Wij kennen de lokale markt én de praktijk van verkopen op afstand: welke prijs realistisch is, welke documenten een koper zal vragen, en hoe de overdracht bij de notaris correct verloopt. Onze klanten wonen verspreid over Europa; wij begeleiden hen in het Nederlands, Engels, Frans en Arabisch.</p>
+
+      <p style="margin-top:36px"><a href="/contact/?doel=verkoop" class="btn btn--primary">Vraag verkoopadvies aan</a></p>
     </div>
   </section>
 
-  <Faq items={faqs} title="Veelgestelde vragen over huis verkopen in Marokko" />
+  <Faq items={faqs} title="Veelgestelde vragen over verkopen in Marokko" />
+
+  <VerderLezen items={[
+    { label: 'Waarde van uw woning bepalen', href: '/waarde-woning-marokko-bepalen/', tekst: 'Hoe een realistische vraagprijs tot stand komt.' },
+    { label: 'Vastgoedbeheer', href: '/vastgoedbeheer-marokko/', tekst: 'Verhuren en beheren als alternatief voor verkopen.' },
+    { label: 'Juridische documenten', href: '/juridische-documenten-vastgoed-marokko/', tekst: 'Welke stukken bij een overdracht horen.' },
+    { label: 'Markten in Marokko', href: '/vastgoed-marokko/', tekst: 'Overzicht van de steden en regio’s waarin wij actief zijn.' },
+  ]} />
+
   <LeadCta path={path} />
 </BaseLayout>

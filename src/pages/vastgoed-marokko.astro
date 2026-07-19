@@ -1,11 +1,10 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
-import TrustStrip from '../components/TrustStrip.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
-import CtaInline from '../components/CtaInline.astro';
 import Faq from '../components/Faq.astro';
 import LeadCta from '../components/LeadCta.astro';
+import VerderLezen from '../components/VerderLezen.astro';
 import { steden } from '../data/steden';
 import { faqSchema, serviceSchema } from '../data/schema';
 
@@ -18,76 +17,51 @@ const stedenGroepen = [
   { titel: 'Toerisme & lifestyle', slugs: ['marrakech', 'agadir', 'essaouira', 'saidia', 'dakhla'] },
   { titel: 'Overige steden', slugs: ['oujda', 'fes'] },
 ].map((g) => ({ titel: g.titel, steden: g.slugs.map((slug) => steden.find((s) => s.slug === slug)!).filter(Boolean) }));
+
 const faqs = [
-  { q: 'Waarom kopen Nederlanders en Belgen vastgoed in Marokko?', a: 'Marokko biedt relatief lage instapprijzen, sterke groei in steden als Tanger, Casablanca en Marrakech, en aantrekkelijke huurinkomsten. Voor veel Nederlands-Marokkanen speelt ook binding met het land en de wens om terug te keren of familie dichtbij te hebben.' },
-  { q: 'Is vastgoed in Marokko een veilige aankoop?', a: 'Ja, mits u de eigendomspapieren goed controleert en alles officieel via de notaris regelt. De risico’s zitten in onduidelijke titels, dubbele verkoop en informele afspraken. Wij doen due diligence op elk object om die risico’s weg te nemen.' },
-  { q: 'Mag ik als buitenlander vastgoed kopen in Marokko?', a: 'Ja. Buitenlanders en Nederlands-Marokkanen mogen vrijwel overal in Marokko onroerend goed kopen. Alleen bepaalde landbouwgrond (terres agricoles) is uitgezonderd. Voor woningen, appartementen en villa’s gelden geen nationaliteitsbeperkingen.' },
-  { q: 'In welke steden kan ik het beste vastgoed kopen in Marokko?', a: 'Dat hangt af van uw doel. Voor rendement en zakelijke verhuur zijn Tanger, Casablanca en Rabat sterk; voor toeristische verhuur kijkt u naar Marrakech, Agadir en de kuststeden; voor vroege groeikansen naar Kenitra, Nador en Dakhla. Bekijk onze stadspagina’s voor de details.' },
-  { q: 'Wat kost vastgoed kopen in Marokko naast de koopsom?', a: 'Reken op circa 6 tot 10% bijkomende kosten: registratierechten, notariskosten en kadaster. Zie onze gids over de kosten van een huis kopen in Marokko voor een volledig overzicht.' },
-  { q: 'Kan ik vastgoed in Marokko kopen zonder er zelf te zijn?', a: 'Ja, dat kan volledig op afstand met een volmacht (procuration). Wij regelen bezichtiging, dossiercontrole en de gang naar de notaris. Lees meer op onze pagina over kopen vanuit Nederland.' },
-  { q: 'Kunnen jullie mijn woning ook verhuren en beheren?', a: 'Ja. Na aankoop verzorgen wij verhuurbeheer, Airbnb-beheer, onderhoud en toezicht, met heldere rapportage. Zo rendeert uw woning zonder dat u er zelf voor hoeft te zijn.' },
+  { q: 'Mag ik als buitenlandse koper vastgoed kopen in Marokko?', a: 'Ja. Buitenlandse kopers mogen vrijwel overal in Marokko onroerend goed kopen. Alleen bepaalde landbouwgrond (terres agricoles) is uitgezonderd. Voor woningen, appartementen en villa’s gelden geen nationaliteitsbeperkingen.' },
+  { q: 'In welke steden kan ik het beste vastgoed kopen?', a: 'Dat hangt af van uw doel. Voor rendement en zakelijke verhuur zijn Tanger, Casablanca en Rabat sterk; voor toeristische verhuur kijkt u naar Marrakech, Agadir en de kuststeden; voor vroege groeikansen naar Kenitra, Nador en Dakhla.' },
+  { q: 'Wat kost vastgoed kopen in Marokko naast de koopsom?', a: 'Reken op circa 6 tot 10% bijkomende kosten: registratierechten, notariskosten en kadaster. Wij maken vooraf een transparante berekening voor uw situatie.' },
+  { q: 'Kan ik vastgoed kopen zonder er zelf te zijn?', a: 'Ja, volledig op afstand met een volmacht (procuration). Wij regelen bezichtiging, dossiercontrole en de gang naar de notaris.' },
 ];
 ---
 <BaseLayout
-  title="Vastgoed Marokko: kopen, investeren & beheren | Maghreb Estates"
-  description="Alles over vastgoed in Marokko voor Nederlandstalige kopers: huis kopen, investeren, aankoopbegeleiding, verhuur en beheer. Ontdek de markt per stad met Nederlandse begeleiding en lokale controle."
+  title="Markten in Marokko: vastgoed per stad | Maghreb Estates"
+  description="De Marokkaanse vastgoedmarkt per stad en regio, voor internationale kopers en investeerders. Van Tanger en Casablanca tot Marrakech, Agadir en Dakhla."
   path={path}
-  schema={[faqSchema(faqs), serviceSchema({ naam: 'Vastgoed Marokko begeleiding', beschrijving: 'Nederlandstalige begeleiding bij kopen, investeren, verhuren en beheren van vastgoed in Marokko.', path })]}
+  schema={[faqSchema(faqs), serviceSchema({ naam: 'Vastgoed Marokko begeleiding', beschrijving: 'Begeleiding bij kopen, investeren, verhuren en beheren van vastgoed in Marokko voor internationale kopers.', path })]}
 >
   <Hero
     compact
-    eyebrow="Vastgoed Marokko"
-    title="Vastgoed in Marokko —<br /><em>veilig, duidelijk, begeleid</em>"
-    sub="Kopen, investeren, verhuren of beheren in Marokko. Dé complete gids voor Nederlandstalige kopers, met lokale controle en juridische zekerheid bij elke stap."
+    eyebrow="Markten in Marokko"
+    title="De Marokkaanse markt,<br /><em>stad voor stad</em>"
+    sub="Elke stad kent een eigen prijsniveau, vraag en verhuurpotentie. Een overzicht van de markten waarin wij actief zijn, voor internationale kopers en investeerders."
     image="/images/villa4.jpg"
     ctas={[
-      { label: 'Plan gratis adviesgesprek', href: '/contact/', primary: true },
-      { label: 'Ontvang de checklist', href: '/checklist-vastgoed-marokko/' },
+      { label: 'Plan adviesgesprek', href: '/contact/', primary: true },
+      { label: 'Laat een object beoordelen', href: '/contact/?doel=aankoopcontrole' },
     ]}
   />
-  <Breadcrumbs items={[{ label: 'Vastgoed Marokko', href: path }]} />
-  <TrustStrip />
+  <Breadcrumbs items={[{ label: 'Markten in Marokko', href: path }]} />
 
   <section class="section">
     <div class="container prose" style="max-width:760px">
-      <p><strong>Vastgoed in Marokko</strong> is aantrekkelijk voor steeds meer Nederlanders, Belgen en Nederlands-Marokkanen — of het nu gaat om een tweede woning voor de zomers, een investering met huurinkomsten, of een plek om ooit naar terug te keren. De prijzen liggen lager dan in Nederland, de steden groeien hard en de emotionele band met het land maakt de stap extra betekenisvol.</p>
-      <p>Tegelijk werkt de Marokkaanse markt fundamenteel anders. Informatie is versnipperd over lokale kanalen, eigendomspapieren zijn complex, en niet elke aanbieder of tussenpersoon is even transparant. Wie de markt niet kent, loopt het risico te veel te betalen, te kopen zonder geldige eigendomstitel, of vast te lopen in informele afspraken. Deze pagina brengt structuur aan en wijst u de weg — en waar het spannend wordt, staan wij naast u.</p>
+      <p><strong>De Marokkaanse vastgoedmarkt is geen één markt.</strong> Het noorden — Tanger, Nador, Al Hoceima, Tetouan en de kustplaatsen — is sterk verbonden met de diaspora en profiteert van de havenontwikkeling. De economische as Casablanca–Rabat–Kenitra biedt stabiliteit, zakelijke verhuur en gestage waardegroei. Marrakech, Agadir en de kuststeden draaien op toerisme, met hogere maar seizoensgevoelige rendementen.</p>
+      <p>Welke markt bij u past, hangt af van uw doel: eigen gebruik, langetermijnverhuur of waardegroei. Wij beoordelen elk object binnen de context van zijn eigen stad en wijk — een goede prijs in Tanger betekent iets anders dan een goede prijs in Essaouira.</p>
 
       <div class="warn">
-        <strong>Belangrijk: koop nooit op basis van alleen een advertentie of een belofte.</strong>
-        <p>De meeste problemen ontstaan vóór de notaris: een aanbetaling op een woning zonder geregistreerde titre foncier, of een “deal via familie” zonder papieren. Bij ons geldt: geen handtekening en geen betaling zonder volledige dossiercontrole.</p>
+        <strong>Marktcijfers zijn een startpunt, geen oordeel over één woning.</strong>
+        <p>Prijsindicaties per stad zeggen weinig over een specifiek object. Straat, staat, bouwjaar, papieren en verhuurbaarheid bepalen de werkelijke waarde. Laat een concreet object altijd afzonderlijk beoordelen.</p>
       </div>
-
-      <h2>Kopen in Marokko</h2>
-      <p>Begint u met oriënteren? Lees eerst <a href="/huis-kopen-marokko/">huis kopen in Marokko</a> voor het complete stappenplan, of <a href="/appartement-kopen-marokko/">appartement kopen in Marokko</a> als u specifiek een appartement zoekt. Koopt u vanuit Nederland, dan zijn <a href="/huis-kopen-marokko-vanuit-nederland/">huis kopen vanuit Nederland</a> en <a href="/volmacht-huis-kopen-marokko/">kopen met volmacht</a> relevant. Overweegt u nieuwbouw, lees dan hoe u <a href="/nieuwbouw-vastgoed-marokko/">nieuwbouwprojecten controleert</a> voordat u instapt.</p>
-
-      <h2>Investeren & rendement</h2>
-      <p>Zoekt u rendement? Op <a href="/investeren-vastgoed-marokko/">investeren in vastgoed Marokko</a> leest u onze data-gedreven aanpak, en op <a href="/investeren-vastgoed-marokko/">rendement vastgoed Marokko</a> hoe huurinkomsten en waardegroei realistisch worden berekend. Weet u nog niet in welke stad? Bekijk <a href="/beste-stad-investeren-vastgoed-marokko/">de beste steden om te investeren</a>, met per stad een eigen profiel.</p>
-
-      <h2>Veilig kopen: begeleiding & juridische controle</h2>
-      <p>Veiligheid begint bij goede begeleiding. Onze <a href="/aankoopbegeleiding-vastgoed-marokko/">aankoopbegeleiding</a> omvat volledige due diligence. Verdiep u in de <a href="/risicos-huis-kopen-marokko/">risico’s en hoe u ze vermijdt</a>, de <a href="/kosten-huis-kopen-marokko/">kosten en verborgen kosten</a>, de rol van de <a href="/notaris-marokko-vastgoed/">notaris</a> en het belang van de <a href="/titre-foncier-marokko/">titre foncier</a> — de geregistreerde eigendomstitel die bepaalt of eigendom écht vaststaat.</p>
-
-      <CtaInline
-        title="Laat uw aankoop of dossier controleren"
-        text="Twijfelt u over een woning, een prijs of een aanbieder? Wij kijken kritisch mee en vertellen u eerlijk of het klopt."
-        label="Laat je aankoop controleren"
-        href="/contact/?doel=aankoopcontrole"
-      />
-
-      <h2>Verhuren & beheren</h2>
-      <p>Wilt u uw woning laten renderen terwijl u in Nederland woont? Wij verzorgen <a href="/vastgoedbeheer-marokko/">vastgoedbeheer</a>, <a href="/huis-verhuren-marokko-vanuit-nederland/">verhuur</a> en <a href="/airbnb-beheer-marokko/">Airbnb-beheer</a> op afstand, inclusief onderhoud, toezicht en transparante rapportage. En wilt u juist afscheid nemen van uw Marokkaanse woning, dan begeleidt onze <a href="/huis-verkopen-marokko-vanuit-nederland/">verkoopbegeleiding</a> u tot de overdracht.</p>
-
-      <h2>De markt per stad</h2>
-      <p>Elke stad in Marokko heeft een eigen markt, prijsniveau en verhuurpotentie. Het noorden (Tanger, Nador, Al Hoceima, Tetouan en de kustplaatsen) is sterk verbonden met de diaspora; de economische as Casablanca–Rabat–Kenitra biedt stabiliteit en groei; Marrakech en Agadir draaien op toerisme. Hieronder vindt u alle steden waar wij actief zijn.</p>
     </div>
   </section>
 
   <section class="section section--tinted" id="steden">
     <div class="container">
       <div class="section__header section__header--center">
-        <p class="eyebrow">Alle steden</p>
+        <p class="eyebrow">Alle markten</p>
         <h2>Vastgoed per <em>stad in Marokko</em></h2>
-        <p class="section__desc">Gegroepeerd per type markt. Kies uw stad voor gerichte informatie over de markt, prijzen en verhuurpotentie.</p>
+        <p class="section__desc">Gegroepeerd per type markt. Kies uw stad voor gerichte informatie over prijzen, vraag en verhuurpotentie.</p>
       </div>
       {stedenGroepen.map((g) => (
         <div class="steden-groep">
@@ -106,5 +80,13 @@ const faqs = [
   </section>
 
   <Faq items={faqs} title="Veelgestelde vragen over vastgoed in Marokko" />
+
+  <VerderLezen items={[
+    { label: 'Aankoopbegeleiding', href: '/aankoopbegeleiding-vastgoed-marokko/', tekst: 'Selectie, due diligence en begeleiding tot de overdracht.' },
+    { label: 'Investeringsadvies', href: '/investeren-vastgoed-marokko/', tekst: 'Netto rendement en strategie per stad en objecttype.' },
+    { label: 'Steden & markt vergelijken', href: '/beste-stad-investeren-vastgoed-marokko/', tekst: 'Welke stad past bij welke investeringsstrategie.' },
+    { label: 'Kennisbank', href: '/kennisbank/', tekst: 'Kosten, risico’s, juridische documenten en begrippen.' },
+  ]} />
+
   <LeadCta path={path} />
 </BaseLayout>

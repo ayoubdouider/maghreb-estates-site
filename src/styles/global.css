@@ -76,7 +76,12 @@ em { font-style: italic; color: var(--green-mid); }
 .prose ul { margin: 0 0 20px 22px; color: var(--text-muted); }
 .prose li { margin-bottom: 10px; }
 .prose strong { color: var(--text); font-weight: 500; }
-.prose a { color: var(--green-mid); text-decoration: underline; text-underline-offset: 3px; }
+/* Links in lopende tekst blijven rustig: geen permanente onderstreping, alleen
+   een subtiele kleuraccent. De underline verschijnt pas bij hover/focus, zodat
+   een alinea niet als linkverzameling leest. CTA-knoppen (.btn) staan visueel
+   los en houden hun eigen stijl. */
+.prose a:not(.btn) { color: var(--green-mid); text-decoration: none; border-bottom: 1px solid rgba(52,82,46,0.25); transition: border-color var(--transition), color var(--transition); }
+.prose a:not(.btn):hover, .prose a:not(.btn):focus-visible { color: var(--green); border-bottom-color: var(--green); text-decoration: underline; text-underline-offset: 3px; }
 
 /* ===== BUTTONS ===== */
 .btn {
@@ -123,6 +128,7 @@ em { font-style: italic; color: var(--green-mid); }
   .nav__mobile a { padding: 12px 0; border-bottom: 1px solid var(--border); font-size: 15px; }
   .nav__mobile .nav__group-label { font-weight: 500; color: var(--green); margin-top: 8px; }
   .nav__mobile .nav__sub { padding-left: 16px; color: var(--text-muted); font-size: 14px; }
+  .nav__mobile .nav__cta-mobile { margin-top: 20px; border-bottom: none; text-align: center; }
 }
 
 /* ===== HERO ===== */
@@ -213,6 +219,24 @@ details.faq__item summary::-webkit-details-marker { display: none; }
 .stad-chip strong { display: block; font-family: var(--font-serif); font-size: 20px; font-weight: 500; color: var(--green); }
 .stad-chip span { font-size: 13px; color: var(--text-muted); }
 
+/* ===== MARKTEN (homepage, compact) ===== */
+.markten { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 48px; align-items: start; }
+.markten__intro .section__desc { margin-top: 16px; font-size: 17px; }
+.markten__links { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
+.markt-link { background: var(--cream-dark); padding: 18px 20px; transition: background var(--transition); }
+.markt-link:hover { background: var(--white); }
+.markt-link strong { display: block; font-family: var(--font-serif); font-size: 19px; font-weight: 500; color: var(--green); }
+.markt-link span { font-size: 13px; color: var(--text-muted); }
+.markt-link--alle strong { color: var(--green-mid); }
+
+/* ===== VERDER LEZEN (linkcards i.p.v. inline tekstlinks) ===== */
+.verder__titel { font-family: var(--font-sans); font-size: 12px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 20px; }
+.verder__grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+.verder__kaart { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px 22px; transition: border-color var(--transition), box-shadow var(--transition); }
+.verder__kaart:hover { border-color: var(--green-mid); box-shadow: var(--shadow); }
+.verder__kaart strong { display: block; font-family: var(--font-serif); font-size: 19px; font-weight: 500; color: var(--green); margin-bottom: 3px; }
+.verder__kaart span { font-size: 14px; color: var(--text-muted); line-height: 1.5; }
+
 /* ===== SPLIT / QUOTE ===== */
 .split { display: grid; grid-template-columns: 1.2fr 1fr; gap: 60px; align-items: start; }
 .feature { margin-bottom: 34px; }
@@ -224,10 +248,7 @@ details.faq__item summary::-webkit-details-marker { display: none; }
 
 /* ===== FOOTER ===== */
 .footer { background: var(--green); color: rgba(245,241,232,0.8); padding: 70px 0 36px; }
-.footer__grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr; gap: 36px; margin-bottom: 40px; }
-.footer__steden { border-top: 1px solid rgba(245,241,232,0.15); padding-top: 28px; margin-bottom: 40px; }
-.footer__steden-links { display: flex; flex-wrap: wrap; gap: 6px 20px; }
-.footer__steden-links a { padding: 3px 0; font-size: 13.5px; }
+.footer__grid { display: grid; grid-template-columns: 1.7fr 1fr 1fr 1fr; gap: 44px; margin-bottom: 44px; }
 .footer h4 { color: var(--cream); font-family: var(--font-sans); font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 500; margin-bottom: 18px; }
 .footer a { display: block; padding: 6px 0; font-size: 14px; color: rgba(245,241,232,0.75); transition: color var(--transition); }
 .footer a:hover { color: var(--cream); }
@@ -404,12 +425,14 @@ table.compare tr:last-child td, table.compare tr:last-child th { border-bottom: 
   .split { grid-template-columns: 1fr; gap: 36px; }
   .trust { grid-template-columns: repeat(2, 1fr); gap: 32px; }
   .trust-strip { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+  .markten { grid-template-columns: 1fr; gap: 28px; }
   .footer__grid { grid-template-columns: 1fr 1fr; }
   .cta-inline { flex-direction: column; align-items: flex-start; }
 }
 @media (max-width: 560px) {
   .container { padding: 0 20px; }
   .grid--2, .grid--3, .grid--4, .steden, .teamkaarten { grid-template-columns: 1fr; }
+  .markten__links, .verder__grid { grid-template-columns: 1fr; }
   .footer__grid { grid-template-columns: 1fr; }
   .hero__actions { flex-direction: column; }
   .hero__actions .btn { width: 100%; text-align: center; }
