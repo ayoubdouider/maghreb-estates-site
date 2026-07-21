@@ -32,9 +32,9 @@ export const waLink = (bericht = '', nummer = site.whatsapp) =>
 
 // Team — vaste aanspreekpunten. Rollen bewust internationaal geformuleerd.
 // TODO: LinkedIn-URL's toevoegen zodra bekend.
-// TODO: vervang /images/marouane.png door een portret met dezelfde achtergrond,
-// uitsnede en belichting als /images/ayoub.jpg, zodat beide kaarten visueel
-// gelijkwaardig zijn. Tot die tijd wordt de bestaande foto identiek gecropt.
+// Beide portretten zijn geschoten tegen dezelfde betonnen achtergrond en staan
+// op 900x1350 (2:3), zodat de teamkaarten identiek uitsnijden. De originelen
+// op volle resolutie staan in ../fotos-aangeleverd/portretten-origineel/.
 export const team = [
   {
     naam: 'Ayoub Douider',
@@ -50,7 +50,7 @@ export const team = [
   {
     naam: 'Marouane Haddane',
     rol: 'Real Estate Advisor & Operations',
-    foto: '/images/marouane.png',
+    foto: '/images/marouane.jpg',
     telefoon: '+31 6 44 68 17 82',
     telefoonHref: '+31644681782',
     whatsapp: '31644681782',
