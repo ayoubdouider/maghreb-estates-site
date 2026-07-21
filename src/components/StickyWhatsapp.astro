@@ -1,12 +1,22 @@
 ---
 // Subtiele mobiele sticky-CTA onderaan (alleen mobiel). Link naar WhatsApp met
-// voorgevulde tekst. Geen emoji, professioneel, niet over formulieren heen
-// (body krijgt op mobiel padding-bottom in global.css).
+// voorgevulde tekst in de taal van de bezoeker.
 import { waLink } from '../data/site';
+import { standaardTaal, type Taal } from '../i18n/config';
 import Icon from './Icon.astro';
-const href = waLink('Hallo Maghreb Estates, ik heb een vraag over vastgoed in Marokko.');
+
+interface Props { taal?: Taal }
+const { taal = standaardTaal } = Astro.props;
+
+const teksten: Record<Taal, { label: string; bericht: string }> = {
+  nl: { label: 'Stel uw vraag via WhatsApp', bericht: 'Hallo Maghreb Estates, ik heb een vraag over vastgoed in Marokko.' },
+  en: { label: 'Ask your question on WhatsApp', bericht: 'Hello Maghreb Estates, I have a question about property in Morocco.' },
+  fr: { label: 'Posez votre question sur WhatsApp', bericht: 'Bonjour Maghreb Estates, j’ai une question sur l’immobilier au Maroc.' },
+  ar: { label: 'اطرح سؤالك عبر واتساب', bericht: 'مرحباً Maghreb Estates، لدي سؤال حول العقارات في المغرب.' },
+};
+const { label, bericht } = teksten[taal];
 ---
-<a class="sticky-wa" href={href} rel="noopener" aria-label="Stel een vraag via WhatsApp">
+<a class="sticky-wa" href={waLink(bericht)} rel="noopener" aria-label={label}>
   <Icon name="whatsapp" size={18} />
-  <span>Stel uw vraag via WhatsApp</span>
+  <span>{label}</span>
 </a>

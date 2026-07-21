@@ -1,11 +1,22 @@
 ---
 import { site, legal, waLink } from '../data/site';
+import { paginas, standaardTaal, type Taal } from '../i18n/config';
+import { ui } from '../i18n/ui';
 import Icon from './Icon.astro';
+
+interface Props { taal?: Taal }
+const { taal = standaardTaal } = Astro.props;
+const t = ui[taal].footer;
 const jaar = new Date().getFullYear();
 
-// Footer blijft bewust rustig: geen SEO-linkdump. Stadspagina's, kennisbank en
-// long-tail gidsen zijn bereikbaar via /vastgoed-marokko/, /kennisbank/ en de
-// sitemap. Vastgoedbeheer staat hier niet zolang die dienst niet operationeel is.
+// Footer blijft bewust rustig: geen SEO-linkdump. Vastgoedbeheer staat hier
+// niet zolang die dienst niet operationeel is.
+//
+// De Insights-links wijzen naar Nederlandstalige gidsen. Op een anderstalige
+// pagina krijgen ze een taallabel, zodat een bezoeker niet onaangekondigd op
+// Nederlandse inhoud belandt. Kosten bestaat wél vertaald en wijst dus naar de
+// juiste taalversie.
+const nl = t.nlLabel;
 ---
 <footer class="footer">
   <div class="container">
@@ -14,27 +25,27 @@ const jaar = new Date().getFullYear();
         {/* TODO: replace logo with transparent-background version from Canva. */}
         <span class="logo-word">Maghreb</span>
         <span class="logo-sub">ESTATES</span>
-        <p>International real estate advisory in Morocco.</p>
+        <p>{t.tagline}</p>
       </div>
 
       <div>
-        <h4>Contact</h4>
+        <h4>{t.contact}</h4>
         <ul class="contactlist footer__contact">
           <li>
             <Icon name="telefoon" size={17} />
-            <a href={`tel:${site.telefoonHref}`}>{site.telefoon}</a>
+            <a href={`tel:${site.telefoonHref}`} dir="ltr">{site.telefoon}</a>
           </li>
           <li>
             <Icon name="whatsapp" size={17} />
-            <a href={waLink('Hallo Maghreb Estates, ik heb een vraag over vastgoed in Marokko.')}>WhatsApp</a>
+            <a href={waLink('Hallo Maghreb Estates, ik heb een vraag over vastgoed in Marokko.')}>{t.whatsapp}</a>
           </li>
           <li>
             <Icon name="mail" size={17} />
-            <a href={`mailto:${site.email}`}>{site.email}</a>
+            <a href={`mailto:${site.email}`} dir="ltr">{site.email}</a>
           </li>
         </ul>
         {/* Bedrijfsgegevens — officiële Marokkaanse inschrijving (SARL). */}
-        <p class="footer__bedrijf">
+        <p class="footer__bedrijf" dir="ltr">
           {site.adres}<br />
           {site.vestigingsplaats}<br />
           RC {site.rc} (Rabat) · ICE {site.ice}
@@ -42,26 +53,26 @@ const jaar = new Date().getFullYear();
       </div>
 
       <div>
-        <h4>Services</h4>
-        <a href="/aankoopbegeleiding-vastgoed-marokko/">Aankoopbegeleiding</a>
-        <a href="/investeren-vastgoed-marokko/">Investeringsadvies</a>
-        <a href="/nieuwbouw-vastgoed-marokko/">Nieuwbouw &amp; off-plan</a>
-        <a href="/huis-verkopen-marokko-vanuit-nederland/">Verkoopbegeleiding</a>
+        <h4>{t.services}</h4>
+        <a href={paginas.aankoopbegeleiding[taal]}>{t.aankoop}</a>
+        <a href={paginas.investeren[taal]}>{t.investering}</a>
+        <a href={paginas.nieuwbouw[taal]}>{t.nieuwbouw}</a>
+        <a href="/huis-verkopen-marokko-vanuit-nederland/">{t.verkoop}{nl}</a>
       </div>
 
       <div>
-        <h4>Insights</h4>
-        <a href="/kosten-huis-kopen-marokko/">Kosten bij aankoop</a>
-        <a href="/juridische-documenten-vastgoed-marokko/">Juridische documenten</a>
-        <a href="/kennisbank/">Kennisbank</a>
+        <h4>{t.insights}</h4>
+        <a href={paginas.kosten[taal]}>{t.kosten}</a>
+        <a href="/juridische-documenten-vastgoed-marokko/">{t.juridisch}{nl}</a>
+        <a href="/kennisbank/">{t.kennisbank}{nl}</a>
 
-        <h4 style="margin-top:26px">Markets</h4>
-        <a href="/vastgoed-marokko/">Alle markten</a>
+        <h4 style="margin-top:26px">{t.markets}</h4>
+        <a href="/vastgoed-marokko/">{t.alleMarkten}{nl}</a>
       </div>
     </div>
 
     <div class="footer__bottom">
-      <span>&copy; {jaar} {site.naam}. Alle rechten voorbehouden.</span>
+      <span>&copy; {jaar} {site.naam}. {t.rechten}</span>
       <span class="footer__legal">
         {legal.map((l, i) => <>{i > 0 && <span aria-hidden="true"> · </span>}<a href={l.href}>{l.label}</a></>)}
       </span>

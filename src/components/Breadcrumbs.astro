@@ -1,11 +1,16 @@
 ---
 import { site } from '../data/site';
 interface Crumb { label: string; href: string; }
-interface Props { items: Crumb[]; }
-const { items } = Astro.props;
+interface Props {
+  items: Crumb[];
+  /** Beginpunt van het kruimelpad; vertaald op anderstalige pagina's. */
+  home?: Crumb;
+  label?: string;
+}
+const { items, home = { label: 'Home', href: '/' }, label = 'Kruimelpad' } = Astro.props;
 
-// BreadcrumbList JSON-LD — start altijd bij Home.
-const full = [{ label: 'Home', href: '/' }, ...items];
+// BreadcrumbList JSON-LD — start altijd bij de homepage van de eigen taal.
+const full = [home, ...items];
 const schema = {
   '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',
@@ -17,7 +22,7 @@ const schema = {
   })),
 };
 ---
-<nav class="crumbs container" aria-label="Kruimelpad">
+<nav class="crumbs container" aria-label={label}>
   {full.map((c, i) => (
     <>
       {i > 0 && <span>/</span>}

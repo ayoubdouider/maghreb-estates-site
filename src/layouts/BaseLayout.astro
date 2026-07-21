@@ -4,6 +4,7 @@ import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 import StickyWhatsapp from '../components/StickyWhatsapp.astro';
 import { site } from '../data/site';
+import { htmlLang, isRtl, paginas, sleutelVoorPad, standaardTaal, talen, type Taal } from '../i18n/config';
 
 // Mobiele sticky-WhatsApp niet tonen op juridische/bedankpagina's.
 const geenSticky = ['/privacybeleid/', '/algemene-voorwaarden/', '/disclaimer/'];
@@ -18,12 +19,31 @@ interface Props {
   /** Extra JSON-LD objecten (FAQPage, Service, Article, BreadcrumbList...) */
   schema?: object[];
   noindex?: boolean;
+  /** Taal van de pagina. Default Nederlands, want dat is de hoofdtaal. */
+  taal?: Taal;
 }
 
-const { title, description, image = site.ogImage, schema = [], noindex = false } = Astro.props;
+const {
+  title, description, image = site.ogImage, schema = [], noindex = false,
+  taal = standaardTaal,
+} = Astro.props;
 
-const canonical = new URL(Astro.props.path ?? Astro.url.pathname, site.url).href;
+const pad = Astro.props.path ?? Astro.url.pathname;
+const canonical = new URL(pad, site.url).href;
 const ogImageAbs = new URL(image, site.url).href;
+const rtl = isRtl(taal);
+
+// hreflang: alleen op pagina's die daadwerkelijk vertaald zijn. Alternates
+// verzinnen voor pagina's die alleen in het Nederlands bestaan zou zoekmachines
+// naar 404's sturen, dus dat doen we niet.
+const sleutel = sleutelVoorPad(pad);
+const alternates = sleutel
+  ? talen.map((t) => ({ lang: htmlLang[t], href: new URL(paginas[sleutel][t], site.url).href }))
+  : [];
+// x-default wijst naar de Nederlandse versie: dat is de hoofdtaal van het merk.
+const xDefault = sleutel ? new URL(paginas[sleutel][standaardTaal], site.url).href : '';
+
+const ogLocale: Record<Taal, string> = { nl: 'nl_NL', en: 'en_GB', fr: 'fr_FR', ar: 'ar_MA' };
 
 // Organization-schema staat op elke pagina (merk-autoriteit).
 const orgSchema = {
@@ -74,7 +94,7 @@ const allSchema = [orgSchema, ...schema];
 ---
 
 <!doctype html>
-<html lang="nl" dir="ltr">
+<html lang={htmlLang[taal]} dir={rtl ? 'rtl' : 'ltr'}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -84,10 +104,14 @@ const allSchema = [orgSchema, ...schema];
     <link rel="canonical" href={canonical} />
     {noindex && <meta name="robots" content="noindex, follow" />}
 
+    {/* hreflang — verbindt de vertalingen onderling. */}
+    {alternates.map((a) => <link rel="alternate" hreflang={a.lang} href={a.href} />)}
+    {xDefault && <link rel="alternate" hreflang="x-default" href={xDefault} />}
+
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content={site.naam} />
-    <meta property="og:locale" content="nl_NL" />
+    <meta property="og:locale" content={ogLocale[taal]} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
@@ -105,17 +129,26 @@ const allSchema = [orgSchema, ...schema];
       href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500&display=swap"
       rel="stylesheet"
     />
+    {/* Cormorant Garamond en Jost bevatten geen Arabisch schrift. Amiri is een
+        klassieke naskh-letter die past bij de serif-koppen; Noto Sans Arabic
+        dekt de lopende tekst. Alleen laden op Arabische pagina's. */}
+    {rtl && (
+      <link
+        href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Noto+Sans+Arabic:wght@300;400;500&display=swap"
+        rel="stylesheet"
+      />
+    )}
 
     {allSchema.map((s) => (
       <script type="application/ld+json" set:html={JSON.stringify(s)} />
     ))}
   </head>
-  <body class:list={[toonSticky && 'has-sticky-cta']}>
-    <Nav />
+  <body class:list={[toonSticky && 'has-sticky-cta', rtl && 'rtl']}>
+    <Nav taal={taal} sleutel={sleutel} />
     <main>
       <slot />
     </main>
-    <Footer />
-    {toonSticky && <StickyWhatsapp />}
+    <Footer taal={taal} />
+    {toonSticky && <StickyWhatsapp taal={taal} />}
   </body>
 </html>

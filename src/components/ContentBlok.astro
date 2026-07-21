@@ -1,0 +1,67 @@
+---
+// Rendert één blok uit het vertaalde contentmodel (zie src/i18n/content/types.ts).
+// Eén component voor alle talen, zodat de opmaak per taal niet uit elkaar loopt.
+import Icon from './Icon.astro';
+import type { Blok } from '../i18n/content/types';
+
+interface Props { blok: Blok }
+const { blok } = Astro.props;
+
+// Iconen voor de datacards op de homepage, in vaste volgorde.
+const kaartIconen = ['grafiek', 'prijs', 'weegschaal', 'dashboard', 'contract'];
+---
+{blok.type === 'tekst' && (
+  <div class="prose">
+    {blok.titel && <h2>{blok.titel}</h2>}
+    {blok.alineas.map((p) => <p>{p}</p>)}
+  </div>
+)}
+
+{blok.type === 'checks' && (
+  <div class="prose">
+    {blok.titel && <h2>{blok.titel}</h2>}
+    {blok.intro && <p>{blok.intro}</p>}
+    <ul class="checks">
+      {blok.items.map((i) => <li>{i}</li>)}
+    </ul>
+  </div>
+)}
+
+{blok.type === 'let-op' && (
+  <div class="warn">
+    <strong>{blok.titel}</strong>
+    <p>{blok.tekst}</p>
+  </div>
+)}
+
+{blok.type === 'cards' && (
+  <div class="blok-cards">
+    {blok.titel && <h2 set:html={blok.titel} />}
+    {blok.intro && <p class="section__desc">{blok.intro}</p>}
+    <div class={`grid ${blok.items.length === 4 ? 'grid--4' : 'grid--3'}`} style="margin-top:36px">
+      {blok.items.map((k, i) => (
+        <div class="card">
+          <span class="card__ic"><Icon name={kaartIconen[i % kaartIconen.length]} size={24} /></span>
+          <h3>{k.titel}</h3>
+          <p>{k.tekst}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+)}
+
+{blok.type === 'stappen' && (
+  <div class="blok-stappen">
+    {blok.titel && <h2>{blok.titel}</h2>}
+    {blok.intro && <p class="section__desc">{blok.intro}</p>}
+    <ol class={`stappen ${blok.items.length === 6 ? 'stappen--3' : ''}`} style="margin-top:36px">
+      {blok.items.map((s, i) => (
+        <li class="stap">
+          <span class="stap__num">{String(i + 1).padStart(2, '0')}</span>
+          <h3>{s.titel}</h3>
+          <p>{s.tekst}</p>
+        </li>
+      ))}
+    </ol>
+  </div>
+)}

@@ -1,0 +1,170 @@
+---
+// Contactformulier voor de vertaalde pagina's. Gedraagt zich identiek aan de
+// Nederlandse versie: telefoon verplicht, e-mail optioneel, verzending via
+// WhatsApp of mailto, met een kopie naar de klant als er een e-mailadres staat.
+import { site, waLink } from '../data/site';
+import { paginas, type Taal } from '../i18n/config';
+import { ui } from '../i18n/ui';
+import type { FormulierPagina } from '../i18n/content/types';
+import Icon from './Icon.astro';
+
+interface Props { taal: Exclude<Taal, 'nl'>; pagina: FormulierPagina }
+const { taal, pagina } = Astro.props;
+const t = ui[taal];
+const f = t.formulier;
+---
+<section class="section">
+  <div class="container">
+    <div class="split">
+      <div class="split__text">
+        <p class="eyebrow">{pagina.eyebrow}</p>
+        <h1 style="font-size:clamp(32px,4vw,46px);margin-bottom:18px">{pagina.h1}</h1>
+        <p style="color:var(--text-muted);font-size:18px;margin-bottom:24px">{pagina.sub}</p>
+
+        {pagina.punten.length > 0 && (
+          <ul class="checks" style="margin-bottom:28px">
+            {pagina.punten.map((p) => <li>{p}</li>)}
+          </ul>
+        )}
+
+        <div class="feature">
+          <h3>{t.footer.contact}</h3>
+          <ul class="contactlist">
+            <li><Icon name="telefoon" size={18} /><a href={`tel:${site.telefoonHref}`} dir="ltr" style="color:var(--green-mid)">{site.telefoon}</a></li>
+            <li><Icon name="whatsapp" size={18} /><a href={waLink('Hello Maghreb Estates, I have a question about property in Morocco.')} style="color:var(--green-mid)">{t.footer.whatsapp}</a></li>
+            <li><Icon name="mail" size={18} /><a href={`mailto:${site.email}`} dir="ltr" style="color:var(--green-mid)">{site.email}</a></li>
+          </ul>
+        </div>
+
+        {pagina.extra?.map((e) => (
+          <div class="feature">
+            <h3>{e.titel}</h3>
+            <p>{e.tekst}</p>
+            <p style="margin-top:14px"><a href={paginas.adviesgesprek[taal]} class="btn btn--outline">{t.cta.advies}</a></p>
+          </div>
+        ))}
+      </div>
+
+      <form class="card" id="contactForm" novalidate>
+        <div class="veld">
+          <label for="naam">{f.naam} <span aria-hidden="true">*</span></label>
+          <input type="text" id="naam" name="naam" placeholder={f.naamPlaceholder} required />
+        </div>
+        <div class="veld">
+          <label for="telefoon">{f.telefoon} <span aria-hidden="true">*</span></label>
+          <input type="tel" id="telefoon" name="telefoon" placeholder={f.telefoonPlaceholder} dir="ltr" required />
+        </div>
+        <div class="veld">
+          <label for="email">{f.email} <span class="veld__hint">{f.optioneel}</span></label>
+          <input type="email" id="email" name="email" placeholder={f.emailPlaceholder} dir="ltr" />
+        </div>
+        <div class="veld">
+          <label for="doel">{f.doel} <span aria-hidden="true">*</span></label>
+          <select id="doel" name="doel" required>
+            <option value="">{f.doelKies}</option>
+            <option value={f.doelen.kopen}>{f.doelen.kopen}</option>
+            <option value={f.doelen.investeren}>{f.doelen.investeren}</option>
+            <option value={f.doelen.analyse}>{f.doelen.analyse}</option>
+            <option value={f.doelen.nieuwbouw}>{f.doelen.nieuwbouw}</option>
+            <option value={f.doelen.verkoop}>{f.doelen.verkoop}</option>
+            <option value={f.doelen.beheer}>{f.doelen.beheer}</option>
+            <option value={f.doelen.anders}>{f.doelen.anders}</option>
+          </select>
+        </div>
+        <div class="veld">
+          <label for="stad">{f.stad} <span class="veld__hint">{f.optioneel}</span></label>
+          <input type="text" id="stad" name="stad" placeholder={f.stadPlaceholder} />
+        </div>
+        <div class="veld">
+          <label for="budget">{f.budget} <span class="veld__hint">{f.optioneel}</span></label>
+          <input type="text" id="budget" name="budget" placeholder={f.budgetPlaceholder} />
+        </div>
+        <div class="veld">
+          <label for="woninglink">{f.link} <span class="veld__hint">{f.optioneel}</span></label>
+          <input type="url" id="woninglink" name="woninglink" placeholder="https://…" dir="ltr" />
+        </div>
+        <div class="veld">
+          <label for="bericht">{f.bericht} <span aria-hidden="true">*</span></label>
+          <textarea id="bericht" name="bericht" rows="4" placeholder={f.berichtPlaceholder} required></textarea>
+        </div>
+
+        <div class="form__acties">
+          <button type="button" id="sendWhatsapp" class="btn btn--primary">{f.viaWhatsapp}</button>
+          <button type="button" id="sendMail" class="btn btn--outline">{f.viaEmail}</button>
+        </div>
+
+        <p class="form__melding" id="bevestiging" hidden>{pagina.bevestiging}</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<script
+  is:inline
+  define:vars={{
+    whatsapp: site.whatsapp,
+    email: site.email,
+    labels: f,
+    kopieTekst: pagina.kopie,
+  }}
+>
+  (function () {
+    var params = new URLSearchParams(location.search);
+    var doel = params.get('doel');
+    if (doel) {
+      var map = {
+        objectanalyse: labels.doelen.analyse,
+        aankoopcontrole: labels.doelen.analyse,
+        kopen: labels.doelen.kopen,
+        investeringsanalyse: labels.doelen.investeren,
+        nieuwbouw: labels.doelen.nieuwbouw,
+        beheer: labels.doelen.beheer,
+        verkoop: labels.doelen.verkoop,
+      };
+      var sel = document.getElementById('doel');
+      var v = map[doel];
+      if (sel && v && [].slice.call(sel.options).some(function (o) { return o.value === v; })) sel.value = v;
+    }
+
+    function val(id) { var el = document.getElementById(id); return el ? el.value.trim() : ''; }
+
+    function build() {
+      if (!val('naam') || !val('telefoon') || !val('doel') || !val('bericht')) {
+        alert(labels.validatie);
+        return null;
+      }
+      var regels = ['Maghreb Estates — ' + labels.naam + ': ' + val('naam'), ''];
+      function voegToe(label, waarde) { if (waarde) regels.push(label + ': ' + waarde); }
+      voegToe(labels.telefoon, val('telefoon'));
+      voegToe(labels.email, val('email'));
+      voegToe(labels.doel, val('doel'));
+      voegToe(labels.stad, val('stad'));
+      voegToe(labels.budget, val('budget'));
+      voegToe(labels.link, val('woninglink'));
+      regels.push('', labels.bericht + ':', val('bericht'));
+      return regels.join('\n');
+    }
+
+    function toonBevestiging() {
+      var b = document.getElementById('bevestiging');
+      b.hidden = false;
+      b.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+
+    document.getElementById('sendWhatsapp').addEventListener('click', function () {
+      var msg = build(); if (!msg) return;
+      window.open('https://wa.me/' + whatsapp + '?text=' + encodeURIComponent(msg), '_blank');
+      toonBevestiging();
+    });
+
+    document.getElementById('sendMail').addEventListener('click', function () {
+      var msg = build(); if (!msg) return;
+      var cc = val('email') ? '&cc=' + encodeURIComponent(val('email')) : '';
+      var kopie = val('email') ? '\n\n---\n' + kopieTekst : '';
+      window.location.href = 'mailto:' + email
+        + '?subject=' + encodeURIComponent('Maghreb Estates — maghreb-estates.com')
+        + cc + '&body=' + encodeURIComponent(msg + kopie);
+      toonBevestiging();
+    });
+  })();
+</script>

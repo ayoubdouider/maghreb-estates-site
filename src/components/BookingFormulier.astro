@@ -1,0 +1,183 @@
+---
+// Bookingformulier voor de vertaalde adviesgesprek-pagina's: datumkeuze,
+// tijdslot en dezelfde WhatsApp/mailto-verzending als de Nederlandse versie.
+// TODO: koppel aan een externe agenda zodra beschikbaar; vervang dan het
+// slots-blok door de embed en laat de rest staan.
+import { site, waLink } from '../data/site';
+import { type Taal } from '../i18n/config';
+import { ui } from '../i18n/ui';
+import type { FormulierPagina } from '../i18n/content/types';
+import Icon from './Icon.astro';
+
+interface Props {
+  taal: Exclude<Taal, 'nl'>;
+  pagina: FormulierPagina & { duur: string; besproken: string[] };
+}
+const { taal, pagina } = Astro.props;
+const t = ui[taal];
+const f = t.formulier;
+const b = t.booking;
+
+const tijdsloten = ['09:00', '10:00', '11:00', '13:00', '14:00', '15:00', '16:00', '17:00'];
+---
+<section class="section" style="padding-top:32px">
+  <div class="container">
+    <div class="split">
+      <div class="split__text">
+        <p class="eyebrow">{pagina.eyebrow}</p>
+        <h1 style="font-size:clamp(32px,4.4vw,50px);margin-bottom:20px">{pagina.h1}</h1>
+        <p style="color:var(--text-muted);font-size:18px;margin-bottom:32px">{pagina.sub}</p>
+
+        <div class="feature">
+          <h3>{b.kiesMoment}</h3>
+          <ul class="checks">
+            {pagina.besproken.map((x) => <li>{x}</li>)}
+          </ul>
+        </div>
+
+        <div class="feature">
+          <p>{pagina.duur}</p>
+        </div>
+
+        <div class="feature">
+          <h3>{t.footer.contact}</h3>
+          <ul class="contactlist">
+            <li><Icon name="telefoon" size={18} /><a href={`tel:${site.telefoonHref}`} dir="ltr" style="color:var(--green-mid)">{site.telefoon}</a></li>
+            <li><Icon name="whatsapp" size={18} /><a href={waLink('Hello Maghreb Estates, I would like to book a consultation.')} style="color:var(--green-mid)">{t.footer.whatsapp}</a></li>
+            <li><Icon name="mail" size={18} /><a href={`mailto:${site.email}`} dir="ltr" style="color:var(--green-mid)">{site.email}</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <form class="card" id="bookingForm" novalidate>
+        <h2 style="font-size:24px;margin-bottom:6px">{b.kiesMoment}</h2>
+        <p style="color:var(--text-muted);font-size:15px;margin-bottom:22px">{b.kiesMomentSub}</p>
+
+        <div class="veld">
+          <label for="datum">{b.datum} <span aria-hidden="true">*</span></label>
+          <input type="date" id="datum" name="datum" dir="ltr" required />
+        </div>
+
+        <p class="booking__label" id="slotLabel">{b.tijdslot} <span aria-hidden="true">*</span></p>
+        <div class="slots" role="group" aria-labelledby="slotLabel" dir="ltr">
+          {tijdsloten.map((x) => (
+            <button type="button" class="slot" data-slot={x} aria-pressed="false">{x}</button>
+          ))}
+        </div>
+
+        <div class="veld">
+          <label for="naam">{f.naam} <span aria-hidden="true">*</span></label>
+          <input type="text" id="naam" name="naam" placeholder={f.naamPlaceholder} required />
+        </div>
+        <div class="veld">
+          <label for="telefoon">{f.telefoon} <span aria-hidden="true">*</span></label>
+          <input type="tel" id="telefoon" name="telefoon" placeholder={f.telefoonPlaceholder} dir="ltr" required />
+        </div>
+        <div class="veld">
+          <label for="email">{f.email} <span class="veld__hint">{f.optioneel}</span></label>
+          <input type="email" id="email" name="email" placeholder={f.emailPlaceholder} dir="ltr" />
+        </div>
+        <div class="veld">
+          <label for="doel">{b.doelGesprek} <span aria-hidden="true">*</span></label>
+          <select id="doel" name="doel" required>
+            <option value="">{f.doelKies}</option>
+            <option value={f.doelen.kopen}>{f.doelen.kopen}</option>
+            <option value={f.doelen.investeren}>{f.doelen.investeren}</option>
+            <option value={f.doelen.analyse}>{f.doelen.analyse}</option>
+            <option value={f.doelen.nieuwbouw}>{f.doelen.nieuwbouw}</option>
+            <option value={f.doelen.verkoop}>{f.doelen.verkoop}</option>
+            <option value={f.doelen.anders}>{f.doelen.anders}</option>
+          </select>
+        </div>
+        <div class="veld">
+          <label for="stad">{f.stad} <span class="veld__hint">{f.optioneel}</span></label>
+          <input type="text" id="stad" name="stad" placeholder={f.stadPlaceholder} />
+        </div>
+        <div class="veld">
+          <label for="woninglink">{f.link} <span class="veld__hint">{f.optioneel}</span></label>
+          <input type="url" id="woninglink" name="woninglink" placeholder="https://…" dir="ltr" />
+        </div>
+        <div class="veld">
+          <label for="bericht">{f.bericht} <span class="veld__hint">{f.optioneel}</span></label>
+          <textarea id="bericht" name="bericht" rows="3" placeholder={f.berichtPlaceholder}></textarea>
+        </div>
+
+        <div class="form__acties">
+          <button type="button" id="sendWhatsapp" class="btn btn--primary">{f.viaWhatsapp}</button>
+          <button type="button" id="sendMail" class="btn btn--outline">{f.viaEmail}</button>
+        </div>
+
+        <p class="form__melding" id="bevestiging" hidden>{pagina.bevestiging}</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<script
+  is:inline
+  define:vars={{
+    whatsapp: site.whatsapp,
+    email: site.email,
+    labels: f,
+    bookingLabels: b,
+    kopieTekst: pagina.kopie,
+  }}
+>
+  (function () {
+    var slotGekozen = '';
+    var knoppen = Array.prototype.slice.call(document.querySelectorAll('.slot'));
+    knoppen.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        knoppen.forEach(function (x) { x.setAttribute('aria-pressed', 'false'); });
+        btn.setAttribute('aria-pressed', 'true');
+        slotGekozen = btn.dataset.slot;
+      });
+    });
+
+    var datum = document.getElementById('datum');
+    datum.min = new Date(Date.now() + 86400000).toISOString().slice(0, 10);
+
+    function val(id) { var el = document.getElementById(id); return el ? el.value.trim() : ''; }
+
+    function build() {
+      if (!val('datum') || !slotGekozen || !val('naam') || !val('telefoon') || !val('doel')) {
+        alert(bookingLabels.validatie);
+        return null;
+      }
+      var regels = ['Maghreb Estates — ' + bookingLabels.kiesMoment, ''];
+      function voegToe(label, waarde) { if (waarde) regels.push(label + ': ' + waarde); }
+      voegToe(bookingLabels.datum, val('datum'));
+      voegToe(bookingLabels.tijdslot, slotGekozen);
+      voegToe(labels.naam, val('naam'));
+      voegToe(labels.telefoon, val('telefoon'));
+      voegToe(labels.email, val('email'));
+      voegToe(bookingLabels.doelGesprek, val('doel'));
+      voegToe(labels.stad, val('stad'));
+      voegToe(labels.link, val('woninglink'));
+      if (val('bericht')) regels.push('', labels.bericht + ':', val('bericht'));
+      return regels.join('\n');
+    }
+
+    function toonBevestiging() {
+      var el = document.getElementById('bevestiging');
+      el.hidden = false;
+      el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+
+    document.getElementById('sendWhatsapp').addEventListener('click', function () {
+      var msg = build(); if (!msg) return;
+      window.open('https://wa.me/' + whatsapp + '?text=' + encodeURIComponent(msg), '_blank');
+      toonBevestiging();
+    });
+
+    document.getElementById('sendMail').addEventListener('click', function () {
+      var msg = build(); if (!msg) return;
+      var cc = val('email') ? '&cc=' + encodeURIComponent(val('email')) : '';
+      var kopie = val('email') ? '\n\n---\n' + kopieTekst : '';
+      window.location.href = 'mailto:' + email
+        + '?subject=' + encodeURIComponent('Maghreb Estates — ' + bookingLabels.kiesMoment)
+        + cc + '&body=' + encodeURIComponent(msg + kopie);
+      toonBevestiging();
+    });
+  })();
+</script>

@@ -1,12 +1,35 @@
 ---
-import { site, nav } from '../data/site';
+import { site } from '../data/site';
+import { paginas, standaardTaal, talen, taalCode, taalNaam, type PaginaSleutel, type Taal } from '../i18n/config';
+import { navVoorTaal, ui } from '../i18n/ui';
+
+interface Props {
+  taal?: Taal;
+  /** Paginasleutel, zodat de taalwisselaar naar dezelfde pagina in een andere taal wijst. */
+  sleutel?: PaginaSleutel;
+}
+const { taal = standaardTaal, sleutel } = Astro.props;
+
+const t = ui[taal];
+const nav = navVoorTaal(taal);
+const ctaHref = paginas.adviesgesprek[taal];
+
+// Kent deze pagina een vertaling? Zo ja, wijst de wisselaar naar dezelfde
+// pagina; zo nee, naar de homepage van die taal. Zo landt niemand op een 404.
+const wisselaar = talen.map((l) => ({
+  taal: l,
+  code: taalCode[l],
+  naam: taalNaam[l],
+  href: sleutel ? paginas[sleutel][l] : paginas.home[l],
+  actief: l === taal,
+}));
 ---
 <header class="nav" id="top">
   <div class="container nav__inner">
-    <a href="/" class="nav__logo" aria-label="Maghreb Estates home">
+    <a href={paginas.home[taal]} class="nav__logo" aria-label="Maghreb Estates">
       <img src={site.logo} alt="Maghreb Estates" class="nav__logo-img" width="170" height="36" />
     </a>
-    <nav class="nav__links" aria-label="Hoofdmenu">
+    <nav class="nav__links" aria-label={t.nav.menu}>
       {nav.map((item) => (
         <div class="nav__item">
           <a href={item.href}>{item.label}</a>
@@ -17,9 +40,21 @@ import { site, nav } from '../data/site';
           )}
         </div>
       ))}
-      <a href="/adviesgesprek/" class="btn btn--primary nav__cta">Plan adviesgesprek</a>
+
+      <div class="nav__item nav__taal">
+        <button type="button" class="nav__taal-knop" aria-label={t.nav.taalKiezen} aria-expanded="false">
+          {taalCode[taal]}
+        </button>
+        <div class="nav__dropdown nav__dropdown--taal">
+          {wisselaar.map((l) => (
+            <a href={l.href} hreflang={l.taal} lang={l.taal} aria-current={l.actief ? 'true' : undefined}>{l.naam}</a>
+          ))}
+        </div>
+      </div>
+
+      <a href={ctaHref} class="btn btn--primary nav__cta">{t.nav.cta}</a>
     </nav>
-    <button class="nav__burger" id="burger" aria-label="Menu openen" aria-expanded="false">
+    <button class="nav__burger" id="burger" aria-label={t.nav.menu} aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
   </div>
@@ -30,7 +65,12 @@ import { site, nav } from '../data/site';
         {item.children && item.children.map((c) => <a href={c.href} class="nav__sub">{c.label}</a>)}
       </>
     ))}
-    <a href="/adviesgesprek/" class="btn btn--primary btn--full nav__cta-mobile">Plan adviesgesprek</a>
+    <div class="nav__taal-mobiel" role="group" aria-label={t.nav.taalKiezen}>
+      {wisselaar.map((l) => (
+        <a href={l.href} hreflang={l.taal} lang={l.taal} class:list={['nav__taal-chip', l.actief && 'on']}>{l.code}</a>
+      ))}
+    </div>
+    <a href={ctaHref} class="btn btn--primary btn--full nav__cta-mobile">{t.nav.cta}</a>
   </div>
 </header>
 
@@ -40,5 +80,21 @@ import { site, nav } from '../data/site';
   burger?.addEventListener('click', () => {
     const open = menu?.classList.toggle('open');
     burger.setAttribute('aria-expanded', String(!!open));
+  });
+
+  // De taalknop opent op hover (CSS); op touch is er geen hover, dus daar
+  // schakelt een tik het menu open.
+  const taalKnop = document.querySelector('.nav__taal-knop');
+  taalKnop?.addEventListener('click', () => {
+    const item = taalKnop.closest('.nav__taal');
+    const open = item?.classList.toggle('open');
+    taalKnop.setAttribute('aria-expanded', String(!!open));
+  });
+  document.addEventListener('click', (e) => {
+    const item = document.querySelector('.nav__taal.open');
+    if (item && !item.contains(e.target as Node)) {
+      item.classList.remove('open');
+      item.querySelector('.nav__taal-knop')?.setAttribute('aria-expanded', 'false');
+    }
   });
 </script>
