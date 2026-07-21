@@ -9,85 +9,70 @@ import LeadCta from '../components/LeadCta.astro';
 import { faqSchema, articleSchema } from '../data/schema';
 
 const path = '/kosten-huis-kopen-marokko/';
+// Bewust geen totaalpercentage en geen makelaars-/courtagekosten: die zijn geen
+// klantkosten in onze dienstverlening en maken het beeld misleidend. Fiscale
+// details over verhuur staan hier niet meer — te onderhoudsgevoelig en beter
+// besproken per dossier.
 const faqs = [
-  { q: 'Hoeveel bijkomende kosten heb ik bij een huis kopen in Marokko?', a: 'Reken op circa 6 tot 10% van de koopsom aan bijkomende kosten. De grootste post zijn de registratierechten (droits d’enregistrement), gevolgd door notariskosten, kadaster-/inschrijvingskosten en eventueel begeleidings- of makelaarskosten.' },
+  { q: 'Welke kosten komen er naast de koopsom bij?', a: 'U krijgt te maken met officiële aankoopkosten: registratierechten, notariskosten, kadaster- of inschrijvingskosten, zegelrechten en eventuele bank- of administratieve kosten. De exacte kosten verschillen per dossier, aankoopvorm en object.' },
   { q: 'Wat zijn de notariskosten in Marokko?', a: 'De notariskosten (honoraires) liggen doorgaans rond 0,5 tot 1% van de koopsom, plus zegel- en administratiekosten. De notaris int daarnaast de registratierechten en schrijft de akte in bij het kadaster.' },
-  { q: 'Zijn er verborgen kosten bij vastgoed in Marokko?', a: 'De bekende valkuil zijn informele afspraken en onduidelijke servicekosten. Wij maken vooraf een volledig kostenoverzicht, zodat u niet voor verrassingen komt te staan.' },
-  { q: 'Welke terugkerende kosten heb ik na de aankoop?', a: 'Reken op jaarlijkse lokale belastingen (taxe d’habitation en taxe de services communaux, berekend over de huurwaarde), servicekosten (syndic) bij appartementen, onderhoud en — als u laat beheren of verhuren — beheerkosten. Bij verhuur komt daar belasting op huurinkomsten bij.' },
-  { q: 'Betaal ik jaarlijkse belasting over mijn woning in Marokko?', a: 'Ja, doorgaans de taxe d’habitation en de taxe de services communaux. Voor uw hoofdwoning geldt een korting van 75% op de woonbelasting; een tweede of niet-verhuurde woning krijgt die korting doorgaans niet, dus daar ligt de last hoger.' },
+  { q: 'Welke terugkerende kosten heb ik na de aankoop?', a: 'Reken op lokale belastingen (onder meer de taxe de services communaux), servicekosten (syndic) bij appartementen, onderhoud, verzekering en eventuele bankkosten. Bij verhuur of beheer komen daar afspraken bij die per situatie verschillen.' },
+  { q: 'Wat kost begeleiding door Maghreb Estates?', a: 'Onze rol en vergoeding worden vooraf duidelijk besproken. Bij sommige projecten kan begeleiding via de aanbieder of ontwikkelaar worden verrekend. Als er voor de klant kosten zijn voor analyse, begeleiding of aanvullende diensten, maken wij dit vooraf transparant.' },
 ];
 ---
 <BaseLayout
-  title="Kosten huis kopen in Marokko: alle bijkomende kosten | Maghreb Estates"
-  description="Wat kost een huis kopen in Marokko? Volledig overzicht van registratierechten, notariskosten, kadaster en verborgen kosten. Reken op 6-10% bovenop de koopsom."
+  title="Kosten bij een huis kopen in Marokko | Maghreb Estates"
+  description="Welke kosten komen er bij een huis kopen in Marokko? Overzicht van registratierechten, notariskosten, kadaster en de terugkerende lasten na aankoop."
   path={path}
-  schema={[faqSchema(faqs), articleSchema({ titel: 'Kosten huis kopen in Marokko', beschrijving: 'Overzicht van alle bijkomende kosten bij het kopen van een huis in Marokko.', path })]}
+  schema={[faqSchema(faqs), articleSchema({ titel: 'Kosten bij een huis kopen in Marokko', beschrijving: 'Overzicht van de kosten bij het kopen van een huis in Marokko.', path })]}
 >
   <Hero
+    image="/images/villa5.jpg"
     compact
-    eyebrow="Gids · Kosten"
+    eyebrow="Kosten"
     title="De kosten van een<br /><em>huis kopen in Marokko</em>"
-    sub="Naast de koopsom betaalt u circa 6 tot 10% aan bijkomende kosten. Hier ziet u precies welke — zodat u niet voor verrassingen komt te staan."
-    image="/images/villa2.jpg"
-    ctas={[{ label: 'Ontvang de checklist', href: '/checklist-vastgoed-marokko/', primary: true }]}
+    sub="Naast de koopsom krijgt u te maken met officiële aankoopkosten en met terugkerende lasten daarna. Hier ziet u de opbouw in hoofdlijnen."
+    ctas={[{ label: 'Plan adviesgesprek', href: '/adviesgesprek/', primary: true }]}
   />
-  <Breadcrumbs items={[{ label: 'Vastgoed Marokko', href: '/vastgoed-marokko/' }, { label: 'Gids: kosten', href: path }]} />
+  <Breadcrumbs items={[{ label: 'Vastgoed Marokko', href: '/vastgoed-marokko/' }, { label: 'Kosten', href: path }]} />
   <AiBlocks path={path} />
 
   <section class="section">
     <div class="container prose" style="max-width:760px">
-      <p>De <strong>kosten van een huis kopen in Marokko</strong> gaan verder dan de koopsom. Reken op ongeveer <strong>6 tot 10% bijkomende kosten</strong>. Hieronder de opbouw, zodat u vooraf een compleet beeld heeft.</p>
+      <p>Naast de koopsom krijgt u te maken met <strong>officiële aankoopkosten</strong>, zoals registratierechten, notariskosten, kadaster of inschrijving en eventuele bank- of administratieve kosten. De exacte kosten verschillen per dossier, aankoopvorm en object.</p>
 
-      <h2>De belangrijkste kostenposten</h2>
+      <h2>De officiële kostenposten bij aankoop</h2>
       <ul>
         <li><strong>Registratierechten (droits d’enregistrement):</strong> de grootste post. Voor een <strong>gebouwde woning</strong> geldt in beginsel <strong>4%</strong>; voor <strong>onbebouwde grond</strong> <strong>5%</strong>; voor de eerste verkoop van bepaalde <strong>sociale woningen</strong> <strong>3%</strong>.</li>
-        <li><strong>Notariskosten (honoraires):</strong> in de praktijk circa <strong>0,5–1%</strong> van de koopsom, met een praktisch minimum rond <strong>3.000 MAD</strong>, plus zegel- en administratiekosten. Zie de <a href="/notaris-marokko-vastgoed/">gids over de notaris</a>.</li>
+        <li><strong>Notariskosten (honoraires):</strong> in de praktijk circa <strong>0,5–1%</strong> van de koopsom, met een praktisch minimum rond <strong>3.000 MAD</strong>, plus zegel- en administratiekosten.</li>
         <li><strong>Kadaster / inschrijving (conservation foncière):</strong> indicatief <strong>±1–1,5%</strong> plus kleine vaste kosten, voor de inschrijving van de <a href="/titre-foncier-marokko/">titre foncier</a> op uw naam.</li>
         <li><strong>Zegelrechten (droits de timbre):</strong> doorgaans kleine vaste bedragen.</li>
-        <li><strong>Begeleiding / makelaar:</strong> optioneel; in de markt vaak ± 2,5% per partij of een totale fee rond 5%.</li>
+        <li><strong>Bank- en valutakosten:</strong> afhankelijk van uw bank en de gekozen overboekingsroute.</li>
       </ul>
-      <p><strong>Totaalindicatie:</strong> zonder makelaar is <strong>±5,5–8,5%</strong> bovenop de koopsom realistisch; mét klassieke makelaarsfee eerder <strong>±8,5–11,5%</strong>. De vuistregel "6–10%" klopt dus redelijk, maar valt aan de lage kant uit als u ook courtage betaalt.</p>
-
-      <div class="warn">
-        <strong>Nieuwe cash-regel (sinds 1 juli 2026).</strong>
-        <p>Bij transacties boven <strong>300.000 MAD</strong> geldt een <strong>extra registratierecht van 2%</strong> als de betaalmodaliteiten niet correct in de akte staan of (deels) buiten de toegestane modaliteiten contant is betaald. Betaal daarom altijd via de notaris en correct gedocumenteerd. Op nieuwbouw van een ontwikkelaar zit doorgaans <strong>20% TVA</strong> in de prijs verdisconteerd.</p>
-      </div>
+      <p>Op nieuwbouw van een ontwikkelaar zit doorgaans <strong>20% TVA</strong> in de prijs verdisconteerd. Sinds 1 juli 2026 geldt bij transacties boven <strong>300.000 MAD</strong> een extra registratierecht van 2% als de betaalmodaliteiten niet correct in de akte staan. Betaal daarom via de notaris en zorg dat de betalingsroute correct is gedocumenteerd.</p>
 
       <h2>Het koopcontract (compromis de vente)</h2>
-      <p>Bij het voorlopig koopcontract betaalt u meestal een aanbetaling (in de praktijk vaak <strong>5–10%</strong>). Laat dit contract altijd controleren; onze <a href="/aankoopbegeleiding-vastgoed-marokko/">aankoopbegeleiding</a> doet dit standaard. Meer hierover in onze <a href="/koopcontract-marokko-vastgoed/">gids over het koopcontract</a>.</p>
+      <p>Bij het voorlopig koopcontract betaalt u meestal een aanbetaling, in de praktijk vaak <strong>5–10%</strong> van de koopsom. Leg bedrag, voorwaarden en betalingsroute duidelijk vast en laat de documenten vooraf beoordelen. Meer hierover staat in het overzicht van de <a href="/koopcontract-marokko-vastgoed/">contractvoorwaarden</a>.</p>
 
       <MarketDisclaimer />
 
-      <h2>Welke verborgen kosten kunnen ontstaan bij vastgoed kopen in Marokko?</h2>
-      <p>Veel kopers rekenen zich rijk op basis van de koopsom en komen daarna voor verrassingen te staan. De verborgen kosten zitten deels in de aankoop zelf en deels in de <strong>terugkerende lasten</strong> daarna. Reken daarom altijd met een compleet beeld.</p>
-      <p>Rondom de aankoop worden vaak vergeten:</p>
+      <h2>Terugkerende kosten na de aankoop</h2>
+      <p>Reken naast de aankoop ook met de vaste lasten die daarna volgen. Deze verschillen sterk per stad, wijk en objecttype.</p>
       <ul class="checks">
-        <li>Aansluitkosten voor water en elektriciteit.</li>
-        <li>Eventuele makelaars- of begeleidingskosten.</li>
-        <li>Bij nieuwbouw: oplevering “casco” of extra’s buiten de kale prijs — zie <a href="/nieuwbouw-vastgoed-marokko/">nieuwbouw & off-plan</a>.</li>
+        <li><strong>Lokale belastingen:</strong> onder meer de taxe de services communaux, berekend over de huurwaarde van de woning.</li>
+        <li><strong>Servicekosten (syndic):</strong> bij appartementen en residenties, afhankelijk van lift, bewaking, zwembad en conciërge.</li>
+        <li><strong>Onderhoud:</strong> zeker aan de kust een reële post door de zilte lucht.</li>
+        <li><strong>Verzekering:</strong> opstal en inboedel, afhankelijk van gebruik en objecttype.</li>
+        <li><strong>Aansluitkosten:</strong> water en elektriciteit bij eerste ingebruikname.</li>
       </ul>
 
-      <h3>Terugkerende (jaarlijkse) kosten</h3>
-      <ul class="checks">
-        <li><strong>Taxe d’habitation (woonbelasting):</strong> berekend over de <em>valeur locative</em> (huurwaarde). Voor uw <strong>hoofdwoning</strong> geldt een korting van <strong>75%</strong>; nieuwe hoofdwoningen kunnen 5 jaar vrijstelling krijgen. Let op: een <strong>tweede/niet-verhuurde woning</strong> krijgt die 75%-korting doorgaans niet, dus de last ligt daar hoger.</li>
-        <li><strong>Taxe de services communaux:</strong> eveneens over de valeur locative: <strong>10,5%</strong> in stedelijke zones/badplaatsen, <strong>6,5%</strong> in randzones.</li>
-        <li><strong>Servicekosten (syndic):</strong> geen landelijk tarief; in moderne residenties indicatief <strong>±5–25 MAD/m²/maand</strong>, afhankelijk van lift, bewaking, zwembad en conciërge.</li>
-        <li><strong>Onderhoud:</strong> zeker aan de kust (zilte lucht) een reële post.</li>
-        <li><strong>Beheer:</strong> als u laat <a href="/vastgoedbeheer-marokko/">beheren of verhuren</a>.</li>
-      </ul>
+      <h2>Onze rol en vergoeding</h2>
+      <p>Onze rol en vergoeding worden vooraf duidelijk besproken. Bij sommige projecten kan begeleiding via de aanbieder of ontwikkelaar worden verrekend. Als er voor de klant kosten zijn voor analyse, begeleiding of aanvullende diensten, maken wij dit vooraf transparant.</p>
 
-      <h3>Belasting bij verhuur en verkoop</h3>
-      <ul class="checks">
-        <li><strong>Huurinkomsten:</strong> volgens de officiële MRE-gids brutohuur tot <strong>30.000 MAD/jaar vrijgesteld</strong>, daarboven <strong>10%</strong> (onder 120.000 MAD) of <strong>15%</strong> (vanaf 120.000 MAD), met een forfaitaire aftrek. Verifieer dit bij aankoop, want de regels kunnen wijzigen.</li>
-        <li><strong>Meerwaarde bij verkoop (TPI):</strong> in beginsel <strong>20%</strong> over de winst, met een <strong>minimum van 3%</strong> van de verkoopprijs. Vrijstellingen o.a. voor een hoofdwoning die ≥5 jaar is aangehouden.</li>
-      </ul>
       <div class="warn">
-        <strong>Let op bij verhuur en fiscaliteit.</strong>
-        <p>Verhuurt u? Houd rekening met belasting op huurinkomsten in Marokko en aangifte in Nederland (box 3). Reken altijd met <em>netto</em> rendement. Laat u fiscaal adviseren voor uw situatie.</p>
+        <strong>Indicatief overzicht.</strong>
+        <p>Deze informatie is indicatief en geen fiscaal of juridisch advies. Kosten worden per dossier opnieuw gecontroleerd. Vraag vóór ondertekening altijd een gespecificeerd kostenblad bij de notaris.</p>
       </div>
-      <p>De grootste valkuilen blijven informele afspraken en onduidelijke servicekosten. Lees ook de <a href="/risicos-huis-kopen-marokko/">gids over risico’s</a>. Wij maken vooraf een transparant totaaloverzicht — aankoopkosten én terugkerende lasten — voor uw situatie.</p>
-
-      <p>Klaar om te beginnen? Bekijk het volledige stappenplan op <a href="/huis-kopen-marokko/">huis kopen in Marokko</a>.</p>
     </div>
   </section>
 

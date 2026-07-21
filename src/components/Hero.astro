@@ -1,4 +1,23 @@
 ---
+// Formaatvullende hero: de vastgoedfoto beslaat de volledige sectie, met een
+// donkere gradient-overlay eroverheen zodat de crèmekleurige tekst leesbaar
+// blijft.
+//
+// Beeldkeuze — alleen foto's van bestaand vastgoed:
+// In gebruik zijn residentie-appartementen.webp, villa3.jpg, villa4.jpg en
+// villa5.jpg. Dat zijn alle vier foto's, geen renders.
+// De 3D-renders apt2.jpg, villa1.jpg en villa2.jpg staan nog wel in
+// public/images maar worden bewust nergens meer gebruikt: op een pagina over
+// bestaande bouw wekt een render de indruk dat een bestaand pand wordt
+// getoond. Zet ze hooguit terug op nieuwbouw/off-plan, waar een
+// projectimpressie de gangbare weergave is.
+//
+// TODO: laat professionele fotografie maken van echt vastgoed in Marokko
+// (Tanger, Casablanca, Rabat, Marrakech, Agadir). Vereist voor een
+// formaatvullende hero: liggend, minimaal 2000px breed (2400x1400 is ideaal),
+// daglicht, rustige compositie met ruimte links voor de tekst. villa5.jpg
+// draagt nu 28 pagina's, waaronder alle 18 stadspagina's — daar is spreiding
+// het hardst nodig.
 interface Cta { label: string; href: string; primary?: boolean; }
 interface Props {
   eyebrow?: string;
@@ -9,7 +28,10 @@ interface Props {
   ctas?: Cta[];
   trust?: string[];
 }
-const { eyebrow, title, sub, image = '/images/villa5.jpg', compact = false, ctas = [], trust = [] } = Astro.props;
+const {
+  eyebrow, title, sub, image = '/images/villa5.jpg',
+  compact = false, ctas = [], trust = [],
+} = Astro.props;
 ---
 <section class={`hero ${compact ? 'hero--compact' : ''}`} style={`background-image: url('${image}')`}>
   <div class="hero__overlay"></div>
@@ -21,7 +43,7 @@ const { eyebrow, title, sub, image = '/images/villa5.jpg', compact = false, ctas
       {ctas.length > 0 && (
         <div class="hero__actions">
           {ctas.map((c) => (
-            <a href={c.href} class={`btn ${c.primary ? 'btn--light' : 'btn--outline'}`} style={c.primary ? '' : 'color:var(--cream);border-color:var(--cream)'}>{c.label}</a>
+            <a href={c.href} class={`btn ${c.primary ? 'btn--light' : 'btn--outline'}`}>{c.label}</a>
           ))}
         </div>
       )}

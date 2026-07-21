@@ -50,7 +50,7 @@ export const begripLink: Record<string, string> = {
   'titre-foncier': '/titre-foncier-marokko/',
   kadaster: '/titre-foncier-marokko/',
   notaris: '/notaris-marokko-vastgoed/',
-  volmacht: '/volmacht-huis-kopen-marokko/',
+  volmacht: '/juridische-documenten-vastgoed-marokko/#volmacht',
   'compromis-de-vente': '/koopcontract-marokko-vastgoed/',
   aankoopbegeleiding: '/aankoopbegeleiding-vastgoed-marokko/',
   'due-diligence': '/aankoopbegeleiding-vastgoed-marokko/',

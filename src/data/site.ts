@@ -8,6 +8,7 @@ export const site = {
   email: 'a.douider@maghreb-estates.com',
   whatsapp: '31683498715',
   land: 'NL',
+  // TODO: replace logo with transparent-background version from Canva.
   logo: '/images/logo.png',
   ogImage: '/images/villa5.jpg',
   // Entity SEO: vul social-/profiel-URL's aan zodra beschikbaar (Instagram, LinkedIn,
@@ -29,32 +30,40 @@ export const site = {
 export const waLink = (bericht = '', nummer = site.whatsapp) =>
   `https://wa.me/${nummer}${bericht ? `?text=${encodeURIComponent(bericht)}` : ''}`;
 
-// Team — echte gegevens overgenomen van de oude site.
-// TODO: LinkedIn-URL's toevoegen zodra bekend; eventueel persoonlijkere bio.
+// Team — vaste aanspreekpunten. Rollen bewust internationaal geformuleerd.
+// TODO: LinkedIn-URL's toevoegen zodra bekend.
+// TODO: vervang /images/marouane.png door een portret met dezelfde achtergrond,
+// uitsnede en belichting als /images/ayoub.jpg, zodat beide kaarten visueel
+// gelijkwaardig zijn. Tot die tijd wordt de bestaande foto identiek gecropt.
 export const team = [
   {
     naam: 'Ayoub Douider',
-    rol: 'Vastgoedadviseur & aankoopbegeleider',
+    rol: 'Founder & Real Estate Advisor',
     foto: '/images/ayoub.jpg',
     telefoon: '+31 6 83 49 87 15',
     telefoonHref: '+31683498715',
     whatsapp: '31683498715',
     email: 'a.douider@maghreb-estates.com',
     linkedin: '',
-    bio: 'Begeleidt internationale kopers en investeerders bij het kopen, controleren en beheren van vastgoed in Marokko. Spreekt Nederlands, Engels, Frans en Arabisch/Darija.',
+    bio: 'Ayoub is founder van Maghreb Estates en begeleidt klanten bij aankoopstrategie, objectanalyse en investeringskeuzes. Zijn focus ligt op structuur, transparantie en datagedreven besluitvorming.',
   },
   {
     naam: 'Marouane Haddane',
-    rol: 'Vastgoedadviseur & aankoopbegeleider',
+    rol: 'Real Estate Advisor & Operations',
     foto: '/images/marouane.png',
     telefoon: '+31 6 44 68 17 82',
     telefoonHref: '+31644681782',
     whatsapp: '31644681782',
     email: 'm.haddane@maghreb-estates.com',
     linkedin: '',
-    bio: 'Begeleidt kopers en eigenaren bij aankoop, dossiercontrole en beheer in Marokko, met lokale kennis van de markt en de papieren. Spreekt Nederlands, Engels, Frans en Arabisch/Darija.',
+    bio: 'Marouane ondersteunt bij marktverkenning, klantbegeleiding en lokale opvolging. Samen met het bredere netwerk van Maghreb Estates zorgt hij dat aanvragen professioneel worden opgevolgd.',
   },
 ];
+
+// Tekst onder de teamprofielen — benoemt het bredere netwerk achter de twee
+// vaste aanspreekpunten (homepage + over-ons gebruiken dezelfde formulering).
+export const teamNetwerk =
+  'Naast onze vaste aanspreekpunten werken wij met lokale partners en specialisten voor onder meer bezichtigingen, dossiercontrole, notariële afstemming, beheer en projectopvolging.';
 
 // De 7 prominente steden (rijke pagina's + footer).
 export const prominenteSteden = [
@@ -71,12 +80,14 @@ export const prominenteSteden = [
 // de volledige stedenlijst leeft op /vastgoed-marokko/ en in de sitemap.
 export const homeMarkten = prominenteSteden.slice(0, 5);
 
-// Hoofdnavigatie — bewust rustig, als een adviseskantoor en niet als een
-// SEO-kennisbank. Vijf routes, maximaal 2 submenu-items per route.
+// Hoofdnavigatie — bewust rustig, als een advieskantoor en niet als een
+// SEO-kennisbank. Vier routes, maximaal 2 submenu-items per route.
 // Ondersteunende en long-tail SEO-pagina's (kennisbank, stadspagina's,
-// juridische gidsen) blijven volledig indexeerbaar en zijn bereikbaar via de
-// footer, "Verder lezen"-blokken, /vastgoed-marokko/ en de sitemap — maar niet
-// via het hoofdmenu.
+// juridische gidsen, vastgoedbeheer) blijven volledig indexeerbaar en zijn
+// bereikbaar via de footer, "Verder lezen"-blokken, /vastgoed-marokko/ en de
+// sitemap — maar niet via het hoofdmenu.
+// Beheer & verhuur staat bewust niet in het menu zolang die dienst nog niet
+// operationeel is; zie /vastgoedbeheer-marokko/.
 export const nav = [
   {
     label: 'Vastgoed kopen',
@@ -94,14 +105,6 @@ export const nav = [
       { label: 'Steden & markt', href: '/beste-stad-investeren-vastgoed-marokko/' },
     ],
   },
-  {
-    label: 'Beheer & verkoop',
-    href: '/vastgoedbeheer-marokko/',
-    children: [
-      { label: 'Vastgoedbeheer', href: '/vastgoedbeheer-marokko/' },
-      { label: 'Verkoopbegeleiding', href: '/huis-verkopen-marokko-vanuit-nederland/' },
-    ],
-  },
   { label: 'Over ons', href: '/over-ons/' },
   { label: 'Contact', href: '/contact/' },
 ];
@@ -113,10 +116,12 @@ export const legal = [
   { label: 'Disclaimer', href: '/disclaimer/' },
 ];
 
-// CTA-varianten.
+// CTA-varianten. Twee vaste routes, sitebreed consistent:
+//   1. Adviesgesprek → /adviesgesprek/ (kalender + tijdslot)
+//   2. Objectanalyse → /contact/ (woninglink, project of documenten sturen)
 export const ctas = {
-  advies: { label: 'Plan adviesgesprek', href: '/contact/' },
-  controle: { label: 'Laat een object beoordelen', href: '/contact/?doel=aankoopcontrole' },
+  advies: { label: 'Plan adviesgesprek', href: '/adviesgesprek/' },
+  controle: { label: 'Laat een object analyseren', href: '/contact/?doel=objectanalyse' },
   checklist: { label: 'Ontvang de checklist', href: '/checklist-vastgoed-marokko/' },
   analyse: { label: 'Vraag investeringsanalyse aan', href: '/contact/?doel=investeringsanalyse' },
 };

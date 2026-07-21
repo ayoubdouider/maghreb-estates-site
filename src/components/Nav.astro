@@ -17,7 +17,7 @@ import { site, nav } from '../data/site';
           )}
         </div>
       ))}
-      <a href="/contact/" class="btn btn--primary nav__cta">Plan adviesgesprek</a>
+      <a href="/adviesgesprek/" class="btn btn--primary nav__cta">Plan adviesgesprek</a>
     </nav>
     <button class="nav__burger" id="burger" aria-label="Menu openen" aria-expanded="false">
       <span></span><span></span><span></span>
@@ -30,7 +30,7 @@ import { site, nav } from '../data/site';
         {item.children && item.children.map((c) => <a href={c.href} class="nav__sub">{c.label}</a>)}
       </>
     ))}
-    <a href="/contact/" class="btn btn--primary btn--full nav__cta-mobile">Plan adviesgesprek</a>
+    <a href="/adviesgesprek/" class="btn btn--primary btn--full nav__cta-mobile">Plan adviesgesprek</a>
   </div>
 </header>
 

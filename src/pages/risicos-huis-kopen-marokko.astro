@@ -5,80 +5,65 @@ import Breadcrumbs from '../components/Breadcrumbs.astro';
 import AiBlocks from '../components/AiBlocks.astro';
 import Faq from '../components/Faq.astro';
 import LeadCta from '../components/LeadCta.astro';
+import VerderLezen from '../components/VerderLezen.astro';
 import { faqSchema, articleSchema } from '../data/schema';
 
 const path = '/risicos-huis-kopen-marokko/';
+// URL blijft ongewijzigd voor SEO-behoud; de pagina heet en leest nu als
+// "aandachtspunten". Bewust niet prominent in menu, footer of homepage.
 const faqs = [
-  { q: 'Wat zijn de grootste risico’s bij een huis kopen in Marokko?', a: 'De grootste risico’s zijn onduidelijke eigendomspapieren (geen titre foncier), dubbele verkoop, informele afspraken zonder notaris, en afhankelijkheid van familie of tussenpersonen. Met due diligence en een officiële akte zijn deze risico’s goed af te dekken.' },
-  { q: 'Hoe voorkom ik oplichting bij vastgoed in Marokko?', a: 'Koop nooit op basis van een advertentie alleen, verifieer de eigendomstitel bij het kadaster, betaal niets buiten de notaris om en laat alle contracten controleren. Een onafhankelijke begeleider die de markt kent is uw beste bescherming.' },
-  { q: 'Is het riskant om via familie een huis te kopen in Marokko?', a: 'Kopen via familie voelt vertrouwd, maar leidt vaak tot onduidelijke afspraken en conflicten. Een zakelijke, officiële aanpak via de notaris beschermt zowel u als de relatie.' },
+  { q: 'Welke aandachtspunten spelen bij vastgoed kopen in Marokko?', a: 'De belangrijkste aandachtspunten zijn de eigendomsinformatie (een geregistreerde titre foncier), de contractvoorwaarden, de betalingsroute, de marktwaarde en de overdracht bij de notaris. Bij nieuwbouw komt de beoordeling van de ontwikkelaar en de planning erbij.' },
+  { q: 'Hoe beoordeel je of een dossier compleet is?', a: 'Een compleet dossier bevat de geregistreerde eigendomstitel, informatie over eventuele hypotheken of beslagen, het koopcontract met heldere voorwaarden, en duidelijkheid over de bevoegdheid van de verkoper. Wij beoordelen deze onderdelen vóór de overdracht.' },
+  { q: 'Waarom verloopt de betaling via de notaris?', a: 'De notaris legt de betalingsmodaliteiten vast in de akte en verzorgt de inschrijving bij het kadaster. Daarmee is de route controleerbaar en de overdracht juridisch sluitend.' },
 ];
 ---
 <BaseLayout
-  title="Risico’s huis kopen in Marokko (en hoe u ze vermijdt) | Maghreb Estates"
-  description="De belangrijkste risico’s bij een huis kopen in Marokko: onduidelijke papieren, dubbele verkoop, oplichting en familie-afhankelijkheid — en precies hoe u ze voorkomt."
+  title="Aandachtspunten bij vastgoed kopen in Marokko | Maghreb Estates"
+  description="Documentcontrole, betalingsroute, contractvoorwaarden, marktwaarde en overdracht: de aandachtspunten bij het kopen van vastgoed in Marokko en hoe wij ze beoordelen."
   path={path}
-  schema={[faqSchema(faqs), articleSchema({ titel: 'Risico’s huis kopen in Marokko', beschrijving: 'De belangrijkste risico’s bij vastgoed kopen in Marokko en hoe u ze vermijdt.', path })]}
+  schema={[faqSchema(faqs), articleSchema({ titel: 'Aandachtspunten bij vastgoed kopen in Marokko', beschrijving: 'De belangrijkste aandachtspunten bij vastgoed kopen in Marokko en hoe ze worden beoordeeld.', path })]}
 >
   <Hero
-    compact
-    eyebrow="Gids · Risico’s"
-    title="Risico’s bij een huis kopen<br /><em>in Marokko vermijden</em>"
-    sub="Onduidelijke papieren, dubbele verkoop, oplichting, familie-afhankelijkheid. Dit zijn de valkuilen — en zo dekt u ze af."
     image="/images/villa3.jpg"
-    ctas={[{ label: 'Laat je aankoop controleren', href: '/contact/?doel=aankoopcontrole', primary: true }]}
+    compact
+    eyebrow="Aandachtspunten"
+    title="Aandachtspunten bij vastgoed<br /><em>kopen in Marokko</em>"
+    sub="Elke vastgoedmarkt heeft eigen juridische, commerciële en praktische aandachtspunten. Dit zijn de onderdelen die in een Marokkaans dossier aandacht vragen."
+    ctas={[{ label: 'Laat een object analyseren', href: '/contact/?doel=objectanalyse', primary: true }]}
   />
-  <Breadcrumbs items={[{ label: 'Vastgoed Marokko', href: '/vastgoed-marokko/' }, { label: 'Gids: risico’s', href: path }]} />
+  <Breadcrumbs items={[{ label: 'Vastgoed Marokko', href: '/vastgoed-marokko/' }, { label: 'Aandachtspunten', href: path }]} />
   <AiBlocks path={path} />
 
   <section class="section">
     <div class="container prose" style="max-width:760px">
-      <p>De <strong>risico’s bij een huis kopen in Marokko</strong> zijn reëel, maar bijna allemaal te voorkomen met de juiste aanpak. De markt is minder gereguleerd dan in Nederland en informatie is versnipperd — juist daarom is zorgvuldigheid en onafhankelijke controle zo belangrijk.</p>
+      <p>Elke vastgoedmarkt heeft eigen juridische, commerciële en praktische aandachtspunten. In Marokko is het belangrijk om documenten, eigendom, prijs en betalingsroute zorgvuldig te beoordelen. De markt is lokaal en informatie is versnipperd, waardoor een gestructureerde beoordeling van het dossier meerwaarde heeft.</p>
 
-      <h2>De belangrijkste risico’s</h2>
+      <h2>De belangrijkste aandachtspunten</h2>
       <ul>
-        <li><strong>Onduidelijke eigendom:</strong> geen geregistreerde <a href="/titre-foncier-marokko/">titre foncier</a>, waardoor eigendom niet vaststaat.</li>
-        <li><strong>Dubbele verkoop:</strong> hetzelfde object aan meerdere kopers verkocht.</li>
-        <li><strong>Informele afspraken:</strong> betalingen of afspraken buiten de <a href="/notaris-marokko-vastgoed/">notaris</a> om.</li>
-        <li><strong>Familie- en tussenpersoon-afhankelijkheid:</strong> onduidelijke belangen en afspraken.</li>
-        <li><strong>Onbetrouwbare ontwikkelaars:</strong> vooral bij <a href="/nieuwbouw-vastgoed-marokko/">off-plan projecten</a>.</li>
+        <li><strong>Documentcontrole:</strong> is er een geregistreerde <a href="/titre-foncier-marokko/">titre foncier</a> en zijn de bijbehorende stukken compleet?</li>
+        <li><strong>Eigendom en bevoegdheid:</strong> is de verkoper juridisch bevoegd om te verkopen en zijn er mede-eigenaren?</li>
+        <li><strong>Contractvoorwaarden:</strong> staan de aanbetaling, de termijnen en de ontbindende voorwaarden helder in het compromis de vente?</li>
+        <li><strong>Betalingsroute:</strong> zijn de betaalmodaliteiten correct vastgelegd in de akte en verloopt de betaling via de notaris?</li>
+        <li><strong>Marktwaarde:</strong> is de vraagprijs vergeleken met referentieobjecten en lokale prijsniveaus?</li>
+        <li><strong>Overdracht:</strong> is de inschrijving bij het kadaster op uw naam geregeld?</li>
       </ul>
 
-      <h2>Hoe u zich beschermt</h2>
-      <ul>
-        <li>Verifieer de eigendomstitel bij het kadaster (conservation foncière).</li>
-        <li>Betaal uitsluitend via de notaris, nooit informeel.</li>
-        <li>Laat elk contract (compromis de vente) controleren — zie de <a href="/kosten-huis-kopen-marokko/">kostengids</a>.</li>
-        <li>Werk met een onafhankelijke partij die aan úw kant staat.</li>
-      </ul>
+      <h2>Bij nieuwbouw en off-plan</h2>
+      <p>Bij een project dat nog gebouwd moet worden, verschuift de beoordeling naar de ontwikkelaar en het contract: het track record, de bouwvergunning, de planning, de betalingsstructuur en de afspraken over oplevering. Dit staat uitgewerkt bij <a href="/nieuwbouw-vastgoed-marokko/">nieuwbouw &amp; off-plan</a>.</p>
 
-      <h2>Hoe voorkomt u oplichting bij vastgoed in Marokko?</h2>
-      <p>De angst voor oplichting weerhoudt veel internationale kopers ervan de stap te zetten. Die voorzichtigheid is terecht — maar met de juiste controles zijn vrijwel alle vormen van oplichting te voorkomen. Dit zijn de meest voorkomende vormen:</p>
-      <ul>
-        <li><strong>Verkoop zonder geldige eigendomstitel:</strong> een woning zonder geregistreerde <a href="/titre-foncier-marokko/">titre foncier</a>, waardoor eigendom niet vaststaat.</li>
-        <li><strong>De valse eigenaar:</strong> iemand die zich voordoet als eigenaar maar dat niet is.</li>
-        <li><strong>Dubbele verkoop:</strong> hetzelfde object aan meerdere kopers verkocht.</li>
-        <li><strong>Verdwenen aanbetaling:</strong> een aanbetaling buiten de notaris om die nooit terugkomt.</li>
-        <li><strong>Onbetrouwbare ontwikkelaar:</strong> bij <a href="/nieuwbouw-vastgoed-marokko/">nieuwbouw en off-plan</a> een project dat nooit (goed) wordt opgeleverd.</li>
-      </ul>
-      <div class="warn">
-        <strong>De gouden regel: geen betaling zonder controle en notaris.</strong>
-        <p>Bijna elke oplichting valt weg zodra u twee dingen doet: de titre foncier verifiëren bij het kadaster én uitsluitend via de <a href="/notaris-marokko-vastgoed/">notaris</a> betalen. Doe dat consequent, ook als de verkoper haast maakt of “een speciale prijs” belooft.</p>
-      </div>
-      <h3>Waarschuwingssignalen</h3>
-      <ul class="checks">
-        <li>Druk om snel een aanbetaling te doen, buiten de notaris om.</li>
-        <li>Geen of onduidelijke eigendomspapieren, of uitvluchten daarover.</li>
-        <li>Een prijs die “te mooi om waar te zijn” is.</li>
-        <li>Alleen contant, informeel of via een tussenpersoon willen afhandelen.</li>
-        <li>Geen controle door u of een onafhankelijke partij toestaan.</li>
-      </ul>
-
-      <h2>Onze rol</h2>
-      <p>Onze <a href="/aankoopbegeleiding-vastgoed-marokko/">aankoopbegeleiding</a> is precies hierop gebouwd: due diligence, papiercontrole en een officieel traject via de notaris. Zie ook de <a href="/juridische-documenten-vastgoed-marokko/">juridische documenten</a> die wij controleren. Zo wordt kopen — ook <a href="/huis-kopen-marokko-vanuit-nederland/">vanuit Nederland</a> — geen gok.</p>
+      <h2>Hoe wij deze punten beoordelen</h2>
+      <p>Onze aankoopbegeleiding is op deze onderdelen ingericht: documentcontrole, marktvergelijking, beoordeling van de contractvoorwaarden en lokale opvolging tot en met de overdracht bij de notaris. U ontvangt de bevindingen in één overzicht, zodat u de beslissing kunt onderbouwen.</p>
     </div>
   </section>
 
-  <Faq items={faqs} title="Veelgestelde vragen over risico’s" />
+  <Faq items={faqs} title="Veelgestelde vragen over de aandachtspunten" />
+
+  <VerderLezen items={[
+    { label: 'Juridische documenten', href: '/juridische-documenten-vastgoed-marokko/', tekst: 'Welke papieren horen bij een correcte overdracht in Marokko.' },
+    { label: 'Aankoopbegeleiding', href: '/aankoopbegeleiding-vastgoed-marokko/', tekst: 'Het volledige traject van analyse tot overdracht.' },
+    { label: 'De notaris', href: '/notaris-marokko-vastgoed/', tekst: 'De rol van de notaris bij de akte en de registratie.' },
+    { label: 'Kosten bij aankoop', href: '/kosten-huis-kopen-marokko/', tekst: 'Wat u naast de koopsom betaalt.' },
+  ]} />
+
   <LeadCta path={path} />
 </BaseLayout>

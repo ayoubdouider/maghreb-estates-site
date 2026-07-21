@@ -23,6 +23,8 @@ const redirects = {
   // Kennisbank → secties toegevoegd aan de sterkere hoofdpagina
   '/verborgen-kosten-huis-kopen-marokko/': '/kosten-huis-kopen-marokko/',
   '/oplichting-vastgoed-marokko-voorkomen/': '/risicos-huis-kopen-marokko/',
+  // Volmacht → kerninformatie opgenomen als sectie in de juridische documenten
+  '/volmacht-huis-kopen-marokko/': '/juridische-documenten-vastgoed-marokko/',
   // Dubbele pagina opgeschoond (duplicate content)
   '/beste-stad-vastgoed-investeren-marokko/': '/beste-stad-investeren-vastgoed-marokko/',
 };

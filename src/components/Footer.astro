@@ -1,51 +1,61 @@
 ---
-import { site, legal, waLink, homeMarkten } from '../data/site';
+import { site, legal, waLink } from '../data/site';
 import Icon from './Icon.astro';
 const jaar = new Date().getFullYear();
+
+// Footer blijft bewust rustig: geen SEO-linkdump. Stadspagina's, kennisbank en
+// long-tail gidsen zijn bereikbaar via /vastgoed-marokko/, /kennisbank/ en de
+// sitemap. Vastgoedbeheer staat hier niet zolang die dienst niet operationeel is.
 ---
 <footer class="footer">
   <div class="container">
     <div class="footer__grid">
       <div class="footer__brand">
+        {/* TODO: replace logo with transparent-background version from Canva. */}
         <span class="logo-word">Maghreb</span>
         <span class="logo-sub">ESTATES</span>
-        <p>{site.tagline}</p>
-        <ul class="contactlist" style="margin-top:16px">
-          <li><Icon name="telefoon" size={16} /><a href={`tel:${site.telefoonHref}`}>{site.telefoon}</a></li>
-          <li><Icon name="chat" size={16} /><a href={waLink('Hallo Maghreb Estates, ik heb een vraag over vastgoed in Marokko.')}>WhatsApp</a></li>
-          <li><Icon name="mail" size={16} /><a href={`mailto:${site.email}`}>{site.email}</a></li>
+        <p>International real estate advisory in Morocco.</p>
+      </div>
+
+      <div>
+        <h4>Contact</h4>
+        <ul class="contactlist footer__contact">
+          <li>
+            <Icon name="telefoon" size={17} />
+            <a href={`tel:${site.telefoonHref}`}>{site.telefoon}</a>
+          </li>
+          <li>
+            <Icon name="whatsapp" size={17} />
+            <a href={waLink('Hallo Maghreb Estates, ik heb een vraag over vastgoed in Marokko.')}>WhatsApp</a>
+          </li>
+          <li>
+            <Icon name="mail" size={17} />
+            <a href={`mailto:${site.email}`}>{site.email}</a>
+          </li>
         </ul>
         {/* Bedrijfsgegevens — officiële Marokkaanse inschrijving (SARL). */}
-        {(site.vestigingsplaats || site.rc || site.ice) && (
-          <p class="footer__bedrijf">
-            Maghreb Estates {site.rechtsvorm}{site.activiteit && <> · {site.activiteit}</>}<br />
-            {site.adres && <>{site.adres}<br /></>}
-            {site.vestigingsplaats && <>{site.vestigingsplaats}<br /></>}
-            {site.rc && <>RC {site.rc} (Rabat){site.ice && <> · ICE {site.ice}</>}</>}
-          </p>
-        )}
+        <p class="footer__bedrijf">
+          {site.adres}<br />
+          {site.vestigingsplaats}<br />
+          RC {site.rc} (Rabat) · ICE {site.ice}
+        </p>
       </div>
 
       <div>
         <h4>Services</h4>
         <a href="/aankoopbegeleiding-vastgoed-marokko/">Aankoopbegeleiding</a>
-        <a href="/nieuwbouw-vastgoed-marokko/">Nieuwbouw & off-plan</a>
         <a href="/investeren-vastgoed-marokko/">Investeringsadvies</a>
-        <a href="/vastgoedbeheer-marokko/">Vastgoedbeheer</a>
+        <a href="/nieuwbouw-vastgoed-marokko/">Nieuwbouw &amp; off-plan</a>
         <a href="/huis-verkopen-marokko-vanuit-nederland/">Verkoopbegeleiding</a>
       </div>
 
       <div>
         <h4>Insights</h4>
         <a href="/kosten-huis-kopen-marokko/">Kosten bij aankoop</a>
-        <a href="/risicos-huis-kopen-marokko/">Risico’s</a>
         <a href="/juridische-documenten-vastgoed-marokko/">Juridische documenten</a>
         <a href="/kennisbank/">Kennisbank</a>
-      </div>
 
-      <div>
-        <h4>Markets</h4>
-        {homeMarkten.map((s) => <a href={`/vastgoed-${s.slug}/`}>{s.naam}</a>)}
+        <h4 style="margin-top:26px">Markets</h4>
         <a href="/vastgoed-marokko/">Alle markten</a>
       </div>
     </div>

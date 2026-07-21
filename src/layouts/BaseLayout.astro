@@ -51,21 +51,21 @@ const orgSchema = {
     { '@type': 'PropertyValue', name: 'RC', value: `${site.rc} (Rabat)` },
     { '@type': 'PropertyValue', name: 'ICE', value: site.ice },
   ],
+  // Werkgebied is Marokko; de klantenkring is internationaal (met name Europa).
   areaServed: [
     { '@type': 'Country', name: 'Marokko' },
-    { '@type': 'Country', name: 'Nederland' },
-    { '@type': 'Country', name: 'België' },
+    { '@type': 'Place', name: 'Europa' },
   ],
   knowsLanguage: ['nl', 'ar', 'fr', 'en'],
-  slogan: 'Vastgoed in Marokko, met Nederlandse duidelijkheid en lokale controle.',
+  slogan: 'International real estate advisory in Morocco.',
   foundingDate: String(site.oprichting),
   contactPoint: {
     '@type': 'ContactPoint',
     telephone: site.telefoon,
     email: site.email,
     contactType: 'customer service',
-    areaServed: ['NL', 'BE', 'MA'],
-    availableLanguage: ['Dutch', 'Arabic', 'French', 'English'],
+    areaServed: ['MA', 'NL', 'BE', 'FR', 'DE', 'ES'],
+    availableLanguage: ['Dutch', 'English', 'French', 'Arabic'],
   },
   ...(site.sameAs.length ? { sameAs: site.sameAs } : {}),
 };

@@ -2,74 +2,92 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
-import AiBlocks from '../components/AiBlocks.astro';
 import Faq from '../components/Faq.astro';
 import LeadCta from '../components/LeadCta.astro';
 import VerderLezen from '../components/VerderLezen.astro';
 import { faqSchema, serviceSchema } from '../data/schema';
 
 const path = '/aankoopbegeleiding-vastgoed-marokko/';
+
+// De stappen staan in een .stappen-lijst: op desktop een raster, op mobiel een
+// verticale timeline waarbij het stapnummer binnen de container blijft.
+const stappen = [
+  { titel: 'Intake & doelstelling', tekst: 'Uw doel, budget, voorkeursregio en de gewenste rol van Maghreb Estates.' },
+  { titel: 'Markt- en objectanalyse', tekst: 'Locatie, prijsniveau, verhuurpotentie, verkoper of ontwikkelaar en beschikbare marktdata.' },
+  { titel: 'Dossier & due diligence', tekst: 'Eigendomstitel, kadastrale registratie, contractvoorwaarden en aandachtspunten voor de overdracht.' },
+  { titel: 'Advies & objectrapportage', tekst: 'Een helder advies met onderbouwing: marktvergelijking, objectscore en de belangrijkste aandachtspunten.' },
+  { titel: 'Onderhandeling', tekst: 'Een realistische prijs, onderbouwd met vergelijkbare objecten en actuele marktinformatie.' },
+  { titel: 'Notaris & overdracht', tekst: 'Begeleiding bij de akte, de betalingsroute en de inschrijving op uw naam — desgewenst met volmacht.' },
+];
+
 const faqs = [
-  { q: 'Wat houdt aankoopbegeleiding precies in?', a: 'Wij begeleiden u van A tot Z: wensen bepalen, objecten selecteren en beoordelen, bezichtigen, onderhandelen, volledige dossiercontrole (due diligence) en begeleiding bij notaris, contracten en overdracht. U heeft één vast aanspreekpunt.' },
-  { q: 'Zijn jullie onafhankelijk of verkopen jullie eigen objecten?', a: 'Wij zijn onafhankelijk en behartigen uitsluitend uw belang. Wij verdienen niets aan een specifiek object; ons doel is dat u de juiste woning tegen de juiste prijs koopt, met kloppende papieren.' },
-  { q: 'Kan de aankoop volledig op afstand worden geregeld?', a: 'Ja. Met een volmacht (procuration) ronden wij het volledige aankooptraject namens u af, inclusief de gang naar de notaris, zodat u niet telkens naar Marokko hoeft te reizen.' },
-  { q: 'Wat kost aankoopbegeleiding?', a: 'De kosten hangen af van de dienstverlening en de complexiteit van het dossier. In een adviesgesprek maken wij dit vooraf transparant, zodat u precies weet wat u krijgt en wat het kost.' },
+  { q: 'Wat houdt aankoopbegeleiding precies in?', a: 'Wij begeleiden u van intake tot overdracht: doel en budget bepalen, objecten selecteren en analyseren, marktvergelijking, onderhandeling, due diligence op het dossier en begeleiding bij notaris, contracten en overdracht. U heeft één vast aanspreekpunt.' },
+  { q: 'Hoe is jullie vergoeding opgebouwd?', a: 'Onze rol en vergoeding worden vooraf helder besproken. Soms betaalt de klant rechtstreeks voor begeleiding of analyse; bij bepaalde projecten kan de vergoeding via de aanbieder of ontwikkelaar lopen. In alle gevallen beoordelen wij of het object past bij het doel, budget en risicoprofiel van de klant.' },
+  { q: 'Kan de aankoop volledig op afstand worden geregeld?', a: 'Ja. Met een notariële volmacht (procuration) ronden wij het traject namens u af, inclusief de gang naar de notaris, zodat u niet telkens naar Marokko hoeft te reizen.' },
+  { q: 'Wat kost aankoopbegeleiding?', a: 'De kosten hangen af van de dienstverlening en de complexiteit van het dossier. In het adviesgesprek maken wij dit vooraf transparant, zodat u precies weet wat u krijgt en wat het kost.' },
 ];
 ---
 <BaseLayout
   title="Aankoopbegeleiding vastgoed Marokko | Maghreb Estates"
-  description="Onafhankelijke aankoopbegeleiding bij vastgoed in Marokko: selectie, onderhandeling, due diligence, controle van de titre foncier en begeleiding bij notaris en overdracht."
+  description="Professionele aankoopbegeleiding bij vastgoed in Marokko: marktvergelijking, objectanalyse, due diligence, objectrapportage en begeleiding bij notaris en overdracht."
   path={path}
-  schema={[faqSchema(faqs), serviceSchema({ naam: 'Aankoopbegeleiding vastgoed Marokko', beschrijving: 'Onafhankelijke aankoopbegeleiding en due diligence bij vastgoed in Marokko.', path })]}
+  schema={[faqSchema(faqs), serviceSchema({ naam: 'Aankoopbegeleiding vastgoed Marokko', beschrijving: 'Professionele aankoopbegeleiding, objectanalyse en due diligence bij vastgoed in Marokko.', path })]}
 >
   <Hero
+    image="/images/villa4.jpg"
     compact
     eyebrow="Aankoopbegeleiding"
-    title="Aankoopbegeleiding die<br /><em>onzekerheid wegneemt</em>"
-    sub="Onafhankelijke begeleiding en volledige dossiercontrole bij uw aankoop in Marokko. Wij beoordelen het object, controleren de papieren en bewaken dat de overdracht officieel verloopt."
-    image="/images/villa2.jpg"
+    title="Aankoopbegeleiding<br /><em>met structuur en data</em>"
+    sub="Professionele begeleiding bij uw aankoop in Marokko. Wij analyseren het object, vergelijken de marktprijs, beoordelen het dossier en begeleiden de overdracht."
     ctas={[
-      { label: 'Laat een object beoordelen', href: '/contact/?doel=aankoopcontrole', primary: true },
-      { label: 'Plan adviesgesprek', href: '/contact/' },
+      { label: 'Laat een object analyseren', href: '/contact/?doel=objectanalyse', primary: true },
+      { label: 'Plan adviesgesprek', href: '/adviesgesprek/' },
     ]}
   />
   <Breadcrumbs items={[{ label: 'Vastgoed Marokko', href: '/vastgoed-marokko/' }, { label: 'Aankoopbegeleiding', href: path }]} />
-  <AiBlocks path={path} />
 
   <section class="section">
     <div class="container prose" style="max-width:760px">
       <h2>Voor wie is dit?</h2>
-      <p>Voor internationale kopers en investeerders die zekerheid willen bij een aankoop in Marokko: de koper van een eerste woning of appartement, de investeerder die op rendement stuurt, en de koper van een nieuwbouwproject die de ontwikkelaar wil laten controleren. Vaak koopt u op afstand, terwijl u buiten Marokko woont — juist dan is een onafhankelijke partij ter plaatse doorslaggevend.</p>
+      <p>Voor internationale kopers en investeerders die een professioneel proces willen bij een aankoop in Marokko: de koper van een eerste woning of appartement, de investeerder die op rendement stuurt, en de koper van een nieuwbouwproject die de ontwikkelaar en de contractvoorwaarden wil laten beoordelen. Veel klanten kopen op afstand, vanuit Europa of elders — juist dan is een professionele partij ter plaatse waardevol.</p>
 
-      <h2>Wat doen wij concreet?</h2>
+      <h2>Wat wij analyseren</h2>
       <ul class="checks">
-        <li><strong>Wensen &amp; strategie:</strong> eigen gebruik, verhuur of investering — doel, budget en tijdlijn scherp krijgen.</li>
-        <li><strong>Selectie &amp; beoordeling:</strong> een eerlijke shortlist met de voor- én nadelen per object, getoetst aan marktdata.</li>
-        <li><strong>Onderhandeling:</strong> een realistische prijs, onderbouwd met vergelijkbare transacties.</li>
-        <li><strong>Due diligence:</strong> verificatie van de eigendomstitel bij het kadaster, controle op hypotheken en beslagen, en toetsing van het koopcontract.</li>
-        <li><strong>Notaris &amp; overdracht:</strong> begeleiding bij de notaris, de contracten en de inschrijving op uw naam.</li>
+        <li><strong>Marktvergelijking:</strong> de vraagprijs naast referentieobjecten, lokale prijsniveaus en beschikbare marktinformatie.</li>
+        <li><strong>Objectanalyse:</strong> locatie, staat, indeling, verhuurbaarheid en exit-potentie in één overzicht.</li>
+        <li><strong>Rendementsindicatie:</strong> bij een investering het onderscheid tussen bruto huurpotentie, netto resultaat, beheerlasten en leegstandsrisico.</li>
+        <li><strong>Dossier &amp; due diligence:</strong> eigendomstitel, kadastrale registratie, hypotheken of beslagen en de contractvoorwaarden.</li>
+        <li><strong>Objectrapportage:</strong> de bevindingen samengebracht in één rapport, zodat keuzes inzichtelijk en bespreekbaar zijn.</li>
       </ul>
+    </div>
+  </section>
 
-      <h2>Hoe werkt het traject?</h2>
-      <ol>
-        <li><strong>Intake.</strong> Uw doel, budget en wensen scherp krijgen.</li>
-        <li><strong>Objectselectie of beoordeling.</strong> Een gefilterde shortlist, of analyse van een woning die u zelf gevonden heeft.</li>
-        <li><strong>Dossiercheck.</strong> Eigendomstitel, kadaster, contract en — bij nieuwbouw — de ontwikkelaar.</li>
-        <li><strong>Marktwaarde en risicoanalyse.</strong> Reële prijs en risico’s helder in beeld.</li>
-        <li><strong>Onderhandeling.</strong> Op basis van marktinformatie, in uw belang.</li>
-        <li><strong>Notaris en overdracht.</strong> Officieel en controleerbaar, desgewenst met volmacht.</li>
-      </ol>
-
-      <div class="warn">
-        <strong>Onze belofte: geen aankoop zonder complete dossiercontrole.</strong>
-        <p>Ontbreekt een geregistreerde eigendomstitel, klopt het contract niet, of is de ontwikkelaar niet te verifiëren? Dan adviseren wij u niet te kopen — hoe aantrekkelijk het object ook lijkt.</p>
+  <section class="section section--tinted" style="padding-block:64px">
+    <div class="container">
+      <div class="section__header" style="max-width:760px">
+        <p class="eyebrow">Proces</p>
+        <h2>Hoe werkt het traject?</h2>
       </div>
+      <ol class="stappen stappen--3">
+        {stappen.map((s, i) => (
+          <li class="stap">
+            <span class="stap__num">Stap {i + 1}</span>
+            <h3>{s.titel}</h3>
+            <p>{s.tekst}</p>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
 
+  <section class="section">
+    <div class="container prose" style="max-width:760px">
       <h2>Waarom Maghreb Estates?</h2>
-      <p>Wij zijn onafhankelijk: wij verdienen niets aan een specifiek object en hebben er dus geen belang bij dat u snel koopt. Wat wij toevoegen is lokale aanwezigheid in Marokko, kennis van het kadaster en de notarispraktijk, en een nuchtere beoordeling van prijs en risico. Onze klanten komen uit heel Europa; wij begeleiden hen in het Nederlands, Engels, Frans en Arabisch.</p>
-      <p>Het volledige traject kan op afstand: met een <a href="/volmacht-huis-kopen-marokko/">volmacht</a> ronden wij de aankoop tot en met de akte voor u af. Na de overdracht kunnen wij de woning ook <a href="/vastgoedbeheer-marokko/">beheren en verhuren</a>.</p>
+      <p>Wat wij toevoegen is structuur: lokale aanwezigheid in Marokko, kennis van het kadaster en de notarispraktijk, marktvergelijking op basis van data, en een nuchtere beoordeling van prijs en object. U ontvangt een onderbouwd advies in plaats van een verkoopverhaal, en wij begeleiden het traject tot en met de overdracht.</p>
+      <p>Onze rol en vergoeding worden vooraf helder besproken. Soms betaalt de klant rechtstreeks voor begeleiding of analyse; bij bepaalde projecten kan de vergoeding via de aanbieder of ontwikkelaar lopen. In alle gevallen beoordelen wij of het object past bij het doel, budget en risicoprofiel van de klant.</p>
+      <p>Het volledige traject kan op afstand: met een notariële volmacht ronden wij de aankoop tot en met de akte voor u af. Klanten begeleiden wij in het Nederlands, Engels, Frans en Arabisch/Darija.</p>
 
-      <p style="margin-top:36px"><a href="/contact/?doel=aankoopcontrole" class="btn btn--primary">Laat een object beoordelen</a></p>
+      <p style="margin-top:36px"><a href="/contact/?doel=objectanalyse" class="btn btn--primary">Laat een object analyseren</a></p>
     </div>
   </section>
 

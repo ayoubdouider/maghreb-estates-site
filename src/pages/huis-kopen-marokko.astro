@@ -1,103 +1,91 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
-import TrustStrip from '../components/TrustStrip.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
-import AiBlocks from '../components/AiBlocks.astro';
-import CtaInline from '../components/CtaInline.astro';
 import Faq from '../components/Faq.astro';
 import LeadCta from '../components/LeadCta.astro';
+import VerderLezen from '../components/VerderLezen.astro';
 import { faqSchema, serviceSchema } from '../data/schema';
 
 const path = '/huis-kopen-marokko/';
+// Opbouw: hero → intro → aankoopproces → wat wij analyseren → kosten in
+// hoofdlijnen → kopen op afstand → CTA → korte FAQ. Bewust natuurlijk
+// geschreven: geen samenvattingsblokken, maximaal 3 inline links in de tekst.
+// De long-tail zoekvraag "Nederlander huis kopen Marokko" leeft in de FAQ en de
+// metadata, niet in een zichtbare kop.
 const faqs = [
-  { q: 'Kan ik als buitenlandse koper een huis kopen in Marokko?', a: 'Ja. Buitenlandse kopers mogen vrijwel overal in Marokko onroerend goed kopen. Alleen bepaalde landbouwgrond is uitgezonderd. Een huis, appartement of villa kopen kan zonder Marokkaanse nationaliteit.' },
-  { q: 'Wat zijn de stappen om een huis te kopen in Marokko?', a: 'Kort samengevat: oriëntatie en selectie, bezichtiging, bod en voorlopig koopcontract (compromis de vente) met aanbetaling, controle van de titre foncier, en de definitieve akte bij de notaris met inschrijving in het kadaster. Wij begeleiden u bij elke stap.' },
-  { q: 'Hoeveel kost een huis kopen in Marokko?', a: 'Naast de koopsom betaalt u circa 6 tot 10% aan bijkomende kosten (registratierechten, notaris, kadaster). Bekijk onze pagina over de kosten van een huis kopen in Marokko voor een gedetailleerd overzicht en om verborgen kosten te voorkomen.' },
-  { q: 'Wat is een titre foncier en waarom is die belangrijk?', a: 'De titre foncier (TF) is de officiële, geregistreerde eigendomstitel. Alleen daarmee staat eigendom onbetwistbaar vast. Vastgoed zonder TF brengt extra risico mee. Wij controleren de titel altijd vóór aankoop.' },
-  { q: 'Kan ik een huis kopen in Marokko zonder er zelf te zijn?', a: 'Ja, dat kan volledig op afstand met een volmacht (procuration). Wij regelen bezichtigingen, dossiercontrole en de gang naar de notaris, zodat u niet steeds hoeft af te reizen. Zie onze pagina over kopen vanuit Nederland.' },
-  { q: 'Heb ik een makelaar of een advocaat nodig?', a: 'Een makelaar is niet verplicht, maar onafhankelijke begeleiding beschermt u tegen te hoge prijzen en onduidelijke papieren. Een advocaat is optioneel en vooral nuttig bij erfenis of geschillen. De notaris is wél altijd nodig voor een geldige overdracht.' },
-  { q: 'Hoe voorkom ik dat ik te veel betaal?', a: 'Wij bepalen een realistische marktwaarde op basis van vergelijkbare objecten en actuele marktdata, en onderhandelen namens u. Zo betaalt u een eerlijke prijs in plaats van de “buitenlander-prijs”.' },
+  { q: 'Kunnen buitenlandse kopers vastgoed kopen in Marokko?', a: 'Ja. Buitenlandse kopers kunnen in Marokko in veel gevallen woningen, appartementen en villa’s kopen. Voor bepaalde soorten landbouwgrond gelden beperkingen. De aankoop moet juridisch correct worden vastgelegd via contract, notaris en registratie.' },
+  { q: 'Mag een Nederlander een huis kopen in Marokko?', a: 'Ja. Er gelden geen nationaliteitsbeperkingen voor het kopen van een woning, appartement of villa. Dat geldt voor Nederlandse kopers net zo goed als voor andere internationale kopers. Belangrijk is dat het dossier klopt en de overdracht officieel via de notaris verloopt.' },
+  { q: 'Wat zijn de stappen om een huis te kopen in Marokko?', a: 'Oriëntatie en selectie, bezichtiging, bod en voorlopig koopcontract (compromis de vente) met aanbetaling, beoordeling van de titre foncier en het dossier, en de definitieve akte bij de notaris met inschrijving in het kadaster.' },
+  { q: 'Hoeveel kost een huis kopen in Marokko?', a: 'Naast de koopsom krijgt u te maken met officiële aankoopkosten: registratierechten, notariskosten, kadaster of inschrijving en eventuele bank- of administratiekosten. De exacte kosten verschillen per dossier, aankoopvorm en object.' },
+  { q: 'Wat is een titre foncier en waarom is die belangrijk?', a: 'De titre foncier (TF) is de officiële, geregistreerde eigendomstitel. Daarmee staat eigendom onbetwistbaar vast. Wij beoordelen de titel en de bijbehorende registratie altijd vóór de aankoop.' },
+  { q: 'Kan ik een huis kopen in Marokko zonder er zelf te zijn?', a: 'Ja. Met een notariële volmacht (procuration) kan het traject op afstand worden afgerond, inclusief de akte bij de notaris. Wij verzorgen bezichtigingen, dossierbeoordeling en lokale opvolging.' },
+  { q: 'Heb ik professionele begeleiding nodig?', a: 'Begeleiding is niet verplicht, maar helpt om marktprijs, dossier en contractvoorwaarden objectief te beoordelen. De notaris is wél altijd nodig voor een geldige overdracht.' },
 ];
 ---
 <BaseLayout
-  title="Huis kopen in Marokko: complete gids, stappen & kosten | Maghreb Estates"
-  description="Huis kopen in Marokko? Complete gids met stappen, kosten, risico’s en hoe u veilig en op afstand koopt, met onafhankelijke aankoopbegeleiding en dossiercontrole."
+  title="Huis kopen in Marokko: stappen, kosten en begeleiding | Maghreb Estates"
+  description="Huis kopen in Marokko als buitenlandse of Nederlandse koper: het aankoopproces, wat wij analyseren, de kosten in hoofdlijnen en hoe kopen op afstand werkt."
   path={path}
-  schema={[faqSchema(faqs), serviceSchema({ naam: 'Huis kopen Marokko begeleiding', beschrijving: 'Begeleiding bij het kopen van een huis in Marokko voor internationale kopers.', path })]}
+  schema={[faqSchema(faqs), serviceSchema({ naam: 'Begeleiding huis kopen Marokko', beschrijving: 'Begeleiding bij het kopen van een huis in Marokko voor internationale kopers.', path })]}
 >
   <Hero
+    image="/images/villa5.jpg"
     compact
-    eyebrow="Huis kopen Marokko"
-    title="Een huis kopen in Marokko,<br /><em>veilig en zonder verrassingen</em>"
-    sub="Van oriëntatie tot de sleutel: wij begeleiden internationale kopers stap voor stap bij het kopen van een huis, appartement of villa in Marokko — met volledige dossiercontrole."
-    image="/images/villa1.jpg"
+    eyebrow="Vastgoed kopen · Marokko"
+    title="Een huis kopen<br /><em>in Marokko</em>"
+    sub="Van oriëntatie tot overdracht begeleiden wij internationale kopers bij het kopen van een huis, appartement of villa in Marokko — met marktvergelijking, dossierbeoordeling en lokale opvolging."
     ctas={[
-      { label: 'Plan gratis adviesgesprek', href: '/contact/', primary: true },
-      { label: 'Ontvang de checklist', href: '/checklist-vastgoed-marokko/' },
+      { label: 'Plan adviesgesprek', href: '/adviesgesprek/', primary: true },
+      { label: 'Laat een object analyseren', href: '/contact/?doel=objectanalyse' },
     ]}
   />
   <Breadcrumbs items={[{ label: 'Vastgoed Marokko', href: '/vastgoed-marokko/' }, { label: 'Huis kopen Marokko', href: path }]} />
-  <AiBlocks path={path} />
-  <TrustStrip />
 
   <section class="section">
     <div class="container prose" style="max-width:760px">
-      <p>Een <strong>huis kopen in Marokko</strong> is een grote, vaak emotionele stap. De markt biedt echte kansen — aantrekkelijke prijzen, groeiende steden en sterke verhuurpotentie — maar werkt anders dan in West-Europa. Op deze pagina leest u precies hoe het proces verloopt, wat het kost en, minstens zo belangrijk, hoe u de bekende valkuilen vermijdt.</p>
-      <p>Ons uitgangspunt is simpel: u koopt pas als het dossier klopt. Geen aanbetaling op basis van een mooi verhaal, geen “deal via een neef” zonder papieren, en nooit een handtekening voordat de eigendomstitel is geverifieerd. Dat is precies waar het misgaat bij mensen die het zelf proberen — en waar wij het verschil maken.</p>
+      <p>Een <strong>huis kopen in Marokko</strong> is een grote beslissing in een markt die anders werkt dan de West-Europese. De markt biedt echte kansen — aantrekkelijke prijsniveaus, groeiende steden en sterke verhuurpotentie — maar is lokaal en versnipperd. Op deze pagina leest u hoe het aankoopproces verloopt, wat wij analyseren en waar de kosten zitten.</p>
 
-      <h2>Mag u als Nederlander een huis kopen in Marokko?</h2>
-      <p>Ja. Er zijn geen nationaliteitsbeperkingen voor het kopen van een woning, appartement of villa. Alleen bepaalde landbouwgrond (<em>terres agricoles</em>) is voor buitenlanders beperkt. Of u nu de Marokkaanse nationaliteit heeft of niet: kopen kan, mits u het juridisch correct aanpakt.</p>
+      <h2>Kunnen buitenlandse kopers vastgoed kopen in Marokko?</h2>
+      <p>Ja. Buitenlandse kopers kunnen in Marokko in veel gevallen woningen, appartementen en villa’s kopen. Voor bepaalde soorten landbouwgrond (<em>terres agricoles</em>) gelden beperkingen. De aankoop moet juridisch correct worden vastgelegd via contract, notaris en registratie. Daarom is beoordeling van het dossier belangrijk vóórdat u zich verbindt.</p>
 
-      <h2>De stappen bij een huis kopen in Marokko</h2>
+      <h2>Hoe het aankoopproces werkt</h2>
       <ul class="checks">
-        <li><strong>Oriëntatie & selectie:</strong> uw wensen, doel en budget bepalen, gevolgd door een gefilterde, eerlijke selectie van objecten.</li>
-        <li><strong>Bezichtiging:</strong> ter plaatse of op afstand via live video, altijd met onze onafhankelijke beoordeling.</li>
-        <li><strong>Bod & voorlopig contract:</strong> het <em>compromis de vente</em> met een aanbetaling (vaak circa 10%). Dit contract laten wij altijd controleren.</li>
-        <li><strong>Dossiercontrole (due diligence):</strong> verificatie van de <a href="/titre-foncier-marokko/">titre foncier</a>, kadaster en eventuele hypotheken of beslagen.</li>
-        <li><strong>Notaris & overdracht:</strong> de definitieve akte bij de <a href="/notaris-marokko-vastgoed/">notaris</a> en inschrijving op uw naam bij het kadaster.</li>
+        <li><strong>Oriëntatie en selectie:</strong> doel, budget en voorkeursregio bepalen, gevolgd door een gerichte selectie van objecten.</li>
+        <li><strong>Bezichtiging:</strong> ter plaatse of op afstand via live video, met onze beoordeling van staat, ligging en omgeving.</li>
+        <li><strong>Bod en voorlopig contract:</strong> het <em>compromis de vente</em>, met een aanbetaling van doorgaans circa 10%.</li>
+        <li><strong>Dossier en due diligence:</strong> beoordeling van de titre foncier, kadastrale registratie en eventuele hypotheken of beslagen.</li>
+        <li><strong>Notaris en overdracht:</strong> de definitieve akte en de inschrijving op uw naam bij het kadaster.</li>
       </ul>
+      <p>De aanbetaling bij het compromis de vente moet duidelijk zijn vastgelegd en via een controleerbare route verlopen. Wij adviseren om betalingsafspraken pas te maken nadat de belangrijkste documenten zijn beoordeeld. Leg bedrag, voorwaarden en betalingsroute helder vast.</p>
 
-      <div class="warn">
-        <strong>Let op bij het voorlopig koopcontract.</strong>
-        <p>De aanbetaling is het moment waarop kopers geld kwijtraken. Betaal nooit “onder de hand” en altijd via de notaris. Laat het compromis de vente en de eigendomstitel controleren vóórdat u ook maar één euro overmaakt.</p>
-      </div>
-
-      <CtaInline
-        title="Twijfelt u over een woning?"
-        text="Stuur ons de link of de aanbieder. Wij controleren het dossier en vertellen u eerlijk of het klopt — vóór u tekent."
-        label="Laat je aankoop controleren"
-        href="/contact/?doel=aankoopcontrole"
-      />
-
-      <h2>Wat kost een huis kopen in Marokko?</h2>
-      <p>Naast de koopsom betaalt u circa <strong>6 tot 10% aan bijkomende kosten</strong>. De grootste post zijn de registratierechten, gevolgd door de notariskosten en de inschrijving bij het kadaster. Wees alert op verborgen kosten en onduidelijke servicekosten. In onze <a href="/kosten-huis-kopen-marokko/">gids over de kosten</a> leest u de volledige opbouw, zodat u vooraf precies weet waar u aan toe bent.</p>
-
-      <h2>De risico’s — en hoe u ze afdekt</h2>
-      <p>De grootste risico’s bij vastgoed in Marokko zijn onduidelijke eigendom (geen geregistreerde titel), dubbele verkoop, informele afspraken buiten de notaris om, en afhankelijkheid van familie of tussenpersonen met eigen belangen. Bij <a href="/nieuwbouw-vastgoed-marokko/">nieuwbouw</a> komt daar het risico van een onbetrouwbare projectontwikkelaar bij. Lees onze <a href="/risicos-huis-kopen-marokko/">gids over de risico’s</a> en hoe onze <a href="/aankoopbegeleiding-vastgoed-marokko/">aankoopbegeleiding</a> ze systematisch wegneemt.</p>
-
-      <h2>Wanneer moet u juist niet kopen?</h2>
-      <p>Koop niet wanneer de verkoper documenten uitstelt, wanneer er geen duidelijke titre foncier is, wanneer u onder druk wordt gezet om snel aan te betalen, wanneer betalingen buiten de notaris om moeten lopen of wanneer de prijs alleen met mondelinge beloftes wordt onderbouwd. In Marokko ontstaan de meeste problemen niet bij de notaris, maar vóórdat de koper daar aankomt.</p>
-
-      <h2>Voor u tekent</h2>
-      <p>Loop deze vragen langs voordat u een handtekening zet of geld overmaakt:</p>
+      <h2>Wat wij analyseren</h2>
+      <p>Onze rol is om het proces overzichtelijk te maken en beslissingen te onderbouwen met controle, marktinformatie en lokale opvolging. Per object brengen wij in kaart:</p>
       <ul class="checks">
-        <li>Heb ik de eigendomstitel gezien?</li>
-        <li>Is de verkoper juridisch bevoegd?</li>
-        <li>Loopt de betaling via een controleerbare route?</li>
-        <li>Staat de aanbetaling duidelijk in het contract?</li>
-        <li>Zijn er ontbindende voorwaarden?</li>
-        <li>Is de werkelijke marktwaarde gecontroleerd?</li>
+        <li><strong>Marktwaarde:</strong> de vraagprijs naast referentieobjecten en lokale prijsniveaus.</li>
+        <li><strong>Locatie en object:</strong> wijk, bereikbaarheid, staat van het pand en verhuurbaarheid.</li>
+        <li><strong>Dossier:</strong> eigendomstitel, registratie, contractvoorwaarden en aandachtspunten voor de overdracht.</li>
+        <li><strong>Verkoper of ontwikkelaar:</strong> bevoegdheid, track record en gemaakte afspraken.</li>
+        <li><strong>Rendement:</strong> bij een investering het verschil tussen bruto huurpotentie en netto resultaat.</li>
       </ul>
+      <p>Wij werken met duidelijke documenten, controleerbare afspraken en een professionele route richting overdracht. Onze <a href="/aankoopbegeleiding-vastgoed-marokko/">aankoopbegeleiding</a> beschrijft dit traject stap voor stap.</p>
 
-      <h2>Kopen vanuit Nederland</h2>
-      <p>U hoeft niet steeds af te reizen. Lees hoe u <a href="/huis-kopen-marokko-vanuit-nederland/">een huis koopt vanuit Nederland</a>, desgewenst <a href="/volmacht-huis-kopen-marokko/">met volmacht</a>, zodat wij het traject veilig voor u afronden terwijl u thuis blijft.</p>
+      <h2>Kosten in hoofdlijnen</h2>
+      <p>Naast de koopsom krijgt u te maken met officiële aankoopkosten, zoals registratierechten, notariskosten, kadaster of inschrijving en eventuele bank- of administratieve kosten. De exacte kosten verschillen per dossier, aankoopvorm en object. In het <a href="/kosten-huis-kopen-marokko/">kostenoverzicht</a> staat de volledige opbouw.</p>
 
-      <h2>Wat voor woning zoekt u?</h2>
-      <p>Zoekt u specifiek een <a href="/appartement-kopen-marokko/">appartement</a>, of overweegt u een <a href="/nieuwbouw-vastgoed-marokko/">nieuwbouwproject</a> met betaling in termijnen? En wilt u vooral <a href="/investeren-vastgoed-marokko/">investeren voor rendement</a>? Wij denken mee vanuit uw doel, niet vanuit het toevallige aanbod. Na aankoop kunnen wij uw woning bovendien <a href="/vastgoedbeheer-marokko/">beheren en verhuren</a>.</p>
+      <h2>Kopen op afstand</h2>
+      <p>U hoeft niet telkens af te reizen. Met een notariële volmacht kunnen wij het traject tot en met de akte afronden, terwijl u de belangrijkste beslissingen zelf neemt. Bezichtigingen doen wij live via video, en de lokale opvolging verzorgen wij ter plaatse. Dit geldt voor internationale kopers en voor eigenaren die buiten Marokko wonen.</p>
     </div>
   </section>
 
-  <Faq items={faqs} title="Veelgestelde vragen over huis kopen in Marokko" />
   <LeadCta path={path} />
+
+  <Faq items={faqs} title="Veelgestelde vragen over huis kopen in Marokko" />
+
+  <VerderLezen items={[
+    { label: 'Kosten bij aankoop', href: '/kosten-huis-kopen-marokko/', tekst: 'Registratierechten, notaris en kadaster — wat u naast de koopsom betaalt.' },
+    { label: 'Juridische documenten', href: '/juridische-documenten-vastgoed-marokko/', tekst: 'Welke papieren horen bij een correcte overdracht in Marokko.' },
+    { label: 'Nieuwbouw & off-plan', href: '/nieuwbouw-vastgoed-marokko/', tekst: 'Ontwikkelaar, vergunningen, contract en betaling in termijnen.' },
+    { label: 'Markten in Marokko', href: '/vastgoed-marokko/', tekst: 'Overzicht van de steden en regio’s waarin wij actief zijn.' },
+  ]} />
 </BaseLayout>

@@ -1,0 +1,194 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import Icon from '../components/Icon.astro';
+import { site, waLink } from '../data/site';
+
+const path = '/adviesgesprek/';
+
+// Bookingpagina. De kalender is nu een zelfstandige placeholder-component:
+// datumkiezer + vaste tijdsloten, verzending via WhatsApp of e-mail, precies
+// zoals het contactformulier. De aanvraag wordt daarna handmatig bevestigd.
+// TODO: koppel aan een externe agenda (Cal.com / Google Calendar) zodra
+// beschikbaar; vervang dan het slots-blok door de embed en laat de rest staan.
+const tijdsloten = ['09:00', '10:00', '11:00', '13:00', '14:00', '15:00', '16:00', '17:00'];
+
+const besproken = [
+  'Uw doel: kopen, investeren, verkopen of objectanalyse.',
+  'De stad of regio waarin u zoekt.',
+  'Budget en planning.',
+  'Eventuele woninglinks of projecten.',
+  'Welke vervolgstap logisch is.',
+];
+---
+<BaseLayout
+  title="Plan een adviesgesprek | Maghreb Estates"
+  description="Bespreek uw aankoop-, investerings- of verkoopplannen met Maghreb Estates. In maximaal één uur brengen wij uw situatie, doel en vervolgstappen in kaart."
+  path={path}
+>
+  <Breadcrumbs items={[{ label: 'Adviesgesprek', href: path }]} />
+
+  <section class="section" style="padding-top:32px">
+    <div class="container">
+      <div class="split">
+        <div class="split__text">
+          <p class="eyebrow">Adviesgesprek</p>
+          <h1 style="font-size:clamp(32px,4.4vw,50px);margin-bottom:20px">Plan een adviesgesprek</h1>
+          <p style="color:var(--text-muted);font-size:18px;margin-bottom:32px">Bespreek uw aankoop-, investerings- of verkoopplannen met Maghreb Estates. In maximaal één uur brengen wij uw situatie, doel en vervolgstappen in kaart.</p>
+
+          <div class="feature">
+            <h3>Wat we bespreken</h3>
+            <ul class="checks">
+              {besproken.map((b) => <li>{b}</li>)}
+            </ul>
+          </div>
+
+          <div class="feature">
+            <h3>Duur</h3>
+            <p>Adviesgesprekken duren maximaal 60 minuten. Het gesprek vindt plaats via telefoon, WhatsApp of videobellen, en op afspraak ook op ons kantoor in Rabat.</p>
+          </div>
+
+          <div class="feature">
+            <h3>Liever direct contact?</h3>
+            <ul class="contactlist">
+              <li><Icon name="telefoon" size={18} /><a href={`tel:${site.telefoonHref}`} style="color:var(--green-mid)">{site.telefoon}</a></li>
+              <li><Icon name="whatsapp" size={18} /><a href={waLink('Hallo Maghreb Estates, ik wil graag een adviesgesprek inplannen.')} style="color:var(--green-mid)">WhatsApp ons</a></li>
+              <li><Icon name="mail" size={18} /><a href={`mailto:${site.email}`} style="color:var(--green-mid)">{site.email}</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <form class="card" id="bookingForm" novalidate>
+          <h2 style="font-size:24px;margin-bottom:6px">Kies een moment</h2>
+          <p style="color:var(--text-muted);font-size:15px;margin-bottom:22px">Selecteer een datum en tijdslot. Wij bevestigen uw afspraak zo snel mogelijk via WhatsApp of telefoon.</p>
+
+          <div class="veld">
+            <label for="datum">Gewenste datum <span aria-hidden="true">*</span></label>
+            <input type="date" id="datum" name="datum" required />
+          </div>
+
+          <p class="booking__label" id="slotLabel">Gewenst tijdslot <span aria-hidden="true">*</span></p>
+          <div class="slots" role="group" aria-labelledby="slotLabel">
+            {tijdsloten.map((t) => (
+              <button type="button" class="slot" data-slot={t} aria-pressed="false">{t}</button>
+            ))}
+          </div>
+
+          <div class="veld">
+            <label for="naam">Naam <span aria-hidden="true">*</span></label>
+            <input type="text" id="naam" name="naam" placeholder="Uw volledige naam" required />
+          </div>
+          <div class="veld">
+            <label for="telefoon">Telefoon / WhatsApp <span aria-hidden="true">*</span></label>
+            <input type="tel" id="telefoon" name="telefoon" placeholder="+31 6 00 00 00 00" required />
+          </div>
+          <div class="veld">
+            <label for="email">E-mailadres <span class="veld__hint">(optioneel)</span></label>
+            <input type="email" id="email" name="email" placeholder="uw@email.com" />
+          </div>
+          <div class="veld">
+            <label for="doel">Doel van gesprek <span aria-hidden="true">*</span></label>
+            <select id="doel" name="doel" required>
+              <option value="">Selecteer een optie</option>
+              <option value="Vastgoed kopen">Vastgoed kopen in Marokko</option>
+              <option value="Investeren / rendement">Investeren / rendement</option>
+              <option value="Objectanalyse">Object laten analyseren</option>
+              <option value="Nieuwbouw / off-plan">Nieuwbouw / off-plan</option>
+              <option value="Woning verkopen">Woning verkopen</option>
+              <option value="Anders">Anders</option>
+            </select>
+          </div>
+          <div class="veld">
+            <label for="stad">Gewenste stad of regio <span class="veld__hint">(optioneel)</span></label>
+            <input type="text" id="stad" name="stad" placeholder="Bijv. Tanger, Rabat, Marrakech…" />
+          </div>
+          <div class="veld">
+            <label for="woninglink">Woninglink of projectlink <span class="veld__hint">(optioneel)</span></label>
+            <input type="url" id="woninglink" name="woninglink" placeholder="https://…" />
+          </div>
+          <div class="veld">
+            <label for="bericht">Bericht <span class="veld__hint">(optioneel)</span></label>
+            <textarea id="bericht" name="bericht" rows="3" placeholder="Extra informatie over uw situatie…"></textarea>
+          </div>
+
+          <div class="form__acties">
+            <button type="button" id="sendWhatsapp" class="btn btn--primary">Via WhatsApp</button>
+            <button type="button" id="sendMail" class="btn btn--outline">Via e-mail</button>
+          </div>
+
+          <p class="form__melding" id="bevestiging" hidden>
+            Bedankt. Uw aanvraag voor een adviesgesprek is ontvangen. Wij bevestigen het tijdslot zo snel mogelijk via WhatsApp of telefoon.
+          </p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <script is:inline define:vars={{ whatsapp: site.whatsapp, email: site.email }}>
+    (function () {
+      var slotGekozen = '';
+      var knoppen = Array.prototype.slice.call(document.querySelectorAll('.slot'));
+      knoppen.forEach(function (b) {
+        b.addEventListener('click', function () {
+          knoppen.forEach(function (x) { x.setAttribute('aria-pressed', 'false'); });
+          b.setAttribute('aria-pressed', 'true');
+          slotGekozen = b.dataset.slot;
+        });
+      });
+
+      // Geen data in het verleden: de datumkiezer start morgen.
+      var datum = document.getElementById('datum');
+      var morgen = new Date(Date.now() + 86400000).toISOString().slice(0, 10);
+      datum.min = morgen;
+
+      function val(id) { var el = document.getElementById(id); return el ? el.value.trim() : ''; }
+
+      function build() {
+        if (!val('datum') || !slotGekozen || !val('naam') || !val('telefoon') || !val('doel')) {
+          alert('Kies een datum en tijdslot en vul uw naam, telefoonnummer en het doel van het gesprek in.');
+          return null;
+        }
+        // Alleen ingevulde regels opnemen; lege regels dienen als scheiding en
+        // mogen dus niet worden weggefilterd.
+        var regels = ['Aanvraag adviesgesprek via maghreb-estates.com', ''];
+        function voegToe(label, waarde) { if (waarde) regels.push(label + ': ' + waarde); }
+        voegToe('Gewenste datum', val('datum'));
+        voegToe('Gewenst tijdslot', slotGekozen + ' (max. 60 minuten)');
+        voegToe('Naam', val('naam'));
+        voegToe('Telefoon / WhatsApp', val('telefoon'));
+        voegToe('E-mail', val('email'));
+        voegToe('Doel van gesprek', val('doel'));
+        voegToe('Stad/regio', val('stad'));
+        voegToe('Woning-/projectlink', val('woninglink'));
+        if (val('bericht')) regels.push('', 'Bericht:', val('bericht'));
+        return regels.join('\n');
+      }
+
+      function toonBevestiging() {
+        var b = document.getElementById('bevestiging');
+        b.hidden = false;
+        b.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+
+      document.getElementById('sendWhatsapp').addEventListener('click', function () {
+        var msg = build(); if (!msg) return;
+        // De klant ziet de volledige aanvraag zelf terug in zijn WhatsApp-gesprek.
+        window.open('https://wa.me/' + whatsapp + '?text=' + encodeURIComponent(msg), '_blank');
+        toonBevestiging();
+      });
+
+      document.getElementById('sendMail').addEventListener('click', function () {
+        var msg = build(); if (!msg) return;
+        // Kopie naar de klant zelf, alleen als er een e-mailadres is ingevuld.
+        var cc = val('email') ? '&cc=' + encodeURIComponent(val('email')) : '';
+        var kopie = val('email')
+          ? '\n\n---\nBedankt voor uw aanvraag bij Maghreb Estates. Wij hebben uw aanvraag voor een adviesgesprek ontvangen en bevestigen het tijdslot zo snel mogelijk via WhatsApp of telefoon.'
+          : '';
+        window.location.href = 'mailto:' + email
+          + '?subject=' + encodeURIComponent('Aanvraag adviesgesprek via maghreb-estates.com')
+          + cc + '&body=' + encodeURIComponent(msg + kopie);
+        toonBevestiging();
+      });
+    })();
+  </script>
+</BaseLayout>

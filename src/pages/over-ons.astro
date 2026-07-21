@@ -6,50 +6,53 @@ import Breadcrumbs from '../components/Breadcrumbs.astro';
 import Icon from '../components/Icon.astro';
 import Faq from '../components/Faq.astro';
 import CtaBand from '../components/CtaBand.astro';
-import { site, waLink, team } from '../data/site';
+import { site, waLink, team, teamNetwerk } from '../data/site';
 import { faqSchema } from '../data/schema';
 
 const path = '/over-ons/';
 const faqs = [
-  { q: 'Wat doet Maghreb Estates precies?', a: 'Maghreb Estates begeleidt Nederlandstalige kopers en eigenaren bij het kopen, beoordelen, verhuren, beheren en verkopen van vastgoed in Marokko. Wij bieden aankoopbegeleiding, dossiercontrole, advies en vastgoedbeheer op afstand.' },
-  { q: 'Voor wie werkt Maghreb Estates?', a: 'Voor Nederlanders, Belgen en Nederlands-Marokkanen die in Marokko willen kopen, investeren of hun woning willen laten beheren — voor eigen gebruik, verhuur of investering.' },
-  { q: 'Zijn jullie onafhankelijk?', a: 'Ja. Onze vergoeding komt uit begeleiding, analyse of beheer, niet uit het doorduwen van een specifiek object. Klopt een dossier niet, dan adviseren wij niet te kopen.' },
-  { q: 'Hoe waarborgen jullie dat een aankoop veilig is?', a: 'Wij controleren de eigendomstitel (titre foncier), toetsen het koopcontract, beoordelen bij nieuwbouw de ontwikkelaar en laten alles officieel via de notaris verlopen.' },
-  { q: 'In welke talen kan ik met jullie communiceren?', a: 'Nederlands, Arabisch, Darija/Amazigh en Frans. U hoeft niets te vertalen of te interpreteren.' },
+  { q: 'Wat doet Maghreb Estates precies?', a: 'Maghreb Estates begeleidt internationale kopers, investeerders en eigenaren bij vastgoed in Marokko: aankoopadvies, objectanalyse, investeringsadvies, due diligence, marktinzicht en lokale opvolging.' },
+  { q: 'Voor wie werkt Maghreb Estates?', a: 'Voor internationale kopers, Europese klanten, investeerders en eigenaren buiten Marokko die in Marokko vastgoed willen aankopen, beoordelen, verhuren, beheren of verkopen.' },
+  { q: 'Hoe is jullie vergoeding opgebouwd?', a: 'Onze werkwijze is transparant. Vooraf maken wij duidelijk welke rol wij hebben, welke begeleiding wij leveren en hoe onze vergoeding is opgebouwd. Bij projecten waar een ontwikkelaar of aanbieder een vergoeding betaalt, communiceren wij dit duidelijk.' },
+  { q: 'Hoe beoordelen jullie een object of dossier?', a: 'Wij vergelijken de vraagprijs met marktinformatie en referentieobjecten, beoordelen de eigendomstitel (titre foncier) en het koopcontract, toetsen bij nieuwbouw de ontwikkelaar, en zorgen dat de overdracht officieel via de notaris verloopt.' },
+  { q: 'In welke talen kan ik met jullie communiceren?', a: 'Begeleiding is mogelijk in het Nederlands, Engels, Frans en Arabisch/Darija.' },
 ];
 ---
 <BaseLayout
-  title="Over Maghreb Estates: onafhankelijke aankoopbegeleiding in Marokko | Maghreb Estates"
-  description="Maghreb Estates is opgericht voor Nederlandstalige kopers die in Marokko willen investeren zonder afhankelijk te zijn van losse tips of tussenpersonen. Liever een aankoop afraden dan verkeerd begeleiden."
+  title="Over Maghreb Estates: real estate advisory in Marokko | Maghreb Estates"
+  description="Maghreb Estates is een real estate advisory firm gericht op vastgoed in Marokko. Wij begeleiden internationale kopers, investeerders en eigenaren met advies, analyse en due diligence."
   path={path}
   schema={[faqSchema(faqs)]}
 >
   <Hero
+    image="/images/villa3.jpg"
     compact
     eyebrow="Over ons"
-    title="Onafhankelijke begeleiding,<br /><em>eerlijk wanneer iets niet klopt</em>"
-    sub="De nuchtere manier van werken uit Nederland, gecombineerd met lokale controle in Marokko."
-    image="/images/villa4.jpg"
-    ctas={[{ label: 'Plan gratis adviesgesprek', href: '/contact/', primary: true }]}
+    title="Over Maghreb Estates"
+    sub="Maghreb Estates is een real estate advisory firm gericht op vastgoed in Marokko. Wij begeleiden internationale kopers, investeerders en eigenaren met aankoopadvies, objectanalyse, due diligence, marktinzicht en lokale opvolging."
+    ctas={[{ label: 'Plan adviesgesprek', href: '/adviesgesprek/', primary: true }]}
   />
   <Breadcrumbs items={[{ label: 'Over ons', href: path }]} />
   <TrustStrip />
 
-  <section class="section">
+  <section class="section" style="padding-top:0">
     <div class="container prose" style="max-width:760px">
-      <p>Maghreb Estates is opgericht voor Nederlandstalige kopers die wél in Marokko willen investeren, maar niet afhankelijk willen zijn van losse tips, familieconstructies of onduidelijke tussenpersonen. Wij combineren de nuchtere manier van werken uit Nederland met lokale controle in Marokko. Ons uitgangspunt is simpel: liever een aankoop afraden dan iemand begeleiden naar een verkeerd object.</p>
+      <p>Maghreb Estates is opgericht door ondernemers met een Nederlandse en Marokkaanse achtergrond, met één doel: internationale kopers en investeerders in Marokko dezelfde structuur en transparantie bieden die zij van een professioneel vastgoedkantoor gewend zijn. Wij combineren lokale marktkennis met data-analyse en een helder proces, zodat klanten hun beslissingen kunnen onderbouwen.</p>
+      <p>De Marokkaanse markt verschilt sterk per stad, wijk en ontwikkelaar. Wij brengen die verschillen in kaart met marktvergelijking, objectanalyse en documentbeoordeling, en begeleiden het traject tot en met de overdracht. Begeleiding is mogelijk in het Nederlands, Engels, Frans en Arabisch/Darija.</p>
     </div>
   </section>
 
-  <section class="section section--tinted">
+  <section class="section section--tinted" style="padding-top:0">
     <div class="container">
       <div class="section__header section__header--center">
-        <p class="eyebrow">Wie wij zijn</p>
-        <h2>Mensen die de markt én uw taal kennen</h2>
+        <p class="eyebrow">Ons team</p>
+        <h2>Uw team voor vastgoed in Marokko</h2>
       </div>
       <div class="personen">
         {team.map((p) => (
           <div class="persoon">
+            {/* TODO: vervang de foto van Marouane door een portret met dezelfde
+                achtergrond en belichting als die van Ayoub (zie site.ts). */}
             <img class="persoon__foto" src={p.foto} alt={p.naam} width="92" height="92" loading="lazy" />
             <div>
               <h3>{p.naam}</h3>
@@ -57,7 +60,7 @@ const faqs = [
               <p>{p.bio}</p>
               <div class="persoon__links">
                 <a href={`tel:${p.telefoonHref}`}><Icon name="telefoon" size={16} /> {p.telefoon}</a>
-                <a href={waLink('Hallo, ik heb een vraag over vastgoed in Marokko.', p.whatsapp)}><Icon name="chat" size={16} /> WhatsApp</a>
+                <a href={waLink('Hallo, ik heb een vraag over vastgoed in Marokko.', p.whatsapp)}><Icon name="whatsapp" size={16} /> WhatsApp</a>
                 <a href={`mailto:${p.email}`}><Icon name="mail" size={16} /> E-mail</a>
                 {p.linkedin && <a href={p.linkedin}><Icon name="linkedin" size={16} /> LinkedIn</a>}
               </div>
@@ -65,38 +68,40 @@ const faqs = [
           </div>
         ))}
       </div>
+      <p style="margin-top:28px;color:var(--text-muted);font-size:15.5px;max-width:760px">
+        Ons vaste team wordt ondersteund door lokale partners en specialisten in Marokko voor bezichtigingen, dossiercontrole, notariële afstemming, beheer en projectopvolging.
+      </p>
     </div>
   </section>
 
   <section class="section">
     <div class="container prose" style="max-width:760px">
-      <h2>Hoe wij verdienen</h2>
-      <p>Wij werken transparant. Onze vergoeding komt uit begeleiding, analyse of beheer — niet uit het blind doorduwen van een willekeurig object. Als een aankoop niet klopt, zeggen wij dat. Ook als dat betekent dat u niet koopt.</p>
+      <h2>Onze rol en vergoeding</h2>
+      <p>Onze werkwijze is transparant. Vooraf maken wij duidelijk welke rol wij hebben, welke begeleiding wij leveren en hoe onze vergoeding is opgebouwd. Bij projecten waar een ontwikkelaar of aanbieder een vergoeding betaalt, communiceren wij dit duidelijk en blijft ons advies gericht op de geschiktheid van het object voor de klant.</p>
+      <p>Soms betaalt de klant rechtstreeks voor begeleiding of analyse; bij bepaalde projecten kan de vergoeding via de aanbieder of ontwikkelaar lopen. In alle gevallen beoordelen wij of het object past bij het doel, budget en risicoprofiel van de klant.</p>
 
-      <h2>Wanneer wij nee zeggen</h2>
-      <p>Wij adviseren om niet te kopen wanneer:</p>
+      <h2>Hoe wij een dossier beoordelen</h2>
+      <p>Elke opdracht doorloopt dezelfde structuur: intake en doelstelling, markt- en objectanalyse, dossier en due diligence, en daarna advies en uitvoering. Concreet beoordelen wij onder meer:</p>
       <ul class="checks">
-        <li>de eigendomstitel onduidelijk is;</li>
-        <li>de verkoper geen volledige documenten aanlevert;</li>
-        <li>betalingen buiten de notaris om moeten lopen;</li>
-        <li>de vraagprijs niet logisch is;</li>
-        <li>de ontwikkelaar onvoldoende betrouwbaar overkomt.</li>
+        <li>De eigendomstitel en de kadastrale registratie.</li>
+        <li>De volledigheid van de aangeleverde documenten.</li>
+        <li>De betalingsroute en de contractvoorwaarden.</li>
+        <li>De vraagprijs ten opzichte van referentieobjecten en marktinformatie.</li>
+        <li>Bij nieuwbouw: de ontwikkelaar, de vergunningen en de planning.</li>
       </ul>
 
       <h2>Bedrijfsgegevens</h2>
       <p>Maghreb Estates is officieel ingeschreven in Marokko als vennootschap met beperkte aansprakelijkheid (SARL), bij de rechtbank van Rabat.</p>
       <ul>
         <li>Handelsnaam: Maghreb Estates {site.rechtsvorm}</li>
-        {site.activiteit && <li>Activiteit: {site.activiteit} (agence immobilière)</li>}
+        {site.activiteit && <li>Activiteit: {site.activiteit}</li>}
         {site.adres && <li>Adres: {site.adres}, {site.vestigingsplaats}</li>}
-        {!site.adres && site.vestigingsplaats && <li>Vestigingsplaats: {site.vestigingsplaats}</li>}
         {site.rc && <li>Registre de Commerce (RC): {site.rc} — Rabat</li>}
         {site.ice && <li>ICE (Identifiant Commun de l’Entreprise): {site.ice}</li>}
         {site.kapitaal && <li>Maatschappelijk kapitaal: {site.kapitaal}</li>}
         <li>E-mail: <a href={`mailto:${site.email}`}>{site.email}</a></li>
         <li>Telefoon / WhatsApp: <a href={`tel:${site.telefoonHref}`}>{site.telefoon}</a></li>
-        <li>Werkgebied: heel Marokko, vanuit Nederland en België</li>
-        <li><a href="/privacybeleid/">Privacybeleid</a> · <a href="/disclaimer/">Disclaimer</a> · <a href="/algemene-voorwaarden/">Algemene voorwaarden</a></li>
+        <li>Werkgebied: heel Marokko, voor internationale en Europese klanten</li>
       </ul>
     </div>
   </section>

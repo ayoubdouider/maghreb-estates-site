@@ -1,5 +1,5 @@
-// AI-laag content per pagina (Direct Answer + Summary). Toon: betrouwbare adviseur
-// die de koper beschermt, niet een makelaar die wil verkopen. Kort en citeerbaar.
+// AI-laag content per pagina (Direct Answer + Summary). Toon: professioneel
+// advieskantoor — feitelijk, positief en citeerbaar, zonder waarschuwende framing.
 export interface AiContent {
   vraag: string;
   antwoord: string;
@@ -28,11 +28,11 @@ export const aicontent: Record<string, AiContent> = {
   },
   '/huis-kopen-marokko/': {
     vraag: 'Kun je als buitenlandse koper een huis kopen in Marokko?',
-    antwoord: 'Ja. Er zijn geen nationaliteitsbeperkingen voor het kopen van een woning, appartement of villa; alleen bepaalde landbouwgrond is uitgezonderd. De aankoop verloopt via een voorlopig koopcontract (compromis de vente) en een definitieve akte bij de notaris, met inschrijving in het kadaster. Koop niet voordat de eigendomspapieren gecontroleerd zijn.',
+    antwoord: 'Ja. Buitenlandse kopers kunnen in Marokko in veel gevallen woningen, appartementen en villa’s kopen; voor bepaalde soorten landbouwgrond gelden beperkingen. De aankoop verloopt via een voorlopig koopcontract (compromis de vente) en een definitieve akte bij de notaris, met inschrijving in het kadaster.',
     voorWie: 'Kopers van een eerste of tweede woning in Marokko, ook op afstand.',
-    watLeerJe: 'De stappen, de kosten (±6–10%), de risico’s en hoe je veilig en op afstand koopt.',
-    wanneerHelpen: 'Bij selectie, onderhandeling, dossiercontrole en de gang naar de notaris.',
-    letOp: 'De aanbetaling bij het compromis de vente is het moment waarop kopers geld verliezen — altijd via de notaris.',
+    watLeerJe: 'De stappen in het aankoopproces, wat wij analyseren, de kosten in hoofdlijnen en hoe kopen op afstand werkt.',
+    wanneerHelpen: 'Bij selectie, marktvergelijking, onderhandeling, due diligence en de gang naar de notaris.',
+    letOp: 'Leg bedrag, voorwaarden en betalingsroute van de aanbetaling duidelijk vast en laat documenten vooraf beoordelen.',
   },
   '/huis-kopen-marokko-vanuit-nederland/': {
     vraag: 'Kun je een huis kopen in Marokko vanuit Nederland, zonder er zelf te zijn?',
@@ -76,19 +76,19 @@ export const aicontent: Record<string, AiContent> = {
   },
   '/aankoopbegeleiding-vastgoed-marokko/': {
     vraag: 'Wat doet aankoopbegeleiding bij vastgoed in Marokko?',
-    antwoord: 'Aankoopbegeleiding is onafhankelijke ondersteuning van de koper: selectie en beoordeling van objecten, onderhandeling, volledige dossiercontrole (due diligence) en begeleiding bij notaris en overdracht. Wij verdienen niets aan een specifiek object en adviseren niet te kopen als het dossier niet klopt.',
-    voorWie: 'Kopers die zekerheid willen en niet zelf de markt en papieren kunnen beoordelen.',
-    watLeerJe: 'Wat wij precies controleren en hoe we je tegen de bekende valkuilen beschermen.',
+    antwoord: 'Aankoopbegeleiding is professionele ondersteuning van de koper: selectie en beoordeling van objecten, marktvergelijking, onderhandeling, due diligence op het dossier en begeleiding bij notaris en overdracht. Onze rol en vergoeding worden vooraf helder besproken, en wij beoordelen altijd of een object past bij uw doel, budget en risicoprofiel.',
+    voorWie: 'Kopers die een professioneel proces willen bij het beoordelen van markt, object en dossier.',
+    watLeerJe: 'Wat wij analyseren, welke documenten wij beoordelen en hoe het traject stap voor stap verloopt.',
     wanneerHelpen: 'Van oriëntatie tot overdracht, ook volledig op afstand.',
-    letOp: 'Geen aankoop zonder complete dossiercontrole — hoe aantrekkelijk het object ook lijkt.',
+    letOp: 'Een beslissing wordt sterker met marktdata, documentcontrole en lokale kennis naast elkaar.',
   },
   '/kosten-huis-kopen-marokko/': {
     vraag: 'Welke kosten komen kijken bij het kopen van een huis in Marokko?',
-    antwoord: 'Naast de koopsom betaal je circa 6–10% aan bijkomende kosten: registratierechten (4% op een gebouwde woning), notaris (±0,5–1%), kadaster (±1–1,5%) en zegelrechten. Met een makelaarsfee kan het oplopen tot ±8,5–11,5%. Daarnaast zijn er jaarlijkse kosten zoals lokale belastingen en syndic. Vraag vóór ondertekening altijd een gespecificeerd kostenblad bij de notaris.',
-    voorWie: 'Iedereen die de totale kosten van een aankoop wil kennen.',
-    watLeerJe: 'De volledige kostenopbouw bij aankoop én de terugkerende lasten daarna.',
-    wanneerHelpen: 'Met een transparante, complete kostenberekening voor jouw situatie.',
-    letOp: 'Percentages zijn indicatief; officiële tarieven lopen uiteen — laat ze bevestigen.',
+    antwoord: 'Naast de koopsom krijgt u te maken met officiële aankoopkosten: registratierechten (in beginsel 4% op een gebouwde woning), notariskosten (±0,5–1%), kadaster/inschrijving (±1–1,5%) en zegelrechten. Daarnaast zijn er terugkerende lasten zoals lokale belastingen, syndic en onderhoud. De exacte kosten verschillen per dossier, aankoopvorm en object; vraag vóór ondertekening altijd een gespecificeerd kostenblad bij de notaris.',
+    voorWie: 'Iedereen die de kosten rond een aankoop in hoofdlijnen wil kennen.',
+    watLeerJe: 'De officiële kostenposten bij aankoop en de terugkerende lasten daarna.',
+    wanneerHelpen: 'Met een kostenoverzicht dat per dossier wordt doorgerekend.',
+    letOp: 'Deze informatie is indicatief en geen fiscaal of juridisch advies.',
   },
   '/verborgen-kosten-huis-kopen-marokko/': {
     vraag: 'Welke verborgen kosten heb je bij een huis kopen in Marokko?',
@@ -99,12 +99,12 @@ export const aicontent: Record<string, AiContent> = {
     letOp: 'Een tweede/niet-verhuurde woning mist vaak de 75%-korting op de woonbelasting.',
   },
   '/risicos-huis-kopen-marokko/': {
-    vraag: 'Wat zijn de grootste risico’s bij vastgoed kopen in Marokko?',
-    antwoord: 'De grootste risico’s zijn onduidelijke eigendom (geen geregistreerde titre foncier), dubbele verkoop, informele afspraken buiten de notaris om, afhankelijkheid van familie of tussenpersonen, en onbetrouwbare ontwikkelaars bij nieuwbouw. Bijna al deze risico’s zijn te vermijden met dossiercontrole en een officiële overdracht.',
-    voorWie: 'Iedereen die veilig wil kopen en de valkuilen wil kennen.',
-    watLeerJe: 'De concrete risico’s en precies hoe je je ertegen beschermt.',
-    wanneerHelpen: 'Met due diligence en begeleiding die de risico’s systematisch afdekt.',
-    letOp: 'Koop nooit op basis van alleen een advertentie of een belofte.',
+    vraag: 'Wat zijn de belangrijkste aandachtspunten bij vastgoed kopen in Marokko?',
+    antwoord: 'De belangrijkste aandachtspunten zijn de eigendomsinformatie (een geregistreerde titre foncier), de contractvoorwaarden, de betalingsroute, de marktwaarde en de overdracht bij de notaris. Bij nieuwbouw komt daar de beoordeling van de ontwikkelaar en de planning bij. Met documentcontrole en een officiële overdracht zijn deze punten goed te beheersen.',
+    voorWie: 'Kopers die willen weten welke punten in een Marokkaans dossier aandacht vragen.',
+    watLeerJe: 'Welke onderdelen van een dossier wij beoordelen en waarom ze ertoe doen.',
+    wanneerHelpen: 'Met due diligence, marktvergelijking en lokale opvolging tot en met de overdracht.',
+    letOp: 'Beoordeel documenten, eigendom, prijs en betalingsroute vóórdat u zich verbindt.',
   },
   '/oplichting-vastgoed-marokko-voorkomen/': {
     vraag: 'Hoe voorkom je oplichting bij vastgoed in Marokko?',
@@ -137,14 +137,6 @@ export const aicontent: Record<string, AiContent> = {
     watLeerJe: 'Wat de titre foncier is, het verschil met melkia en hoe je hem controleert.',
     wanneerHelpen: 'Met verificatie van de titel bij het kadaster als onderdeel van due diligence.',
     letOp: 'Geen geregistreerde titre foncier betekent verhoogd risico — dan kopen we niet.',
-  },
-  '/volmacht-huis-kopen-marokko/': {
-    vraag: 'Hoe koop je een huis in Marokko met een volmacht?',
-    antwoord: 'Met een notariële volmacht (procuration) machtig je iemand om specifieke handelingen namens jou te verrichten, tot en met de akte. Zo kun je op afstand kopen. Houd de volmacht altijd beperkt en specifiek; een te ruime, algemene volmacht is af te raden.',
-    voorWie: 'Kopers die op afstand willen kopen zonder telkens af te reizen.',
-    watLeerJe: 'Hoe je een volmacht veilig regelt en welke handelingen die dekt.',
-    wanneerHelpen: 'Met het veilig opstellen en gebruiken van de volmacht.',
-    letOp: 'Beperk de volmacht tot precies wat nodig is — niet meer.',
   },
   '/appartement-kopen-marokko/': {
     vraag: 'Waar let je op bij een appartement kopen in Marokko?',
@@ -188,11 +180,11 @@ export const aicontent: Record<string, AiContent> = {
   },
   '/vastgoedbeheer-marokko/': {
     vraag: 'Kun je je woning in Marokko op afstand laten beheren?',
-    antwoord: 'Ja. Vastgoedbeheer neemt alles uit handen terwijl je buiten Marokko bent: huurders vinden en screenen, huur innen, onderhoud regelen, toezicht houden en transparant rapporteren. Zo rendeert je woning of blijft die in goede staat, met volledige controle op afstand.',
-    voorWie: 'Eigenaren die willen verhuren, beheren of hun woning laten controleren.',
-    watLeerJe: 'Wat beheer omvat, wat het oplevert en hoe je grip houdt op afstand.',
-    wanneerHelpen: 'Met volledig verhuur- en vastgoedbeheer, inclusief rapportage.',
-    letOp: 'Onduidelijke afrekeningen zijn de grootste klacht — eis transparante rapportage.',
+    antwoord: 'Beheer op afstand omvat doorgaans lokale opvolging, toezicht op de woning, afstemming over onderhoud en — waar van toepassing — de verhuurstructuur. Maghreb Estates denkt hierin op aanvraag mee; de beschikbaarheid verschilt per stad, wijk en objecttype.',
+    voorWie: 'Eigenaren buiten Marokko die willen weten wat beheer op afstand praktisch inhoudt.',
+    watLeerJe: 'Welke onderdelen bij beheer komen kijken en waar de aandachtspunten liggen.',
+    wanneerHelpen: 'Op aanvraag, afhankelijk van stad, wijk en objecttype.',
+    letOp: 'Leg diensten, frequentie en rapportage vooraf schriftelijk vast.',
   },
   '/verhuurbeheer-marokko/': {
     vraag: 'Hoe regel je verhuurbeheer in Marokko vanuit Nederland?',
@@ -276,10 +268,10 @@ export const aicontent: Record<string, AiContent> = {
   },
   '/over-ons/': {
     vraag: 'Wie is Maghreb Estates?',
-    antwoord: 'Maghreb Estates is een onafhankelijk vastgoedadvieskantoor dat internationale kopers, investeerders en eigenaren begeleidt bij kopen, investeren, verhuren en beheren in Marokko. Wij combineren lokale marktkennis met transparante begeleiding en kijken eerst naar risico, daarna pas naar rendement. Klanten uit Europa begeleiden wij in het Nederlands, Engels, Frans en Arabisch.',
+    antwoord: 'Maghreb Estates is een real estate advisory firm gericht op vastgoed in Marokko. Wij begeleiden internationale kopers, investeerders en eigenaren met aankoopadvies, objectanalyse, due diligence, marktinzicht en lokale opvolging. Begeleiding is mogelijk in het Nederlands, Engels, Frans en Arabisch/Darija.',
     voorWie: 'Iedereen die wil weten wie achter Maghreb Estates zit en hoe wij werken.',
-    watLeerJe: 'Wie we zijn, voor wie we werken, onze werkwijze en onze trust-principes.',
-    wanneerHelpen: 'Bij het volledige traject: kopen, investeren, verhuren, beheren en verkopen.',
-    letOp: 'Wij zijn onafhankelijk en verdienen niets aan een specifiek object.',
+    watLeerJe: 'Wie we zijn, voor wie we werken, hoe ons proces eruitziet en hoe onze vergoeding is opgebouwd.',
+    wanneerHelpen: 'Bij aankoop, investering, objectanalyse en de stappen daarna.',
+    letOp: 'Onze rol en vergoeding worden vooraf transparant besproken.',
   },
 };

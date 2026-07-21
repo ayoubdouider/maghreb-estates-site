@@ -2,131 +2,177 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
 import Icon from '../components/Icon.astro';
-import CardSlider from '../components/CardSlider.astro';
-import Faq from '../components/Faq.astro';
-import CtaBand from '../components/CtaBand.astro';
-import { steden } from '../data/steden';
-import { team, homeMarkten } from '../data/site';
-import { faqSchema } from '../data/schema';
+import { team, teamNetwerk } from '../data/site';
 
-// Bewust kort gehouden op de homepage: vier vragen die een oriënterende bezoeker
-// stelt. Verdieping staat in de kennisbank, niet hier.
-const faqs = [
-  { q: 'Voor wie werkt Maghreb Estates?', a: 'Voor internationale kopers, investeerders en eigenaren die vastgoed in Marokko willen kopen, laten renderen of verkopen — meestal vanuit het buitenland. Wij begeleiden klanten uit Europa in het Nederlands, Engels, Frans en Arabisch.' },
-  { q: 'Wat doen jullie precies?', a: 'Aankoopadvies en due diligence, investeringsanalyse, en beheer en verkoop na aankoop. Wij zijn onafhankelijk: wij verdienen niets aan een specifiek object en behartigen uitsluitend uw belang.' },
-  { q: 'Kan een aankoop volledig op afstand worden geregeld?', a: 'Ja. Met een volmacht ronden wij het volledige traject af, inclusief de akte bij de notaris, zodat u niet telkens naar Marokko hoeft te reizen.' },
-  { q: 'Wat kost een adviesgesprek?', a: 'Het eerste gesprek is vrijblijvend. We luisteren naar uw situatie en vertellen u eerlijk wat mogelijk is en wat het traject kost.' },
+// Bewust rustige homepage: hero → data/insights → aanpak → waarom → proces →
+// team → korte CTA → footer. Geen stedenblok, geen FAQ, geen kennisbankdump.
+// Die pagina's blijven volledig indexeerbaar via footer, /vastgoed-marokko/,
+// /kennisbank/ en de sitemap, maar staan niet in de zichtbare klantreis.
+
+const datacards = [
+  {
+    icon: 'grafiek',
+    titel: 'Marktvergelijking',
+    tekst: 'Wij vergelijken vraagprijzen met beschikbare marktinformatie, referentieobjecten en lokale prijsniveaus.',
+  },
+  {
+    icon: 'prijs',
+    titel: 'Rendementsindicatie',
+    tekst: 'Voor investeerders maken wij onderscheid tussen bruto huurpotentie, netto resultaat, beheerlasten en leegstandsrisico.',
+  },
+  {
+    icon: 'weegschaal',
+    titel: 'Objectscore',
+    tekst: 'Wij beoordelen locatie, staat, juridische documenten, verhuurbaarheid en exit-potentie in één overzicht.',
+  },
+  {
+    icon: 'dashboard',
+    titel: 'Dashboard & rapportage',
+    tekst: 'Waar mogelijk werken wij met dashboards en objectrapportages om keuzes inzichtelijk en bespreekbaar te maken.',
+  },
 ];
 
-const markten = homeMarkten
-  .map((m) => steden.find((s) => s.slug === m.slug))
-  .filter((s): s is NonNullable<typeof s> => Boolean(s));
+const stappen = [
+  { titel: 'Intake & doelstelling', tekst: 'We bepalen uw doel, budget, voorkeursregio en gewenste rol van Maghreb Estates.' },
+  { titel: 'Markt- en objectanalyse', tekst: 'We beoordelen locatie, prijsniveau, verhuurpotentie, ontwikkelaar of verkoper en beschikbare marktdata.' },
+  { titel: 'Dossier & due diligence', tekst: 'We controleren relevante documenten, eigendomsinformatie, contractvoorwaarden en aandachtspunten voor overdracht.' },
+  { titel: 'Advies & uitvoering', tekst: 'U ontvangt een helder advies. Daarna begeleiden wij bij onderhandeling, overdracht, beheer of vervolgstappen.' },
+];
+
+const redenen = [
+  'Datagedreven objectanalyse',
+  'Lokale aanwezigheid in Marokko',
+  'Due diligence vóór aankoop',
+  'Meertalige begeleiding',
+  'Ondersteuning bij aankoop, investering en beheer',
+];
 ---
 <BaseLayout
-  title="Vastgoed kopen, investeren en beheren in Marokko | Maghreb Estates"
-  description="Maghreb Estates begeleidt internationale kopers en investeerders bij vastgoed in Marokko. Van aankoopadvies en due diligence tot verhuur, beheer en verkoop."
+  title="Vastgoed kopen en investeren in Marokko | Maghreb Estates"
+  description="Maghreb Estates begeleidt internationale kopers en investeerders bij vastgoed in Marokko: aankoopadvies, investeringsanalyse, due diligence en marktdata."
   path="/"
-  schema={[faqSchema(faqs)]}
 >
   <Hero
-    eyebrow="International real estate advisory · Marokko"
-    title="Vastgoed kopen, investeren en<br /><em>beheren in Marokko</em>"
-    sub="Maghreb Estates begeleidt internationale kopers en investeerders bij vastgoed in Marokko. Van aankoopadvies en due diligence tot verhuur, beheer en verkoop — met lokale marktkennis en transparante begeleiding."
-    image="/images/villa5.jpg"
+    image="/images/villa4.jpg"
+    eyebrow="International real estate advisory · Morocco"
+    title="Vastgoed kopen en<br /><em>investeren in Marokko</em>"
+    sub="Maghreb Estates begeleidt internationale kopers en investeerders bij vastgoed in Marokko. Met lokale marktkennis, data-analyse en professionele due diligence helpen wij u betere aankoop- en investeringsbeslissingen nemen."
     ctas={[
-      { label: 'Plan adviesgesprek', href: '/contact/', primary: true },
-      { label: 'Laat een object beoordelen', href: '/contact/?doel=aankoopcontrole' },
+      { label: 'Plan adviesgesprek', href: '/adviesgesprek/', primary: true },
+      { label: 'Laat een object analyseren', href: '/contact/?doel=objectanalyse' },
     ]}
-    trust={['Aankoopadvies', 'Due diligence', 'Investeringsanalyse', 'Vastgoedbeheer']}
+    trust={['Aankoopadvies', 'Investeringsanalyse', 'Due diligence', 'Marktdata', 'Begeleiding in Marokko']}
   />
 
-  <!-- DRIE HOOFDSERVICES -->
+  <!-- DATA & INSIGHTS — de kern-USP, direct na de hero -->
+  <section class="section">
+    <div class="container">
+      <div class="section__header" style="max-width:820px">
+        <p class="eyebrow">Insights</p>
+        <h2>Beslissen op basis van inzicht,<br /><em>niet alleen gevoel</em></h2>
+        <p class="section__desc">De Marokkaanse vastgoedmarkt is lokaal, versnipperd en vaak weinig transparant. Maghreb Estates brengt structuur aan in die markt. Wij analyseren objecten op prijs, locatie, verhuurpotentie, marktdynamiek en dossierkwaliteit, zodat u niet alleen ziet wat een woning kost, maar ook hoe sterk de onderliggende investering is.</p>
+      </div>
+      <div class="datacards">
+        {datacards.map((c) => (
+          <div class="datacard">
+            <span class="datacard__ic"><Icon name={c.icon} size={24} /></span>
+            <h3>{c.titel}</h3>
+            <p>{c.tekst}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- DIENSTEN -->
   <section class="section section--tinted">
     <div class="container">
-      <div class="section__header section__header--center">
-        <p class="eyebrow">Onze diensten</p>
-        <h2>Drie manieren waarop wij u begeleiden</h2>
+      <div class="section__header" style="max-width:820px">
+        <p class="eyebrow">Onze aanpak</p>
+        <h2>Marktdata, juridische controle<br /><em>en lokale kennis samen</em></h2>
+        <p class="section__desc">Een vastgoedbeslissing wordt sterker wanneer marktdata, juridische controle en lokale kennis samenkomen. Daarom combineren wij objectanalyse, prijsvergelijking, documentcontrole en begeleiding ter plaatse in één helder proces.</p>
       </div>
       <div class="grid grid--3">
         <a class="card card--link" href="/aankoopbegeleiding-vastgoed-marokko/">
           <span class="card__ic"><Icon name="schild" size={26} /></span>
-          <h3>Aankoopadvies</h3>
-          <p>Objectselectie, onderhandeling en volledige dossiercontrole — van eigendomstitel tot overdracht bij de notaris.</p>
-          <span class="card__more">Meer over aankoopadvies</span>
+          <h3>Aankoopbegeleiding</h3>
+          <p>Objectselectie, marktvergelijking, onderhandeling en due diligence tot en met de overdracht bij de notaris.</p>
+          <span class="card__more">Meer over aankoopbegeleiding</span>
         </a>
         <a class="card card--link" href="/investeren-vastgoed-marokko/">
           <span class="card__ic"><Icon name="prijs" size={26} /></span>
           <h3>Investeringsadvies</h3>
-          <p>Nuchtere analyse van netto rendement, stad- en objectkeuze en risico — onderbouwd met marktdata.</p>
+          <p>Analyse van netto rendement, stad- en objectkeuze en risicoprofiel, onderbouwd met marktdata.</p>
           <span class="card__more">Meer over investeren</span>
         </a>
-        <a class="card card--link" href="/vastgoedbeheer-marokko/">
-          <span class="card__ic"><Icon name="beheer" size={26} /></span>
-          <h3>Beheer & verkoop</h3>
-          <p>Verhuur, onderhoud en toezicht op afstand, en begeleiding wanneer u uw woning weer wilt verkopen.</p>
-          <span class="card__more">Meer over beheer & verkoop</span>
+        <a class="card card--link" href="/nieuwbouw-vastgoed-marokko/">
+          <span class="card__ic"><Icon name="contract" size={26} /></span>
+          <h3>Nieuwbouw &amp; off-plan</h3>
+          <p>Beoordeling van ontwikkelaar, vergunningen, contractvoorwaarden, betalingsstructuur en oplevering.</p>
+          <span class="card__more">Meer over nieuwbouw</span>
         </a>
       </div>
     </div>
   </section>
 
-  <!-- WERKWIJZE -->
+  <!-- WAAROM KLANTEN MET ONS WERKEN -->
   <section class="section">
     <div class="container">
-      <div class="section__header section__header--center">
-        <p class="eyebrow">Werkwijze</p>
-        <h2>Vier stappen, helder afgebakend</h2>
+      <div class="split">
+        <div class="split__text">
+          <p class="eyebrow">Waarom Maghreb Estates</p>
+          <h2>Waarom klanten met<br /><em>Maghreb Estates werken</em></h2>
+          <p class="section__desc">Klanten schakelen ons in wanneer zij professionele begeleiding willen in een markt die lokaal sterk verschilt per stad, wijk en ontwikkelaar. Wij brengen structuur in het aankoopproces, combineren lokale aanwezigheid met data-analyse en begeleiden elke stap richting een goed onderbouwde beslissing.</p>
+        </div>
+        <div>
+          <ul class="checks">
+            {redenen.map((r) => <li>{r}</li>)}
+          </ul>
+          <p style="color:var(--text-muted);font-size:15.5px;margin-top:20px">Wij werken voor kopers, investeerders en eigenaren die in Marokko vastgoed willen aankopen, beoordelen, verhuren, beheren of verkopen — met een professioneel proces en heldere communicatie.</p>
+        </div>
       </div>
-      <CardSlider cols={4} hint="Veeg door de stappen">
-        <div class="card"><span class="card__num">1</span><h3>Intake</h3><p>Uw doel, budget en tijdlijn scherp krijgen — eigen gebruik, rendement of beide.</p></div>
-        <div class="card"><span class="card__num">2</span><h3>Object- en dossieranalyse</h3><p>Eigendomstitel, contract, prijs en locatie objectief beoordeeld.</p></div>
-        <div class="card"><span class="card__num">3</span><h3>Advies & onderhandeling</h3><p>Een onderbouwd advies en onderhandeling op basis van marktinformatie.</p></div>
-        <div class="card"><span class="card__num">4</span><h3>Overdracht of beheer</h3><p>Officiële overdracht bij de notaris, daarna optioneel verhuur en beheer.</p></div>
-      </CardSlider>
     </div>
   </section>
 
-  <!-- MARKTEN -->
-  <section class="section section--tinted" id="markten">
+  <!-- HOE WIJ WERKEN (werkwijze + controle + stappen samengevoegd) -->
+  <section class="section section--tinted">
     <div class="container">
-      <div class="markten">
-        <div class="markten__intro">
-          <p class="eyebrow">Selectie van markten</p>
-          <h2>Waar wij actief zijn</h2>
-          <p class="section__desc">Elke stad kent een eigen markt en een eigen risicoprofiel. Wij beoordelen elk object binnen die context.</p>
-        </div>
-        <div class="markten__links">
-          {markten.map((s) => (
-            <a class="markt-link" href={`/vastgoed-${s.slug}/`}>
-              <strong>{s.naam}</strong>
-              <span>{s.regio}</span>
-            </a>
-          ))}
-          <a class="markt-link markt-link--alle" href="/vastgoed-marokko/">
-            <strong>Alle markten</strong>
-            <span>Volledig overzicht</span>
-          </a>
-        </div>
+      <div class="section__header" style="max-width:820px">
+        <p class="eyebrow">Proces</p>
+        <h2>Hoe wij werken</h2>
+        <p class="section__desc">Elke opdracht begint met een helder doel: aankopen, investeren, verkopen of beheren. Daarna brengen wij de markt, het object en het dossier stap voor stap in kaart.</p>
       </div>
+      <ol class="stappen">
+        {stappen.map((s, i) => (
+          <li class="stap">
+            <span class="stap__num">Stap {i + 1}</span>
+            <h3>{s.titel}</h3>
+            <p>{s.tekst}</p>
+          </li>
+        ))}
+      </ol>
     </div>
   </section>
 
-  <!-- TEAM & VERTROUWEN -->
+  <!-- TEAM -->
   <section class="section">
     <div class="container">
       <div class="teamsectie">
         <div class="section__header">
           <p class="eyebrow">Ons team</p>
-          <h2>Persoonlijk contact met<br /><em>mensen die de markt kennen</em></h2>
-          <p class="section__desc">Twee adviseurs, één vast aanspreekpunt. Wij begeleiden klanten uit Europa in het Nederlands, Engels, Frans en Arabisch.</p>
+          <h2>Uw team voor<br /><em>vastgoed in Marokko</em></h2>
+          <p class="section__desc">U werkt met herkenbare aanspreekpunten, ondersteund door een lokaal netwerk van specialisten voor dossiercontrole, marktinformatie, bezichtigingen, beheer en uitvoering.</p>
         </div>
         <div class="teamkaarten">
           {team.map((p) => (
             <div class="teamkaart">
+              {/* TODO: vervang de foto van Marouane door een portret met dezelfde
+                  achtergrond en belichting als die van Ayoub (zie site.ts). */}
               <img class="teamkaart__foto" src={p.foto} alt={p.naam} width="330" height="360" loading="lazy" />
               <div class="teamkaart__body">
                 <h3 class="teamkaart__naam">{p.naam}</h3>
                 <p class="teamkaart__rol">{p.rol}</p>
+                <p class="teamkaart__bio">{p.bio}</p>
                 <div class="teamkaart__contact">
                   <a href={`tel:${p.telefoonHref}`}><Icon name="telefoon" size={16} /> {p.telefoon}</a>
                   <a href={`mailto:${p.email}`}><Icon name="mail" size={16} /> {p.email}</a>
@@ -135,16 +181,18 @@ const markten = homeMarkten
             </div>
           ))}
         </div>
-        <p style="margin-top:28px"><a href="/over-ons/" class="btn btn--outline">Meer over Maghreb Estates</a></p>
+        <p style="margin-top:28px;color:var(--text-muted);font-size:15.5px">{teamNetwerk}</p>
+        <p style="margin-top:24px"><a href="/over-ons/" class="btn btn--outline">Meer over Maghreb Estates</a></p>
       </div>
     </div>
   </section>
 
-  <Faq items={faqs} title="Veelgestelde vragen" />
-
-  <CtaBand
-    title="Plan een adviesgesprek"
-    text="Een vrijblijvend gesprek over uw situatie — kopen, investeren, beheren of verkopen. Wij vertellen u eerlijk wat mogelijk is."
-    label="Plan adviesgesprek"
-  />
+  <!-- KORTE AFSLUITENDE CTA — daarna alleen de footer -->
+  <section class="ctaband">
+    <div class="container">
+      <h2>Wilt u een object laten analyseren of uw mogelijkheden bespreken?</h2>
+      <p>Plan een adviesgesprek met Maghreb Estates.</p>
+      <a href="/adviesgesprek/" class="btn btn--light">Plan adviesgesprek</a>
+    </div>
+  </section>
 </BaseLayout>

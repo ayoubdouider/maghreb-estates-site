@@ -5,13 +5,15 @@ import Icon from '../components/Icon.astro';
 import { site, waLink } from '../data/site';
 
 const path = '/contact/';
-const inputStyle = 'width:100%;padding:12px;border:1px solid var(--border);border-radius:var(--radius);margin-top:6px;font-family:inherit';
-// TODO (later): formulier loopt nu via WhatsApp/mailto. Koppel aan CRM of e-mailautomatisering
-// (bv. Web3Forms/Formspree) zodra beschikbaar, zonder de mobiele WhatsApp-flow te verliezen.
+// Deze pagina is de objectanalyse-route: woninglink, project of documenten
+// sturen en algemene vragen. Het boeken van een gesprek loopt via
+// /adviesgesprek/ (kalender + tijdslot).
+// TODO (later): koppel aan CRM of e-mailautomatisering zodra beschikbaar,
+// zonder de mobiele WhatsApp-flow te verliezen.
 ---
 <BaseLayout
-  title="Contact & gratis adviesgesprek | Maghreb Estates"
-  description="Stuur ons uw vraag of een woninglink. Wij kijken eerst of het object en het dossier logisch lijken voordat u verder gaat. Vrijblijvend en Nederlandstalig."
+  title="Contact: stuur uw vraag of woninglink | Maghreb Estates"
+  description="Stuur ons uw vraag, een woninglink of projectinformatie. Wij beoordelen de informatie en komen terug met een duidelijke vervolgstap. Meertalige begeleiding."
   path={path}
 >
   <Breadcrumbs items={[{ label: 'Contact', href: path }]} />
@@ -22,13 +24,13 @@ const inputStyle = 'width:100%;padding:12px;border:1px solid var(--border);borde
         <div class="split__text">
           <p class="eyebrow">Contact</p>
           <h1 style="font-size:clamp(32px,4vw,46px);margin-bottom:18px">Stuur ons uw vraag of woninglink</h1>
-          <p style="color:var(--text-muted);font-size:18px;margin-bottom:24px">Heeft u al een woning, project of advertentie gezien? Stuur de link of documenten mee. Wij kijken eerst of het object en het dossier logisch lijken voordat u verder gaat.</p>
+          <p style="color:var(--text-muted);font-size:18px;margin-bottom:24px">Heeft u een woning, project of advertentie gezien? Stuur de link of de documenten mee. Wij beoordelen de informatie en komen terug met een duidelijke vervolgstap.</p>
 
           <ul class="checks" style="margin-bottom:28px">
             <li>Eerste gesprek vrijblijvend</li>
             <li>Reactie meestal binnen 24 uur</li>
             <li>Direct contact via WhatsApp</li>
-            <li>Nederlandstalige begeleiding</li>
+            <li>Meertalige begeleiding</li>
             <li>Geen verplichting</li>
           </ul>
 
@@ -36,59 +38,69 @@ const inputStyle = 'width:100%;padding:12px;border:1px solid var(--border);borde
             <h3>Direct contact</h3>
             <ul class="contactlist">
               <li><Icon name="telefoon" size={18} /><a href={`tel:${site.telefoonHref}`} style="color:var(--green-mid)">{site.telefoon}</a></li>
-              <li><Icon name="chat" size={18} /><a href={waLink('Hallo Maghreb Estates, ik heb een vraag over vastgoed in Marokko.')} style="color:var(--green-mid)">WhatsApp ons</a></li>
+              <li><Icon name="whatsapp" size={18} /><a href={waLink('Hallo Maghreb Estates, ik heb een vraag over vastgoed in Marokko.')} style="color:var(--green-mid)">WhatsApp ons</a></li>
               <li><Icon name="mail" size={18} /><a href={`mailto:${site.email}`} style="color:var(--green-mid)">{site.email}</a></li>
             </ul>
+          </div>
+
+          <div class="feature">
+            <h3>Liever een gesprek inplannen?</h3>
+            <p>Kies zelf een datum en tijdslot voor een adviesgesprek van maximaal 60 minuten.</p>
+            <p style="margin-top:14px"><a href="/adviesgesprek/" class="btn btn--outline">Plan adviesgesprek</a></p>
           </div>
         </div>
 
         <form class="card" id="contactForm" novalidate>
-          <div class="form__group" style="margin-bottom:16px">
-            <label for="naam">Naam *</label>
-            <input type="text" id="naam" name="naam" placeholder="Uw volledige naam" required style={inputStyle} />
+          <div class="veld">
+            <label for="naam">Naam <span aria-hidden="true">*</span></label>
+            <input type="text" id="naam" name="naam" placeholder="Uw volledige naam" required />
           </div>
-          <div class="form__group" style="margin-bottom:16px">
-            <label for="email">E-mailadres *</label>
-            <input type="email" id="email" name="email" placeholder="uw@email.nl" required style={inputStyle} />
+          <div class="veld">
+            <label for="telefoon">Telefoon / WhatsApp <span aria-hidden="true">*</span></label>
+            <input type="tel" id="telefoon" name="telefoon" placeholder="+31 6 00 00 00 00" required />
           </div>
-          <div class="form__group" style="margin-bottom:16px">
-            <label for="telefoon">Telefoon / WhatsApp</label>
-            <input type="tel" id="telefoon" name="telefoon" placeholder="+31 6 00 00 00 00" style={inputStyle} />
+          <div class="veld">
+            <label for="email">E-mailadres <span class="veld__hint">(optioneel)</span></label>
+            <input type="email" id="email" name="email" placeholder="uw@email.com" />
           </div>
-          <div class="form__group" style="margin-bottom:16px">
-            <label for="doel">Wat is uw doel? *</label>
-            <select id="doel" name="doel" required style={`${inputStyle};background:#fff`}>
+          <div class="veld">
+            <label for="doel">Wat is uw doel? <span aria-hidden="true">*</span></label>
+            <select id="doel" name="doel" required>
               <option value="">Selecteer een optie</option>
-              <option value="Huis kopen">Huis kopen in Marokko</option>
+              <option value="Vastgoed kopen">Vastgoed kopen in Marokko</option>
               <option value="Investeren / rendement">Investeren / rendement</option>
-              <option value="Aankoop laten controleren">Aankoop laten controleren</option>
-              <option value="Verhuur & beheer">Verhuur &amp; beheer</option>
+              <option value="Object laten analyseren">Object laten analyseren</option>
+              <option value="Nieuwbouw / off-plan">Nieuwbouw / off-plan</option>
               <option value="Woning verkopen">Woning verkopen</option>
+              <option value="Beheer & verhuur">Beheer &amp; verhuur</option>
               <option value="Anders">Anders</option>
             </select>
           </div>
-          <div class="form__group" style="margin-bottom:16px">
-            <label for="stad">Stad of regio in Marokko</label>
-            <input type="text" id="stad" name="stad" placeholder="Bijv. Tanger, Nador, Marrakech…" style={inputStyle} />
+          <div class="veld">
+            <label for="stad">Stad of regio in Marokko <span class="veld__hint">(optioneel)</span></label>
+            <input type="text" id="stad" name="stad" placeholder="Bijv. Tanger, Rabat, Marrakech…" />
           </div>
-          <div class="form__group" style="margin-bottom:16px">
-            <label for="budget">Budgetindicatie</label>
-            <input type="text" id="budget" name="budget" placeholder="Bijv. € 80.000 – € 150.000" style={inputStyle} />
+          <div class="veld">
+            <label for="budget">Budgetindicatie <span class="veld__hint">(optioneel)</span></label>
+            <input type="text" id="budget" name="budget" placeholder="Bijv. € 80.000 – € 150.000" />
           </div>
-          <div class="form__group" style="margin-bottom:16px">
-            <label for="woninglink">Link naar woning of project (optioneel)</label>
-            <input type="url" id="woninglink" name="woninglink" placeholder="https://…" style={inputStyle} />
+          <div class="veld">
+            <label for="woninglink">Link naar woning of project <span class="veld__hint">(optioneel)</span></label>
+            <input type="url" id="woninglink" name="woninglink" placeholder="https://…" />
           </div>
-          <div class="form__group" style="margin-bottom:20px">
-            <label for="bericht">Uw bericht *</label>
-            <textarea id="bericht" name="bericht" rows="4" placeholder="Vertel kort over uw situatie, wensen of vragen…" required style={inputStyle}></textarea>
+          <div class="veld">
+            <label for="bericht">Bericht <span aria-hidden="true">*</span></label>
+            <textarea id="bericht" name="bericht" rows="4" placeholder="Vertel kort over uw situatie, wensen of vragen…" required></textarea>
           </div>
 
-          <div style="display:flex;gap:12px;flex-wrap:wrap">
-            <button type="button" id="sendWhatsapp" class="btn btn--primary" style="flex:1;min-width:180px">Verstuur via WhatsApp</button>
-            <button type="button" id="sendMail" class="btn btn--outline" style="flex:1;min-width:180px">Verstuur via e-mail</button>
+          <div class="form__acties">
+            <button type="button" id="sendWhatsapp" class="btn btn--primary">Via WhatsApp</button>
+            <button type="button" id="sendMail" class="btn btn--outline">Via e-mail</button>
           </div>
-          <p id="formNote" style="font-size:13px;color:var(--text-muted);margin-top:14px">Uw bericht wordt geopend in WhatsApp of uw e-mailprogramma, met de gegevens alvast ingevuld. U ontvangt eerst een inhoudelijke reactie en wij reageren doorgaans dezelfde dag. Wij gebruiken uw gegevens alleen om op uw aanvraag te reageren. Geen spam.</p>
+
+          <p class="form__melding" id="bevestiging" hidden>
+            Bedankt voor uw bericht aan Maghreb Estates. Wij hebben uw aanvraag ontvangen en nemen zo snel mogelijk contact met u op. Heeft u een woninglink of documenten gedeeld, dan bekijken wij eerst de informatie en komen wij terug met een duidelijke vervolgstap.
+          </p>
         </form>
       </div>
     </div>
@@ -96,41 +108,72 @@ const inputStyle = 'width:100%;padding:12px;border:1px solid var(--border);borde
 
   <script is:inline define:vars={{ whatsapp: site.whatsapp, email: site.email }}>
     (function () {
-      const form = document.getElementById('contactForm');
-      const params = new URLSearchParams(location.search);
-      const doel = params.get('doel');
+      var params = new URLSearchParams(location.search);
+      var doel = params.get('doel');
       if (doel) {
-        const map = { aankoopcontrole: 'Aankoop laten controleren', kopen: 'Huis kopen', investeringsanalyse: 'Investeren / rendement', beheer: 'Verhuur & beheer', verkoop: 'Woning verkopen' };
-        const sel = document.getElementById('doel');
-        const val = map[doel];
-        if (sel && val && [...sel.options].some((o) => o.value === val)) sel.value = val;
+        // 'aankoopcontrole' blijft ondersteund voor oude links en bookmarks.
+        var map = {
+          objectanalyse: 'Object laten analyseren',
+          aankoopcontrole: 'Object laten analyseren',
+          kopen: 'Vastgoed kopen',
+          investeringsanalyse: 'Investeren / rendement',
+          nieuwbouw: 'Nieuwbouw / off-plan',
+          beheer: 'Beheer & verhuur',
+          verkoop: 'Woning verkopen',
+        };
+        var sel = document.getElementById('doel');
+        var v = map[doel];
+        if (sel && v && [].slice.call(sel.options).some(function (o) { return o.value === v; })) sel.value = v;
       }
-      function val(id) { const el = document.getElementById(id); return el ? el.value.trim() : ''; }
+
+      function val(id) { var el = document.getElementById(id); return el ? el.value.trim() : ''; }
+
       function build() {
-        if (!val('naam') || !val('email') || !val('bericht')) {
-          alert('Vul uw naam, e-mailadres en bericht in.');
+        // Telefoon is verplicht, e-mail bewust niet: veel klanten reageren het
+        // liefst via WhatsApp.
+        if (!val('naam') || !val('telefoon') || !val('doel') || !val('bericht')) {
+          alert('Vul uw naam, telefoonnummer, doel en bericht in.');
           return null;
         }
-        const lines = [
-          'Nieuwe aanvraag via maghreb-estates.com', '',
-          'Naam: ' + val('naam'),
-          'E-mail: ' + val('email'),
-          val('telefoon') && 'Telefoon: ' + val('telefoon'),
-          'Doel: ' + (val('doel') || '-'),
-          val('stad') && 'Stad/regio: ' + val('stad'),
-          val('budget') && 'Budget: ' + val('budget'),
-          val('woninglink') && 'Woning/link: ' + val('woninglink'),
-          '', 'Bericht:', val('bericht'),
-        ].filter(Boolean);
-        return lines.join('\n');
+        // Alleen ingevulde regels opnemen; lege regels dienen als scheiding en
+        // mogen dus niet worden weggefilterd.
+        var regels = ['Nieuwe aanvraag via maghreb-estates.com', ''];
+        function voegToe(label, waarde) { if (waarde) regels.push(label + ': ' + waarde); }
+        voegToe('Naam', val('naam'));
+        voegToe('Telefoon / WhatsApp', val('telefoon'));
+        voegToe('E-mail', val('email'));
+        voegToe('Doel', val('doel'));
+        voegToe('Stad/regio', val('stad'));
+        voegToe('Budget', val('budget'));
+        voegToe('Woning-/projectlink', val('woninglink'));
+        regels.push('', 'Bericht:', val('bericht'));
+        return regels.join('\n');
       }
+
+      function toonBevestiging() {
+        var b = document.getElementById('bevestiging');
+        b.hidden = false;
+        b.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+
       document.getElementById('sendWhatsapp').addEventListener('click', function () {
-        const msg = build(); if (!msg) return;
+        var msg = build(); if (!msg) return;
+        // De klant ziet de volledige inhoud zelf terug in zijn WhatsApp-gesprek.
         window.open('https://wa.me/' + whatsapp + '?text=' + encodeURIComponent(msg), '_blank');
+        toonBevestiging();
       });
+
       document.getElementById('sendMail').addEventListener('click', function () {
-        const msg = build(); if (!msg) return;
-        window.location.href = 'mailto:' + email + '?subject=' + encodeURIComponent('Aanvraag via maghreb-estates.com') + '&body=' + encodeURIComponent(msg);
+        var msg = build(); if (!msg) return;
+        // Kopie naar de klant zelf, alleen als er een e-mailadres is ingevuld.
+        var cc = val('email') ? '&cc=' + encodeURIComponent(val('email')) : '';
+        var kopie = val('email')
+          ? '\n\n---\nBedankt voor uw bericht aan Maghreb Estates. Wij hebben uw aanvraag ontvangen en nemen zo snel mogelijk contact met u op. Heeft u een woninglink of documenten gedeeld, dan bekijken wij eerst de informatie en komen wij terug met een duidelijke vervolgstap.'
+          : '';
+        window.location.href = 'mailto:' + email
+          + '?subject=' + encodeURIComponent('Aanvraag via maghreb-estates.com')
+          + cc + '&body=' + encodeURIComponent(msg + kopie);
+        toonBevestiging();
       });
     })();
   </script>

@@ -24,14 +24,14 @@ const faqs = [
   schema={[faqSchema(faqs), serviceSchema({ naam: 'Nieuwbouw & off-plan vastgoed Marokko', beschrijving: 'Controle en begeleiding bij aankoop van nieuwbouw en off-plan vastgoed in Marokko, inclusief betaling in termijnen.', path })]}
 >
   <Hero
+    image="/images/residentie-appartementen.webp"
     compact
     eyebrow="Nieuwbouw & off-plan"
-    title="Nieuwbouw & off-plan in Marokko,<br /><em>eerst gecontroleerd</em>"
-    sub="Kopen vóór de bouw af is: een lagere instapprijs en betaling in termijnen, maar met extra risico. Wij controleren het project, de ontwikkelaar en het contract vóór u zich verbindt."
-    image="/images/villa3.jpg"
+    title="Nieuwbouw &amp; off-plan<br /><em>in Marokko</em>"
+    sub="Kopen vóór de bouw af is: een lagere instapprijs en gespreide betaling. Wij analyseren het project, de ontwikkelaar, de vergunningen en het contract vóór u zich verbindt."
     ctas={[
-      { label: 'Laat het project beoordelen', href: '/contact/?doel=aankoopcontrole', primary: true },
-      { label: 'Plan adviesgesprek', href: '/contact/' },
+      { label: 'Laat het project analyseren', href: '/contact/?doel=objectanalyse', primary: true },
+      { label: 'Plan adviesgesprek', href: '/adviesgesprek/' },
     ]}
   />
   <Breadcrumbs items={[{ label: 'Vastgoed Marokko', href: '/vastgoed-marokko/' }, { label: 'Nieuwbouw & off-plan', href: path }]} />
@@ -47,18 +47,13 @@ const faqs = [
       <h2>Hoe werkt kopen in termijnen?</h2>
       <p>De koopsom wordt opgedeeld in termijnen, idealiter gekoppeld aan <strong>bouwfasen</strong> — fundering, ruwbouw, afbouw, oplevering — zodat u betaalt naarmate er daadwerkelijk gebouwd wordt. Dat verlaagt uw instapdrempel en houdt de prikkel bij de ontwikkelaar. Bij bestaande bouw is termijnbetaling ongebruikelijk.</p>
 
-      <div class="warn">
-        <strong>Termijnbetaling zonder waarborgen is riskant.</strong>
-        <p>Betaal alleen als de ontwikkelaar betrouwbaar is, de grondtitel en vergunningen kloppen, en de termijnen aan bouwfasen zijn gekoppeld. Zorg dat uw betalingen in het contract beschermd zijn.</p>
-      </div>
-
-      <h2>Wat doen wij concreet?</h2>
-      <p>Off-plan valt of staat met de ontwikkelaar en het contract. Wij controleren vier dingen vóór u zich verbindt:</p>
+      <h2>Wat wij analyseren</h2>
+      <p>Off-plan valt of staat met de ontwikkelaar en het contract. Wij brengen vier onderdelen in kaart voordat u zich verbindt:</p>
       <ul class="checks">
-        <li><strong>Het project:</strong> plannen, bouwvergunning, realistische planning en beloofde kwaliteit.</li>
+        <li><strong>Het project:</strong> plannen, bouwvergunning, realistische planning en het afgesproken kwaliteitsniveau.</li>
         <li><strong>De ontwikkelaar:</strong> track record, eerder opgeleverde projecten en financiële soliditeit.</li>
-        <li><strong>Het contract:</strong> termijnen gekoppeld aan bouwfasen, ontbindende voorwaarden en bescherming van uw betalingen.</li>
-        <li><strong>De betaling:</strong> uitsluitend via de notaris, correct gedocumenteerd, nooit informeel.</li>
+        <li><strong>Het contract:</strong> termijnen gekoppeld aan bouwfasen, ontbindende voorwaarden en de bescherming van uw betalingen.</li>
+        <li><strong>De betaling:</strong> een controleerbare route via de notaris, correct vastgelegd in de akte.</li>
       </ul>
 
       <h2>Nieuwbouw vs. bestaande bouw</h2>
@@ -78,19 +73,20 @@ const faqs = [
         </table>
       </div>
 
-      <h2>Wanneer moet u oppassen?</h2>
-      <ul>
-        <li>De ontwikkelaar heeft geen aantoonbaar track record of opgeleverde projecten.</li>
-        <li>De grondtitel of bouwvergunning ontbreekt of is onduidelijk.</li>
-        <li>Termijnen zijn niet aan bouwfasen gekoppeld, of u moet vooraf een groot bedrag storten.</li>
-        <li>Er wordt druk gezet met een “speciale prijs” of een korte beslistermijn.</li>
-        <li>Betaling wordt informeel of buiten de notaris om gevraagd.</li>
-      </ul>
+      <h2>Belangrijke aandachtspunten bij nieuwbouw</h2>
+      <p>Bij nieuwbouw en off-plan projecten draait de beoordeling vooral om de kwaliteit van de ontwikkelaar, de contractvoorwaarden, de planning, de vergunningen en de betalingsstructuur. Wij brengen deze onderdelen overzichtelijk in kaart voordat u een beslissing neemt.</p>
+      <div class="grid grid--3" style="margin:28px 0">
+        <div class="card"><h3>Ontwikkelaar &amp; track record</h3><p>Eerder opgeleverde projecten, ervaring in de regio en financiële soliditeit.</p></div>
+        <div class="card"><h3>Vergunningen &amp; planning</h3><p>Grondtitel, bouwvergunning en een realistische opleverplanning.</p></div>
+        <div class="card"><h3>Contractvoorwaarden</h3><p>Afspraken over oplevering, ontbindende voorwaarden en de bescherming van uw betalingen.</p></div>
+        <div class="card"><h3>Betalingsstructuur</h3><p>Termijnen gekoppeld aan bouwfasen, correct gedocumenteerd en via de notaris.</p></div>
+        <div class="card"><h3>Oplevering &amp; kwaliteit</h3><p>Afwerkingsniveau, opleverstaat en wat wel en niet in de kale prijs zit.</p></div>
+      </div>
 
       <h2>Waarom Maghreb Estates?</h2>
-      <p>Wij zijn onafhankelijk van ontwikkelaars en verdienen niets aan een specifiek project. Wij beoordelen de brochure op wat er onder ligt: papieren, vergunningen, track record en contractvoorwaarden. Onze klanten komen uit heel Europa; wij begeleiden hen in het Nederlands, Engels, Frans en Arabisch, en zijn ter plaatse aanwezig om het project te bekijken.</p>
+      <p>Wij beoordelen de brochure op wat eronder ligt: documenten, vergunningen, track record en contractvoorwaarden, naast een marktvergelijking van de vraagprijs. Onze rol en vergoeding worden vooraf helder besproken; bij bepaalde projecten kan de vergoeding via de ontwikkelaar of aanbieder lopen, en in alle gevallen beoordelen wij of het project past bij uw doel, budget en risicoprofiel. Wij zijn ter plaatse aanwezig om het project te bekijken en begeleiden klanten in het Nederlands, Engels, Frans en Arabisch/Darija.</p>
 
-      <p style="margin-top:36px"><a href="/contact/?doel=aankoopcontrole" class="btn btn--primary">Laat het project beoordelen</a></p>
+      <p style="margin-top:36px"><a href="/contact/?doel=objectanalyse" class="btn btn--primary">Laat het project analyseren</a></p>
     </div>
   </section>
 
